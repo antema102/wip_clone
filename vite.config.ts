@@ -17,4 +17,13 @@ export default defineConfig({
       'react-native': 'react-native-web',
     },
   },
+  build: {
+    rollupOptions: {
+      external: [
+        'react-native-currency-input',
+        'react-native-safe-area-context',
+        'react-native-elements'
+      ]
+    }
+  }
 });
