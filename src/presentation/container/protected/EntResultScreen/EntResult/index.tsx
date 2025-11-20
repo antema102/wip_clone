@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, Image, Frag } from 'react-native';
+
 import { useSelector } from 'react-redux';
 import * as React from 'react';
 import { useState } from 'react';
@@ -88,13 +88,12 @@ export const EntResult = (props: any) => {
             state: {
                 id: ItemDetail.id,
                 candidat: true,
-                typeId: ItemDetail?.type?.id,
-            }
+                typeId: ItemDetail?.type?.id}
         });
     };
 
     const renderItemTemplate = (item: any) => (
-        <View style={{ marginVertical: 16, paddingVertical: 24, backgroundColor: 'rgba(51, 153, 255, 0.1)', borderRadius: 10 }}>
+        <div style={{ marginVertical: 16, paddingVertical: 24, backgroundColor: 'rgba(51, 153, 255, 0.1)', borderRadius: 10 }}>
             <FlatOffer
                 avatar={avatar}
                 key={item.id}
@@ -102,7 +101,7 @@ export const EntResult = (props: any) => {
                 displayDetail={displayDetail}
                 imageStyle={{ width: 75, height: 75, objectFit: 'cover' }}
             />
-        </View>
+        </div>
     );
 
 
@@ -129,39 +128,39 @@ export const EntResult = (props: any) => {
 
     return (
 
-        <View>
+        <div>
             {isLoading ? <Loader /> :
                 <>
-                    <View style={[styles.containers, styles.contents]}>
-                        <View style={styles.containerAvatar}>
-                            <Image source={avatar ? avatar : images.avatar_6} style={styles.images} />
-                            <View style={{ gap: 14 }}>
-                                <View>
-                                    <Text style={styles.textAvatar}>
+                    <div style={[styles.containers, styles.contents]}>
+                        <div style={styles.containerAvatar}>
+                            <img src={avatar ? avatar : images.avatar_6} style={styles.images} />
+                            <div style={{ gap: 14 }}>
+                                <div>
+                                    <span style={styles.textAvatar}>
                                         {profil.name}
-                                    </Text>
-                                </View>
-                                <View>
-                                    <Text style={{ fontSize: 18 }}>
+                                    </span>
+                                </div>
+                                <div>
+                                    <span style={{ fontSize: 18 }}>
                                         {profil.activity}
-                                    </Text>
-                                </View>
-                            </View>
-                        </View>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
 
-                        <View style={styles.textContent}>
+                        <div style={styles.textContent}>
                             <ItemResult label={activeString.ENTERPRISE_OFFER.CREATION} text={profil.yearOfCreation} />
                             <ItemResult label={activeString.ENTERPRISE_OFFER.LIEU} text={profil.headQuarter} />
                             <ItemResult label={activeString.ENTERPRISE_OFFER.EMAIL} text={profil.email} />
                             {profil.url &&
                                 <ItemResult label='Site web' text={profil.url} />
                             }
-                        </View>
-                    </View>
+                        </div>
+                    </div>
 
-                    <View style={[styles.containers, { backgroundColor: COLORS.white, marginTop: 60, borderRadius: 10 }, isMobile ? {} : { paddingVertical: 24, paddingHorizontal: 70 }]}>
+                    <div style={{...styles.containers, backgroundColor: COLORS.white, marginTop: 60, borderRadius: 10, ...(isMobile ? {} : { paddingVertical: 24, paddingHorizontal: 70 })}}>
                         <TitleRefont title={activeString.TAB.OFFERS} />
-                        <View style={{ padding: 10 }}>
+                        <div style={{ padding: 10 }}>
                             {
                             isLoading ? <MiniLoader /> :
                                 <DataView
@@ -173,19 +172,18 @@ export const EntResult = (props: any) => {
                                         ? {
                                             paginator: true,
                                             paginatorTemplate: paginatorTemplateCustom,
-                                            rows: 4,
-                                        }
+                                            rows: 4}
                                         :
                                         {})}
                                 />
                             }
-                        </View>
+                        </div>
                         {
                             filePath !== '' ? (
-                                <View style={styles.candidateExpContainer}>
-                                    <Text style={styles.title1}>Video marque employeurs</Text>
+                                <div style={styles.candidateExpContainer}>
+                                    <span style={styles.title1}>Video marque employeurs</span>
                                     <VideoPlayer filePath={filePath} autoplay={false} poster={'https://i.picsum.photos/id/866/1600/900.jpg'} />
-                                </View>
+                                </div>
                             )
                                 : null
                         }
@@ -193,10 +191,10 @@ export const EntResult = (props: any) => {
                             email={profil?.email}
                             web={profil?.url}
                         />
-                    </View>
+                    </div>
                 </>
             }
             {/* {isLoading ? <Loader /> : null} */}
-        </View>
+        </div>
     );
 };

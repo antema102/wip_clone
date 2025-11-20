@@ -200,7 +200,7 @@ const ChatSearch = () => {
 
         formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
 
-        formatted = formatted.replace(/(<br\/>){2,}/g, '<br/><br/>');
+        formatted = formatted.replace(/(<br\/>){2}/g, '<br/><br/>');
 
         return formatted.trim();
     };
@@ -307,8 +307,7 @@ const ChatSearch = () => {
             '643e8d24bd0b9b4dfe552f70': ['/chat/c/'],
             '643e8da6bd0b9b4dfe55307d': ['/chat/c/'],
             '6903247bd4a86732cb6f4f05': ['/chat/c/', '/chat/mixte/', '/chat/company/'],
-            '69032fe9d4a86732cb6f4f09': ['/chat/c/', '/chat/mixte/', '/chat/company/', '/chat/flag/'],
-        };
+            '69032fe9d4a86732cb6f4f09': ['/chat/c/', '/chat/mixte/', '/chat/company/', '/chat/flag/']};
         const allowed = allowedChatTypes[abonnementIdState] || ['/chat/c/'];
         return allowed.some(path => url.startsWith(path));
     };
@@ -343,8 +342,7 @@ const ChatSearch = () => {
                                     <>
                                         <div
                                             dangerouslySetInnerHTML={{
-                                                __html: formatBotMessage(msg.text),
-                                            }}
+                                                __html: formatBotMessage(msg.text)}}
                                         />
                                         {msg.results && msg.results.length > 0 && (
                                             <div className="chatbot__cv">

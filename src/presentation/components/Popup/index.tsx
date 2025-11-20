@@ -1,5 +1,6 @@
 import React from 'react';
-import {Modal, View } from 'react-native';
+import { Dialog } from 'primereact/dialog';
+
 import CustomBtn from '../Button/button';
 import styles from './styles';
 import { COLORS } from '../../../resources/constants';
@@ -15,7 +16,7 @@ interface Props {
   closeTitle?: string;
 }
 
-const Popup = ({
+const Popup = {
   visible,
   onClose,
   children,
@@ -26,24 +27,24 @@ const Popup = ({
 }: Props) => {
 
   return (
-    <View style={styles.centeredView}>
-      <Modal
+    <div style={styles.centeredView}>
+      <Dialog
         animationType="none"
         transparent
         visible={visible}
         onRequestClose={() => {
           onClose(!visible);
         }}>
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
+        <div style={styles.centeredView}>
+          <div style={styles.modalView}>
             { children }
-            <View style={{flexDirection: 'row', marginTop: 20}}>
+            <div style={{flexDirection: 'row', marginTop: 20}}>
               { validation ? 
               <CustomBtn
                 _style={[styles.buttonStyles, {marginRight: 20}]}
                 styleBtnTxt={{color: COLORS.white}}
                 color={COLORS.secondary}
-                onPress={validation}
+                onClick={validation}
                 title={btnTitle}
               /> : null }
               
@@ -52,14 +53,14 @@ const Popup = ({
                 _style={styles.buttonStyles}
                 styleBtnTxt={{color: COLORS.white}}
                 color={COLORS.secondary}
-                onPress={() => onClose(false)}
+                onClick={() => onClose(false)}
                 title={closeTitle}
               /> : null }
-            </View>
-          </View>
-        </View>
-      </Modal>
-    </View>
+            </div>
+          </div>
+        </div>
+      </Dialog>
+    </div>
   );
 };
 

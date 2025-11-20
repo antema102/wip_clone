@@ -7,13 +7,11 @@ export type CVState = {
 };
 
 export const enum CVActionType {
-  findCV = '[CV] Find User CV',
-}
+  findCV = '[CV] Find User CV'}
 
 export const initialCVState: CVState = {
   CV: [],
-  hasCV: false,
-};
+  hasCV: false};
 
 export const cvReducer = (state = initialCVState, action) => {
   const {type, payload} = action;
@@ -22,8 +20,7 @@ export const cvReducer = (state = initialCVState, action) => {
       return {
         ...state,
         hasCV: payload && payload.data !== null,
-        CV: payload && payload.data,
-      };
+        CV: payload && payload.data};
 
     default:
       return state;
@@ -43,13 +40,11 @@ export const useCV = () => {
 
         dispatch({
           payload,
-          type: CVActionType.findCV,
-        });
+          type: CVActionType.findCV});
 
         return payload;
       } catch (error) {
         return Promise.reject(error);
       }
-    },
-  };
+    }};
 };

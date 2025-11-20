@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, {useEffect, useState} from 'react';
-import {Text, View} from 'react-native';
+;
 
 import DateTimePicker from '@react-native-community/datetimepicker';
 import DateInput from './DateInput';
@@ -24,7 +24,7 @@ interface Props {
   dateMax?: any;
   // minAge?: number;
 }
-export const InputDatePicker = ({
+export const InputDatePicker = {
   value,
   required,
   label,
@@ -36,8 +36,7 @@ export const InputDatePicker = ({
   todayDate,
   type,
   dateMin,
-  dateMax,
-}: 
+  dateMax}: 
 Props) => {
   const _date = value ? value : new Date();
   const _dateOk = typeof _date === 'string' ? new Date(_date) : _date;
@@ -76,11 +75,11 @@ Props) => {
   };
 
   return (
-    <View style={styles.container}>
+    <div style={styles.container}>
       <TitleLabel label={label} required={required} />
       <DateInput
         type={mode}
-        onPress={showDatepicker}
+        onClick={showDatepicker}
         value={value}
         showError={showError}
         todayDate={todayDate}
@@ -110,9 +109,9 @@ Props) => {
         />
       )}
       {required && showError && error !== '' && (
-        <Text style={styles.textError}>{error}</Text>
+        <span style={styles.textError}>{error}</span>
       )}
-    </View>
+    </div>
   );
 };
 
@@ -126,8 +125,7 @@ InputDatePicker.propTypes = {
   showError: PropTypes.bool,
   isEditable: PropTypes.bool,
   todayDate: PropTypes.bool,
-  type: PropTypes.string,
-};
+  type: PropTypes.string};
 
 InputDatePicker.defaultProps = {
   value: new Date(),
@@ -138,5 +136,4 @@ InputDatePicker.defaultProps = {
   showError: false,
   isEditable: true,
   todayDate: false,
-  type: 'date',
-};
+  type: 'date'};

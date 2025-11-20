@@ -8,8 +8,7 @@ export type AppState = {
 
 export const enum AppActionType {
   setIsServerDown = '[App] Set server dowwn',
-  setIsTokenExpired = '[App] Set expired token',
-}
+  setIsTokenExpired = '[App] Set expired token'}
 
 export const initialAppState: AppState = {
   isServerDown: false,
@@ -23,15 +22,11 @@ export const appReducer = (state = initialAppState, action) => {
     case AppActionType.setIsServerDown:
       return {
         ...state,
-        isServerDown: payload,
-
-      };
+        isServerDown: payload};
     case AppActionType.setIsTokenExpired:
         return {
           ...state,
-          isTokenExpired: payload,
-  
-        };
+          isTokenExpired: payload};
     default:
       return {
         ...state

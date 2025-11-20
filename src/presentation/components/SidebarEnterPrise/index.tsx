@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+;
 import { DataView } from 'primereact/dataview';
 import { History } from '../History';
 import { useNavigate } from 'react-router';
@@ -30,25 +30,25 @@ const HistorySearch = (props) => {
     };
     const itemTemplate = (search, id) => {
         return (
-            <View key={`allHistory_${id}`} style={[styles.card, { backgroundColor: 'white', marginBottom: 8 }]}>
+            <div key={`allHistory_${id}`} style={[styles.card, { backgroundColor: 'white', marginBottom: 8 }]}>
                 <History
                     item={search}
                     displayHistoryDetail={displayHistoryDetail}
                 />
-            </View>
+            </div>
         );
     };
     return (
         <>
-            <View style={styles.containers}>
-                <View>
+            <div style={styles.containers}>
+                <div>
                     {/* {allHistory && ( */}
-                    <Text style={[globalStyle.title3, { fontWeight: 'bold', marginBottom: 16 }]}>{activeString.HOME_COMPANY.HISTORY}</Text>
+                    <span style={[globalStyle.title3, { fontWeight: 'bold', marginBottom: 16 }]}>{activeString.HOME_COMPANY.HISTORY}</span>
                     {
                         isLoading ? (
-                            <View>
+                            <div>
                                 <SkeletonCards />
-                            </View>
+                            </div>
                         ) :
                             allHistory?.length ?
                                 <DataView
@@ -58,17 +58,17 @@ const HistorySearch = (props) => {
                                     paginatorTemplate="PrevPageLink PageLinks NextPageLink"
                                     rows={3} /> :
                                 null}
-                    <View style={{ marginVertical: 24 }}>
+                    <div style={{ marginVertical: 24 }}>
                         <SideBarCandidat {...props} />
-                    </View>
-                </View>
+                    </div>
+                </div>
                 <HistoryPopup
                     showQuit={showQuit}
                     visible={modalAd}
                     historyId={historyId}
                     setVisible={setModalAd}
                 />
-            </View>
+            </div>
         </>
     );
 };

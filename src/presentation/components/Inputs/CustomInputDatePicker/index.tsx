@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import { Text, View } from 'react-native';
+;
 import DatePicker, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import fr from "date-fns/locale/fr";
@@ -25,7 +25,7 @@ interface Props {
   dateMax?: string | null; // Change the type of dateMax to string or null
 }
 
-export const CustomInputDatePicker = ({
+export const CustomInputDatePicker = {
   value,
   required,
   label,
@@ -37,8 +37,7 @@ export const CustomInputDatePicker = ({
   todayDate,
   type,
   dateMin,
-  dateMax,
-}: Props) => {
+  dateMax}: Props) => {
   // Parse the value prop to ensure it's a valid Date object or null
   const _date = value ? parseISO(value) : null;
 
@@ -82,9 +81,9 @@ export const CustomInputDatePicker = ({
   };
 
   return (
-    <View style={styles.container}>
+    <div style={styles.container}>
       <TitleLabel label={label} required={required} />
-      <View style={{ paddingVertical: 10 }}>
+      <div style={{ paddingVertical: 10 }}>
         <DatePicker
           selected={date}
           onChange={(e) => handleChange(e)}
@@ -96,11 +95,11 @@ export const CustomInputDatePicker = ({
           locale="fr"
           portalId="root-portal"
         />
-      </View>
+      </div>
       {required && showError && error !== '' && (
-        <Text style={styles.textError}>{error}</Text>
+        <span style={styles.textError}>{error}</span>
       )}
-    </View>
+    </div>
   );
 };
 
@@ -116,8 +115,7 @@ CustomInputDatePicker.propTypes = {
   todayDate: PropTypes.bool,
   type: PropTypes.string,
   dateMin: PropTypes.string,
-  dateMax: PropTypes.string,
-};
+  dateMax: PropTypes.string};
 
 CustomInputDatePicker.defaultProps = {
   value: '', // Default value as an empty string

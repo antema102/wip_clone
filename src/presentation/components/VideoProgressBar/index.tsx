@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Animated, Text, TouchableOpacity } from 'react-native';
+
 import { styles } from './styles';
 
 interface Props {
@@ -11,28 +11,27 @@ interface Props {
 const VideoProgressBar = ({
   progressBar,
   waitingText,
-  goBack,
-}: Props) => {
+  goBack}: Props) => {
   return (
-    <View style={styles.containerModal}>
-      <View style={{ height: 15 }}></View>
-      <View style={{ paddingVertical: 7 }}>
-        <Text style={styles.waitingText}>{waitingText}</Text>
-      </View>
-      <View style={{ height: 10 }}></View>
-      <View style={styles.progressContainer}>
-        <Animated.View style={[styles.inner, { width: `${progressBar}%` }]} />
-        <Animated.Text style={styles.label}>{progressBar}%</Animated.Text>
-      </View>
-      <View style={{ height: 10 }}></View>
-      <View style={{ paddingVertical: 7 }}>
-        <TouchableOpacity
-          style={[styles.button, styles.buttonClose]}
-          onPress={goBack}>
-          <Text style={styles.textStyle}>Annuler</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+    <div style={styles.containerModal}>
+      <div style={{ height: 15 }}></div>
+      <div style={{ paddingVertical: 7 }}>
+        <span style={styles.waitingText}>{waitingText}</span>
+      </div>
+      <div style={{ height: 10 }}></div>
+      <div style={styles.progressContainer}>
+        <div style={{...styles.inner, width: `${progressBar}%` }} />
+        <span style={styles.label}>{progressBar}%</span>
+      </div>
+      <div style={{ height: 10 }}></div>
+      <div style={{ paddingVertical: 7 }}>
+        <button
+          style={{...styles.button, ...styles.buttonClose}}
+          onClick={goBack}>
+          <span style={styles.textStyle}>Annuler</span>
+        </button>
+      </div>
+    </div>
   );
 };
 

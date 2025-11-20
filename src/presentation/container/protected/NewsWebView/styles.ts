@@ -1,7 +1,7 @@
-import {StyleSheet} from 'react-native';
+;
 import { COLORS, SIZES } from '../../../../resources/constants';
 
-export default StyleSheet.create({
+export default ({
   container: {
     flex: 1,
     backgroundColor: COLORS.white,
@@ -11,6 +11,4 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     fontSize: SIZES.h5,
     color: COLORS.gray_title,
-    marginBottom: SIZES.padding5,
-  },
-});
+    marginBottom: SIZES.padding5}});

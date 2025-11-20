@@ -39,8 +39,7 @@ export const OfferBDL = () => ({
   allOfferJob: async (token: string) =>
     await api.get(urls.ALL_JOB_COMPANY, token, {
       sort: 'createdAt',
-      direction: 'desc',
-    }),
+      direction: 'desc'}),
 
   allOfferJobByEnt: async (token: string, idCompany: string) =>
     await api.get(urls.ALL_JOB_COMPANY, token, {
@@ -48,8 +47,7 @@ export const OfferBDL = () => ({
       sort: 'createdAt',
       direction: 'desc',
       page: 1,
-      size: '100',
-    }),
+      size: '100'}),
 
   allOfferJobByEntWithoutVideo: async (token: string) =>
     await api.get(urls.ALL_JOB_COMPANY_WITHOUT_VIDEO, token),
@@ -58,8 +56,7 @@ export const OfferBDL = () => ({
     await api.get(urls.ALL_JOB_BY_TYPE, token, {
       types: jobType,
       sort: 'createdAt',
-      direction: 'desc',
-    }),
+      direction: 'desc'}),
 
   offerJobById: async (id: string, token: string) =>
     await api.get(`${urls.JOB_COMPANY_BY_ID}/${id}`, token),
@@ -74,6 +71,4 @@ export const OfferBDL = () => ({
       sort: 'createdAt',
       direction: 'desc',
       page: 1,
-      size: '100',
-    }),
-});
+      size: '100'})});

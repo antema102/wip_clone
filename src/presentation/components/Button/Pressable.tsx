@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TouchableOpacity, Image, Text, Pressable } from 'react-native';
+;
 
 import { buttonsStyles } from './style';
 import { SIZES } from '../../../resources/constants';
@@ -15,7 +15,7 @@ interface Props {
   isDisable?: boolean;
 }
 
-const Buttons = ({
+const Buttons = {
   color,
   title,
   onPress,
@@ -23,21 +23,20 @@ const Buttons = ({
   iconStyles,
   _style,
   styleBtnTxt,
-  isDisable = false,
-}: Props): any => {
+  isDisable = false}: Props): any => {
   return (
-    <View style={{}}>
-      <Pressable
-        onPress={onPress}
+    <div style={{}}>
+      <button
+        onClick={onPress}
         disabled={isDisable}
         style={[{ backgroundColor: color }, _style]}
       >
         {icon && (
-          <Image source={icon} style={[buttonsStyles.iconStyle, iconStyles]} />
+          <img src={icon} style={[buttonsStyles.iconStyle, iconStyles]} />
         )}
-        <Text style={styleBtnTxt}>{title}</Text>
-      </Pressable>
-    </View>
+        <span style={styleBtnTxt}>{title}</span>
+      </button>
+    </div>
   );
 };
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Dimensions, Image, TouchableOpacity } from 'react-native';
+;
 import { COLORS, images } from '../../../resources/constants';
 import { HOME, HOME_COMPANY } from '../../../data/constants/strings';
 import { globalStyle } from '../../globalStyle/globalStyle';
@@ -20,7 +20,7 @@ const HomeEntreprise = (props: any): any => {
     const [isVisible, setIsVisible] = useState(false);
     const [isFormation, setIsFormation] = useState(false);
     const { user, accessToken } = useSelector(({ auth }) => auth);
-    const { getUserText, getUserEchelle, } = UserSA();
+    const { getUserText, getUserEchelle} = UserSA();
 
     const storeDynamicText = async (value: any) => {
         try {
@@ -49,10 +49,10 @@ const HomeEntreprise = (props: any): any => {
     const { lang } = useLang();
     const activeString = lang === 'fr' ? stringsFr : stringsEn;
     return (
-        <View style={[styles.containers, { borderRadius: 10, marginTop: 52, backgroundColor: COLORS.white, minHeight: 300 }]}>
-            <View style={{ paddingTop: 34 }}>
-                <Text style={globalStyle.titleHome}>{activeString.HOME.PREFERENCE}</Text>
-            </View>
+        <div style={[styles.containers, { borderRadius: 10, marginTop: 52, backgroundColor: COLORS.white, minHeight: 300 }]}>
+            <div style={{ paddingTop: 34 }}>
+                <span style={globalStyle.titleHome}>{activeString.HOME.PREFERENCE}</span>
+            </div>
             <Tabs
                 title1={activeString.OFFERS.OFFER}
                 title2={activeString.OFFERS.OFFERT_LAST}
@@ -73,7 +73,7 @@ const HomeEntreprise = (props: any): any => {
                         />
                     )}
             />
-        </View>
+        </div>
     );
 };
 

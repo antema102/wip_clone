@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, RefreshControl, Text } from 'react-native';
+;
 import { styles } from './styles';
 
 import { ListBackup } from './ListBackup';
@@ -32,7 +32,7 @@ const EnterpriseProfilBackupScreen = props => {
     const activeString = lang === 'fr' ? stringsFr : stringsEn;
 
     return (
-        <View style={styles.container}>
+        <div style={styles.container}>
             <TitleRefont title={activeString.DETAIL_PROFIL.MES_SAUVEGARDES} />
             <ListBackup
                 dateFav={dateFav}
@@ -41,7 +41,7 @@ const EnterpriseProfilBackupScreen = props => {
                 detailsFavorites={detailsFavorites}
                 loading={isLoading}
             />
-        </View>
+        </div>
     );
 };
 

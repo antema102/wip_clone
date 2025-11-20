@@ -12,8 +12,7 @@ export const generateSA = constants => {
         [name]: (data = {}, getState) =>
           callback && callback[name]
             ? callback[name](data, data, getState)
-            : data,
-      };
+            : data};
     }
     return {
       ...acc,
@@ -25,8 +24,7 @@ export const generateSA = constants => {
         return callback && callback[name]
           ? callback[name](res, data, getState)
           : res;
-      },
-    };
+      }};
   }, {});
 };
 
@@ -35,8 +33,7 @@ const applicatifs = () => {
     const {constants} = curr;
     return {
       ...acc,
-      ...generateSA(constants),
-    };
+      ...generateSA(constants)};
   }, {});
 };
 

@@ -1,12 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  ScrollView,
-  Linking,
-} from 'react-native';
+
 import styles from './styles';
 import { NewsService } from '../../../../service/applicatif/News.sa';
 import { COLORS, images } from '../../../../resources/constants';
@@ -54,40 +47,40 @@ const NewsInformationScreen = (props: any) => {
   }, []);
 
   return (
-    <ScrollView style={{ backgroundColor: COLORS.white, flex: 1, borderTopLeftRadius: 20, borderTopRightRadius: 20 }}>
+    <div style={{ overflowY: "auto", backgroundColor: COLORS.white, flex: 1, borderTopLeftRadius: 20, borderTopRightRadius: 20 }}>
       <CustomModal title={list?.category?.toUpperCase()} visible={visible} setVisible={setVisible} content={<NewsWebViewScreen data={list} />} />
-      <View style={[isMobile ? { padding: 14 } : {}, styles.wrapperImg]}>
-        <Image
-          source={list?.image ? { uri: list?.image } : images.home}
+      <div style={{...(isMobile ? { padding: 14 } : {}), ...styles.wrapperImg}}>
+        <img
+          src={list?.image ? { uri: list?.image } : images.home}
           style={isMobile ? { width: '100%', height: 250, borderRadius: 10 } : styles.itemImg}
         />
-      </View>
-      <View style={{ paddingHorizontal: 16 }}>
-        <View style={styles.wrapperText}>
-          <Text style={styles.category}>{list?.category?.toUpperCase()}</Text>
-          <TouchableOpacity
-            onPress={showDescription}>
-            <Text style={styles.title}>{list?.title}</Text>
-          </TouchableOpacity>
-          <Text style={styles.content}>{list?.description}</Text>
-        </View>
+      </div>
+      <div style={{ paddingHorizontal: 16 }}>
+        <div style={styles.wrapperText}>
+          <span style={styles.category}>{list?.category?.toUpperCase()}</span>
+          <button
+            onClick={showDescription}>
+            <span style={styles.title}>{list?.title}</span>
+          </button>
+          <span style={styles.content}>{list?.description}</span>
+        </div>
 
-        <Text style={styles.date}>
+        <span style={styles.date}>
           {list?.publishedAt ? dateToStringMoreAccurate(list?.publishedAt) : ''}
-        </Text>
-        <Text style={styles.source}>{list?.author}</Text>
+        </span>
+        <span style={styles.source}>{list?.author}</span>
 
         {list?.url && (
-          <TouchableOpacity
+          <button
             style={styles.seeMoreContainer}
-            onPress={showDescription}>
-            <Text style={styles.seeMoreText}>{NEWS_INFORMARIONS.SEE_MORE}</Text>
-          </TouchableOpacity>
+            onClick={showDescription}>
+            <span style={styles.seeMoreText}>{NEWS_INFORMARIONS.SEE_MORE}</span>
+          </button>
         )}
 
-      </View>
+      </div>
       {isLoading ? <Loader /> : null}
-    </ScrollView>
+    </div>
   );
 };
 

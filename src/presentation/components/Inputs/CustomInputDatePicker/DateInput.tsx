@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, TouchableOpacity, View, Image } from 'react-native';
+;
 import { COLORS, SIZES } from '../../../../resources/constants';
 import { formsStyles } from '../../../globalStyle/formStyles';
 
@@ -21,60 +21,43 @@ export default ({
   error,
   showError,
   todayDate,
-  isEditable,
-}: Props) => {
+  isEditable}: Props) => {
 
   if (!todayDate) {
 
     return (
-      <TouchableOpacity
-        onPress={(e: any) => {
+      <button
+        onClick={(e: any) => {
           e.preventDefault();
           onPress(type);
         }}
-        style={[
-          formsStyles.itemInputStyle,
-          showError && error !== '' && formsStyles.inputError,
-          {
-            justifyContent: 'flex-start',
-            alignItems: 'center',
-          },
-          {
+        style={{...formsStyles.itemInputStyle, ...showError && error !== '' && formsStyles.inputError, ...{
+            justifyContent: 'flex-start', ...alignItems: 'center'}, ...({
             backgroundColor: !isEditable
               ? '#ffffff'
-              : 'rgba(240, 244, 248, 0.87)',
-          },
-        ]}>
-        <Text style={{ color: COLORS.black, }}>{title}</Text>
-        {/* <Image
-          style={[formsStyles.dateIcon, { position: 'absolute', right: 20, }]}
-          source={require('../../../../ressources/images/date.png')}
+              : 'rgba(240), ...244, ...248, ...0.87)'}, ...}}>
+        <span style={{ color: COLORS.black}}>{title}</span>
+        {/* <img
+          style={[formsStyles.dateIcon, { position: 'absolute', right: 20}]}
+          src={require('../../../../ressources/images/date.png')}
         /> */}
-      </TouchableOpacity>
+      </button>
     );
   }
   return (
-    <View>
-      <TouchableOpacity
-        onPress={(e: any) => {
+    <div>
+      <button
+        onClick={(e: any) => {
           e.preventDefault();
           onPress(type);
         }}
-        style={[
-          formsStyles.itemInputStyle,
-          {
-            justifyContent: 'flex-start',
-            alignItems: 'center',
-            paddingHorizontal: 16,
-          },
-          {
+        style={{...formsStyles.itemInputStyle, ...{
+            justifyContent: 'flex-start', ...alignItems: 'center', ...paddingHorizontal: 16}, ...({
             backgroundColor: !isEditable
               ? '#ffffff'
-              : 'rgba(240, 244, 248, 0.87)',
-          },
-        ]}>
-        <Text>{title}</Text>
-      </TouchableOpacity>
-    </View>
+              : 'rgba(240), ...244, ...248, ...0.87)'}, ...}}>
+        <span>{title}</span>
+      </button>
+    </div>
   );
 };

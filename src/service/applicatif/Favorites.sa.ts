@@ -13,7 +13,6 @@ export const FavoritesSA = () => {
             deleteFavoris(token, id),
 
         allFavorites: (token: string) =>
-            allFavorites(token),
-    }
+            allFavorites(token)}
 
 }

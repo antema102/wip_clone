@@ -1,7 +1,7 @@
-import { StyleSheet, Dimensions } from 'react-native';
+;
 import { COLORS, SIZES } from '../../../../../resources/constants';
-const windowDim = Dimensions.get('window').width;
-export const styles = StyleSheet.create({
+const windowDim = window.innerWidth;
+export const styles = {
   containers: {
     flex: 1,
     backgroundColor: COLORS.white,
@@ -13,23 +13,19 @@ export const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 20,
     marginLeft: 5,
-    borderRadius: 10,
-  },
+    borderRadius: 10},
   heightForm: {
-    height: windowDim * 0.16,
-  },
+    height: windowDim * 0.16},
   errorText: {
     marginTop: 10,
     color: COLORS.red_color,
-    marginHorizontal: 50,
-  },
+    marginHorizontal: 50},
   submitButtons: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     height: 150,
     marginHorizontal: 100,
-    marginTop: 15,
-  },
+    marginTop: 15},
   borderForm: {
     borderWidth: 1,
     borderColor: COLORS.blue_border,
@@ -38,8 +34,7 @@ export const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingBottom: 5,
     backgroundColor: COLORS.white,
-    height: 70,
-  },
+    height: 70},
   inputWrap: {
     borderWidth: 1,
     borderColor: COLORS.blue_border,
@@ -47,24 +42,18 @@ export const styles = StyleSheet.create({
     marginTop: SIZES.padding,
     paddingLeft: 10,
     paddingVertical: 0,
-    marginHorizontal: 50,
-  },
+    marginHorizontal: 50},
   containerFormList: {
     width: '50%',
-    alignItems: 'center',
-  },
+    alignItems: 'center'},
   contentResultContainer: {
     alignItems: 'center',
-    paddingVertical: 100,
-  },
+    paddingVertical: 100},
   contentResult: {
-    textAlign: 'center',
-  },
+    textAlign: 'center'},
   imgStyle: {
     borderRadius: 10,
     marginTop: 10,
     alignSelf: 'center',
     height: 120,
-    width: 120,
-  },
-});
+    width: 120}});

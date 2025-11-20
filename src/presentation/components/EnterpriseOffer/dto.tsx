@@ -27,8 +27,7 @@ export const showErrorValuesDefault = {
   // minimumWageRequired: false,
   // other
   // centerIntrest: false,
-  // somethingAboutU: false,
-};
+  // somethingAboutU: false};
 
 export const showErrorValuesSubmit = {
   // info
@@ -43,8 +42,7 @@ export const showErrorValuesSubmit = {
   // minimumWageRequired: true,
   // other
   // centerIntrest: true,
-  // somethingAboutU: true,
-};
+  // somethingAboutU: true};
 
 export const defaultValues: IError = {
   // info
@@ -59,5 +57,4 @@ export const defaultValues: IError = {
   // minimumWageRequired: '',
   // other
   // centerIntrest: '',
-  // somethingAboutU: '',
-};
+  // somethingAboutU: ''};

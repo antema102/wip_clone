@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState, Fragment } from 'react'
-import { View } from 'react-native'
+
 import { styles } from './styles'
 import BannerRefonte from '../BannerRefonte'
 import CarouselBanner from '../CarouselBanner'
@@ -75,8 +75,7 @@ const CarouselBannerAds = ({ isStyled = true }: CarouselBannerAdsProps) => {
         try {
             const dataBanner = {
                 category: 'banner',
-                audience: 0,
-            }
+                audience: 0}
             const responseBanner = await userSARef.current.getAdvertisementsByCategory(dataBanner, accessToken)
 
             const items: Advertisement[] | undefined = responseBanner?.data?.items
@@ -156,15 +155,14 @@ const CarouselBannerAds = ({ isStyled = true }: CarouselBannerAdsProps) => {
     return (
         <Fragment>
             {carousel && !start ? (
-                <View style={styles.carouselBanner}>
+                <div style={styles.carouselBanner}>
                     <CarouselBanner
                         data={carousel.map((ad) => ({
                             link: ad.link ?? '',
                             image: ad.image ?? '',
-                            ...ad,
-                        }))}
+                            ...ad}))}
                     />
-                </View>
+                </div>
             ) : (
                 <BannerRefonte _customStyle={isStyled ? { borderRadius: 10 } : {}} />
             )}

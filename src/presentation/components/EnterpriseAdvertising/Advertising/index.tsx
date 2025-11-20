@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+;
 import { styles } from './styles';
 import { COLORS, images } from '../../../../resources/constants';
 import { useNavigate } from 'react-router-dom';
@@ -23,30 +23,29 @@ export const Advertising = (props: AdvertisingType) => {
   const { data, isAd } = props;
   const advertisementImage = `${isAd ? data?.image : data?.file}`;
   return (
-    <TouchableOpacity
+    <button
       style={{ flexDirection: 'row', alignItems: 'center', gap: 24, padding: 24, borderRadius: 10, backgroundColor: 'rgba(51, 153, 255, 0.1)', margin: 20 }}
-      onPress={() =>
+      onClick={() =>
         navigate('/EntrepriseOfferCreateScreen', {
           state: {
             data: data,
-            advertisement: isAd ? 0 : 1,
-          }
+            advertisement: isAd ? 0 : 1}
         })}>
-      <View style={styles.candidateImgContainer}>
-        <Image
+      <div style={styles.candidateImgContainer}>
+        <img
           style={styles.candidatImg}
-          source={data.isVideo ? { uri: images.thumbnail } : { uri: advertisementImage }}
+          src={data.isVideo  ? images.thumbnail  : { uri: advertisementImage }}
         />
-      </View>
-      <View style={styles.candidateDetailsContainer}>
-        <Text style={styles.candidatName}>
+      </div>
+      <div style={styles.candidateDetailsContainer}>
+        <span style={styles.candidatName}>
           {isAd ? data.name : data.title}
-        </Text>
-        <Text style={styles.candidatPost}>{data.description}</Text>
-        <Text style={styles.candidatPost}>
+        </span>
+        <span style={styles.candidatPost}>{data.description}</span>
+        <span style={styles.candidatPost}>
           {isAd ? data.link : data?.contact}
-        </Text>
-      </View>
-    </TouchableOpacity>
+        </span>
+      </div>
+    </button>
   );
 };

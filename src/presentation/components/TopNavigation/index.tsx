@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { StyleSheet, View, Image, TouchableOpacity, Text } from 'react-native';
+;
 import { images, icons, COLORS } from '../../../resources/constants';
 import 'primeicons/primeicons.css';
 import { Badge } from 'primereact/badge';
@@ -35,7 +35,7 @@ const TopNavigation = (): any => {
     const [countNotification, setCountNotification] = useState<number>(0);
     const [showContact, setShowContact] = useState(false);
     const [showPDF, setShowPDF] = useState(false);
-    const [showModal, setShowModal] = useState(false);
+    const [showsetShowModal] = useState(false);
     const { setRegisterStatusInitiate } = useInscription();
     const { displayGuideline, readMessageCount } = UserSA();
     const { accessToken, user } = useSelector(({ auth }) => auth);
@@ -92,8 +92,7 @@ const TopNavigation = (): any => {
     const displayUserGuideline = async (pdfName: string) => {
         setIsLoading(true);
         const data = {
-            name: pdfName,
-        }
+            name: pdfName}
         const response = await displayGuideline(data, accessToken);
         setIsLoading(false);
         setPdfFile(response);
@@ -187,17 +186,14 @@ const TopNavigation = (): any => {
         {
             label: activeString.ABOUT_COMPANY.TRAINING, icon: 'pi pi-fw pi-eye', command: async () => {
                 await displayUserGuideline('company2');
-            },
-        }, {
+            }}, {
             label: activeString.ABOUT_COMPANY.CALL_FOR_TENDER, icon: 'pi pi-fw pi-eye', command: async () => {
                 await displayUserGuideline('company3');
-            },
-        },
+            }},
         {
             label: activeString.ABOUT_COMPANY.TARGET, icon: 'pi pi-fw pi-eye', command: async () => {
                 await displayUserGuideline('company4');
-            },
-        },
+            }},
     ];
 
     let itemsCandidate = [
@@ -209,13 +205,11 @@ const TopNavigation = (): any => {
         {
             label: activeString.ABOUT_CANDIDAT.PRESENTATION, icon: 'pi pi-fw pi-eye', command: async () => {
                 await displayUserGuideline('candidate2');
-            },
-        },
+            }},
         {
             label: activeString.ABOUT_CANDIDAT.ANNOUNCEMENT, icon: 'pi pi-fw pi-eye', command: async () => {
                 await displayUserGuideline('candidate3');
-            },
-        },
+            }},
     ];
 
     const handleChangeLanguage = (event) => {
@@ -279,29 +273,29 @@ const TopNavigation = (): any => {
         <>
             {
                 isMobile && (
-                    <View
+                    <div
                         style={[navbarStyle.headerMobile, styles.boxShadowBottom]}
                     >
                         {showBackButton ? (
-                            <TouchableOpacity onPress={handleGoBack} style={{ paddingHorizontal: 26 }}>
-                                <Image
-                                    source={icons.back}
+                            <button onClick={handleGoBack} style={{ paddingHorizontal: 26 }}>
+                                <img
+                                    src={icons.back}
                                     style={[navbarStyle.guideMobiles, navbarStyle.guideIcon]}
                                 />
-                            </TouchableOpacity>
+                            </button>
                         ) :
-                            <View></View>
+                            <div></div>
                         }
 
-                        <TouchableOpacity onPress={handleHome}>
-                            <View>
-                                <Image source={images.logo} style={styles.logoWip} />
-                            </View>
-                        </TouchableOpacity>
+                        <button onClick={handleHome}>
+                            <div>
+                                <img src={images.logo} style={styles.logoWip} />
+                            </div>
+                        </button>
 
-                        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 14, paddingHorizontal: 16 }}>
+                        <div style={{ flexDirection: 'row', alignItems: 'center', gap: 14, paddingHorizontal: 16 }}>
 
-                            <View
+                            <div
                                 style={[
                                     navbarStyle.langueBtnMobile
                                 ]}
@@ -310,251 +304,235 @@ const TopNavigation = (): any => {
                                     <option value="fr">Français</option>
                                     <option value="en">English</option>
                                 </select>
-                            </View>
+                            </div>
 
-                            <View>
-                                <TouchableOpacity onPress={handleSetActive10}>
-                                    <Image
-                                        source={icons.guideline}
+                            <div>
+                                <button onClick={handleSetActive10}>
+                                    <img
+                                        src={icons.guideline}
                                         style={[navbarStyle.guideMobiles, navbarStyle.guideIcon]}
                                     />
-                                </TouchableOpacity>
+                                </button>
                                 <Menu model={user?.role === activeString.ROLEACCOUNT.company ? itemsCompany : itemsCandidate} popup ref={menuLeft} popupAlignment="right" id="popup_menu_right" />
-                            </View>
+                            </div>
 
-                            <View style={{ position: "relative" }} ref={menuAbout}>
-                                <TouchableOpacity onPress={handleShowModal}>
-                                    <Image
-                                        source={icons.vmore}
+                            <div style={{ position: "relative" }} ref={menuAbout}>
+                                <button onClick={handleShowModal}>
+                                    <img
+                                        src={icons.vmore}
                                         style={[navbarStyle.guideMobiles, navbarStyle.guideIcon]}
                                     />
-                                </TouchableOpacity>
+                                </button>
                                 {
                                     showModal && (
-                                        <View style={[styles.boxShadow, { position: "absolute", zIndex: 25, padding: 14, flexDirection: "column", gap: 14, top: 35, right: 10, backgroundColor: "white", width: 200 }]}>
-                                            <View>
-                                                <TouchableOpacity onPress={handleSetActive5} style={{ flexDirection: "row", gap: 14, alignItems: "center" }}>
-                                                    <Image
-                                                        source={images.about}
+                                        <div style={[styles.boxShadow, { position: "absolute", zIndex: 25, padding: 14, flexDirection: "column", gap: 14, top: 35, right: 10, backgroundColor: "white", width: 200 }]}>
+                                            <div>
+                                                <button onClick={handleSetActive5} style={{ flexDirection: "row", gap: 14, alignItems: "center" }}>
+                                                    <img
+                                                        src={images.about}
                                                         style={[navbarStyle.aboutIcon, { width: 14, height: 14, objectFit: "cover" }]}
                                                     />
-                                                    <Text style={{ fontSize: 12 }}>A propos de l'application</Text>
-                                                </TouchableOpacity>
-                                            </View>
-                                            <View>
-                                                <TouchableOpacity onPress={handleSetActive6} style={{ flexDirection: "row", gap: 14, alignItems: "center" }}>
-                                                    <Image
-                                                        source={images.logout}
+                                                    <span style={{ fontSize: 12 }}>A propos de l'application</span>
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button onClick={handleSetActive6} style={{ flexDirection: "row", gap: 14, alignItems: "center" }}>
+                                                    <img
+                                                        src={images.logout}
                                                         style={[navbarStyle.aboutIcon, { width: 14, height: 14, objectFit: "cover" }]}
                                                     />
-                                                    <Text style={{ fontSize: 12 }}>Se déconnecter</Text>
-                                                </TouchableOpacity>
-                                            </View>
-                                        </View>
+                                                    <span style={{ fontSize: 12 }}>Se déconnecter</span>
+                                                </button>
+                                            </div>
+                                        </div>
                                     )
                                 }
-                            </View>
+                            </div>
 
-                        </View>
+                        </div>
 
-                    </View>
+                    </div>
                 )
             }
-            <View style={[isMobile ? navbarStyle.footerMobile : navbarStyle.header, { flex: 1, zIndex: 2 }]} forceInset={{ bottom: 'never' }}>
+            <div style={{...(isMobile ? navbarStyle.footerMobile : navbarStyle.header), ...{ flex: 1, ...zIndex: 2 }}} forceInset={{ bottom: 'never' }}>
 
                 {pdfFile && <PDFViewerScreen visible={showPDF} setVisible={setShowPDF} data={pdfFile} isDownloadAllowed={true} isBlob={true} />}
                 {
                     isMobile ? null :
                         <>
-                            <TouchableOpacity onPress={handleHome}>
-                                <View style={styles.containerLogo}>
-                                    <Image source={images.WipWork} style={styles.logoWip} />
-                                </View>
-                            </TouchableOpacity>
+                            <button onClick={handleHome}>
+                                <div style={styles.containerLogo}>
+                                    <img src={images.WipWork} style={styles.logoWip} />
+                                </div>
+                            </button>
                         </>
                 }
-                <View style={isMobile ? styles.navigationContainerMobile : styles.navigationContainer}>
+                <div style={isMobile ? styles.navigationContainerMobile : styles.navigationContainer}>
                     {condition ? <>
-                        <TouchableOpacity
-                            style={[
-                                isMobile ? { marginTop: 20 } :
-                                    styles.container,
-                                active1 ? styles.underline : styles.nonActive,
-                            ]}
-                            onPress={handleSetActive1}
+                        <button
+                            style={{...(isMobile ? { marginTop: 20 } :
+                                    styles.container), ...(active1 ? styles.underline : styles.nonActive), ...}}
+                            onClick={handleSetActive1}
                         >
-                            <Image
-                                source={icons.home}
-                                style={[isMobile ? styles.logoMobile : styles.logo, active1 ? styles.active : styles.nonActive]}
+                            <img
+                                src={icons.home}
+                                style={{...(isMobile ? styles.logoMobile : styles.logo), ...(active1 ? styles.active : styles.nonActive)}}
                             />
-                        </TouchableOpacity>
+                        </button>
 
-                        <TouchableOpacity
-                            style={[
-                                isMobile ? { marginTop: 20 } :
-                                    styles.container,
-                                active2 ? styles.underline : styles.nonActive,
-                            ]}
-                            onPress={handleSetActive2}
+                        <button
+                            style={{...(isMobile ? { marginTop: 20 } :
+                                    styles.container), ...(active2 ? styles.underline : styles.nonActive), ...}}
+                            onClick={handleSetActive2}
                         >
-                            <View style={styles.bellContainer}>
-                                <Image source={icons.bellring} style={[isMobile ? styles.logoMobile : styles.logo, , active2 ? styles.active : styles.nonActive]} />
-                                {badge !== 0 && <View style={styles.badge}><Badge value={`${badge}`} /></View>}
-                            </View>
-                        </TouchableOpacity>
+                            <div style={styles.bellContainer}>
+                                <img src={icons.bellring} style={{...(isMobile ? styles.logoMobile : styles.logo), ...(active2 ? styles.active : styles.nonActive)}} />
+                                {badge !== 0 && <div style={styles.badge}><Badge value={`${badge}`} /></div>}
+                            </div>
+                        </button>
                         {/* 
                         {user?.role !== "company" &&
-                            <TouchableOpacity
-                                style={[
-                                    isMobile ? { marginTop: 20 } :
-                                        styles.container,
-                                    activeAppelOffer ? styles.underline : styles.nonActive,
-                                ]}
-                                onPress={handleSetActiveAppel}
+                            <button
+                                style={{...(isMobile ? { marginTop: 20 } :
+                                        styles.container), ...(activeAppelOffer ? styles.underline : styles.nonActive), ...}}
+                                onClick={handleSetActiveAppel}
                             >
-                                <Image
-                                    source={icons.appelOffersIcon}
-                                    style={[isMobile ? styles.logoMobile : styles.logo, , activeAppelOffer ? styles.active : styles.nonActive]}
+                                <img
+                                    src={icons.appelOffersIcon}
+                                    style={{...(isMobile ? styles.logoMobile : styles.logo), ...(activeAppelOffer ? styles.active : styles.nonActive)}}
                                 />
-                            </TouchableOpacity>
+                            </button>
 
                         } */}
 
-                        <TouchableOpacity
-                            style={[
-                                isMobile ? { marginTop: 20 } :
-                                    styles.container,
-                                active4 ? styles.underline : styles.nonActive,
-                            ]}
-                            onPress={handleSetActive4}
+                        <button
+                            style={{...(isMobile ? { marginTop: 20 } :
+                                    styles.container), ...(active4 ? styles.underline : styles.nonActive), ...}}
+                            onClick={handleSetActive4}
                         >
-                            <Image
-                                source={icons.search}
-                                style={[isMobile ? styles.logoMobile : styles.logo, , active4 ? styles.active : styles.nonActive]}
+                            <img
+                                src={icons.search}
+                                style={{...(isMobile ? styles.logoMobile : styles.logo), ...(active4 ? styles.active : styles.nonActive)}}
                             />
-                        </TouchableOpacity>
+                        </button>
 
 
 
                         {
                             isMobile && (
-                                <TouchableOpacity
-                                    style={[
-                                        isMobile ? { marginTop: 20 } :
-                                            styles.container,
-                                        active7 ? styles.underline : styles.nonActive,
-                                    ]}
-                                    onPress={handleSetActive7}
+                                <button
+                                    style={{...(isMobile ? { marginTop: 20 } :
+                                            styles.container), ...(active7 ? styles.underline : styles.nonActive), ...}}
+                                    onClick={handleSetActive7}
                                 >
-                                    <Image
-                                        source={icons.user}
-                                        style={[isMobile ? styles.logoMobile : styles.logo, active7 ? styles.active : styles.nonActive]}
+                                    <img
+                                        src={icons.user}
+                                        style={{...(isMobile ? styles.logoMobile : styles.logo), ...(active7 ? styles.active : styles.nonActive)}}
                                     />
-                                </TouchableOpacity>
+                                </button>
                             )}
                     </> :
-                        <View
+                        <div
                             style={[
                                 styles.container,
                                 styles.nonActive,
                             ]}
-                            onPress={null}
+                            onClick={null}
                         >
-                            <Image
-                                source={null}
+                            <img
+                                src={null}
                                 style={[styles.logo]}
                             />
-                        </View>}
-                </View>
+                        </div>}
+                </div>
 
                 {
                     !isMobile &&
                     <>
-                        <View
+                        <div
                             style={[
                                 navbarStyle.langueBtn
                             ]}
                         >
-                            <TouchableOpacity
-                                onPress={() => handleSetActiveLg("fr")}
+                            <button
+                                onClick={() => handleSetActiveLg("fr")}
                                 style={[
                                     lang === 'fr' && navbarStyle.activeLangue
                                 ]}
                             >
-                                <Image
-                                    source={images.flagsFrance}
+                                <img
+                                    src={images.flagsFrance}
                                     style={{ width: 30, height: 30, objectFit: 'cover' }}
                                 />
-                            </TouchableOpacity>
+                            </button>
 
-                            <TouchableOpacity
-                                onPress={() => handleSetActiveLg("en")}
+                            <button
+                                onClick={() => handleSetActiveLg("en")}
                                 style={[
                                     lang === 'en' && navbarStyle.activeLangue
                                 ]}
                             >
-                                <Image
-                                    source={images.flagsRauyaumeUni}
+                                <img
+                                    src={images.flagsRauyaumeUni}
                                     style={{ width: 30, height: 30, objectFit: 'cover' }}
                                 />
-                            </TouchableOpacity>
-                        </View>
+                            </button>
+                        </div>
 
-                        <TouchableOpacity onPress={handleSetActive10}
+                        <button onClick={handleSetActive10}
                             style={[
                                 navbarStyle.guideBtn
                             ]}
                         >
-                            <Image
-                                source={icons.guideline}
+                            <img
+                                src={icons.guideline}
                                 style={[styles.logoGuideline, navbarStyle.guideIcon]}
                             />
-                            <Text>
+                            <span>
                                 {activeString.HOME.HELP}
-                            </Text>
+                            </span>
                             <Menu model={user?.role === activeString.ROLEACCOUNT.company ? itemsCompany : itemsCandidate} popup ref={menuLeft} popupAlignment="right" id="popup_menu_right" />
-                        </TouchableOpacity>
+                        </button>
 
-                        <View
+                        <div
                             style={[navbarStyle.aboutBtn]}
                         >
-                            {/* <TouchableOpacity
-                                onPress={handleSetActive5}
+                            {/* <button
+                                onClick={handleSetActive5}
                             >
-                                <Image
-                                    source={images.about}
+                                <img
+                                    src={images.about}
                                     style={[styles.logo, navbarStyle.aboutIcon]}
                                 />
-                            </TouchableOpacity> */}
-                        </View>
-                        <View
+                            </button> */}
+                        </div>
+                        <div
                             style={[
                                 navbarStyle.logoutBtn
                             ]}
                         >
-                            <TouchableOpacity
-                                onPress={handleSetActive6}
+                            <button
+                                onClick={handleSetActive6}
                                 style={{ backgroundColor: "#000099", padding: 10, borderRadius: 10, flexDirection: 'row', alignItems: 'center', gap: 6 }}
                             >
-                                <Image source={icons.logout} style={{ height: 14, width: 14 }} />
-                                <Text style={{ fontSize: 14, color: 'white', fontWeight: 600 }}> {activeString.HOME.LOGOUT} </Text>
-                            </TouchableOpacity>
-                        </View>
+                                <img src={icons.logout} style={{ height: 14, width: 14 }} />
+                                <span style={{ fontSize: 14, color: 'white', fontWeight: 600 }}> {activeString.HOME.LOGOUT} </span>
+                            </button>
+                        </div>
                     </>
                 }
             </View >
-            <Modal title={'À propos'} visible={visible} setVisible={setVisible} content={<OnBoarding />} />
+            <Dialog title={'À propos'} visible={visible} setVisible={setVisible} content={<OnBoarding />} />
         </>
     );
 };
 
-const navbarStyle = StyleSheet.create({
+const navbarStyle = {
     header: {
         backgroundColor: 'white',
         position: 'fixed',
         top: 0,
-        width: '100%',
-    },
+        width: '100%'},
     headerMobile: {
         position: 'fixed',
         top: 0,
@@ -575,9 +553,7 @@ const navbarStyle = StyleSheet.create({
         shadowOffset: { width: 0, height: -2 },
         shadowOpacity: 0.2,
         shadowRadius: 2,
-        elevation: 4,
-
-    },
+        elevation: 4},
     activeLangue: {
         borderRadius: 50, borderWidth: 2, borderColor: COLORS.orange
     },
@@ -594,12 +570,10 @@ const navbarStyle = StyleSheet.create({
         cursor: 'pointer'
     },
     guideIcon: {
-        tintColor: COLORS.blueInput,
-    },
+        tintColor: COLORS.blueInput},
     guideMobiles: {
         height: 25,
-        width: 25,
-    },
+        width: 25},
     aboutBtn: {
         position: 'absolute',
         top: 0,
@@ -609,8 +583,7 @@ const navbarStyle = StyleSheet.create({
         cursor: 'pointer'
     },
     aboutIcon: {
-        tintColor: COLORS.blueInput,
-    },
+        tintColor: COLORS.blueInput},
     langueBtn: {
         position: 'absolute',
         top: 15,
@@ -625,8 +598,7 @@ const navbarStyle = StyleSheet.create({
         fontSize: 16,
         padding: 5,
         borderRadius: 5,
-        borderColor: COLORS.blueInput,
-    },
+        borderColor: COLORS.blueInput},
     logoutBtn: {
         position: 'absolute',
         top: 0,
@@ -636,9 +608,7 @@ const navbarStyle = StyleSheet.create({
         cursor: 'pointer'
     },
     logoutIcon: {
-        tintColor: COLORS.blueInput,
-    },
-});
+        tintColor: COLORS.blueInput}});
 
 
 export default TopNavigation;

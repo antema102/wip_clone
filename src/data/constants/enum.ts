@@ -8,26 +8,22 @@ export enum civilstatus {
   'married' = 'Marié(e)',
   'divorced' = 'Divorcé(e)',
   'widowed' = 'Veuf(ve)',
-  'others' = 'Autres',
-}
+  'others' = 'Autres'}
 
 export enum logerOrNot {
   true = 'Oui',
-  false = 'Non',
-}
+  false = 'Non'}
 
 export enum candidate {
   passif = 'Passif',
-  actif = 'Actif',
-}
+  actif = 'Actif'}
 
 export enum transport {
   'foot' = 'A pied',
   'bike' = 'Bicyclette',
   'motorbike' = 'Moto',
   'car' = 'Voiture',
-  'others' = 'Autres',
-}
+  'others' = 'Autres'}
 
 export enum pet {
   'dog' = 'Chien',
@@ -38,8 +34,7 @@ export enum pet {
   'horse' = 'Cheval',
   'bird' = 'Oiseaux',
   'fish' = 'Poisson',
-  'others' = 'Autres',
-}
+  'others' = 'Autres'}
 
 export enum province {
   'tana' = 'Antananarivo',
@@ -47,8 +42,7 @@ export enum province {
   'fianarantsoa' = 'Fianarantsoa',
   'majunga' = 'Mahajanga',
   'tamatave' = 'Toamasina',
-  'tulear' = 'Toliara',
-}
+  'tulear' = 'Toliara'}
 
 // --------------------------------------------------------
 // data required by Form Job
@@ -96,8 +90,7 @@ export enum levelOfStudy {
   '4' = 'Baccalauréat',
   '3' = 'BEPC',
   '2' = 'CEPE',
-  '1' = 'Autres',
-}
+  '1' = 'Autres'}
 
 export enum activityArea {
   'agrifood' = 'Agroalimentaire',
@@ -110,8 +103,7 @@ export enum activityArea {
   'electronics' = 'Électronique / Électricité',
   'it' = 'Informatique / Télécoms',
   'hotels' = 'Tourisme / Hôtellerie',
-  'others' = 'Autres',
-}
+  'others' = 'Autres'}
 
 // Year of experience
 export enum yearOfExp {
@@ -125,8 +117,7 @@ export enum yearOfExp {
   '7' = '7 ans',
   '8' = '8 ans',
   '9' = '9 ans et plus',
-  'others' = 'Autres',
-}
+  'others' = 'Autres'}
 // ----------------------
 
 // Availablity
@@ -137,64 +128,51 @@ export enum availability {
   'halfTimeNight' = 'Demi-journée - Nuit',
   'indifferent' = 'Indifférent',
   'onDemand' = 'A la demande',
-  'other' = 'Autres',
-}
+  'other' = 'Autres'}
 
 export enum publicity {
   'cible' = 'Ciblé',
-  'global' = 'Global',
-}
+  'global' = 'Global'}
 
 export enum tarifs {
   'video' = 'Popup vidéo',
   'image' = 'Popup image',
   'spot' = 'Spot vidéo',
-  'banner' = 'Bannière',
-}
+  'banner' = 'Bannière'}
 
 export const profilData = [
   {
     label: 'Stagiaire',
-    value: 'Stagiaire',
-  },
+    value: 'Stagiaire'},
   {
     label: 'Junior',
-    value: 'Junior',
-  },
+    value: 'Junior'},
   {
     label: 'Intermédiaire',
-    value: 'Intermédiaire',
-  },
+    value: 'Intermédiaire'},
   {
     label: 'Confirmé',
-    value: 'Confirmé',
-  },
+    value: 'Confirmé'},
   {
     label: 'Senior',
-    value: 'Senior',
-  },
+    value: 'Senior'},
   {
     label: 'Autres',
-    value: 'others',
-  },
+    value: 'others'},
 ];
 export const contratData = [
   {
     label: 'CDI',
-    value: 'CDI',
-  },
+    value: 'CDI'},
   {
     label: 'CDD',
-    value: 'CDD',
-  },
+    value: 'CDD'},
   {
     label: 'Télé travail',
-    value: 'Télétravail',
-  },
+    value: 'Télétravail'},
   {
     label: 'Autres',
-    value: 'others',
-  },
+    value: 'others'},
 ];
 
 // Status
@@ -209,8 +187,7 @@ export enum status {
   'byDay' = 'Travail à la journée',
   'byHour' = "Travail à l'lheure",
   'teletravail' = 'Télétravail',
-  'others' = 'Autres',
-}
+  'others' = 'Autres'}
 
 // --------------------------------------------------------
 // data required by Form Other
@@ -229,16 +206,14 @@ export enum language {
   'bn' = 'Bengali',
   'ru' = 'Russe',
   'pa' = 'Pendjabi',
-  'others' = 'Autres',
-}
+  'others' = 'Autres'}
 
 export enum level {
   'natif' = 'Maternelle',
   'beginner' = 'Débutant',
   'intermediate' = 'Intermediaire',
   'advanced' = 'Avancé',
-  'others' = 'Autres',
-}
+  'others' = 'Autres'}
 
 const sport = [
   'Aikido',
@@ -346,8 +321,7 @@ export const sportField = sport.map((value) => ({ value, label: value }));
 export enum criterionLevel {
   '3' = 'Faible',
   '5' = 'Moyen',
-  '7' = 'Elevé',
-}
+  '7' = 'Elevé'}
 export const permissionTypes = {
   // job
   Perm_create_job: 'Création emploi',
@@ -367,5 +341,4 @@ export const permissionTypes = {
   // publicity
   Perm_create_publicity: 'Création publicité',
   Perm_update_publicity: 'Modification publicité',
-  Perm_delete_publicity: 'Suppression publicité',
-};
+  Perm_delete_publicity: 'Suppression publicité'};

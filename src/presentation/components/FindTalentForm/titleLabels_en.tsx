@@ -1,7 +1,6 @@
 export const TitleLabels_en = {
     FindOffer: {
-        levelLab: 'Level of Prioritization criterion',
-    },
+        levelLab: 'Level of Prioritization criterion'},
        FindCriteria: {
         post: 'Desired position',
         secteur: "Activity area",
@@ -28,5 +27,4 @@ export const TitleLabels_en = {
         pretension: "Gross salary (Ariary)",
         other: "Others",
         candidate_search:'Candidate Status'
-    },
-};
+    }};

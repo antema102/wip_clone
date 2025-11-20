@@ -1,17 +1,14 @@
-import { StyleSheet, Dimensions } from 'react-native';
+;
 import { COLORS, FONTS, SIZES } from '../../../resources/constants';
-let windowWidth = Dimensions.get('window').width;
-let windowHeight = Dimensions.get('window').height;
-export const styles = StyleSheet.create({
+let windowWidth = window.innerWidth;
+let windowHeight = window.innerHeight;
+export const styles = {
   content: {
     backgroundColor: COLORS.white,
     height: windowHeight > 1600 ? 400 : 280,
     borderRadius: 10,
-    overflow: 'hidden',
-  },
+    overflow: 'hidden'},
   imagesSideBar: {
     height: '100%',
     width: '100%',
-    objectFit: 'cover',
-  },
-});
+    objectFit: 'cover'}});

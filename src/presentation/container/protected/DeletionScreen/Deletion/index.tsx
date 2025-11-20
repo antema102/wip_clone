@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Pressable, Image, Text } from 'react-native';
+;
 import { connect, useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
@@ -16,8 +16,7 @@ import { InputField } from '../../../../components/Inputs/InputField';
 import {
   ERROR,
   ROLEACCOUNT,
-  DELETION,
-} from '../../../../../data/constants/strings';
+  DELETION} from '../../../../../data/constants/strings';
 import { HttpStatus } from '../../../../../data/constants/Http-status';
 import { WhiteButtons } from '../../../../components/Inputs/WhiteButtons';
 import Loader from '../../../../components/Loader';
@@ -46,8 +45,7 @@ export const Deletion = (props) => {
   const handleSubmit = async () => {
     setIsLoading(true);
     const data = {
-      password: password,
-    };
+      password: password};
     try {
       const response = await deletionAccount(data, accessToken);
       if (
@@ -98,18 +96,18 @@ export const Deletion = (props) => {
 
 
   return (
-    <View
-      style={[styles.containers, condition ? styles.noSubscription : styles.withSubscription ]}>
-      <View style={[styles.inputWrapButton, { marginTop: 30 }]}>
-        <Text style={[globalStyle.title3, { fontWeight: 'bold' }]}>{DELETION.TITLE}</Text>
-      </View>
-      <View style={styles.inputWrapButton}>
-        <Text style={styles.simpleTitle}>{texteToUser}</Text>
-      </View>
-      <View style={styles.inputWrapButton}>
-        <Text style={styles.textTitle}>{DELETION.AUTHENTICATION}</Text>
-      </View>
-      <View style={styles.inputWrap}>
+    <div
+      style={{...styles.containers, ...(condition ? styles.noSubscription : styles.withSubscription)}}>
+      <div style={[styles.inputWrapButton, { marginTop: 30 }]}>
+        <span style={[globalStyle.title3, { fontWeight: 'bold' }]}>{DELETION.TITLE}</span>
+      </div>
+      <div style={styles.inputWrapButton}>
+        <span style={styles.simpleTitle}>{texteToUser}</span>
+      </div>
+      <div style={styles.inputWrapButton}>
+        <span style={styles.textTitle}>{DELETION.AUTHENTICATION}</span>
+      </div>
+      <div style={styles.inputWrap}>
         <InputField
           label={'Mot de passe'}
           required
@@ -120,16 +118,16 @@ export const Deletion = (props) => {
           onChange={handleChange}
           maxLength={50}
         />
-      </View>
-      <View style={[styles.inputWrapButton, { marginVertical: 30 }]}>
+      </div>
+      <div style={[styles.inputWrapButton, { marginVertical: 30 }]}>
         <CustomButton
           _style={[styles.buttonStyles, styles.deletionWarning]}
           styleBtnTxt={styles.buttonText}
           color={COLORS.secondary}
-          onPress={() => handleSubmit()}
+          onClick={() => handleSubmit()}
           title={DELETION.BUTTON_CONFIRM}
         />
-      </View>
+      </div>
       <Popup
         message={message}
         visible={modalVisible}
@@ -144,6 +142,6 @@ export const Deletion = (props) => {
         action={handleLogOut}
       />
       {isLoading && <Loader />}
-    </View>
+    </div>
   );
 };

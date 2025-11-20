@@ -23,8 +23,7 @@ export const InputDatePicker = ({
   onChange,
   isEditable,
   type,
-  todayDate,
-}: Props) => {
+  todayDate}: Props) => {
     return (
       <div>
       </div>
@@ -41,8 +40,7 @@ InputDatePicker.propTypes = {
   showError: PropTypes.bool,
   isEditable: PropTypes.bool,
   type: PropTypes.string,
-  todayDate: PropTypes.bool,
-};
+  todayDate: PropTypes.bool};
 InputDatePicker.defaultProps = {
   value: new Date(),
   required: false,
@@ -52,5 +50,4 @@ InputDatePicker.defaultProps = {
   showError: false,
   isEditable: true,
   type: 'date',
-  todayDate: false,
-};
+  todayDate: false};

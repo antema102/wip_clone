@@ -6,6 +6,5 @@ export const AnnounceService = () => {
   return {
     allAnnounce: (token: string) => allAnnounce(token),
     getAnnouncesByCategoryName: (token: string, name: string) =>
-      getAnnouncesByCategoryName(token, name),
-  };
+      getAnnouncesByCategoryName(token, name)};
 };

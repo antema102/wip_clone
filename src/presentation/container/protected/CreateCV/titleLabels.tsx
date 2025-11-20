@@ -50,5 +50,4 @@ export const TitleLabels = {
     job: 'job',
     other: 'Autres'
 
-  },
-};
+  }};

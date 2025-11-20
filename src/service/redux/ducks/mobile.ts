@@ -3,12 +3,10 @@ export type MobileState = {
 };
 
 export const enum MobileActionType {
-    setMobile = '[Mobile] Set Mobile',
-}
+    setMobile = '[Mobile] Set Mobile'}
 
 export const initialMobileState: MobileState = {
-    mobile: false,
-};
+    mobile: false};
 
 export const mobileReducer = (state = initialMobileState, action) => {
     const { type, payload } = action;
@@ -16,8 +14,7 @@ export const mobileReducer = (state = initialMobileState, action) => {
         case MobileActionType.setMobile:
             return {
                 ...state,
-                mobile: payload,
-            };
+                mobile: payload};
 
         default:
             return state;

@@ -1,9 +1,9 @@
-import { Dimensions, StyleSheet, Platform } from 'react-native';
+;
 import { COLORS } from '../../../resources/constants';
-const winWidth = Dimensions.get('window').width;
-const winHeight = Dimensions.get('window').height;
+const winWidth = window.innerWidth;
+const winHeight = window.innerHeight;
 
-export const styles = StyleSheet.create({
+export const styles = {
   containerText: {
     padding: 10,
     borderWidth: 1,
@@ -24,6 +24,4 @@ export const styles = StyleSheet.create({
   },
   textLabel:{
     fontWeight:600,fontSize:12
-  },
-  
-});
+  }});

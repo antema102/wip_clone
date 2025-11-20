@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, SafeAreaView, FlatList, Image, Text } from 'react-native';
+;
 import { connect, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -43,16 +43,14 @@ export const Notification = (props: any) => {
       navigate('/EnterpriseOfferDetailsScreen', {
         state: {
           id: ItemDetail.offerId,
-          candidat: true,
-        }
+          candidat: true}
       })
     } else {
       navigate('/CandidatDetailScreen', {
         state: {
           id: ItemDetail.cvId,
           candidatId: ItemDetail.senderId,
-          offerId: ItemDetail.offerId,
-        }
+          offerId: ItemDetail.offerId}
       });
     }
   };
@@ -71,34 +69,34 @@ export const Notification = (props: any) => {
   }
 
   return (
-    <View
+    <div
       style={styles.containers}>
       {notificationsList?.length === 0 ? <>
-        <View style={styles.container_no_notification}>
+        <div style={styles.container_no_notification}>
           <TitleRefont title={activeString.CONTACT_CANDIDAT.NOTIFICATION_TITLE} />
-          <View style={styles.contentImage}>
-            <Image
-              source={{uri:images.noNotification}}
+          <div style={styles.contentImage}>
+            <img
+              src={images.noNotification}
               style={styles.imagesDimension}
             />
-            <View>
-              <Text style={styles.textContent}>
-                {activeString.CONTACT_CANDIDAT.ZERO_NOTIFICATION_TEXT}</Text>
-            </View>
-          </View>
-        </View>
+            <div>
+              <span style={styles.textContent}>
+                {activeString.CONTACT_CANDIDAT.ZERO_NOTIFICATION_TEXT}</span>
+            </div>
+          </div>
+        </div>
       </>
         :
-        <View style={styles.itemList}>
+        <div style={styles.itemList}>
           {notificationsList &&
-            <FlatList
+            <div
               data={notificationsList}
               renderItem={({ item }) =>
                 <NotificationItem item={item} displayDetail={displayDetail} />
               }
               keyExtractor={item => item.id}
             />}
-        </View>}
-    </View>
+        </div>}
+    </div>
   );
 };

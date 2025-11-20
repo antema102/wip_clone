@@ -16,8 +16,7 @@ export const UserBDL = () => ({
 
   getCostsUser: (token: string) =>
     api.get(urls.GET_COSTS, token, {
-      size: '100',
-    }),
+      size: '100'}),
 
   updateCv: (
     token: string,
@@ -40,21 +39,18 @@ export const UserBDL = () => ({
 
   getSpotVideo: (token: string) =>
     api.get(urls.GET_SPOT_VIDEO, token, {
-      size: '100',
-    }),
+      size: '100'}),
 
   getSpotVideoById: (token: string, id: string) =>
     api.get(`${urls.GET_SPOT_VIDEO_BY_ID}/${id}`, token),
 
   getUserText: (token: string) =>
     api.get(urls.DYNAMIC_TEXT, token, {
-      size: '100',
-    }),
+      size: '100'}),
 
   getUserEchelle: (token: string) =>
     api.get(urls.DYNAMIC_ECHELLE, token, {
-      size: '100',
-    }),
+      size: '100'}),
 
   updateUser: (token: string, idUser: string, data: any) =>
     api.put(urls.UPDATE_USER, data.data, token, idUser),
@@ -63,8 +59,7 @@ export const UserBDL = () => ({
     api.put(
       urls.UPDATE_PASSWORD,
       {
-        password: password,
-      },
+        password: password},
       token
     ),
   buySubscription: (token: string, data: any, id: string) =>
@@ -82,8 +77,7 @@ export const UserBDL = () => ({
     api.get(urls.GET_MESSAGE, token, {
       userId: id,
       direction: 'desc',
-      size: '50',
-    }),
+      size: '50'}),
 
   sendingNotificationsViaGoogle: (data: any, token: string) =>
     api.postGoogle(urls.GOOGLE_SEND, data, token),
@@ -318,5 +312,4 @@ export const UserBDL = () => ({
     await api.get(`${urls.GET_TENDER_PDF}/${id}`, token),
 
   deleteTenderById: async (id: string, token: string) =>
-    await api.remove(`${urls.TENDER}/${id}`, token),
-});
+    await api.remove(`${urls.TENDER}/${id}`, token)});

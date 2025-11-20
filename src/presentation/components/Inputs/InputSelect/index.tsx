@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
-import { Text, View, TouchableOpacity, Image, Modal, ScrollView, Dimensions } from 'react-native';
+import { Dialog } from 'primereact/dialog';
+
 import { TitleLabel } from './TitleLabel';
 import { COLORS, icons } from '../../../../resources/constants';
 import styles from './styles';
@@ -19,8 +20,7 @@ type ModalElementProps = {
 
 export const initialData = {
     label: 'Choisir critère',
-    value: '',
-};
+    value: ''};
 
 const ModalElement = ({ item, onChange, setModalVisible }: ModalElementProps) => {
     const handlePress = () => {
@@ -28,9 +28,9 @@ const ModalElement = ({ item, onChange, setModalVisible }: ModalElementProps) =>
         onChange({ label: item?.label, value: item?.value });
     };
     return (
-        <TouchableOpacity style={[styles.button]} onPress={handlePress}>
-            <Text style={styles.textStyle}>{item.label}</Text>
-        </TouchableOpacity>
+        <button style={[styles.button]} onClick={handlePress}>
+            <span style={styles.textStyle}>{item.label}</span>
+        </button>
     );
 };
 
@@ -46,7 +46,7 @@ type InputSelectProps = {
     data: any;
     valueName?: string;
 };
-export const InputSelect = ({
+export const InputSelect = {
     label,
     required,
     value,
@@ -56,8 +56,7 @@ export const InputSelect = ({
     showError,
     isEditable = true,
     data,
-    valueName,
-}: InputSelectProps) => {
+    valueName}: InputSelectProps) => {
     const [modalVisible, setModalVisible] = useState(false);
     const [dataActu, setDataActu] = useState<any>({ label: '', value: '' });
 
@@ -112,8 +111,8 @@ export const InputSelect = ({
     };
 
     const modalContent = (
-        <View style={styles.modalView}>
-            <ScrollView style={{ width: '100%', flex: 1 }}>
+        <div style={styles.modalView}>
+            <div style={{overflowY: "auto", ...{ width: '100%', flex: 1 }}}>
                 {dataList.length || !Array.isArray(data) ? (
                     dataList.map((item, index) => (
                         <ModalElement
@@ -124,23 +123,22 @@ export const InputSelect = ({
                         />
                     ))
                 ) : (
-                    <Text>err</Text>
+                    <span>err</span>
                 )}
-            </ScrollView>
-        </View>);
+            </div>
+        </div>);
 
-    const windowWidth: number = Dimensions.get('window').width;
+    const windowWidth: number = window.innerWidth;
 
 
     return (
-        <TouchableOpacity
-            onPress={handleOpenPicker}
+        <button
+            onClick={handleOpenPicker}
             style={{
                 width: '100%',
                 borderRadius: 40,
                 paddingLeft: 5,
-                backgroundColor: isEditable ? COLORS.white : COLORS.lightGray,
-            }}>
+                backgroundColor: isEditable ? COLORS.white : COLORS.lightGray}}>
             <TitleLabel label={label} required={required} />
 
             <CustomModal visible={modalVisible} setVisible={setModalVisible} content={modalContent}
@@ -149,25 +147,24 @@ export const InputSelect = ({
                     : { width: '60%', maxHeight: '30%' }
                 } isEditable={true} />
 
-            <View
+            <div
                 style={{
                     justifyContent: 'space-between',
                     flexDirection: 'row',
                     height: 45,
-                    width: '100%',
-                }}>
-                <Text style={{ color: COLORS.black, marginTop: 10, fontWeight: 600 }}>
+                    width: '100%'}}>
+                <span style={{ color: COLORS.black, marginTop: 10, fontWeight: 600 }}>
                     {dataActu.label}
-                </Text>
-                <View style={{ paddingTop: 10, paddingRight: 10 }}>
-                    <Image style={[formsStyles.iconSelect]} source={icons.down} />
-                </View>
-            </View>
+                </span>
+                <div style={{ paddingTop: 10, paddingRight: 10 }}>
+                    <img style={[formsStyles.iconSelect]} src={icons.down} />
+                </div>
+            </div>
 
             {required && showError && !!error ? (
-                <Text style={styles.textError}>{error}</Text>
+                <span style={styles.textError}>{error}</span>
             ) : null}
-        </TouchableOpacity>
+        </button>
     );
 };
 
@@ -181,8 +178,7 @@ InputSelect.propTypes = {
     onChange: PropTypes.func,
     maxLength: PropTypes.number,
     isEditable: PropTypes.bool,
-    data: PropTypes.any,
-};
+    data: PropTypes.any};
 
 InputSelect.defaultProps = {
     data: [],
@@ -194,5 +190,4 @@ InputSelect.defaultProps = {
     error: '',
     maxLength: 500,
     type: '',
-    isEditable: true,
-};
+    isEditable: true};

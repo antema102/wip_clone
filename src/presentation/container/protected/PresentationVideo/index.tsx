@@ -1,15 +1,6 @@
 import React, { useState } from 'react';
-import {
-    Text,
-    View,
-    Image,
-    Modal,
-    StyleSheet,
-    Dimensions,
-    Pressable,
-    Alert,
-    TouchableOpacity
-} from 'react-native';
+import { Dialog } from 'primereact/dialog';
+
 import axios from 'axios';
 
 import { useSelector } from 'react-redux';
@@ -104,16 +95,14 @@ const PresentationVideoScreen = (props: any) => {
                         method: 'POST',
                         url: urls.POST_UPLOAD_ENTERPRISE,
                         headers: {
-                            Authorization: `Bearer ${accessToken}`,
-                        },
+                            Authorization: `Bearer ${accessToken}`},
                         data: formData,
                         onUploadProgress: (progressEvent) => {
                             const percentCompleted = Math.round(
                                 (progressEvent.loaded * 100) / progressEvent.total
                             );
                             setProgressBar(percentCompleted);
-                        },
-                    })
+                        }})
                         .then((resp) => {
                             setProgressBar(100);
                             const isThereAnError = resp.data.isError;
@@ -149,18 +138,18 @@ const PresentationVideoScreen = (props: any) => {
         setModalVisible(false);
     };
     return (
-        <View style={styles.container}>
+        <div style={styles.container}>
             <Popup
                 message={message}
                 visible={messageVisible}
                 validation={setMessageVisible}
                 btnTitle="OK"
             />
-            <View style={{ backgroundColor: COLORS.white, borderRadius: 10, minHeight: 450, marginTop: 52 }}>
+            <div style={{ backgroundColor: COLORS.white, borderRadius: 10, minHeight: 450, marginTop: 52 }}>
                 {/* <Header {...props} /> */}
                 <TitleRefont title={activeString.RESUME_VIDEO.WELCOMING} />
-                <View style={[styles.containers]}>
-                    <Modal
+                <div style={[styles.containers]}>
+                    <Dialog
                         animationType="slide"
                         transparent
                         visible={modalVisible}
@@ -168,40 +157,40 @@ const PresentationVideoScreen = (props: any) => {
                             setModalVisible(!modalVisible);
                         }}>
                         {isThereprogressStatus ? (
-                            <View style={styles.centeredView}>
+                            <div style={styles.centeredView}>
                                 <VideoProgressBar
                                     progressBar={progressBar}
                                     waitingText={messageWaiting}
                                     goBack={hideTheProgressBar}
                                 />
-                            </View>
+                            </div>
                         ) : (
-                            <View style={styles.centeredView}>
-                                <View style={styles.modalView}>
-                                    <Text style={styles.modalText}>{serverResponse}</Text>
-                                    <Pressable
+                            <div style={styles.centeredView}>
+                                <div style={styles.modalView}>
+                                    <span style={styles.modalText}>{serverResponse}</span>
+                                    <button
                                         style={[styles.button, styles.buttonClose]}
-                                        onPress={() => navigate('/home')}>
-                                        <Text style={styles.textStyle}>
+                                        onClick={() => navigate('/home')}>
+                                        <span style={styles.textStyle}>
                                             Retour à la page d'acceuil
-                                        </Text>
-                                    </Pressable>
-                                </View>
-                            </View>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
                         )}
-                    </Modal>
-                    <View style={globalStyle.pageContainerPresentation}>
-                        <View style={{ marginTop: 20 }}>
-                            <View style={{ paddingVertical: 20 }}>
+                    </Dialog>
+                    <div style={globalStyle.pageContainerPresentation}>
+                        <div style={{ marginTop: 20 }}>
+                            <div style={{ paddingVertical: 20 }}>
                                 <FileUploader handleFileChange={selectVideo} accept="video/*" fileName={activeString.RESUME_VIDEO.NEW_IMPORT} icon={icons.download} />
-                            </View>
-                        </View>
+                            </div>
+                        </div>
 
-                        <View style={{ marginTop: 20 }}>
+                        <div style={{ marginTop: 20 }}>
                             {isVideo && (
-                                <View style={globalStyle.btnContainer}>
+                                <div style={globalStyle.btnContainer}>
                                     <CustomButtons
-                                        onPress={() => displayVideoEntreprise()}
+                                        onClick={() => displayVideoEntreprise()}
                                         title={activeString.RESUME_VIDEO.DISPLAY}
                                         _style={[
                                             globalStyle.elevationOrange,
@@ -211,14 +200,14 @@ const PresentationVideoScreen = (props: any) => {
                                         icon={icons.display}
                                         styleBtnTxt={globalStyle.bigBtnTxt}
                                     />
-                                </View>
+                                </div>
                             )}
-                        </View>
-                    </View>
-                </View>
-            </View>
+                        </div>
+                    </div>
+                </div>
+            </div>
             {visible ? <CustomModal title={isSpecial ? `${activeString.RESUME_VIDEO.INSPIRE}` : `${activeString.RESUME_VIDEO.DISPLAY}`} visible={visible} setVisible={setVisible} content={<DisplayVideo />} /> : null}
-        </View>
+        </div>
     );
 };
 

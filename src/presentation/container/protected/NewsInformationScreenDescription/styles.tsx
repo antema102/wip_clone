@@ -1,7 +1,6 @@
-import { StyleSheet } from 'react-native';
 import { COLORS, SIZES } from '../../../../resources/constants';
 
-export const styles = StyleSheet.create({
+export const styles = {
     Container:{
         flex:1,
         padding:14,
@@ -13,6 +12,6 @@ export const styles = StyleSheet.create({
         paddingBottom:16
     },
     Body:{
-        fontSize:16,
+        fontSize:16
     }
-});
+};

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
+;
 import { HOME_COMPANY } from '../../../../data/constants/strings';
 import globalStyle from '../../../globalStyle/globalStyle';
 import DynamicBox from '../../../components/DynamicBox';
@@ -25,8 +25,7 @@ export const categories: CategoriesType = {
   Vaovao: 'Vaovao',
   Economie: 'Economie',
   People: 'People',
-  HighTech: 'HighTech',
-};
+  HighTech: 'HighTech'};
 
 export type CategoryKey = keyof typeof categories;
 
@@ -38,29 +37,27 @@ const News = (props: string[]) => {
     state: {
       category: categories[category],
       isCliked: index,
-      isOffer: false,
-    }
+      isOffer: false}
   });
 
   const { lang } = useLang();
   const activeStrings = lang === 'fr' ? stringsFr : stringsEn;
   return (
-    <View>
-      <View
+    <div>
+      <div
         style={{
           marginTop: 20,
           justifyContent: 'space-between',
-          backgroundColor: '#fff',
-        }}>
+          backgroundColor: '#fff'}}>
         <DynamicBox {...state} listJobs={Object.keys(categories)} navigateCombinaisonCandidat={navigateCombinaisonCandidat} />
-      </View>
-      <View style={{ flex: 1, top: 10 }}>
-        <Text style={globalStyle.titleHome}>
+      </div>
+      <div style={{ flex: 1, top: 10 }}>
+        <span style={globalStyle.titleHome}>
           {activeStrings.HOME_COMPANY.TENDER_CANDIDAT}{' :'}
-        </Text>
-      </View>
+        </span>
+      </div>
       <AnnounceBox {...props} category={'tender'} />
-    </View>
+    </div>
   );
 };
 

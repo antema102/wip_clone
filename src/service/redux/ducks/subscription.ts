@@ -4,8 +4,7 @@ import { SubscriptionSA } from '../../applicatif/Subscription.sa';
 export type SubscriptionState = {};
 
 export const enum subscriptionActionType {
-  allSubscriptions = '[Subscriptions] get all',
-}
+  allSubscriptions = '[Subscriptions] get all'}
 
 export const initialSubscriptionState: SubscriptionState = {};
 
@@ -18,8 +17,7 @@ export const subscriptionReducer = (
     case subscriptionActionType.allSubscriptions:
       return {
         ...state,
-        allSubscription: payload,
-      };
+        allSubscription: payload};
     default:
       return state;
   }
@@ -36,13 +34,11 @@ export const useSubscription = () => {
         const payload = res?.data?.items;
         dispatch({
           payload,
-          type: subscriptionActionType.allSubscriptions,
-        });
+          type: subscriptionActionType.allSubscriptions});
 
         return payload;
       } catch (error) {
         return Promise.reject(error);
       }
-    },
-  };
+    }};
 };

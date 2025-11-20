@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, ScrollView } from 'react-native';
+;
 import { styles } from './styles';
 import { images } from '../../../resources/constants';
 
@@ -12,18 +12,18 @@ type headerProps = {
 
 const MainPageHeader = ({ title, subtitle, headPhoto, noImage }: headerProps) => {
     return (
-        <View
+        <div
             style={styles.MainPageHeader}>
-            <View style={[styles.item1]}>
-                <Text style={styles.item1Title}>
+            <div style={[styles.item1]}>
+                <span style={styles.item1Title}>
                     {title}
-                </Text>
-                {subtitle && <Text style={styles.item1SubTitle}>
+                </span>
+                {subtitle && <span style={styles.item1SubTitle}>
                     {subtitle}
-                </Text>}
-            </View>
-            {!noImage && <Image source={headPhoto ? headPhoto : images.bienvenue} style={[styles.item2]} />}
-        </View>
+                </span>}
+            </div>
+            {!noImage && <img src={headPhoto ? headPhoto : images.bienvenue} style={[styles.item2]} />}
+        </div>
     )
 }
 

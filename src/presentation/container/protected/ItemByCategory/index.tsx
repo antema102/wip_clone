@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-import {
-  ScrollView,
-  View
-} from 'react-native';
+;
 import HorizontalDynamicBox from '../../../components/HorizontalDynamicBox';
 import Announces from '../Announces';
 import ListItem from '../../../components/ListItem';
@@ -22,9 +19,9 @@ const ItemByCategoryScreen = (props: any) => {
   const [item, setItem] = useState(isFormation ? '' : state?.item);
   const [isAll, setIsAll] = useState(isFormation ? true : false);
   return (
-    <View style={styles.container}>
-      <ScrollView style={{ backgroundColor: COLORS.white, borderTopLeftRadius: 20, borderTopRightRadius: 20 }}>
-        <View style={styles.containers}>
+    <div style={styles.container}>
+      <div style={{ overflowY: "auto", backgroundColor: COLORS.white, borderTopLeftRadius: 20, borderTopRightRadius: 20 }}>
+        <div style={styles.containers}>
           <HorizontalDynamicBox
             click={click}
             list={list}
@@ -39,9 +36,9 @@ const ItemByCategoryScreen = (props: any) => {
             <Announces item={item} isAll={isAll} />
           )}
 
-        </View>
-      </ScrollView>
-    </View>
+        </div>
+      </div>
+    </div>
   );
 };
 

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Modal, Text, Pressable, View, BackHandler } from 'react-native';
+import { Dialog } from 'primereact/dialog';
+
 import CustomBtn from '../../Button/button';
 import { useInscription } from '../../../../service/redux/ducks/inscription';
 import { useAuth } from '../../../../service/redux/ducks/auth';
@@ -45,8 +46,7 @@ const Popup = (props: PopupProps) => {
     handleCancelFormation,
     isBuyCredit,
     action,
-    advertisementOKAds,
-  } = props;
+    advertisementOKAds} = props;
 
   const handleExpiredToken = async () => {
     store.dispatch(setTokenStatus(false));
@@ -86,21 +86,21 @@ const Popup = (props: PopupProps) => {
     isFormation ? handleCancelFormation() : validation(!visible);
 
   return (
-    <View style={styles.centeredView}>
-      <Modal
+    <div style={styles.centeredView}>
+      <Dialog
         animationType="none"
         transparent={true}
         visible={visible}
         onRequestClose={handleCancel}>
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalText}>{message}</Text>
-            <View style={styles.buttonContainer}>
+        <div style={styles.centeredView}>
+          <div style={styles.modalView}>
+            <span style={styles.modalText}>{message}</span>
+            <div style={styles.buttonContainer}>
               <CustomBtn
                 _style={styles.buttonStyles}
                 styleBtnTxt={{ color: COLORS.white }}
                 color={COLORS.secondary}
-                onPress={expired ? handleExpiredToken : handleValidation}
+                onClick={expired ? handleExpiredToken : handleValidation}
                 title={btnTitle}
               />
               {cancel && (
@@ -108,15 +108,15 @@ const Popup = (props: PopupProps) => {
                   _style={styles.buttonStyles}
                   styleBtnTxt={{ color: COLORS.white }}
                   color={COLORS.orange}
-                  onPress={handleCancel}
+                  onClick={handleCancel}
                   title={'Annuler'}
                 />
               )}
-            </View>
-          </View>
-        </View>
-      </Modal>
-    </View>
+            </div>
+          </div>
+        </div>
+      </Dialog>
+    </div>
   );
 };
 

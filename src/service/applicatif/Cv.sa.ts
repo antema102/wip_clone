@@ -6,6 +6,5 @@ export const CvService = () => {
   return {
     findUserCv: () => findUserCv(),
 
-    findCvVideo: () => findCvVideo(),
-  };
+    findCvVideo: () => findCvVideo()};
 };

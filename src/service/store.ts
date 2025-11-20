@@ -7,8 +7,7 @@ import { combinedReducer } from './redux/ducks';
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['navigation'],
-};
+  blacklist: ['navigation']};
 
 const pReducer = persistReducer(persistConfig, combinedReducer);
 

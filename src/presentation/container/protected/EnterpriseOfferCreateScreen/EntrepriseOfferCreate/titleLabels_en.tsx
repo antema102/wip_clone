@@ -10,8 +10,7 @@ export const TitleLabels_en = {
       profil: 'Profil',
       experience: " Number of experiences",
       prestation: 'Gross Salary (Ariary) *',
-      type: "Type of offer",
-    },
+      type: "Type of offer"},
     advertisement: {
       name: 'Titled',
       description: 'Description',
@@ -29,22 +28,18 @@ export const TitleLabels_en = {
       age: "Targeted age group",
       image: 'Import file',
       pet: 'Pet',
-      transport: 'Means of transport',
-    },
+      transport: 'Means of transport'},
     tender: {
       title: 'Title',
       detail: 'Detail',
       audience: 'Target',
       tarif: 'Duration of the tariff',
-      date: 'Publication date',
-    },
+      date: 'Publication date'},
     titleLab: {
       visual_pub: 'Advertising visualization',
       visual_annonce: 'Viewing the classified ad',
       create_pub: 'Creation of new advertising',
       create_annonce: 'Creation of new classified ad',
       create_offer: "Creation of new call for tender",
-      create_job: 'Creation of job offer',
-    },
-  };
+      create_job: 'Creation of job offer'}};
   

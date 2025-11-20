@@ -12,8 +12,7 @@ export interface IError {
   portfolio: string;
   recommandation: any,
   fileCv: string,
-  socioLink: string,
-}
+  socioLink: string}
 
 export const showErrorValuesDefault = {
   // job
@@ -46,8 +45,7 @@ export const showErrorValuesSubmit = {
   portfolio: true,
   recommandation: false,
   fileCv : true,
-  socioLink :true,
-};
+  socioLink :true};
 
 export const defaultValues: IError = {
   // job
@@ -63,5 +61,4 @@ export const defaultValues: IError = {
   portfolio: '',
   recommandation: '',
   fileCv:'',
-  socioLink:'',
-};
+  socioLink:''};

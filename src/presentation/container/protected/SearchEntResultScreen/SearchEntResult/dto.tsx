@@ -30,8 +30,7 @@ export const showErrorValuesDefault =
 
     // other
     // centerIntrest: false,
-    // somethingAboutU: false,
-}
+    // somethingAboutU: false}
 
 export const showErrorValuesSubmit =
 {
@@ -48,8 +47,7 @@ export const showErrorValuesSubmit =
 
     // other
     // centerIntrest: true,
-    // somethingAboutU: true,
-}
+    // somethingAboutU: true}
 
 export const defaultValues: IError =
 {
@@ -66,5 +64,4 @@ export const defaultValues: IError =
 
     // other
     // centerIntrest: '',
-    // somethingAboutU: '',
-}
+    // somethingAboutU: ''}

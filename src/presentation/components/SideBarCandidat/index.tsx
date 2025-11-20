@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { View, Text, TouchableOpacity, Image } from 'react-native';
+;
 import 'primeicons/primeicons.css';
 import { DataView } from 'primereact/dataview';
 import './styles.css';
@@ -51,13 +51,13 @@ const SideBarCandidat = (): any => {
   const itemTemplate = (data: any) => {
     const spotImage = `${data?.thumbnail}`;
     return (
-      <TouchableOpacity
+      <button
         style={stylesCard.card}
-        onPress={async () => {
+        onClick={async () => {
           showingTheVideo(data?.id);
         }}
       >
-        <View style={{ flex: 1 }}>
+        <div style={{ flex: 1 }}>
           {fileVideo !== '' && idActive === data?.id ? (
             <VideoPlayer
               width={'100%'}
@@ -75,22 +75,21 @@ const SideBarCandidat = (): any => {
             </>
           )}
           {idActive === data?.id && isLoading && <MiniLoader />}
-        </View>
-        <View style={stylesCard.cardBody}>
-          <Text style={stylesCard.price}>{data?.name}</Text>
-          <Text numberOfLines={4} style={stylesCard.address}>
+        </div>
+        <div style={stylesCard.cardBody}>
+          <span style={stylesCard.price}>{data?.name}</span>
+          <span numberOfLines={4} style={stylesCard.address}>
             {data?.description}
-          </Text>
-        </View>
-      </TouchableOpacity>
+          </span>
+        </div>
+      </button>
     );
   };
 
   const getAllSpotVideo = async () => {
     const dataSpot = {
       category: 'spot',
-      audience: user?.role === 'company' ? 1 : 0,
-    };
+      audience: user?.role === 'company' ? 1 : 0};
     try {
       const responseSpot = await getAdvertisementsByCategory(
         dataSpot,
@@ -119,8 +118,7 @@ const SideBarCandidat = (): any => {
     navigation('/ListScreen', {
       state: {
         title: "Liste des appels d'offres",
-        companyName: item,
-      }
+        companyName: item}
     });
   };
 
@@ -135,7 +133,7 @@ const SideBarCandidat = (): any => {
   }, []);
 
   return (
-    <View style={user.role === 'candidate' ? [stylesCard.container, stylesCard.propertyListContainer] : {}}>
+    <div style={user.role === 'candidate' ? [stylesCard.container, stylesCard.propertyListContainer] : {}}>
       {
         user.role === 'candidate' &&
         <AdsSideBar />
@@ -162,7 +160,7 @@ const SideBarCandidat = (): any => {
         <DefaultSideBar />
       )}
 
-    </View>
+    </div>
   );
 };
 

@@ -1,9 +1,9 @@
-import { StyleSheet, Dimensions } from 'react-native';
+;
 import { COLORS, SIZES } from '../../../../resources/constants';
 
-const windowDim = Dimensions.get('window').width;
+const windowDim = window.innerWidth;
 
-export default StyleSheet.create({
+export default ({
   stHeader: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -11,98 +11,79 @@ export default StyleSheet.create({
     // width: windowDim,
     flex: 1,
     borderRadius: 0,
-    padding: 24,
-  },
+    padding: 24},
   main_container: {
-    flex: 1,
-  },
+    flex: 1},
   pageContainer: {
     paddingHorizontal: SIZES.padding,
     marginTop: 0,
-    marginBottom: 70,
-  },
+    marginBottom: 70},
   image2: {
     width: 64,
     height: 64,
     borderRadius: 32,
-    backgroundColor: 'gray',
-  },
+    backgroundColor: 'gray'},
   image3: {
     width: 76,
     height: 76,
-    backgroundColor: 'white',
-  },
+    backgroundColor: 'white'},
   textContainer: {
     flex: 1,
-    paddingHorizontal: SIZES.padding,
-  },
+    paddingHorizontal: SIZES.padding},
   bloc3: {
     width: 363,
     height: 80,
-    flexDirection: 'row',
-  },
+    flexDirection: 'row'},
   ButtonBloc: {
     flexDirection: 'column',
     height: 156,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F0F9FF',
-  },
+    backgroundColor: '#F0F9FF'},
   image: {
     width: 80,
     height: 80,
-    borderRadius: 8,
-  },
+    borderRadius: 8},
   titlePrimaire: {
     fontWeight: 'bold',
     fontSize: SIZES.h5,
     color: COLORS.primary,
-    lineHeight: 16,
-  },
+    lineHeight: 16},
   descriptionPrimary: {
     fontSize: SIZES.body5,
     color: COLORS.black,
     marginVertical: 10,
-    // width: windowDim - 130,
-  },
+    // width: windowDim - 130},
   navigator: {
-    flex: 1,
-  },
+    flex: 1},
   container: {
-    marginTop: 10,
-  },
+    marginTop: 10},
   item: {
     backgroundColor: 'white',
     padding: 5,
     marginVertical: 8,
     marginHorizontal: 16,
-    flexDirection: 'row',
-  },
+    flexDirection: 'row'},
   item2: {
     backgroundColor: 'white',
     padding: 5,
     marginVertical: 8,
     marginHorizontal: 5,
-    flexDirection: 'row',
-  },
+    flexDirection: 'row'},
   title: {
     height: 24,
     fontFamily: 'regular',
-    fontSize: 16,
-  },
+    fontSize: 16},
   title1: {
     height: 50,
     fontSize: 16,
-    textAlign: 'center',
-  },
+    textAlign: 'center'},
   containerAreaButton: {
     marginTop: SIZES.padding,
     // width: windowDim - 50,
-    flex: 1,
-  },
+    flex: 1},
   screenContainer: {
-    alignItems:'flex-end',
-  },
+    alignItems:'flex-end'},
 
   screenContainer2: {
     flex: 1,
@@ -130,8 +111,7 @@ export default StyleSheet.create({
     width: '20%',
     position: 'absolute',
     right: 0,
-    top: 20,
-  },
+    top: 20},
   ModifyButtonContainerSpecial: {
     backgroundColor: COLORS.secondary,
     borderRadius: 10,
@@ -139,21 +119,18 @@ export default StyleSheet.create({
     paddingHorizontal: 16,
     paddingRight: 30,
     // width: windowDim / 2 - 20,
-    height: 50,
-  },
+    height: 50},
   UndoButtonContainer: {
     // elevation: 8,
     backgroundColor: COLORS.orange,
     borderRadius: 10,
     paddingVertical: 10,
-    paddingHorizontal: 16,
-  },
+    paddingHorizontal: 16},
   ModifyButtonText: {
     fontSize: 16,
     color: '#fff',
     alignSelf: 'center',
-    fontWeight: 'bold',
-  },
+    fontWeight: 'bold'},
   text10: {
     width: 363,
     height: 100,
@@ -161,8 +138,7 @@ export default StyleSheet.create({
     lineHeight: 150,
     marginTop: 24,
     color: '#00003E',
-    marginLeft: 0,
-  },
+    marginLeft: 0},
   textTitle: {
     flex: 1,
     fontSize: 16,
@@ -178,8 +154,7 @@ export default StyleSheet.create({
     height: 50,
     borderColor: '#000000',
     borderWidth: 1,
-    paddingLeft: 5,
-  },
+    paddingLeft: 5},
   contentStyle: {},
   iconActus: {
     width: 24,
@@ -197,58 +172,47 @@ export default StyleSheet.create({
     alignItems: 'center',
     minHeight: 72,
     borderBottomColor: COLORS.gray_border,
-    borderBottomWidth: 1,
-  },
+    borderBottomWidth: 1},
   valueActus: {
     flex: 1,
     flexWrap: 'wrap',
     color: COLORS.black,
-    fontSize: SIZES.h5,
-  },
+    fontSize: SIZES.h5},
   date_text: {
     textAlign: 'right',
-    fontSize: 14,
-  },
+    fontSize: 14},
   itemWrapperOffer: {
-    paddingHorizontal: SIZES.padding,
-  },
+    paddingHorizontal: SIZES.padding},
   itemOffer: {
     flexDirection: 'row',
     borderBottomColor: COLORS.gray_border,
     borderBottomWidth: 1,
     borderStyle: 'dashed',
-    paddingVertical: SIZES.padding,
-  },
+    paddingVertical: SIZES.padding},
   logoSte: {
     width: 48,
     height: 48,
     borderRadius: SIZES.radiusTwo,
-    marginRight: SIZES.padding2,
-  },
+    marginRight: SIZES.padding2},
   titlePost: {
     fontFamily: 'Oxygen-Bold',
     color: COLORS.black,
     fontSize: SIZES.h5,
-    // width: windowDim - 110,
-  },
+    // width: windowDim - 110},
   textAlign: {
-    alignItems: 'flex-start',
-  },
+    alignItems: 'flex-start'},
   lieuPost: {
     fontFamily: 'Oxygen-Regular',
     color: COLORS.black,
     fontSize: SIZES.body5,
-    flexWrap: 'wrap',
-  },
+    flexWrap: 'wrap'},
   periodePost: {
     fontFamily: 'Oxygen-Regular',
     color: COLORS.secondary,
     fontSize: SIZES.body5,
-    marginTop: 12,
-  },
+    marginTop: 12},
   contenOffer: {
-    marginBottom: 60,
-  },
+    marginBottom: 60},
   centeredView: {
     flex: 1,
     justifyContent: "center",
@@ -270,8 +234,7 @@ export default StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
     // width: windowDim - 48,
-    paddingHorizontal: SIZES.padding,
-  },
+    paddingHorizontal: SIZES.padding},
   buttonAnnuler: {
     height: 50,
     borderRadius: SIZES.radius,
@@ -284,15 +247,11 @@ export default StyleSheet.create({
     marginBottom: SIZES.padding2,
     width: '20%',
     left: 0,
-    top: 20,
-
-  },
+    top: 20},
   buttonOpen: {
-    backgroundColor: "#F194FF",
-  },
+    backgroundColor: "#F194FF"},
   buttonClose: {
-    backgroundColor: "#2196F3",
-  },
+    backgroundColor: "#2196F3"},
   textStyle: {
     color: "white",
     fontFamily: 'Oxygen-Bold',
@@ -311,27 +270,22 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: SIZES.padding2,
-    // width: windowDim - 96,
-  },
+    // width: windowDim - 96},
   btnTxt: {
     color: COLORS.white,
     fontWeight: 'bold',
-    fontSize: SIZES.h5,
-  },
+    fontSize: SIZES.h5},
   buttonContainer: {
     marginTop: 20,
-    marginBottom: -10,
-  },
+    marginBottom: -10},
   textBtnSecondary: {
     color: COLORS.secondary,
     fontWeight: 'bold',
-    fontSize: SIZES.h5,
-  },
+    fontSize: SIZES.h5},
   textBtnSecondary2: {
     color: COLORS.white,
     fontWeight: 'bold',
-    fontSize: SIZES.h5,
-  },
+    fontSize: SIZES.h5},
   button: {
     borderRadius: 20,
     padding: 10,
@@ -350,28 +304,23 @@ export default StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     justifyContent: 'center',
-    padding: 50,
-  },
+    padding: 50},
   pickedDateContainer: {
     padding: 20,
     backgroundColor: '#eee',
-    borderRadius: 10,
-  },
+    borderRadius: 10},
   pickedDate: {
     fontSize: 18,
-    color: 'black',
-  },
+    color: 'black'},
   btnContainer: {
-    padding: 30,
-  },
+    padding: 30},
   // This only works on iOS
   datePicker: {
     width: 320,
     height: 260,
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'flex-start',
-  },
+    alignItems: 'flex-start'},
   specialborderForm: {
     flex: 1,
     borderWidth: 1,
@@ -385,6 +334,4 @@ export default StyleSheet.create({
     fontSize: 16,
     color: '#000000',
     marginBottom: 20
-  },
-
-});
+  }});

@@ -1,12 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import {
-    View,
-    Text,
-    Modal,
-    Image,
-    TouchableOpacity,
-    Platform,
-} from 'react-native';
+import { Dialog } from 'primereact/dialog';
+
 
 import { styles } from './styles';
 import CustomButton from '../Button/Pressable';
@@ -21,56 +15,52 @@ interface Props {
     actionDelete?: any;
 }
 
-export const ItemTender = ({
+export const ItemTender = {
     item1,
     item2,
     item,
     action,
     isDelete,
-    actionDelete,
-}: Props) => {
+    actionDelete}: Props) => {
     const direction = async () => {
         action(item?.id);
     };
     return (
-        <View style={styles.subscriptionContainer}>
-            <View
-                style={[
-                    styles.subscriptionDetailsContainer,
-                    isDelete ? {} : styles.noStyle,
-                ]}>
-                <View style={styles.abonnementList}>
-                    <Text style={styles.subscriptionName} numberOfLines={2}>
+        <div style={styles.subscriptionContainer}>
+            <div
+                style={{...styles.subscriptionDetailsContainer, ...(isDelete ? {} : styles.noStyle), ...}}>
+                <div style={styles.abonnementList}>
+                    <span style={styles.subscriptionName} numberOfLines={2}>
                         {item1}
-                    </Text>
-                    <View style={styles.description}>
-                        <Text style={styles.descriptionText}>{item2}</Text>
-                    </View>
-                </View>
+                    </span>
+                    <div style={styles.description}>
+                        <span style={styles.descriptionText}>{item2}</span>
+                    </div>
+                </div>
 
-                <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', gap: 14, justifyContent: 'center' }}>
-                    <View>
+                <div style={{ flex: 1, flexDirection: 'row', alignItems: 'center', gap: 14, justifyContent: 'center' }}>
+                    <div>
                         <CustomButton
                             color={COLORS.orange}
                             title="Voir l'appel d'offre"
-                            onPress={direction}
+                            onClick={direction}
                             _style={styles.smallButtonContainer}
                             styleBtnTxt={styles.smallBtnTxt}
                         />
-                    </View>
+                    </div>
                     {isDelete && (
-                        <View>
+                        <div>
                             <CustomButton
                                 color={COLORS.red_color}
                                 title="Supprimer"
-                                onPress={actionDelete}
+                                onClick={actionDelete}
                                 _style={styles.smallButtonContainer}
                                 styleBtnTxt={styles.smallBtnTxt}
                             />
-                        </View>
+                        </div>
                     )}
-                </View>
-            </View>
-        </View>
+                </div>
+            </div>
+        </div>
     );
 };

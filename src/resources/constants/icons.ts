@@ -218,5 +218,4 @@ export default {
   templateFiles,
   folder_icons,
   eye,
-  deletes,
-};
+  deletes};

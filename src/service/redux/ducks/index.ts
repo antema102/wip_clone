@@ -24,5 +24,4 @@ export const combinedReducer = combineReducers({
   subscription,
   formation,
   payment,
-  tender,
-});
+  tender});

@@ -19,8 +19,7 @@ export const showErrorValuesDefault = {
   contrat: false,
   profil: false,
   experience:false,
-  prestation: false,
-};
+  prestation: false};
 export const showErrorValuesSubmit = {
   name:  true,
   description:  true,
@@ -30,8 +29,7 @@ export const showErrorValuesSubmit = {
   contrat: true,
   profil:  true,
   experience:  true,
-  prestation: true,
-};
+  prestation: true};
 
 export const defaultValues: IError = {
   name:  '',
@@ -42,5 +40,4 @@ export const defaultValues: IError = {
   contrat:'',
   profil: '',
   experience: '',
-  prestation: '',
-};
+  prestation: ''};

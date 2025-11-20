@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import { Platform } from 'react-native';
+;
 import { IError, defaultErrorsValues, defaultValues, showErrorValuesDefault, showErrorValuesSubmit } from './dto';
 import { useMatching } from '../../../../../service/redux/ducks/matching';
 import { MATCHING } from '../../../../../data/constants/strings';
@@ -30,8 +30,7 @@ export const useForm = (
     setPopupData(previousState => ({ ...previousState, visibility: newState }));
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
-    });
+      behavior: 'smooth'});
   };
 
   React.useEffect(() => {
@@ -49,8 +48,7 @@ export const useForm = (
         _value = {
           uri: value.uri,
           type: value.type,
-          name: value.fileName,
-        };
+          name: value.fileName};
       }
       setValues(previousValue => ({ ...previousValue, [name]: _value }));
     }
@@ -85,128 +83,98 @@ export const useForm = (
     const data: DataType = {
       activitySector: {
         value: 'string',
-        score: 0,
-      },
+        score: 0},
       desiredPost: {
         value: 'string',
-        score: 0,
-      },
+        score: 0},
       salary: {
         valueMin: 0,
         valueMax: 0,
-        score: 0,
-      },
+        score: 0},
       dateofBirth: {
         valueMin: 0,
         valueMax: 0,
-        score: 0,
-      },
+        score: 0},
       language: {
         value: 'string',
-        score: 0,
-      },
+        score: 0},
       sport: {
         value: 'string',
-        score: 0,
-      },
+        score: 0},
       interest: {
         value: 'string',
-        score: 0,
-      },
+        score: 0},
       filiere: {
         value: 'string',
-        score: 0,
-      },
+        score: 0},
       level: {
         value: 'string',
-        score: 0,
-      },
+        score: 0},
       disponibility: {
         value: 'string',
-        score: 0,
-      },
+        score: 0},
       province: {
         value: 'string',
-        score: 0,
-      },
+        score: 0},
       transport: {
         value: 'string',
-        score: 0,
-      },
+        score: 0},
       zone: {
         value: 'string',
-        score: 0,
-      },
+        score: 0},
       statut: {
         value: 'string',
-        score: 0,
-      },
+        score: 0},
 
       adrsCountry: {
         value: 'string',
-        score: 0,
-      },
+        score: 0},
       adrsRegion: {
         value: 'string',
-        score: 0,
-      },
+        score: 0},
       adrsProvince: {
         value: 'string',
-        score: 0,
-      },
+        score: 0},
       adrsZone: {
         value: 'string',
-        score: 0,
-      },
+        score: 0},
       jobCountry: {
         value: 'string',
-        score: 0,
-      },
+        score: 0},
       jobRegion: {
         value: 'string',
-        score: 0,
-      },
+        score: 0},
       jobProvince: {
         value: 'string',
-        score: 0,
-      },
+        score: 0},
       jobZone: {
         value: 'string',
-        score: 0,
-      },
+        score: 0},
       yearOfExp: {
         value: 'string',
-        score: 0,
-      },
+        score: 0},
       jobType: {
         value: 'string',
-        score: 0,
-      },
+        score: 0},
       jobPlace: {
         value: 'string',
-        score: 0,
-      },
+        score: 0},
       lastjobType: {
         value: 'string',
-        score: 0,
-      },
+        score: 0},
       lastjobPlace: {
         value: 'string',
-        score: 0,
-      },
+        score: 0},
       loger: {
         value: 'string',
-        score: 0,
-      },
+        score: 0},
       recommandation: {
         value: 'string',
-        score: 0,
-      },
+        score: 0},
       candidat: {
         value: 'string',
         score: 0
-      },
-    };
+      }};
     for (const property in obj) {
       if (!property.includes('_level')) {
         if (property.includes('min')) {
@@ -496,8 +464,7 @@ export const useForm = (
                   recommandation,
                   item?.isRecommandation,
                   point21,
-                ),
-              };
+                )};
               let keys = Object.keys(matching);
               for (let i = 0; i < keys.length; i++) {
                 if (matching[keys[i]] === 'vide') {
@@ -536,14 +503,12 @@ export const useForm = (
           ? MATCHING.ERROR_SALARY
           : errorAge
             ? MATCHING.ERROR_AGE
-            : MATCHING.FILL_THE_FIELD,
-      });
+            : MATCHING.FILL_THE_FIELD});
       handleSave(errors);
     }
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
-    });
+      behavior: 'smooth'});
   };
 
   useEffect(() => {
@@ -576,6 +541,5 @@ export const useForm = (
     popupData,
     setVisiblePopup,
     errorSalary,
-    errorAge,
-  };
+    errorAge};
 };

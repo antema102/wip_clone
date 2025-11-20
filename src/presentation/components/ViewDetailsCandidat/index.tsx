@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+
 import { styles } from './styles'
 import { useMobile } from '../../../service/hooks/useMobile'
 interface ViewDetailsType {
@@ -9,29 +9,29 @@ interface ViewDetailsType {
 const ViewDetailsCandidat = ({ label, value }: ViewDetailsType) => {
     const { isMobile } = useMobile()
     return (
-        <View style={isMobile ? "" : styles.containerText}>
+        <div style={isMobile ? "" : styles.containerText}>
             {!isMobile && (
-                <Text style={styles.textLabel}>
+                <span style={styles.textLabel}>
                     {label} :
-                </Text>
+                </span>
             )}
-            <View style={isMobile ? styles.contentTextMobile : {}}>
+            <div style={isMobile ? styles.contentTextMobile : {}}>
                 {label === "Experience" && isMobile && (
-                    <Text style={{ fontSize: 12, fontWeight: '700' }}>
+                    <span style={{ fontSize: 12, fontWeight: '700' }}>
                         Experience :
-                    </Text>
+                    </span>
                 )}
                 {label === "Salaire brut (Ariary)" && isMobile ?
-                    <Text style={{ fontSize: 12 }}>
+                    <span style={{ fontSize: 12 }}>
                         {value} Ar
-                    </Text>
+                    </span>
                     :
-                    <Text style={{ fontSize: 12 }}>
+                    <span style={{ fontSize: 12 }}>
                         {value}
-                    </Text>
+                    </span>
                 }
-            </View>
-        </View>
+            </div>
+        </div>
     )
 }
 

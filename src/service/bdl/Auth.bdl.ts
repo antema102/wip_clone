@@ -27,5 +27,4 @@ export const AuthBDL = () => ({
         .get(url, token)
         .catch(exception => error(exception));
     });
-  },
-});
+  }});

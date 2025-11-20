@@ -1,5 +1,3 @@
-import { Dimensions } from 'react-native';
-
 const height = window.innerHeight;
 const width = window.innerWidth;
 
@@ -52,8 +50,7 @@ export const COLORS = {
   red_color: '#FF0000',
   gray_connect: '#6E5D5D',
   bleu_fonce_text: '#3B5998',
-  disableGray: 'rgba(240, 244, 248, 0.87)',
-};
+  disableGray: 'rgba(240, 244, 248, 0.87)'};
 
 export const SIZES = {
   // global sizes
@@ -85,20 +82,17 @@ export const SIZES = {
 
   // app dimensions
   width,
-  height,
-};
+  height};
 
 export const FONTS = {
   largeTitle: {
     fontFamily: 'IBMPlexSans-Bold',
     fontSize: SIZES.largeTitle,
-    lineHeight: 46,
-  },
+    lineHeight: 46},
   h1: {
     fontFamily: 'IBMPlexSans-Bold',
     fontSize: SIZES.h1,
-    lineHeight: 32,
-  },
+    lineHeight: 32},
   h2: { fontSize: SIZES.h2, lineHeight: 25 },
   h3: { fontSize: SIZES.h3, lineHeight: 25 },
   h4: { fontSize: SIZES.h4, lineHeight: 25 },
@@ -106,79 +100,64 @@ export const FONTS = {
   body1: {
     fontFamily: 'Oxygen-Regular',
     fontSize: SIZES.body1,
-    lineHeight: 32,
-  },
+    lineHeight: 32},
   body2: {
     fontFamily: 'Oxygen-Regular',
     fontSize: SIZES.body2,
-    lineHeight: 25,
-  },
+    lineHeight: 25},
   body3: {
     fontFamily: 'Oxygen-Regular',
     fontSize: SIZES.body3,
-    lineHeight: 20,
-  },
+    lineHeight: 20},
   body4: {
     fontFamily: 'Oxygen-Regular',
     fontSize: SIZES.body4,
-    lineHeight: 20,
-  },
+    lineHeight: 20},
   body5: {
     fontFamily: 'Oxygen-Regular',
     fontSize: SIZES.body5,
-    lineHeight: 20,
-  },
+    lineHeight: 20},
 
   oxyTitleWhite: {
     fontWeight: 'bold',
     fontSize: SIZES.h5,
     lineHeight: 20,
-    color: COLORS.white,
-  },
+    color: COLORS.white},
   oxygenListeBlack: {
     fontSize: SIZES.h5,
     lineHeight: 20,
-    color: COLORS.black,
-  },
+    color: COLORS.black},
   labelBlue: {
     fontFamily: 'Oxygen-Bold',
     color: COLORS.primary,
     fontSize: SIZES.body5,
-    lineHeight: 20,
-  },
+    lineHeight: 20},
   labelBlack: {
     fontFamily: 'Oxygen-Bold',
     color: COLORS.black,
     fontSize: SIZES.body5,
-    lineHeight: 20,
-  },
+    lineHeight: 20},
   inputText: {
     fontFamily: 'Oxygen-Bold',
     color: COLORS.black,
     fontSize: SIZES.h5,
-    marginTop: -12,
-  },
+    marginTop: -12},
   h3Black: {
     fontWeight: 'bold',
     fontSize: SIZES.h4,
     lineHeight: 25,
-    color: COLORS.black,
-  },
+    color: COLORS.black},
   btnHeader: {
     fontFamily: 'Oxygen-Regular',
     color: COLORS.black,
     fontSize: SIZES.h5,
-    lineHeight: 25,
-  },
+    lineHeight: 25},
   titleHomeBlack: {
     color: COLORS.black,
-    fontSize: SIZES.h3,
-  },
+    fontSize: SIZES.h3},
   titleBlack: {
     color: COLORS.black,
-    fontSize: SIZES.h5,
-  },
-};
+    fontSize: SIZES.h5}};
 
 const appTheme = { COLORS, SIZES, FONTS };
 

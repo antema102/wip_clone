@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+;
 import { styles } from './styles';
 import { buttonsStyles } from '../../../globalStyle/boutonStyle';
 import { SIZES, icons } from '../../../../resources/constants';
@@ -20,26 +20,25 @@ export const LayerSwitch = ({ title, btnLabel, onPress, name }: Props) => {
   const optionalFieldTitle = 'Optionnel';
 
   return (
-    <View style={styles.layerTitleContainer}>
-      <Text>
-        <Text style={buttonsStyles.titleSwitch}>{title}</Text>
+    <div style={styles.layerTitleContainer}>
+      <span>
+        <span style={buttonsStyles.titleSwitch}>{title}</span>
         {name === 'more' ? (
-          <Text
+          <span
             style={[
-              buttonsStyles.titleSwitch,
-              { fontSize: SIZES.h5 },
-            ]}>{` (${optionalFieldTitle})`}</Text>
+              buttonsStyles.title{ fontSize: SIZES.h5 },
+            ]}>{` (${optionalFieldTitle})`}</span>
         ) : null}
-      </Text>
-      <TouchableOpacity
+      </span>
+      <button
         style={[styles.imgContainer, globalStyle.elevationBlue]}
-        onPress={handleChange}>
+        onClick={handleChange}>
         {btnLabel ? (
-          <Image source={{ uri: icons.arrowFldown }} style={styles.iconMoins} />
+          <img src={icons.arrowFldown } style={styles.iconMoins} />
         ) : (
-          <Image source={{ uri: icons.arrowFlup }} style={styles.iconPlus} />
+          <img src={icons.arrowFlup } style={styles.iconPlus} />
         )}
-      </TouchableOpacity>
-    </View>
+      </button>
+    </div>
   );
 };

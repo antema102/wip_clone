@@ -124,8 +124,7 @@ const ActionProvider: React.FC<ActionProviderProps> = (props) => {
   const updateMessages = (messages: any[]) => {
     setState((prev: any) => ({
       ...prev,
-      messages: [...prev.messages, ...messages],
-    }));
+      messages: [...prev.messages, ...messages]}));
   };
 
   const homeQuestion = (message: string, payload: string) => {
@@ -164,8 +163,7 @@ const ActionProvider: React.FC<ActionProviderProps> = (props) => {
               answer,
               homeQuestion,
               questionFiltre
-            },
-          });
+            }});
         }
         return child;
       })}

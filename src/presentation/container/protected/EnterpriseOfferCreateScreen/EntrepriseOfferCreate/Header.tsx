@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
+;
 export const Header = () => {
-  return <View style={{marginTop: 40}} />;
+  return <div style={{marginTop: 40}} />;
 };

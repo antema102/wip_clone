@@ -1,20 +1,12 @@
 import React, {useState} from 'react';
-import {
-  Text,
-  View,
-  Image,
-  Modal,
-  StyleSheet,
-  Dimensions,
-  Pressable,
-  Alert,
-} from 'react-native';
+import { Dialog } from 'primereact/dialog';
+
 
 const ResumeVideo = (props: any) => {
 
   return (
-    <View style={{flex: 1, backgroundColor: '#fff'}}>
-    </View>
+    <div style={{flex: 1, backgroundColor: '#fff'}}>
+    </div>
   );
 };
 

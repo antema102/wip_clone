@@ -1,12 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import {
-    View,
-    RefreshControl,
-    TouchableOpacity,
-    ScrollView,
-    Image,
-    Text,
-} from 'react-native';
+
 import { useSelector } from 'react-redux';
 
 import { UserSA } from '../../../../service/applicatif/User.sa';
@@ -137,11 +130,11 @@ export const EnterpriseAdvertisingScreen = (props: any) => {
         getAllAdvertisementByOwnerId();
     }, [index]);
     return (
-        <View>
+        <div>
             {refreshing || loadingMobile && <Loader />}
-            <View style={styles.container}>
-                <View style={{ position: 'relative' }}>
-                    <View style={[styles.containers]}>
+            <div style={styles.container}>
+                <div style={{ position: 'relative' }}>
+                    <div style={[styles.containers]}>
 
                         <TitleRefont title={
                             user?.role === activeString.ROLEACCOUNT.company
@@ -173,13 +166,12 @@ export const EnterpriseAdvertisingScreen = (props: any) => {
                                             position: 'fixed',
                                             bottom: 56,
                                             justifyContent: 'center',
-                                            right: 500,
-                                        }
+                                            right: 500}
                                 } /> </>}
-                    </View>
-                </View>
-            </View>
-        </View>
+                    </div>
+                </div>
+            </div>
+        </div>
     );
 };
 

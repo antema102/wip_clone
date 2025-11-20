@@ -7,7 +7,7 @@ const useNews = (category: string) => {
   const [newsList, setNewsList] = useState([]);
   const [isLoading, setIsLoading] = useState(true)
   const { allNews } = NewsService();
-  const { accessToken, } = useSelector(({ auth }:any) => auth);
+  const { accessToken} = useSelector(({ auth }:any) => auth);
 
   useEffect(() => {
     getNewsList(category);
@@ -26,8 +26,7 @@ const useNews = (category: string) => {
 
   return {
     newsList,
-    isLoading,
-  };
+    isLoading};
 };
 
 export default useNews;

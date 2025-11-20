@@ -55,9 +55,7 @@ export const dateToString = (date: Date) => {
       M: 'un mois',
       MM: '%d mois',
       y: 'un an',
-      yy: '%d ans',
-    },
-  });
+      yy: '%d ans'}});
   moment.locale('fr');
   var resultDate = moment(date).format(' DD MMMM YYYY ');
   return resultDate[0].toUpperCase() + resultDate.slice(1);
@@ -83,9 +81,7 @@ export const dateToStringMoreAccurate = (date: Date) => {
       M: 'un mois',
       MM: '%d mois',
       y: 'un an',
-      yy: '%d ans',
-    },
-  });
+      yy: '%d ans'}});
   // moment.locale('fr');
   var resultDate = moment(date).format('DD MMMM YYYY à HH:mm:ss');
   return resultDate[0].toUpperCase() + resultDate.slice(1);

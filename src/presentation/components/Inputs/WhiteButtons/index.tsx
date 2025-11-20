@@ -8,7 +8,7 @@ export const WhiteButtons = (props: any) => {
   const {submitAction, submitTitle} = props;
   return (
     <Button
-      onPress={submitAction}
+      onClick={submitAction}
       styleBtnTxt={buttonsStyles.btnValiderWhite}
       styleBtnOuter={[
         buttonsStyles.btnValiderOuterWhite,
@@ -21,9 +21,7 @@ export const WhiteButtons = (props: any) => {
 
 WhiteButtons.propTypes = {
   submitAction: PropTypes.func,
-  submitTitle: PropTypes.string,
-};
+  submitTitle: PropTypes.string};
 
 WhiteButtons.defaultProps = {
-  submitTitle: 'Valider',
-};
+  submitTitle: 'Valider'};

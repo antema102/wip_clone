@@ -17,8 +17,7 @@ export const useBackup = (idCandidat) => {
     }, []);
 
   const {
-    user,
-  } = useSelector(({ auth }) => auth);
+    user} = useSelector(({ auth }) => auth);
 
   useEffect(() => {
     init();

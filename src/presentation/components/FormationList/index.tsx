@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View } from 'react-native';
+;
 import { useSelector } from 'react-redux';
 import { useFormation } from '../../../service/redux/ducks/formation';
 import { useNavigate } from 'react-router-dom';
@@ -33,9 +33,7 @@ export const EnterpriseFormationList = () => {
     navigate('/EnterpriseOfferSheetScreen', {
       state: {
         formation,
-        isFormation: true,
-      },
-    });
+        isFormation: true}});
   };
 
   useEffect(() => {
@@ -49,8 +47,8 @@ export const EnterpriseFormationList = () => {
   };
 
   return (
-    <View style={{}}>
-      <View style={stylesCard.containerFormList}>
+    <div style={{}}>
+      <div style={stylesCard.containerFormList}>
         {!isLoading ? (
           <ListFormation
             data={formationList}
@@ -61,8 +59,8 @@ export const EnterpriseFormationList = () => {
         ) : (
           <Loader />
         )}
-      </View>
-    </View>
+      </div>
+    </div>
   );
 };
 

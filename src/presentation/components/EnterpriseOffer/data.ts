@@ -7,8 +7,7 @@ export const DATA = [
     nbTrouve: '05 trouvés par WIP BOT',
     nbPostule: '12 ont postulé',
     exp: '5',
-    compatibility: '50',
-  },
+    compatibility: '50'},
   {
     id: 'bd7acb236gj7ea-c1b1-46c2-aed5-3ad53abb28ba',
     name: 'Expert Comptable',
@@ -17,8 +16,7 @@ export const DATA = [
     nbTrouve: '05 trouvés par WIP BOT',
     nbPostule: '12 ont postulé',
     exp: '5',
-    compatibility: '50',
-  },
+    compatibility: '50'},
   {
     id: 'bd7acbea-c1b1-46c26f54k0za-aed5-3ad53abb28ba',
     name: 'Expert Comptable',
@@ -27,8 +25,7 @@ export const DATA = [
     nbTrouve: '05 trouvés par WIP BOT',
     nbPostule: '12 ont postulé',
     exp: '5',
-    compatibility: '50',
-  },
+    compatibility: '50'},
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3a123sdz4d53abb28ba',
     name: 'Expert Comptable',
@@ -37,6 +34,5 @@ export const DATA = [
     nbTrouve: '05 trouvés par WIP BOT',
     nbPostule: '12 ont postulé',
     exp: '5',
-    compatibility: '50',
-  },
+    compatibility: '50'},
 ];

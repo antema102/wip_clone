@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './styles.scss';
-import { ActivityIndicator } from 'react-native';
+;
 import { COLORS, images, icons } from '../../../../resources/constants';
 import { INSCRIPTION, STRING_ALL, TEXT_INFORMATIONS } from '../../../../data/constants/strings';
 import { InscriptionService } from '../../../../service/applicatif/Inscription.sa';
@@ -30,8 +30,7 @@ const defaultValues: DefaultValuesTypes = {
 	representing: '',
 	headQuarter: '',
 	url: '',
-	fileUpload: '',
-};
+	fileUpload: ''};
 
 interface ErrorTypes {
 	compteur: boolean,
@@ -65,8 +64,7 @@ export const ValidateCompany = (props: any) => {
 	const [errors, setErrors] = useState<ErrorTypes>({
 		compteur: false,
 		nif: '',
-		stat: '',
-	});
+		stat: ''});
 
 	const [showError, setShowError] = useState(false);
 
@@ -91,8 +89,7 @@ export const ValidateCompany = (props: any) => {
 		) {
 			setErrors(previousState => ({
 				...previousState,
-				stat: INSCRIPTION.PUT_STAT_VALID,
-			}));
+				stat: INSCRIPTION.PUT_STAT_VALID}));
 		} else {
 			setErrors(previousState => ({ ...previousState, stat: '' }));
 		}
@@ -102,8 +99,7 @@ export const ValidateCompany = (props: any) => {
 		if (!/^ ?[0-9]{10} ?$/.test(values.nif)) {
 			setErrors(previousState => ({
 				...previousState,
-				nif: INSCRIPTION.PUT_NIF_VALID,
-			}));
+				nif: INSCRIPTION.PUT_NIF_VALID}));
 		} else {
 			setErrors(previousState => ({ ...previousState, nif: '' }));
 		}
@@ -120,8 +116,7 @@ export const ValidateCompany = (props: any) => {
 			) {
 				setErrors(previousState => ({
 					...previousState,
-					[element[0]]: STRING_ALL.REQUIRED_FIELD,
-				}));
+					[element[0]]: STRING_ALL.REQUIRED_FIELD}));
 			}
 		});
 	};
@@ -191,8 +186,7 @@ export const ValidateCompany = (props: any) => {
 				activity: values.activity,
 				url: values.url,
 				headQuarter: values.headQuarter,
-				carte: values.fileUpload,
-			};
+				carte: values.fileUpload};
 			const response = await postSendEmail(data);
 			if (response?.status === HttpStatus.ServerError) {
 				setIsLoading(false);
@@ -302,7 +296,7 @@ export const ValidateCompany = (props: any) => {
 							<div className='validate__btn'>
 								<button onClick={handleSubmit} disabled={!isChecked}>
 									{
-										isLoading ? <ActivityIndicator /> : 'Inscription'
+										isLoading ? <span className="spinner" /> : 'Inscription'
 									}
 								</button>
 								<button className='validate__btn--orange' onClick={() => navigate('/inscription')}>

@@ -5,5 +5,4 @@ export const studyLevel = {
   dts: 'dts',
   licence: 'bachelor',
   master: 'master',
-  master2: 'master2',
-};
+  master2: 'master2'};

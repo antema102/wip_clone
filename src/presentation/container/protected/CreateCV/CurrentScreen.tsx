@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { View, Pressable, Text, Image } from 'react-native';
+;
 import { COLORS, icons } from '../../../../resources/constants';
 import styles from './styles';
 import { useLang } from '../../../../data/translation';
@@ -27,58 +27,49 @@ export const CurrentScreen = ({ screen, onChange, dataStore, setDataStore, data 
   };
 
   return (
-    <View style={styles.CurrentScreenContainer}>
+    <div style={styles.CurrentScreenContainer}>
       {/** Affichage tout Screen */}
-      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-        <Pressable
-          style={[styles.CurrentScreenStyle, screen.current === 'info' || (screen.info && screen.type !== 'read' && screen.type !== 'update') ? styles.currentActive : '']}
-          onPress={() => handleChange('info')}>
-          <Text
-            style={[
-              styles.textSousMenu,
-              screen.current === 'info' || (screen.info && screen.type !== 'read' && screen.type !== 'update')
+      <div style={{ flexDirection: 'row', alignItems: 'center' }}>
+        <button
+          style={{...styles.CurrentScreenStyle, ...(screen.current === 'info' || (screen.info && screen.type !== 'read' && screen.type !== 'update') ? styles.currentActive : '')}}
+          onClick={() => handleChange('info')}>
+          <span
+            style={{...styles.textSousMenu, ...(screen.current === 'info' || (screen.info && screen.type !== 'read' && screen.type !== 'update')
                 ? { color: COLORS.white }
-                : { color: COLORS.black },
-            ]}>
+                : { color: COLORS.black }), ...}}>
             {activeString.CreationCV.personalInformation}
-          </Text>
-        </Pressable>
+          </span>
+        </button>
         
 
-        <Pressable
-          style={[styles.CurrentScreenStyle, screen.current === 'job' || (screen.info && screen.type !== 'read' && screen.type !== 'update') ? styles.currentActive : '']}
-          onPress={() => handleChange('job')}>
-          <Text
-            style={[
-              styles.textSousMenu,
-              screen.current === 'job' || (screen.job && screen.type !== 'read'  && screen.type !== 'update')
+        <button
+          style={{...styles.CurrentScreenStyle, ...(screen.current === 'job' || (screen.info && screen.type !== 'read' && screen.type !== 'update') ? styles.currentActive : '')}}
+          onClick={() => handleChange('job')}>
+          <span
+            style={{...styles.textSousMenu, ...(screen.current === 'job' || (screen.job && screen.type !== 'read'  && screen.type !== 'update')
                 ? { color: COLORS.white }
-                : { color: COLORS.black },
-            ]}>
+                : { color: COLORS.black }), ...}}>
             {activeString.CreationCV.job}
-          </Text>
-        </Pressable>
+          </span>
+        </button>
 
-        <Pressable
-          style={[styles.CurrentScreenStyle, screen.current === 'other' || (screen.info && screen.type !== 'read' && screen.type !== 'update') ? styles.currentActive : '']}
-          onPress={() => handleChange('other')}>
-          <Text
-            style={[
-              styles.textSousMenu,
-              screen.current === 'other' || (screen.other && screen.type !== 'read' && screen.type !== 'update')
+        <button
+          style={{...styles.CurrentScreenStyle, ...(screen.current === 'other' || (screen.info && screen.type !== 'read' && screen.type !== 'update') ? styles.currentActive : '')}}
+          onClick={() => handleChange('other')}>
+          <span
+            style={{...styles.textSousMenu, ...(screen.current === 'other' || (screen.other && screen.type !== 'read' && screen.type !== 'update')
                 ? { color: COLORS.white }
-                : { color: COLORS.black },
-            ]}>
+                : { color: COLORS.black }), ...}}>
             {activeString.CreationCV.other}
-          </Text>
-        </Pressable>
+          </span>
+        </button>
 
-      </View>
+      </div>
 
-      <View>
+      <div>
         {data}
-      </View>
+      </div>
 
-    </View>
+    </div>
   );
 };

@@ -1,13 +1,6 @@
 import React, { useState } from 'react';
-import {
-    Text,
-    View,
-    Image,
-    Modal,
-    Pressable,
-    Alert,
-    TouchableOpacity
-} from 'react-native';
+import { Dialog } from 'primereact/dialog';
+
 import axios from 'axios';
 
 import { useSelector } from 'react-redux';
@@ -108,16 +101,14 @@ const ResumeVideo = (props: any) => {
                         method: 'POST',
                         url: urls.POST_UPLOAD,
                         headers: {
-                            Authorization: `Bearer ${accessToken}`,
-                        },
+                            Authorization: `Bearer ${accessToken}`},
                         data: formData,
                         onUploadProgress: (progressEvent) => {
                             const percentCompleted = Math.round(
                                 (progressEvent.loaded * 100) / progressEvent.total
                             );
                             setProgressBar(percentCompleted);
-                        },
-                    })
+                        }})
                         .then((resp) => {
                             setProgressBar(100);
                             const isThereAnError = resp.data.isError;
@@ -155,18 +146,18 @@ const ResumeVideo = (props: any) => {
     };
 
     return (
-        <View style={styles.container}>
+        <div style={styles.container}>
             <Popup
                 message={message}
                 visible={messageVisible}
                 validation={setMessageVisible}
                 btnTitle="OK"
             />
-            <View>
+            <div>
                 {/* <Header {...props} /> */}
 
-                <View style={[styles.containers]}>
-                    <Modal
+                <div style={[styles.containers]}>
+                    <Dialog
                         animationType="slide"
                         transparent
                         visible={modalVisible}
@@ -175,70 +166,69 @@ const ResumeVideo = (props: any) => {
                         }}>
 
                         {isThereprogressStatus ? (
-                            <View style={styles.centeredView}>
+                            <div style={styles.centeredView}>
                                 <VideoProgressBar
                                     progressBar={progressBar}
                                     waitingText={messageWaiting}
                                     goBack={hideTheProgressBar}
                                 />
-                            </View>
+                            </div>
                         ) : (
-                            <View style={styles.centeredView}>
-                                <View style={styles.modalView}>
-                                    <Text style={styles.modalText}>{serverResponse}</Text>
-                                    <Pressable
+                            <div style={styles.centeredView}>
+                                <div style={styles.modalView}>
+                                    <span style={styles.modalText}>{serverResponse}</span>
+                                    <button
                                         style={[styles.button, styles.buttonClose]}
-                                        onPress={() => navigate('/home')}>
-                                        <Text style={styles.textStyle}>
+                                        onClick={() => navigate('/home')}>
+                                        <span style={styles.textStyle}>
                                             Retour à la page d'acceuil
-                                        </Text>
-                                    </Pressable>
-                                </View>
-                            </View>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
                         )}
-                    </Modal>
+                    </Dialog>
 
-                    <View style={[globalStyle.pageContainerPresentation, styles.contentPage]}>
+                    <div style={[globalStyle.pageContainerPresentation, styles.contentPage]}>
                         <TitleRefont title={state?.isShow ? activeString.RESUME_VIDEO.WELCOMING : activeString.RESUME_VIDEO.PRESENTATION} _customStyle={{ backgroundColor: COLORS.blue_back }} />
-                        <View style={styles.contentAdvice}>
-                            <Text style={styles.resumeTitle}>{activeString.RESUME_VIDEO.ADVICE}</Text>
+                        <div style={styles.contentAdvice}>
+                            <span style={styles.resumeTitle}>{activeString.RESUME_VIDEO.ADVICE}</span>
                             {adviceTexts.map((advice, index) => (
-                                <View key={index} style={globalStyle.listConseilContainer}>
-                                    <Text style={globalStyle.olListPuce}>{index + 1}</Text>
-                                    <Text style={globalStyle.olList}>{advice}</Text>
-                                </View>
+                                <div key={index} style={globalStyle.listConseilContainer}>
+                                    <span style={globalStyle.olListPuce}>{index + 1}</span>
+                                    <span style={globalStyle.olList}>{advice}</span>
+                                </div>
                             ))}
-                            <View style={globalStyle.ContainerLinkVideo}>
-                                <TouchableOpacity
-                                    onPress={() => displayVideoSpecial()}
+                            <div style={globalStyle.ContainerLinkVideo}>
+                                <button
+                                    onClick={() => displayVideoSpecial()}
                                     style={{
                                         flexDirection: 'row',
                                         alignItems: 'flex-end',
                                         borderBottomColor: COLORS.secondary,
                                         borderBottomWidth: 2,
                                         paddingBottom: 8,
-                                        width: 140,
-                                    }}>
-                                    <Text style={globalStyle.linkVideo}>{'Voir tuto'}</Text>
-                                    <Image
-                                        source={icons.playcircle}
+                                        width: 140}}>
+                                    <span style={globalStyle.linkVideo}>{'Voir tuto'}</span>
+                                    <img
+                                        src={icons.playcircle}
                                         style={{ width: 24, height: 24 }}
                                     />
-                                </TouchableOpacity>
-                            </View>
-                        </View>
+                                </button>
+                            </div>
+                        </div>
 
-                        <View style={{ marginTop: 20 }}>
-                            <View style={{ paddingVertical: 20 }}>
+                        <div style={{ marginTop: 20 }}>
+                            <div style={{ paddingVertical: 20 }}>
                                 <FileUploader color={COLORS.orange} handleFileChange={selectVideo} accept="video/*" fileName={activeString.RESUME_VIDEO.IMPORT} icon={icons.download} />
-                            </View>
-                        </View>
+                            </div>
+                        </div>
 
-                        <View style={{ marginTop: 20 }}>
+                        <div style={{ marginTop: 20 }}>
                             {isVideo && (
-                                <View style={globalStyle.btnContainer}>
+                                <div style={globalStyle.btnContainer}>
                                     <CustomButtons
-                                        onPress={() => displayVideoCandidat()}
+                                        onClick={() => displayVideoCandidat()}
                                         title={activeString.RESUME_VIDEO.DISPLAY}
                                         _style={[
                                             globalStyle.buttonHomeDisplay,
@@ -247,15 +237,15 @@ const ResumeVideo = (props: any) => {
                                         icon={icons.display}
                                         styleBtnTxt={globalStyle.bigBtnTxt}
                                     />
-                                </View>
+                                </div>
                             )}
-                        </View>
-                    </View>
+                        </div>
+                    </div>
 
-                </View>
-            </View>
+                </div>
+            </div>
             {visible ? <CustomModal title={isSpecial ? `${activeString.RESUME_VIDEO.DISPLAY}` : `${activeString.RESUME_VIDEO.IMPORT}`} visible={visible} setVisible={setVisible} content={<DisplayVideo isExample={isExample} />} /> : null}
-        </View>
+        </div>
     );
 };
 

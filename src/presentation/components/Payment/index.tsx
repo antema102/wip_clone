@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, Pressable, Modal, Image} from 'react-native';
+import { Dialog } from 'primereact/dialog';
+
 import {useSelector} from 'react-redux';
 
 import {styles} from './styles';
@@ -15,7 +16,7 @@ import Popup from '../CreateCV/Popup';
 
 export const SubscriptionComponent = props => {
   const {item} = props;
-  const [isShowModal, setIsShowModal] = useState(false);
+  const [isShowsetIsShowModal] = useState(false);
   const onPressDetail = () => {
     setIsShowModal(true);
   };
@@ -33,8 +34,7 @@ export const SubscriptionComponent = props => {
   const handlePayment = async (id: string, price: number) => {
     const data = {
       userId: user.id,
-      montant: price,
-    };
+      montant: price};
     const response = await buySubscription(accessToken, data, id);
     if (response && response.data.isError) {
       setMessage(response.data.message);
@@ -50,43 +50,43 @@ export const SubscriptionComponent = props => {
   };
 
   return (
-    <View style={styles.subscriptionContainer}>
+    <div style={styles.subscriptionContainer}>
         <Popup
           message={message}
           visible={messageVisible}
           validation={setMessageVisible}
           btnTitle="Ok"
         />
-      <Pressable onPress={null}>
-        <View style={styles.subscriptionDetailsContainer}>
-          <View style={styles.abonnementList}>
-            <Text style={styles.subscriptionName} numberOfLines={2}>
+      <button onClick={null}>
+        <div style={styles.subscriptionDetailsContainer}>
+          <div style={styles.abonnementList}>
+            <span style={styles.subscriptionName} numberOfLines={2}>
               {item.name}
-            </Text>
-            <View style={styles.description}>
-              <Text
-                style={styles.descriptionText}>{`${item.price} Ariary`}</Text>
-            </View>
-          </View>
-          <View style={styles.btnBuy}>
+            </span>
+            <div style={styles.description}>
+              <span
+                style={styles.descriptionText}>{`${item.price} Ariary`}</span>
+            </div>
+          </div>
+          <div style={styles.btnBuy}>
             <CustomButton
               color={COLORS.orange}
               title="Détails"
-              onPress={onPressDetail}
+              onClick={onPressDetail}
               _style={styles.smallButtonContainer}
               styleBtnTxt={styles.smallBtnTxt}
             />
-          </View>
-        </View>
-      </Pressable>
-      <Modal
+          </div>
+        </div>
+      </button>
+      <Dialog
         animationType="none"
         transparent={true}
         visible={isShowModal}
         onRequestClose={onCloseDetail}>
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <View
+        <div style={styles.centeredView}>
+          <div style={styles.modalView}>
+            <div
               style={{
                 width: '100%',
                 flexDirection: 'row',
@@ -94,49 +94,48 @@ export const SubscriptionComponent = props => {
                 justifyContent: 'flex-end',
                 marginTop: -20,
                 paddingBottom: 5,
-                marginRight: -10,
-              }}>
-              <Pressable onPress={onCloseDetail}>
-                <View
+                marginRight: -10}}>
+              <button onClick={onCloseDetail}>
+                <div
                   style={{
                     height: 30,
                     paddingLeft: 10,
                     paddingTop: 5,
                     right: 0
                   }}>
-                 <Image source={icons.Close} style={styles.icon}  />
-                </View>
-              </Pressable>
-            </View>
-            <View style={{paddingBottom: 10}}>
-              <Text style={[globalStyle.titleHome, {fontSize: 40, marginTop: 10}]}>{item.name}</Text>
-            </View>
-            <View style={styles.detailSub}>
-              <View style={styles.detailItem}>
-                <Text style={styles.titleDetails}>Durée: </Text>
-                <Text
-                  style={styles.detailValue}>{` ${item.duration} jours`}</Text>
-              </View>
-              <View style={styles.detailItem}>
-                <Text style={styles.titleDetails}>Prix: </Text>
-                <Text
-                  style={styles.detailValue}>{` ${item.price} Ariary`}</Text>
-              </View>
-              <View>
-                <Text style={styles.titleDetails}>Détails: </Text>
-                <Text style={styles.detailValue}>{item?.description}</Text>
-              </View>
-            </View>
-            <View style={{width: '60%', marginTop: 10}}>
-              <Pressable
+                 <img src={icons.Close} style={styles.icon}  />
+                </div>
+              </button>
+            </div>
+            <div style={{paddingBottom: 10}}>
+              <span style={[globalStyle.titleHome, {fontSize: 40, marginTop: 10}]}>{item.name}</span>
+            </div>
+            <div style={styles.detailSub}>
+              <div style={styles.detailItem}>
+                <span style={styles.titleDetails}>Durée: </span>
+                <span
+                  style={styles.detailValue}>{` ${item.duration} jours`}</span>
+              </div>
+              <div style={styles.detailItem}>
+                <span style={styles.titleDetails}>Prix: </span>
+                <span
+                  style={styles.detailValue}>{` ${item.price} Ariary`}</span>
+              </div>
+              <div>
+                <span style={styles.titleDetails}>Détails: </span>
+                <span style={styles.detailValue}>{item?.description}</span>
+              </div>
+            </div>
+            <div style={{width: '60%', marginTop: 10}}>
+              <button
                 style={[styles.buttonAcheter]}
-                onPress={() => handlePayment(item?.id, item?.price)}>
-                <Text style={styles.textBtnSecondary}>Acheter l'offre</Text>
-              </Pressable>
-            </View>
-          </View>
-        </View>
-      </Modal>
-    </View>
+                onClick={() => handlePayment(item?.id, item?.price)}>
+                <span style={styles.textBtnSecondary}>Acheter l'offre</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </Dialog>
+    </div>
   );
 };

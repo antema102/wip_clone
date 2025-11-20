@@ -1,9 +1,9 @@
-import {StyleSheet, Dimensions} from 'react-native';
+;
 import { COLORS, SIZES } from '../../../resources/constants';
 
-let windowWidth = Dimensions.get('window').width;
+let windowWidth = window.innerWidth;
 
-export const styles = StyleSheet.create({
+export const styles = {
   abonnementList: {
     flex:3
   },
@@ -21,50 +21,43 @@ export const styles = StyleSheet.create({
   noStyle: {},
   btnDetail: {
     marginTop: 16,
-    paddingBottom: 16,
-  },
+    paddingBottom: 16},
 
 
   description: {
     marginRight: 16,
     marginTop: 16,
     // paddingBottom: 16,
-    textAlignVertical: 'center',
-  },
+    textAlignVertical: 'center'},
 
   subscriptionName: {
     fontSize: 16,
     color: COLORS.black,
-    fontWeight: 'bold',
-  },
+    fontWeight: 'bold'},
   descriptionText: {
     fontSize: 12,
     color: COLORS.black,
     fontWeight: 'normal',
     letterSpacing: 0.2,
     // height: windowWidth * 0.04,
-    textAlignVertical: 'center',
-  },
+    textAlignVertical: 'center'},
 
   smallBtnTxt: {
     fontSize: SIZES.body5,
     color: COLORS.white,
-    fontWeight: '700',
-  },
+    fontWeight: '700'},
   smallButtonContainer: {
     height: 32,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: SIZES.radiusTwo,
-    paddingHorizontal: 8,
-  },
+    paddingHorizontal: 8},
   centeredView: {
     flex: 1,
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'black',
-  },
+    backgroundColor: 'black'},
 
   buttonAcheter: {
     height: 50,
@@ -74,32 +67,26 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 1,
     borderColor: COLORS.secondary,
-    marginBottom: SIZES.padding2,
-  },
+    marginBottom: SIZES.padding2},
   detailSub: {
     marginBottom: 20,
-    marginTop: 20,
-  },
+    marginTop: 20},
   titleDetails: {
     fontStyle: 'normal',
     fontWeight: '400',
-    color: '#01129E',
-  },
+    color: '#01129E'},
   detailValue: {
     fontStyle: 'normal',
     fontWeight: '400',
-    color: '#323F4B',
-  },
+    color: '#323F4B'},
   detailItem: {
     display: 'flex',
     flexDirection: 'row',
-    marginBottom: 15,
-  },
+    marginBottom: 15},
   textBtnSecondary: {
     color: COLORS.white,
     fontWeight: 'bold',
-    fontSize: SIZES.h5,
-  },
+    fontSize: SIZES.h5},
   modalView: {
     width: '90%',
     margin: 20,
@@ -112,15 +99,11 @@ export const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 2,
-    },
+      height: 2},
     shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 5,
-  },
+    elevation: 5},
   buttonContainer: {
     marginTop: 20,
     flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-});
+    justifyContent: 'space-between'}});

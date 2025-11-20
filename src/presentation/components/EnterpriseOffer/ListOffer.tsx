@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { View, Text } from 'react-native';
+;
 import { DataView } from 'primereact/dataview';
 import { Offer } from '../Offer';
 import { useNavigate } from 'react-router-dom'
@@ -41,7 +41,7 @@ export const ListOffer = (props: ListOfferProps) => {
             : (data && Array.isArray((data as any).items) ? (data as any).items : []));
 
     return (
-        <View style={{}}>
+        <div style={{}}>
             {/** Listes des Offres */}
             {offersArray.length ?
                 <DataView
@@ -52,9 +52,9 @@ export const ListOffer = (props: ListOfferProps) => {
                     paginatorTemplate={paginatorTemplateCustom}
                     rows={4}
                 /> :
-                <View style={{ marginHorizontal: 'auto', paddingTop: 34 }}>
-                    <Text style={{ fontWeight: 700 }}> {activeString.OFFERS.NO_OFFER} </Text>
-                </View>
+                <div style={{ marginHorizontal: 'auto', paddingTop: 34 }}>
+                    <span style={{ fontWeight: 700 }}> {activeString.OFFERS.NO_OFFER} </span>
+                </div>
             }
             <FixedButtonCircle handleNavigate={createOffer}
                 activeTooltip={true}
@@ -65,9 +65,8 @@ export const ListOffer = (props: ListOfferProps) => {
                     position: 'fixed',
                     bottom: 56,
                     justifyContent: 'center',
-                    right: 500,
-                }} />
-        </View>
+                    right: 500}} />
+        </div>
     );
 };
 

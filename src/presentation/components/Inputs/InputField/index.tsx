@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native';
+;
 import PropTypes from 'prop-types';
 
 import { formsStyles } from '../../../globalStyle/formStyles';
@@ -27,8 +27,7 @@ export const InputField = (props: any) => {
     showEdit,
     changeEmail,
     changePassword,
-    edit,
-  } = props;
+    edit} = props;
   const handleChange = (name: string, value: string, label: string) => {
     let bSend = true;
     let data = value;
@@ -80,30 +79,17 @@ export const InputField = (props: any) => {
   };
 
   return (
-    <View style={styles.container}>
+    <div style={styles.container}>
       <TitleLabel label={label} required={required} />
-      <View
-        style={[
-          type === 'textArea'
+      <div
+        style={{...(type === 'textArea'
             ? formsStyles.itemInputStyleTextArea
-            : formsStyles.itemInputStyle,
-          required && showError && error !== '' && formsStyles.inputError,
-          {
-            backgroundColor: isEditable ? COLORS.white : COLORS.disableGray,
-          },
-        ]}
+            : formsStyles.itemInputStyle), ...required && showError && error !== '' && formsStyles.inputError, ...({
+            backgroundColor: isEditable ? COLORS.white : COLORS.disableGray}), ...}}
       >
-        <TextInput
-          style={[
-            localStyle.textIput,
-            {
-              textAlignVertical: 'top',
-              width: '90%',
-              height: type === 'textArea' ? 120 : 38,
-              borderColor: 'transparent',
-              outline: 'none',
-            },
-          ]}
+        <input
+          style={{...localStyle.textIput, ...{
+              textAlignVertical: 'top', ...width: '90%', ...(height: type === 'textArea' ? 120 : 38), ...borderColor: 'transparent', ...outline: 'none'}, ...}}
           value={value}
           multiline={type === 'textArea'}
           numberOfLines={9}
@@ -124,55 +110,53 @@ export const InputField = (props: any) => {
         />
 
         {type === 'password' && (
-          <TouchableOpacity onPress={handlePassWord}>
-            <View
+          <button onClick={handlePassWord}>
+            <div
               style={{
                 width: 60,
-                height: 30,
-              }}
+                height: 30}}
             >
               {editIcon && (
-                <Image
-                  style={[formsStyles.iconEdit, { opacity: edit ? 1 : 0.1 }]}
-                  source={icons.editOr}
+                <img
+                  style={{...formsStyles.iconEdit, ...({ opacity: edit ? 1 : 0.1 })}}
+                  src={icons.editOr}
                 />
               )}
 
               {isPasswordShown && (
-                <Image
+                <img
                   style={[formsStyles.iconEye]}
-                  source={icons.novisibility}
+                  src={icons.novisibility}
                 />
               )}
               {!editIcon && !isPasswordShown && (
-                <Image
+                <img
                   style={[formsStyles.iconEye]}
-                  source={icons.visibility}
+                  src={icons.visibility}
                 />
               )}
-            </View>
-          </TouchableOpacity>
+            </div>
+          </button>
         )}
         {showEdit && (
-          <TouchableOpacity onPress={changeEmail}>
-            <View
+          <button onClick={changeEmail}>
+            <div
               style={{
                 width: 60,
-                height: 30,
-              }}
+                height: 30}}
             >
-              <Image
-                style={[formsStyles.iconEdit, { opacity: edit ? 1 : 0.1 }]}
-                source={icons.editOr}
+              <img
+                style={{...formsStyles.iconEdit, ...({ opacity: edit ? 1 : 0.1 })}}
+                src={icons.editOr}
               />
-            </View>
-          </TouchableOpacity>
+            </div>
+          </button>
         )}
-      </View>
+      </div>
       {required && showError && errorToDisplay !== '' && (
-        <Text style={styles.textError}>{errorToDisplay}</Text>
+        <span style={styles.textError}>{errorToDisplay}</span>
       )}
-    </View>
+    </div>
   );
 };
 
@@ -194,8 +178,7 @@ InputField.propTypes = {
   showEdit: PropTypes.bool,
   changePassword: PropTypes.func,
   changeEmail: PropTypes.func,
-  edit: PropTypes.bool,
-};
+  edit: PropTypes.bool};
 
 InputField.defaultProps = {
   label: '',
@@ -209,5 +192,4 @@ InputField.defaultProps = {
   isEditable: true,
   editIcon: false,
   showEdit: false,
-  edit: false,
-};
+  edit: false};

@@ -1,11 +1,10 @@
-import { StyleSheet, Dimensions } from 'react-native';
+;
 import { COLORS, SIZES } from '../../../../../resources/constants';
-const windowDim = Dimensions.get('window').width;
+const windowDim = window.innerWidth;
 
-export const styles = StyleSheet.create({
+export const styles = {
   containers: {
-    flex: 1,
-  },
+    flex: 1},
   subscriptionContainer: {
     marginHorizontal: 50,
     marginTop: 24,
@@ -14,18 +13,15 @@ export const styles = StyleSheet.create({
     backgroundColor: COLORS.gray_border,
     borderRadius: 8,
     borderLeftWidth: 4,
-    borderLeftColor: COLORS.blue_title,
-  },
+    borderLeftColor: COLORS.blue_title},
   subscriptionText: {
     fontSize: 16,
     fontWeight: '600',
-    color: COLORS.white,
-  },
+    color: COLORS.white},
   subscriptionStatus: {
     fontSize: 16,
     fontWeight: '700',
-    color: COLORS.vector_orange,
-  },
+    color: COLORS.vector_orange},
   content: {
     marginTop: 24,
     borderWidth: 1,
@@ -36,96 +32,77 @@ export const styles = StyleSheet.create({
     borderStyle: 'dashed',
     justifyContent: 'space-between',
     flexDirection: 'row',
-    alignItems: 'center',
-  },
+    alignItems: 'center'},
   contentMobile: {
-    marginHorizontal: 24,
-  },
+    marginHorizontal: 24},
   contentDesktop: {
-    marginHorizontal: 50,
-  },
+    marginHorizontal: 50},
   title: {
     fontSize: 20,
-    fontWeight: '600',
-  },
+    fontWeight: '600'},
   warningText: {
     fontSize: 18,
     marginBottom: 8,
     color: COLORS.vector_orange,
-    fontWeight: '700',
-  },
+    fontWeight: '700'},
   buttonsStylesRefonteOrange: {
     paddingVertical: 14,
     paddingHorizontal: 18,
     backgroundColor: COLORS.vector_orange,
     borderRadius: 10,
-    flex: 1,
-  },
+    flex: 1},
   buttonsStylesRefonteBlue: {
     paddingVertical: 14,
     paddingHorizontal: 34,
     backgroundColor: COLORS.blue_title,
-    borderRadius: 10,
-  },
+    borderRadius: 10},
   buttonStyles: {
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 10,
-    height: 50,
-  },
+    height: 50},
   buttonText: {
     color: COLORS.white,
     textAlign: 'center',
     marginTop: 5,
-    fontWeight: 'bold',
-  },
+    fontWeight: 'bold'},
   buttonTextOrange: {
     color: COLORS.white,
-    fontWeight: '700',
-  },
+    fontWeight: '700'},
   buttonTextBlue: {
-    fontWeight: '700',
-  },
+    fontWeight: '700'},
   buttonTextSpecial: {
     color: COLORS.white,
     marginTop: -20,
     textAlign: 'center',
-    fontWeight: 'bold',
-  },
+    fontWeight: 'bold'},
   paymentContainer: {
     justifyContent: 'center',
-    alignItems: 'center',
-  },
+    alignItems: 'center'},
   iconStyles: {
     color: COLORS.white,
     marginTop: 5,
-    marginLeft: 500,
-  },
+    marginLeft: 500},
   alignHorizontally: {
     flexDirection: 'row',
-    marginVertical: 7,
-  },
+    marginVertical: 7},
   imgStyle: {
-    resizeMode: 'contain',
+    objectFit: 'contain' as const,
     borderRadius: 10,
     marginTop: 10,
     alignSelf: 'center',
     height: 120,
-    width: 120,
-  },
+    width: 120},
   intermediate: {
-    width: 40,
-  },
+    width: 40},
   heightForm: {
-    height: windowDim * 0.16,
-  },
+    height: windowDim * 0.16},
   submitButtons: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     height: 150,
     marginHorizontal: 100,
-    marginTop: 15,
-  },
+    marginTop: 15},
   borderForm: {
     borderWidth: 1,
     borderColor: COLORS.blue_border,
@@ -134,70 +111,53 @@ export const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingBottom: 5,
     backgroundColor: COLORS.white,
-    height: 70,
-  },
+    height: 70},
   inputWrap: {
     borderWidth: 1,
     borderColor: COLORS.blueLight,
     borderRadius: SIZES.radius,
     marginTop: SIZES.padding,
     paddingLeft: 10,
-    paddingVertical: 8,
-  },
+    paddingVertical: 8},
   inputWrapDisabled: {
-    backgroundColor: COLORS.disableGray,
-  },
+    backgroundColor: COLORS.disableGray},
   inputWrapButton: {
     marginTop: SIZES.padding,
     paddingVertical: 0,
-    height: 50,
-  },
+    height: 50},
   containerFormList: {
     width: '50%',
-    alignItems: 'center',
-  },
+    alignItems: 'center'},
   contentResultContainer: {
     alignItems: 'center',
-    paddingVertical: 100,
-  },
+    paddingVertical: 100},
   contentResult: {
-    textAlign: 'center',
-  },
+    textAlign: 'center'},
   mainContainer: {
     marginTop: 60,
     backgroundColor: COLORS.white,
     borderRadius: 10,
-    position: 'relative',
-  },
+    position: 'relative'},
   titleContainer: {
-    minWidth: 400,
-  },
+    minWidth: 400},
   titleContainerMobile: {},
   innerContainer: {
-    marginTop: 32,
-  },
+    marginTop: 32},
   formContainer: {
     borderWidth: 1,
     borderColor: COLORS.blue_title,
     borderRadius: 10,
     padding: 24,
     marginTop: 34,
-    marginBottom: 24,
-  },
+    marginBottom: 24},
   formContainerMobile: {
-    marginHorizontal: 24,
-  },
+    marginHorizontal: 24},
   formContainerDesktop: {
-    marginHorizontal: 50,
-  },
+    marginHorizontal: 50},
   errorText: {
-    color: COLORS.red_color,
-  },
+    color: COLORS.red_color},
   actionButtonContainer: {
     justifyContent: 'flex-end',
-    flexDirection: 'row',
-  },
+    flexDirection: 'row'},
   actionButtonWrapper: {
-    marginTop: 24,
-  },
-});
+    marginTop: 24}});

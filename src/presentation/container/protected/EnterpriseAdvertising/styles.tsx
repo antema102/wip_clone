@@ -1,12 +1,11 @@
-import {StyleSheet, Dimensions} from 'react-native';
+;
 import { COLORS, SIZES } from '../../../../resources/constants';
 
-let windowWidth = Dimensions.get('window').width;
+let windowWidth = window.innerWidth;
 
-export const styles = StyleSheet.create({
+export const styles = {
   container: {
-    flex: 1,
-  },
+    flex: 1},
   containers: {
     width: '100%',
     shadowColor: '#000',
@@ -16,8 +15,7 @@ export const styles = StyleSheet.create({
     minHeight:250,
     shadowOffset: {
       width: 0,
-      height: 4,
-    },
+      height: 4},
     shadowOpacity: 0.1,
     shadowRadius: 5,
     elevation: 5,
@@ -28,31 +26,25 @@ export const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'space-between',
     flexDirection: 'row',
-    backgroundColor: COLORS.secondary,
-  },
+    backgroundColor: COLORS.secondary},
   vtitle: {
-    marginBottom: 16,
-  },
+    marginBottom: 16},
   headerContainer: {
     padding: 24,
     backgroundColor: '#2ca5ff',
     height: windowWidth * 0.25,
-    maxHeight: 112,
-  },
+    maxHeight: 112},
   headerScreenTitle: {
     color: 'white',
     fontSize: 20,
-    fontFamily: 'Oxygen-Bold',
-  },
+    fontFamily: 'Oxygen-Bold'},
   textPage: {
     fontSize: 16,
     color: COLORS.black,
     fontWeight: 'bold',
-    fontFamily: 'Oxygen',
-  },
+    fontFamily: 'Oxygen'},
   headerScreenDescription: {
-    color: 'white',
-  },
+    color: 'white'},
   candidateContainer: {
     borderBottomColor: COLORS.blue_border,
     borderBottomWidth: 1,
@@ -61,46 +53,37 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 10,
     marginTop: 16,
     marginHorizontal: 16,
-    flexDirection: 'row',
-  },
+    flexDirection: 'row'},
   title: {
-    fontSize: 32,
-  },
+    fontSize: 32},
   candidateImgContainer: {
-    flex: 1,
-  },
+    flex: 1},
   candidateDetailsContainer: {
-    flex: 2,
-  },
+    flex: 2},
   candidateBtnContainer: {
     flex: 2,
-    maxWidth: 128,
-  },
+    maxWidth: 128},
   candidatImg: {
     width: 50,
     height: 50,
-    borderRadius: SIZES.radiusTwo,
-  },
+    borderRadius: SIZES.radiusTwo},
   candidatName: {
     fontSize: 16,
     color: COLORS.black,
     fontFamily: 'Oxygen-Bold',
-    height: windowWidth * 0.07,
-  },
+    height: windowWidth * 0.07},
   candidatPost: {
     fontSize: 12,
     color: COLORS.black,
     fontFamily: 'Oxygen-Regular',
     letterSpacing: 0.2,
-    height: windowWidth * 0.04,
-  },
+    height: windowWidth * 0.04},
   candidatExp: {
     fontSize: 12,
     color: COLORS.primary,
     fontFamily: 'Oxygen-Regular',
     letterSpacing: 0.2,
-    marginTop: 20,
-  },
+    marginTop: 20},
   footerContainer: {
     backgroundColor: COLORS.blue_back,
     height: 84,
@@ -109,38 +92,32 @@ export const styles = StyleSheet.create({
     paddingVertical: 0,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
-  },
+    alignItems: 'center'},
   footerScreenLabel: {
     alignSelf: 'center',
     fontSize: SIZES.body3,
     fontFamily: 'IBMPlexSans-SemiBold',
-    color: COLORS.secondary,
-  },
+    color: COLORS.secondary},
   footerScreenBtn: {},
   smallBtnTxt: {
     fontSize: SIZES.body5,
     color: COLORS.white,
-    fontFamily: 'Oxygen-Bold',
-  },
+    fontFamily: 'Oxygen-Bold'},
   smallButtonContainer: {
     height: 32,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: SIZES.radiusTwo,
-  },
+    borderRadius: SIZES.radiusTwo},
 
   // ---------------------------------------------------------
   // Refine Candidats
   // ----------------
   refineContainer: {
-    flex: 1,
-  },
+    flex: 1},
   layerContainer: {},
   layerTitleContainer: {},
   containerFormList: {
-    width: windowWidth,
-  },
+    width: windowWidth},
   noEvents: {
     paddingVertical: 50,
     paddingHorizontal: 30,

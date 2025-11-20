@@ -1,7 +1,7 @@
 import './styles.css';
 
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, Text, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
+;
 import { COLORS, icons } from '../../../resources/constants';
 import { HOME } from '../../../data/constants/strings';
 import { globalStyle } from '../../globalStyle/globalStyle';
@@ -52,29 +52,29 @@ const HomeCandidat = (props: any): any => {
     const activeString = lang === 'fr' ? stringsFr : stringsEn;
 
     return (
-        <View style={!isMobile ? styles.container : {}}>
-            <ScrollView >
-                <View style={isMobile ? styles.containersMobiles : styles.containers}>
+        <div style={!isMobile ? styles.container : {}}>
+            <div style={{overflowY: "auto"}} >
+                <div style={isMobile ? styles.containersMobiles : styles.containers}>
                     {isCV && !isVideo && (
-                        <View style={styles.containerWarning}>
-                            <View style={styles.containerTextWarning}>
-                                <Text style={styles.textWarning}>{HOME.WARNING}</Text>
-                            </View>
-                        </View>
+                        <div style={styles.containerWarning}>
+                            <div style={styles.containerTextWarning}>
+                                <span style={styles.textWarning}>{HOME.WARNING}</span>
+                            </div>
+                        </div>
                     )}
 
-                    {(!isCV || !isVideo) && (<View style={{ height: 60 }}>
-                        <Text style={[globalStyle.titleHome, { top: 10 }]}>
+                    {(!isCV || !isVideo) && (<div style={{ height: 60 }}>
+                        <span style={[globalStyle.titleHome, { top: 10 }]}>
                             {activeString.HOME.BEGIN}
-                        </Text>
-                    </View>)}
+                        </span>
+                    </div>)}
 
-                    <View style={isMobile ? "" : homeStyles.persoButtons}>
+                    <div style={isMobile ? "" : homeStyles.persoButtons}>
 
                         {!isCV && (
-                            <View style={globalStyle.btnContainer}>
+                            <div style={globalStyle.btnContainer}>
                                 <CustomButton
-                                    onPress={() => navigate('/CreateCV', { state: { isCreate: true } })}
+                                    onClick={() => navigate('/CreateCV', { state: { isCreate: true } })}
                                     title={activeString.HOME.PARCOURS}
                                     _style={[
                                         globalStyle.elevationBlue,
@@ -83,12 +83,12 @@ const HomeCandidat = (props: any): any => {
                                     icon={icons.filetext}
                                     styleBtnTxt={styles.bigBtnTxt}
                                 />
-                            </View>
+                            </div>
                         )}
 
-                        {!isVideo && (<View style={[globalStyle.btnContainer]}>
+                        {!isVideo && (<div style={[globalStyle.btnContainer]}>
                             <CustomButton
-                                onPress={handleVideo}
+                                onClick={handleVideo}
                                 title={activeString.HOME.PRESENTATION}
                                 _style={[
                                     globalStyle.elevationOrange,
@@ -99,10 +99,10 @@ const HomeCandidat = (props: any): any => {
                                 styleBtnTxt={styles.bigBtnTxt}
                                 isDisable={!isCV}
                             />
-                        </View>)}
-                    </View>
+                        </div>)}
+                    </div>
 
-                    <View>
+                    <div>
                         <WipTabs
                             News={
                                 () => (
@@ -113,15 +113,15 @@ const HomeCandidat = (props: any): any => {
                             Offers={() => <Offers {...props} />}
                             Announces={() => <AnnounceBox {...props} category={'post'} />}
                         />
-                    </View>
+                    </div>
 
-                </View>
+                </div>
 
-            </ScrollView>
-        </View>
+            </div>
+        </div>
     );
 };
-const homeStyles = StyleSheet.create({
+const homeStyles = {
     persoButtons: {
         paddingLeft: 150,
         paddingRight: 150

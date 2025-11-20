@@ -1,13 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {
-  ScrollView,
-  View,
-  Text,
-  Image,
-  FlatList,
-  TouchableOpacity,
-  Platform,
-} from 'react-native';
+
 import { resultDate } from '../../../data/factory/dateFactory';
 import { images } from '../../../resources/constants';
 import styles from './styles';
@@ -49,40 +41,40 @@ const NotificationItem = props => {
   }, []);
 
   return (
-    <TouchableOpacity onPress={() => displayDetail(item)}>
-      <View style={styles.itemWrapperOffer}>
-        <View style={styles.itemOffer}>
+    <button onClick={() => displayDetail(item)}>
+      <div style={styles.itemWrapperOffer}>
+        <div style={styles.itemOffer}>
           {isLoading ? (
             <Avatar />  
           ) : (
             avatar ? (
-              <Image
+              <img
                 style={styles.logoSte} 
-                source={{ uri: avatar }} 
+                src={avatar } 
               />
             ) : (
-              <Image
+              <img
                 style={styles.logoSte}
-                source={{ uri: images.avatar_6 }}  
+                src={images.avatar_6 }  
               />
             )
           )}
-          <View style={[styles.textAlign, { marginLeft: 16 }]}>
-            <View>
-              <Text style={styles.titlePost} numberOfLines={2}>
+          <div style={[styles.textAlign, { marginLeft: 16 }]}>
+            <div>
+              <span style={styles.titlePost} numberOfLines={2}>
                 {activeString.NOTIFICATION.RECEIPT}
-              </Text>
-            </View>
-            <View style={{ marginVertical: 5 }}>
-              <Text style={styles.lieuPost}>{item.body}</Text>
-            </View>
-            <View>
-              <Text style={styles.periodePost}>{resultDate(item.createdAt)}</Text>
-            </View>
-          </View>
-        </View>
-      </View>
-    </TouchableOpacity>
+              </span>
+            </div>
+            <div style={{ marginVertical: 5 }}>
+              <span style={styles.lieuPost}>{item.body}</span>
+            </div>
+            <div>
+              <span style={styles.periodePost}>{resultDate(item.createdAt)}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </button>
   );
 };
 

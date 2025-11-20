@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  Image
-} from 'react-native';
+;
 import 'primeicons/primeicons.css';
 import { DataView } from 'primereact/dataview';
 import { useSelector } from 'react-redux';
@@ -30,8 +25,8 @@ const DefaultSideBar = (): any => {
   const itemTemplate = (data: any) => {
     const spotImage = `${data?.thumbnail}`;
     return (
-      <TouchableOpacity style={stylesCard.card} onPress={async () => showingTheVideo(data?._id)}>
-        <View style={{ flex: 1 }}>
+      <button style={stylesCard.card} onClick={async () => showingTheVideo(data?._id)}>
+        <div style={{ flex: 1 }}>
           {
             (fileVideo !== '' && idActive === data?._id) ? (
               <VideoPlayer width={'100%'} height={200} filePath={typeof fileVideo === 'string' ? fileVideo : fileVideo?.data} poster={spotImage} isStyled={false} />
@@ -40,12 +35,12 @@ const DefaultSideBar = (): any => {
             </>)
           }
           {((idActive === data?._id) && isLoading) && <MiniLoader />}
-        </View>
-        <View style={stylesCard.cardBody}>
-          <Text style={stylesCard.price}>{data?.name}</Text>
-          <Text numberOfLines={4} style={stylesCard.address}>{data?.description}</Text>
-        </View>
-      </TouchableOpacity>
+        </div>
+        <div style={stylesCard.cardBody}>
+          <span style={stylesCard.price}>{data?.name}</span>
+          <span numberOfLines={4} style={stylesCard.address}>{data?.description}</span>
+        </div>
+      </button>
     );
   };
 

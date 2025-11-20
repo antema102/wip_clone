@@ -1,19 +1,19 @@
 import React from 'react';
-import {View} from 'react-native';
+;
 import {styles} from './styles';
 
 const ProgressBar = props => {
   const {bgcolor, level} = props;
 
   return (
-    <View style={styles.containerStyles}>
-      <View
+    <div style={styles.containerStyles}>
+      <div
         style={[
           styles.fillerStyles,
           {backgroundColor: bgcolor, width: `${level}%`},
         ]}
       />
-    </View>
+    </div>
   );
 };
 

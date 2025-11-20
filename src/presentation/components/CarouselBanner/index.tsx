@@ -3,7 +3,7 @@ import './style.scss'
 import style from './style';
 import { Carousel } from 'primereact/carousel';
 import { Image } from 'primereact/image';
-import { View, Text, TouchableOpacity } from 'react-native';
+;
 import { icons } from '../../../resources/constants';
 
 interface itemType {
@@ -24,9 +24,9 @@ const CarouselBanner = ({ data }: CarouselBannerProps) => {
             }
         };
         return (
-            <View>
-                <Image src={item.image} alt="Image" preview width="100%" height='275' className='imageCarousel' />
-            </View>
+            <div>
+                <img src={item.image} alt="Image" preview width="100%" height='275' className='imageCarousel' />
+            </div>
         )
     }
     return (

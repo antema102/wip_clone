@@ -1,6 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
+import { Dialog } from 'primereact/dialog';
 import { useNavigate } from 'react-router-dom';
-import { Text, View, Image, Modal, Pressable, TouchableOpacity, Dimensions } from 'react-native'
+
 import { Galleria } from 'primereact/galleria';
 import { images, icons } from '../../../resources/constants';
 import { adjustingImage } from '../../globalStyle/responsive';
@@ -19,16 +20,14 @@ interface Props {
   setVisible: any,
   showQuit?: boolean,
   data: any,
-  firstItem: number,
-}
+  firstItem: number}
 
-const ImageGalleria = ({
+const ImageGalleria = {
   visible,
   setVisible,
   showQuit,
   data,
-  firstItem,
-}: Props) => {
+  firstItem}: Props) => {
   const imageHeight = adjustingImage(60);
   const responsiveOptions = [
     {
@@ -68,11 +67,11 @@ const ImageGalleria = ({
   const caption = (item: { title: string, alt: string }) => {
     return (
       <React.Fragment>
-        <Text style={styles.name} numberOfLines={2}>
+        <span style={styles.name} numberOfLines={2}>
           {item.title}
-        </Text>
-        <Text
-          style={styles.descriptionText}>{item.alt}</Text>
+        </span>
+        <span
+          style={styles.descriptionText}>{item.alt}</span>
       </React.Fragment>
     );
   }
@@ -82,39 +81,38 @@ const ImageGalleria = ({
   }
 
   return (
-    <View style={styles.centeredView}>
-      <Modal
+    <div style={styles.centeredView}>
+      <Dialog
         animationType="none"
         transparent={true}
         visible={visible}
         onRequestClose={handleQuit}>
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
+        <div style={styles.centeredView}>
+          <div style={styles.modalView}>
             {showQuit && (
-              <View
+              <div
                 style={styles.iconClose}>
-                <Pressable onPress={handleQuit}>
-                  <View
+                <button onClick={handleQuit}>
+                  <div
                     style={{
                       height: 20,
                       paddingLeft: 10,
                       marginTop: -10,
                       paddingRight: 20,
-                      right: 0,
-                    }}>
-                    <Image source={{ uri: icons.Close }} style={{ tintColor: 'white', height: 20, width: 20 }} />
-                  </View>
-                </Pressable>
-              </View>
+                      right: 0}}>
+                    <img src={icons.Close } style={{ tintColor: 'white', height: 20, width: 20 }} />
+                  </div>
+                </button>
+              </div>
             )}
-            <View style={styles.container}>
+            <div style={styles.container}>
               <Galleria value={data} responsiveOptions={responsiveOptions} numVisible={3} showIndicators={true}
                 item={itemTemplate} thumbnail={thumbnailTemplate} caption={caption} style={{}} autoPlay={true} transitionInterval={5000} circular={true} activeIndex={firstItem} />
-            </View>
-          </View>
-        </View>
-      </Modal>
-    </View>
+            </div>
+          </div>
+        </div>
+      </Dialog>
+    </div>
   );
 };
 

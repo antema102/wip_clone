@@ -1,5 +1,5 @@
-import {StyleSheet} from 'react-native'
-export const stylesCard = StyleSheet.create({
+
+export const stylesCard = {
   container: {
     flex: 1,
     bottom: 20,
@@ -22,8 +22,7 @@ export const stylesCard = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-    elevation: 5,
-  },
+    elevation: 5},
   image: {
     width: '100%',
     height: 150,
@@ -35,8 +34,7 @@ export const stylesCard = StyleSheet.create({
     flex: 1,
     marginBottom: 5,
     paddingHorizontal: 10,
-    paddingVertical: '5%',
-  },
+    paddingVertical: '5%'},
   price: {
     fontSize: 20,
     fontWeight: 'bold',
@@ -56,8 +54,7 @@ export const stylesCard = StyleSheet.create({
     flexDirection: 'row',
     borderTopWidth: 1,
     borderTopColor: '#dcdcdc',
-    justifyContent: 'space-between',
-  },
+    justifyContent: 'space-between'},
   beds: {
     fontSize: 14,
     color: '#ffa500',

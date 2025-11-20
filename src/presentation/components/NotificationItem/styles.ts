@@ -1,122 +1,101 @@
-import { StyleSheet, Dimensions } from 'react-native';
+;
 import { COLORS, SIZES } from '../../../resources/constants';
 
-const windowDim = Dimensions.get('window').width;
+const windowDim = window.innerWidth;
 
-export default StyleSheet.create({
+export default ({
   stHeader: {
     flexDirection: 'row',
     height: 128,
     width: windowDim,
     borderRadius: 0,
     padding: 24,
-    backgroundColor: COLORS.blue_back,
-  },
+    backgroundColor: COLORS.blue_back},
   main_container: {
-    flex: 1,
-  },
+    flex: 1},
   pageContainer: {
     paddingHorizontal: SIZES.padding,
     marginTop: SIZES.padding,
-    marginBottom: 70,
-  },
+    marginBottom: 70},
   image2: {
     width: 30,
     height: 30,
-    backgroundColor: 'gray',
-  },
+    backgroundColor: 'gray'},
   image3: {
     width: 76,
     height: 76,
-    backgroundColor: 'white',
-  },
+    backgroundColor: 'white'},
   textContainer: {
     flexDirection: 'column',
-    paddingHorizontal: SIZES.padding,
-  },
+    paddingHorizontal: SIZES.padding},
   bloc3: {
     width: 363,
     height: 80,
-    flexDirection: 'row',
-  },
+    flexDirection: 'row'},
   ButtonBloc: {
     flexDirection: 'column',
     height: 156,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F0F9FF',
-  },
+    backgroundColor: '#F0F9FF'},
   image: {
     width: 80,
     height: 80,
-    borderRadius: 8,
-  },
+    borderRadius: 8},
   titlePrimaire: {
     fontWeight: 'bold',
     fontSize: SIZES.h5,
     color: COLORS.primary,
-    lineHeight: 16,
-  },
+    lineHeight: 16},
   descriptionPrimary: {
     fontSize: SIZES.body5,
     color: COLORS.black,
     marginVertical: 10,
-    width: windowDim - 130,
-  },
+    width: windowDim - 130},
   navigator: {
-    flex: 1,
-  },
+    flex: 1},
   container: {
-    marginTop: 10,
-  },
+    marginTop: 10},
   item: {
     backgroundColor: 'white',
     padding: 5,
     marginVertical: 8,
     marginHorizontal: 16,
-    flexDirection: 'row',
-  },
+    flexDirection: 'row'},
   item2: {
     backgroundColor: 'white',
     padding: 5,
     marginVertical: 8,
     marginHorizontal: 5,
-    flexDirection: 'row',
-  },
+    flexDirection: 'row'},
   title: {
     height: 24,
-    fontSize: 16,
-  },
+    fontSize: 16},
   title1: {
     height: 50,
     fontSize: 16,
-    textAlign: 'center',
-  },
+    textAlign: 'center'},
   containerAreaButton: {
     marginTop: SIZES.padding,
     width: windowDim - 50,
-    flex: 1,
-  },
+    flex: 1},
   screenContainer: {
     justifyContent: 'center',
     width: 250,
     padding: 16,
     position: 'relative',
-    alignItems: 'center',
-  },
+    alignItems: 'center'},
   ContactButtonContainer: {
     // elevation: 8,
     backgroundColor: COLORS.secondary,
     borderRadius: 10,
     paddingVertical: 10,
-    paddingHorizontal: 16,
-  },
+    paddingHorizontal: 16},
   ContactButtonText: {
     fontSize: 16,
     color: '#fff',
     alignSelf: 'center',
-    fontWeight: 'bold',
-  },
+    fontWeight: 'bold'},
   text10: {
     width: 363,
     height: 100,
@@ -124,8 +103,7 @@ export default StyleSheet.create({
     lineHeight: 150,
     marginTop: 24,
     color: '#00003E',
-    marginLeft: 0,
-  },
+    marginLeft: 0},
   textinput: {
     marginTop: 50,
     marginLeft: 5,
@@ -133,15 +111,13 @@ export default StyleSheet.create({
     height: 50,
     borderColor: '#000000',
     borderWidth: 1,
-    paddingLeft: 5,
-  },
+    paddingLeft: 5},
   contentStyle: {},
   iconActus: {
     width: 24,
     height: 24,
     backgroundColor: 'white',
-    marginRight: 20,
-  },
+    marginRight: 20},
   itemWrapper: {
     backgroundColor: 'white',
     padding: 0,
@@ -150,21 +126,17 @@ export default StyleSheet.create({
     alignItems: 'center',
     minHeight: 72,
     borderBottomColor: COLORS.gray_border,
-    borderBottomWidth: 1,
-  },
+    borderBottomWidth: 1},
   valueActus: {
     flex: 1,
     flexWrap: 'wrap',
     color: COLORS.black,
-    fontSize: SIZES.h5,
-  },
+    fontSize: SIZES.h5},
   date_text: {
     textAlign: 'right',
-    fontSize: 14,
-  },
+    fontSize: 14},
   itemWrapperOffer: {
-    paddingVertical: 8,
-  },
+    paddingVertical: 8},
   itemOffer: {
     flexDirection: 'row',
     borderBottomColor:'#rgba(255, 102, 0, 0.4)',
@@ -172,41 +144,33 @@ export default StyleSheet.create({
     borderStyle: 'solid',
     paddingVertical:24,
     paddingHorizontal:34,
-    alignItems: 'center',
-  
-  },
+    alignItems: 'center'},
   logoSte: {
     width: 75,
     height: 75,
-    borderRadius: '50%',
-  },
+    borderRadius: '50%'},
   titlePost: {
     fontWeight: 'bold',
     color: COLORS.vector_orange,
-    fontSize: SIZES.h5,
-  },
+    fontSize: SIZES.h5},
   textAlign: {
     flex:1
   },
   lieuPost: {
     color: COLORS.black,
     fontSize: SIZES.body5,
-    flexWrap: 'wrap',
-  },
+    flexWrap: 'wrap'},
   periodePost: {
     color: '#203F63',
     fontSize: SIZES.body5,
-    marginTop: 12,
-  },
+    marginTop: 12},
   contenOffer: {
-    marginBottom: 60,
-  },
+    marginBottom: 60},
   centeredView: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 22,
-  },
+    marginTop: 22},
   modalView: {
     margin: 20,
     backgroundColor: 'white',
@@ -216,14 +180,12 @@ export default StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 2,
-    },
+      height: 2},
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
     width: windowDim - 48,
-    paddingHorizontal: SIZES.padding,
-  },
+    paddingHorizontal: SIZES.padding},
   buttonAnnuler: {
     paddingHorizontal: SIZES.padding,
     height: 50,
@@ -235,24 +197,19 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderColor: COLORS.secondary,
     marginBottom: SIZES.padding2,
-    width: windowDim - 96,
-  },
+    width: windowDim - 96},
   buttonOpen: {
-    backgroundColor: '#F194FF',
-  },
+    backgroundColor: '#F194FF'},
   buttonClose: {
-    backgroundColor: '#2196F3',
-  },
+    backgroundColor: '#2196F3'},
   textStyle: {
     color: 'white',
     fontWeight: 'bold',
-    textAlign: 'center',
-  },
+    textAlign: 'center'},
   modalText: {
     marginBottom: 15,
     textAlign: 'center',
-    color: COLORS.black,
-  },
+    color: COLORS.black},
   buttonBlue: {
     paddingHorizontal: SIZES.padding,
     height: 52,
@@ -262,22 +219,18 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: SIZES.padding2,
-    width: windowDim - 96,
-  },
+    width: windowDim - 96},
   btnTxt: {
     color: COLORS.white,
     fontFamily: 'IBMPlexSans-SemiBold',
-    fontSize: SIZES.h5,
-  },
+    fontSize: SIZES.h5},
   buttonContainer: {
     marginTop: 20,
-    marginBottom: -10,
-  },
+    marginBottom: -10},
   textBtnSecondary: {
     color: COLORS.secondary,
     fontFamily: 'IBMPlexSans-SemiBold',
-    fontSize: SIZES.h5,
-  },
+    fontSize: SIZES.h5},
   loading_container: {
     position: 'absolute',
     left: 0,
@@ -288,18 +241,15 @@ export default StyleSheet.create({
     width: 400,
     backgroundColor: 'red',
     alignItems: 'center',
-    justifyContent: 'center',
-  },
+    justifyContent: 'center'},
   container_no_notification: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 30,
-  },
+    marginTop: 30},
   imagesDimension: {
     width: 120,
-    height: 120,
-  },
+    height: 120},
   title_no_notification: {
     marginTop: 17,
     paddingVertical: 9,
@@ -310,6 +260,4 @@ export default StyleSheet.create({
     color: '#631b87',
     textAlign: 'center',
     fontSize: 25,
-    fontWeight: 'bold',
-  },
-});
+    fontWeight: 'bold'}});

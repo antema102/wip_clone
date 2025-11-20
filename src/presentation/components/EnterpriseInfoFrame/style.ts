@@ -1,56 +1,46 @@
-import {StyleSheet, Dimensions} from 'react-native';
+;
 import { COLORS, SIZES } from '../../../resources/constants';
-const windowDimension = Dimensions.get('window').width;
+const windowDimension = window.innerWidth;
 
-export const styles = StyleSheet.create({
+export const styles = {
   containers: {
     height: '100%',
-    width: '100%',
-  },
+    width: '100%'},
   containt: {
     width: '100%',
     justifyContent: 'space-between',
     flexDirection: 'row',
-    backgroundColor: COLORS.secondary,
-  },
+    backgroundColor: COLORS.secondary},
   vtitle: {
-    marginBottom: 16,
-  },
+    marginBottom: 16},
   bigBtnTxt: {
     fontSize: SIZES.body3,
     color: COLORS.white,
-    fontWeight: 'bold',
-  },
+    fontWeight: 'bold'},
   txtDetails: {
     fontSize: SIZES.padding2,
     color: COLORS.black,
     lineHeight: 24,
     fontStyle: 'normal',
     // width: windowDimension - 48,
-    paddingRight: 8,
-  },
+    paddingRight: 8},
   offerSpace: {
-    marginTop: 24,
-  },
+    marginTop: 24},
   offerTitle: {
     fontSize: SIZES.h2,
     color: COLORS.black,
     fontWeight: 'bold',
-    alignItems: 'center',
-  },
+    alignItems: 'center'},
   offerPosition: {
     // height: windowDimension * 0.2,
-    justifyContent: 'center',
-  },
+    justifyContent: 'center'},
 
   candidatIdentity: {
     paddingBottom: 20,
-    backgroundColor: '#f0f9ff',
-  },
+    backgroundColor: '#f0f9ff'},
   candidatIdentityName: {
     color: '#01129e',
-    fontSize: 18,
-  },
+    fontSize: 18},
   offerActions: {
     paddingRight: SIZES.padding2,
     marginHorizontal: 40,
@@ -60,8 +50,7 @@ export const styles = StyleSheet.create({
     backgroundColor: COLORS.orange,
     justifyContent: 'space-between',
     alignItems: 'center',
-    overflow: 'hidden',
-  },
+    overflow: 'hidden'},
   buttonActions: {
     paddingRight: SIZES.padding2,
     marginHorizontal: 40,
@@ -70,8 +59,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row-reverse',
     backgroundColor: '#01129E',
     justifyContent: 'space-between',
-    alignItems: 'center',
-  },
+    alignItems: 'center'},
   buttonActionsOrange: {
     paddingRight: SIZES.padding2,
     marginHorizontal: 40,
@@ -80,19 +68,16 @@ export const styles = StyleSheet.create({
     flexDirection: 'row-reverse',
     backgroundColor: COLORS.orange,
     justifyContent: 'space-between',
-    alignItems: 'center',
-  },
+    alignItems: 'center'},
   compatibilityContainer: {
     backgroundColor: '#01129e',
     padding: 20,
     marginHorizontal: 20,
     flexDirection: 'row',
-    justifyContent: 'center',
-  },
+    justifyContent: 'center'},
   compatibilityItem: {
     flex: 1,
-    alignItems: 'center',
-  },
+    alignItems: 'center'},
   candidateAboutContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -100,14 +85,11 @@ export const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderStyle: 'dashed',
     marginHorizontal: 24,
-    paddingTop: 24,
-  },
+    paddingTop: 24},
   candidateAboutItem: {
-    width: '50%',
-  },
+    width: '50%'},
   candidateExpContainer: {
-    padding: SIZES.padding,
-  },
+    padding: SIZES.padding},
   candidateExpTitle: {
     fontSize: 20,
     color: COLORS.black,
@@ -115,49 +97,39 @@ export const styles = StyleSheet.create({
     lineHeight: 24,
     fontStyle: 'normal',
     marginBottom: 16,
-    letterSpacing: 0.15,
-  },
+    letterSpacing: 0.15},
   candidatExpItem: {
     paddingTop: 20,
-    flexDirection: 'row',
-  },
+    flexDirection: 'row'},
   viewBlue: {
-    marginTop: 8,
-  },
+    marginTop: 8},
   viewText: {
-    marginHorizontal: 10,
-  },
+    marginHorizontal: 10},
   pointBlue: {
     width: 8,
-    height: 8,
-  },
+    height: 8},
   compatibilityBtnContainer: {
     marginHorizontal: 20,
     paddingVertical: 20,
     backgroundColor: '#f0f9ff',
-    alignItems: 'center',
-  },
+    alignItems: 'center'},
   compatibilityBtnTitle: {
-    marginBottom: 40,
-  },
+    marginBottom: 40},
   titleh2Container: {
     height: 50,
-    justifyContent: 'center',
-  },
+    justifyContent: 'center'},
   titleh2: {
     color: COLORS.black,
     fontWeight: 'bold',
     fontSize: SIZES.h3,
-    paddingTop: 15,
-  },
+    paddingTop: 15},
   stHeader: {
     flexDirection: 'row',
     borderRadius: 0,
     paddingBottom: SIZES.padding2,
     borderBottomColor: COLORS.trait_blue,
     alignItems:'center',
-    paddingTop:16,
-  },
+    paddingTop:16},
   containerLogoEntBottom: {
     width: 135,
     height:135,
@@ -170,76 +142,63 @@ export const styles = StyleSheet.create({
     marginTop:-175
   },
   imgLogoEntBottom: {
-    resizeMode: 'cover',
+    objectFit: 'cover' as const,
     // maxHeight:80,
     // maxWidth:80,
     justifyContent: 'center',
     alignItems: 'center',
-    alignSelf: 'center',
-  },
+    alignSelf: 'center'},
   imageStyle: {
     borderRadius: 6,
     width: 135,
-    height: 135,
-  },
+    height: 135},
   textContainer: {
     flexDirection: 'column',
     paddingHorizontal: SIZES.padding,
     flex: 1,
-    paddingTop:16,
-  },
+    paddingTop:16},
   titlePrimaire: {
     fontWeight: 'bold',
     fontSize:20,
-    lineHeight: 16,
-  },
+    lineHeight: 16},
   descriptionPrimary: {
     fontSize: 12,
     color: COLORS.black,
     marginVertical: 5,
-    // width: windowDimension - 130,
-  },
+    // width: windowDimension - 130},
   paragraph: {
     fontSize: SIZES.h5,
-    color: COLORS.gray_title,
-  },
+    color: COLORS.gray_title},
   text1_2: {
     height: 30,
     fontWeight: 'bold',
     fontSize: SIZES.h5,
-    color: COLORS.secondary,
-  },
+    color: COLORS.secondary},
   dart: {
     width: 16,
     height: 15,
-    backgroundColor: '#F0F9FF',
-  },
+    backgroundColor: '#F0F9FF'},
   nextContainer: {
     paddingLeft: 24,
     paddingRight: 24,
     flexDirection: 'column',
-    backgroundColor: 'white',
-  },
+    backgroundColor: 'white'},
   blue_container: {
     flexDirection: 'column',
-    backgroundColor: COLORS.blue_back,
-  },
+    backgroundColor: COLORS.blue_back},
   page_container: {
-    backgroundColor: COLORS.blue_back,
-  },
+    backgroundColor: COLORS.blue_back},
   ContactButtonContainer: {
     elevation: 8,
     backgroundColor: '#01129E',
     borderRadius: 10,
     paddingVertical: 10,
-    paddingHorizontal: 12,
-  },
+    paddingHorizontal: 12},
   ContactButtonText: {
     fontSize: 16,
     color: '#fff',
     fontWeight: 'bold',
-    alignSelf: 'center',
-  },
+    alignSelf: 'center'},
 
   textinput: {
     marginTop: 50,
@@ -248,15 +207,13 @@ export const styles = StyleSheet.create({
     height: 50,
     borderColor: '#000000',
     borderWidth: 1,
-    paddingLeft: 5,
-  },
+    paddingLeft: 5},
 
   centeredView: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 22,
-  },
+    marginTop: 22},
   modalView: {
     margin: 20,
     backgroundColor: 'white',
@@ -266,36 +223,28 @@ export const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 2,
-    },
+      height: 2},
     shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 5,
-  },
+    elevation: 5},
   button: {
     borderRadius: 20,
     padding: 10,
-    elevation: 2,
-  },
+    elevation: 2},
   buttonOpen: {
-    backgroundColor: '#F194FF',
-  },
+    backgroundColor: '#F194FF'},
   buttonClose: {
-    backgroundColor: '#2196F3',
-  },
+    backgroundColor: '#2196F3'},
   textStyle: {
     color: 'white',
     fontWeight: 'bold',
-    textAlign: 'center',
-  },
+    textAlign: 'center'},
   modalText: {
     marginBottom: 15,
-    textAlign: 'center',
-  },
+    textAlign: 'center'},
   buttonContainer: {
     marginTop: 20,
-    marginBottom: -10,
-  },
+    marginBottom: -10},
   buttonBlue: {
     paddingHorizontal: SIZES.padding,
     height: 52,
@@ -305,16 +254,13 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: SIZES.padding2,
-    // width: windowDimension - 96,
-  },
+    // width: windowDimension - 96},
   btnTxt: {
     color: COLORS.white,
-    fontSize: SIZES.h5,
-  },
+    fontSize: SIZES.h5},
   textBtnSecondary: {
     color: COLORS.secondary,
-    fontSize: SIZES.h5,
-  },
+    fontSize: SIZES.h5},
   buttonAnnuler: {
     paddingHorizontal: SIZES.padding,
     height: 50,
@@ -326,63 +272,52 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: COLORS.secondary,
     marginBottom: SIZES.padding2,
-    // width: windowDimension - 96,
-  },
+    // width: windowDimension - 96},
   bloc3_3: {
-    flexDirection: 'row',
-  },
+    flexDirection: 'row'},
   bloc2: {
     flexDirection: 'column',
     paddingLeft: 10,
-    paddingTop: 0,
-  },
+    paddingTop: 0},
   iconStyle: {
     width: 8,
     height: 8,
     backgroundColor: COLORS.primary,
     borderRadius: SIZES.radiusTwo,
-    marginTop: 4,
-  },
+    marginTop: 4},
   textBloc1: {
     flexDirection: 'column',
     height: 19,
-    width: 267,
-  },
+    width: 267},
   item3: {
     backgroundColor: '#F0F9FF',
     paddingVertical: 5,
     marginVertical: 3,
     marginHorizontal: 0,
-    flexDirection: 'row',
-  },
+    flexDirection: 'row'},
   title: {
     flex: 1,
     flexWrap: 'wrap',
     fontWeight: '400',
     fontStyle: 'normal',
-    fontSize: 16,
-  },
+    fontSize: 16},
   text: {
     fontWeight: '700',
-    fontSize: 12,
-  },
+    fontSize: 12},
   label: {
     fontWeight: 'bold',
     fontSize: SIZES.body5,
     letterSpacing: 0.2,
     color: COLORS.black,
-    textTransform: 'uppercase',
-  },
+    textTransform: 'uppercase'},
   value: {
     fontWeight: 'bold',
     fontSize: SIZES.body4,
     letterSpacing: 0.2,
-    color: COLORS.black,
-  },
+    color: COLORS.black},
   date_text: {
     textAlign: 'right',
-    fontSize: 14,
-  },
+    fontSize: 14},
   screenContainer: {
     justifyContent: 'center',
     padding: 20,
@@ -391,59 +326,50 @@ export const styles = StyleSheet.create({
     backgroundColor: '#F0F9FF',
     height: 100,
     borderRadius: SIZES.radius,
-    marginBottom: 20,
-  },
+    marginBottom: 20},
 
   itemTitle: {
     fontWeight: '700',
     fontSize: 16,
-    color: '#00003E',
-  },
+    color: '#00003E'},
 
   image: {
     width: 48,
     height: 48,
     borderRadius: 6,
-    flex: 0,
-  },
+    flex: 0},
   candidatExp: {
     fontSize: 12,
     color: COLORS.secondary,
     fontWeight: '400',
     fontStyle: 'normal',
     letterSpacing: 0.2,
-    flex: 12,
-  },
+    flex: 12},
 
   favorisView: {position: 'absolute', right: 0},
   favorisImage: {
     width: 19.5,
-    height: 18,
-  },
+    height: 18},
 
   footerFrame: {
     flexDirection: 'row',
     marginTop: 32,
-    // width: windowDimension * 0.75,
-  },
+    // width: windowDimension * 0.75},
 
   jobPlaceItem: {
     fontSize: SIZES.body5,
     color: COLORS.black,
-    // width: windowDimension - 86,
-  },
+    // width: windowDimension - 86},
 
   wrapperTextItem: {
     // width: windowDimension - 100,
     flex: 0,
     paddingRight: 10,
-    paddingLeft: 10,
-  },
+    paddingLeft: 10},
 
   listItemOffer: {
     marginVertical: 10,
-    overflow: 'scroll',
-  },
+    overflow: 'scroll'},
 
   card_templateItem: {
     display: 'flex',
@@ -454,9 +380,6 @@ export const styles = StyleSheet.create({
     // paddingVertical: windowDimension * 0.03,
     borderBottomWidth: 1,
     borderBottomColor: COLORS.blue_border,
-    borderStyle: 'dashed',
-  },
+    borderStyle: 'dashed'},
   containersPageWidth: {
-    width: '100%',
-  },
-});
+    width: '100%'}});

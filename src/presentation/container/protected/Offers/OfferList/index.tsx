@@ -1,14 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {
-    ScrollView,
-    View,
-    Text,
-    Image,
-    FlatList,
-    TouchableOpacity,
-    Platform,
-    ImageBackground,
-} from 'react-native';
+
 import { useSelector } from 'react-redux';
 import { UploadFileService } from '../../../../../service/applicatif/UploadFile.sa';
 import { useFavoris } from './useFavoris';
@@ -84,42 +75,42 @@ const Item = props => {
     };
 
     return (
-        <TouchableOpacity
+        <button
             key={index}
             style={styles.card_templateItem}
-            onPress={() => showDetails(offer.id)}>
+            onClick={() => showDetails(offer.id)}>
 
-            <Image
-                source={avatar ? avatar : images.avatar_6}
+            <img
+                src={avatar ? avatar : images.avatar_6}
                 style={styles.image}
             />
 
-            <View style={styles.wrapperTextItem}>
-                <Text style={styles.title}>
+            <div style={styles.wrapperTextItem}>
+                <span style={styles.title}>
                     {isFormation ? offer.title : offer.name}
-                </Text>
-                <Text style={styles.jobPlaceItem}>
+                </span>
+                <span style={styles.jobPlaceItem}>
                     {isFormation ? offer.place : offer.lieu}
-                </Text>
-                <Text style={styles.candidatExp}>{resultDate(offer.createdAt)}</Text>
-            </View>
+                </span>
+                <span style={styles.candidatExp}>{resultDate(offer.createdAt)}</span>
+            </div>
 
-            <TouchableOpacity
+            <button
                 style={styles.footerFrame}
-                onPress={() => addOrRemove(offer)}>
+                onClick={() => addOrRemove(offer)}>
                 {!isFormation ? (
-                    <View style={styles.favorisView}>
-                        <Image
+                    <div style={styles.favorisView}>
+                        <img
                             style={styles.favorisImage}
-                            source={
+                            src={
                                 selectedItems.includes(offer) ? icons.favoris : icons.deFavoris
                             }
                         />
-                    </View>
+                    </div>
                 ) : null}
-            </TouchableOpacity>
+            </button>
 
-        </TouchableOpacity>
+        </button>
     );
 };
 
@@ -134,16 +125,16 @@ const List = props => {
 
     return (
         loading ?
-            <View style={{ minHeight: 40 }}>
+            <div style={{ minHeight: 40 }}>
                 <MiniLoader />
-            </View>
+            </div>
             :
             isMobile ?
-                <View style={{ marginTop: 16 }}>
+                <div style={{ marginTop: 16 }}>
                     <DataView value={offerList} layout="list" itemTemplate={renderItemTemplate} />
-                </View>
+                </div>
                 : offerList.length > 0 ?
-                    <View style={{ marginTop: 16 }}>
+                    <div style={{ marginTop: 16 }}>
                         <DataView
                             value={offerList}
                             layout="list"
@@ -152,13 +143,13 @@ const List = props => {
                             paginator
                             rows={3}
                         />
-                    </View>
+                    </div>
                     :
-                    <View style={{ marginTop: 16 }}>
-                        <Text>
+                    <div style={{ marginTop: 16 }}>
+                        <span>
                             Aucun offre disponible
-                        </Text>
-                    </View>
+                        </span>
+                    </div>
     );
 };
 
@@ -171,8 +162,7 @@ const ListFormation = props => {
             state: {
                 formation,
                 candidat: true,
-                isFormation: true,
-            }
+                isFormation: true}
         });
     };
 
@@ -183,12 +173,12 @@ const ListFormation = props => {
     );
 
     return (
-        <View style={{ marginTop: 16 }}>
+        <div style={{ marginTop: 16 }}>
 
             {loading ?
-                <View style={{ minHeight: 40 }}>
+                <div style={{ minHeight: 40 }}>
                     <MiniLoader />
-                </View>
+                </div>
                 :
                 !isMobile ?
                     <DataView
@@ -204,7 +194,7 @@ const ListFormation = props => {
                         itemTemplate={renderItemFormations}
                     />
             }
-        </View>
+        </div>
     );
 };
 
@@ -229,31 +219,31 @@ const LastOfferItem = ({ item, showDetails, resultDate }) => {
 
     return (
 
-        <TouchableOpacity
+        <button
             style={isMobile ? styles.headerMobile : styles.header}
-            onPress={() => showDetails(item.id)}
+            onClick={() => showDetails(item.id)}
         >
-            <View style={ isMobile ? "" : styles.avatarContainer}>
-                <Image style={styles.avatar} source={avatar ? avatar : images.avatar_6} />
-            </View>
+            <div style={ isMobile ? "" : styles.avatarContainer}>
+                <img style={styles.avatar} src={avatar ? avatar : images.avatar_6} />
+            </div>
 
-            <View style={[styles.informationContainer, isMobile ? { position: 'absolute', left: 100, top: 20 } : {}]}>
-                <Text style={isMobile ? styles.nameMobile : styles.name}>{isMobile
+            <div style={{...styles.informationContainer, ...(isMobile ? { position: 'absolute'), ...left: 100, ...top: 20 } : {}}}>
+                <span style={isMobile ? styles.nameMobile : styles.name}>{isMobile
                     ? (item?.name?.length > 30 ? item.name.substring(0, 30) + '...' : item.name)
-                    : item?.name}</Text>
-                <Text style={styles.label}>{item?.lieu}</Text>
+                    : item?.name}</span>
+                <span style={styles.label}>{item?.lieu}</span>
                 {
                     !isMobile && (
-                        <Text style={styles.label}>{resultDate(item?.createdAt)}</Text>
+                        <span style={styles.label}>{resultDate(item?.createdAt)}</span>
                     )
                 }
-            </View>
+            </div>
             {
                 isMobile && (
-                    <Text style={styles.label}>{resultDate(item?.createdAt)}</Text>
+                    <span style={styles.label}>{resultDate(item?.createdAt)}</span>
                 )
             }
-        </TouchableOpacity>
+        </button>
     );
 };
 
@@ -364,14 +354,14 @@ const OfferList = props => {
 
     return (
         <>
-            <View style={{ backgroundColor: COLORS.white }}>
-                <View style={styles.wapperTitle}>
-                    <Text style={[globalStyle.titleOffer]}>{activeString.OFFERS.LAST}</Text>
-                </View>
+            <div style={{ backgroundColor: COLORS.white }}>
+                <div style={styles.wapperTitle}>
+                    <span style={[globalStyle.titleOffer]}>{activeString.OFFERS.LAST}</span>
+                </div>
                 {isLoading ? (
                     <Loader />
                 ) : (
-                    <ScrollView
+                    <div style={{overflowY: "auto"}}
                         horizontal
                         contentContainerStyle={styles.carouselContainer}
                         showsHorizontalScrollIndicator={false}
@@ -385,18 +375,18 @@ const OfferList = props => {
                             />
                         ))}
 
-                    </ScrollView>
+                    </div>
                 )}
-                <View style={styles.wapperTitle}>
-                    <Text style={globalStyle.titleOffer}>{activeString.OFFERS.ALL}</Text>
-                </View>
+                <div style={styles.wapperTitle}>
+                    <span style={globalStyle.titleOffer}>{activeString.OFFERS.ALL}</span>
+                </div>
 
-                <View style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
                     <>
                         {jobListResult
                             ? jobListResult.map((item, index) => (
-                                <TouchableOpacity
-                                    onPress={() => {
+                                <button
+                                    onClick={() => {
                                         setIsAll(false);
                                         setIsAllFormation(false)
                                         getOffers(item);
@@ -408,37 +398,37 @@ const OfferList = props => {
                                             ? styles.activeBtn
                                             : styles.simpleBtn
                                     }>
-                                    <Text
+                                    <span
                                         style={
                                             click === index && !isFormation && isJobs && !isAll && !isAllFormation
                                                 ? styles.textMenuActive
                                                 : styles.textMenu
                                         }>
                                         {item}
-                                    </Text>
-                                </TouchableOpacity>
+                                    </span>
+                                </button>
                             ))
                             : null}
-                        <TouchableOpacity
-                            onPress={getAllOffers}
+                        <button
+                            onClick={getAllOffers}
                             style={isAll ? styles.activeBtn : styles.simpleBtn}>
-                            <Text style={isAll ? styles.textMenuActive : styles.textMenu}>
+                            <span style={isAll ? styles.textMenuActive : styles.textMenu}>
                                 {'Toutes'}
-                            </Text>
-                        </TouchableOpacity>
+                            </span>
+                        </button>
                     </>
-                </View>
+                </div>
 
-                <View style={styles.wapperTitle}>
-                    <Text style={globalStyle.titleOffer}>{activeString.OFFERS.OFFERT_LAST}</Text>
-                </View>
+                <div style={styles.wapperTitle}>
+                    <span style={globalStyle.titleOffer}>{activeString.OFFERS.OFFERT_LAST}</span>
+                </div>
 
-                <View style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
                     <>
                         {listFormations
                             ? listFormations.map((item, index) => (
-                                <TouchableOpacity
-                                    onPress={() => {
+                                <button
+                                    onClick={() => {
                                         setIsAll(false);
                                         setIsAllFormation(false);
                                         getItemFormation(item);
@@ -450,27 +440,27 @@ const OfferList = props => {
                                             ? styles.activeBtn
                                             : styles.simpleBtn
                                     }>
-                                    <Text
+                                    <span
                                         style={
                                             click === index && !isJobs && isFormation && !isAll && !isAllFormation
                                                 ? styles.textMenuActive
                                                 : styles.textMenu
                                         }>
                                         {item}
-                                    </Text>
-                                </TouchableOpacity>
+                                    </span>
+                                </button>
                             ))
                             : null}
 
-                        <TouchableOpacity
-                            onPress={getFormations}
+                        <button
+                            onClick={getFormations}
                             style={isAllFormation ? styles.activeBtn : styles.simpleBtn}>
-                            <Text style={isAllFormation ? styles.textMenuActive : styles.textMenu}>
+                            <span style={isAllFormation ? styles.textMenuActive : styles.textMenu}>
                                 {'Toutes'}
-                            </Text>
-                        </TouchableOpacity>
+                            </span>
+                        </button>
                     </>
-                </View>
+                </div>
 
                 {isLoading ? (
                     <Loader />
@@ -479,7 +469,7 @@ const OfferList = props => {
                 ) : (
                     <ListFormation formations={formationResult} navigation={navigate} loading={loading} isMobile={isMobile} />
                 )}
-            </View>
+            </div>
         </>
     );
 };

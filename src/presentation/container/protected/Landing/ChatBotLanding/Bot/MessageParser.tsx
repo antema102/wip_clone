@@ -29,8 +29,7 @@ const MessageParser: React.FC<MessageParserProps> = (props) => {
         if (React.isValidElement<ChildProps>(child)) {
           return React.cloneElement<ChildProps>(child, {
             parse: parse,
-            actions: actions,
-          });
+            actions: actions});
         }
         return child;
       })}

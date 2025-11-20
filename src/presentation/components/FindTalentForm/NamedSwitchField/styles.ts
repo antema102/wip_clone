@@ -1,9 +1,9 @@
-import {StyleSheet, Dimensions} from 'react-native';
+;
 import {COLORS, SIZES} from '../../../../resources/constants';
 
-let windowWidth = Dimensions.get('window').width;
+let windowWidth = window.innerWidth;
 
-export const styles = StyleSheet.create({
+export const styles = {
   containers: {},
   containt: {},
   vtitle: {},
@@ -11,16 +11,13 @@ export const styles = StyleSheet.create({
     padding: 24,
     backgroundColor: COLORS.primary,
     height: windowWidth * 0.25,
-    maxHeight: 112,
-  },
+    maxHeight: 112},
   headerScreenTitle: {
     color: 'white',
     fontSize: 20,
-    fontFamily: 'Oxygen-Bold',
-  },
+    fontFamily: 'Oxygen-Bold'},
   headerScreenDescription: {
-    color: 'white',
-  },
+    color: 'white'},
   candidateContainer: {},
   title: {},
   candidateImgContainer: {},
@@ -45,13 +42,10 @@ export const styles = StyleSheet.create({
   // Refine Candidats
   // ----------------
   refineContainer: {
-    padding: 20,
-  },
+    padding: 20},
   layerContainer: {
     padding: 20,
     borderWidth: 5,
     borderRadius: SIZES.radius,
-    width: '100%',
-  },
-  layerTitleContainer: {},
-});
+    width: '100%'},
+  layerTitleContainer: {}});

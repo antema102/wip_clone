@@ -1,4 +1,4 @@
-import { Dimensions, StyleSheet } from 'react-native';
+;
 import { COLORS, SIZES } from '../../../../resources/constants';
 const { width } = Dimensions.get('window');
 
@@ -15,18 +15,15 @@ export const styles = {
     flex: 1,
     flexDirection: 'row',
     width: '100%',
-    justifyContent: 'space-between',
-  },
+    justifyContent: 'space-between'},
   checkBoxContaint: {
     display: 'flex',
     flexDirection: 'row',
-    marginBottom: 20,
-  },
+    marginBottom: 20},
   checkBoxText: {
     width: '20%%',
     color: 'black',
-    marginLeft: 2,
-  },
+    marginLeft: 2},
   
   fullFlex: {
     display: 'flex',
@@ -34,16 +31,14 @@ export const styles = {
     flexDirection: 'row',
     width: width - 50,
     justifyContent: 'space-between',
-    alignItems: 'center',
-  },
+    alignItems: 'center'},
   checkBox: {
     // backgroundColor: 'red',
     color: 'red',
     tintColor: 'red',
     borderColor: 'red',
     shadowColor: 'red',
-    overlayColor: 'red',
-  },
+    overlayColor: 'red'},
   borderForm: {
     borderWidth: 1,
     borderColor: COLORS.blue_border,
@@ -52,20 +47,17 @@ export const styles = {
     paddingLeft: 10,
     paddingBottom: 5,
     backgroundColor: COLORS.white,
-    height: 70,
-  },
+    height: 70},
   buttonStyles: {
     paddingVertical: 10,
     paddingHorizontal: 20,
     marginLeft: 5,
-    borderRadius: 10,
-  },
+    borderRadius: 10},
   loginContainer: {
     flex: 1,
     justifyContent: 'center',
     alignSelf: 'center',
-    backgroundColor: COLORS.blue_border,
-  },
+    backgroundColor: COLORS.blue_border},
   loginForm: {
     borderWidth: 1,
     borderColor: COLORS.blue_border,
@@ -73,33 +65,27 @@ export const styles = {
     marginTop: SIZES.padding,
     width: '95%',
     backgroundColor: COLORS.white,
-    paddingHorizontal: '5%',
-  },
+    paddingHorizontal: '5%'},
   logoForm: {
     width: '70%',
     paddingTop: '20%',
     paddingHorizontal: '5%',
     justifyContent: 'center',
-    alignSelf: 'center',
-  },
+    alignSelf: 'center'},
   buttonTextStyles: {
     color: COLORS.white,
     justifyContent: 'center',
-    alignSelf: 'center',
-  },
+    alignSelf: 'center'},
   heightForm: {
-    height: width * 0.16,
-  },
+    height: width * 0.16},
   alignHorizontal: {
     justifyContent: 'center',
     alignSelf: 'center',
-    marginTop: 10,
-  },
+    marginTop: 10},
   container: {
     height: SIZES.height,
     backgroundColor: COLORS.blue_border,
-    flexDirection: 'row',
-  },
+    flexDirection: 'row'},
   borderFormForLogin: {
     borderWidth: 1,
     borderColor: COLORS.blue_border,
@@ -109,19 +95,16 @@ export const styles = {
     height: 50,
     width: '95%',
     backgroundColor: COLORS.white,
-    flex: 1,
-  },
+    flex: 1},
   heightBanner: {
-    paddingTop: 20,
-  },
+    paddingTop: 20},
   sampleLine: {
     paddingTop: 30,
     width: '50%',
     justifyContent: 'center',
     alignSelf: 'center',
     borderBottomWidth: 1,
-    borderBottomColor: '#E3E7EB',
-  },
+    borderBottomColor: '#E3E7EB'},
   textTitle: {
     flex: 1,
     fontFamily: 'Oxygen-Regular',
@@ -129,6 +112,4 @@ export const styles = {
     color: '#0000CC',
     fontWeight: '700',
     marginTop: 20,
-    marginLeft: 0,
-  },
-};
+    marginLeft: 0}};

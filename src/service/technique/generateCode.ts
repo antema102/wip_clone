@@ -9,9 +9,7 @@ export const toGenerateConstantsArray = (model, entity) => {
         name: `${name}${capitalizeFirstLetter(entity)}`,
         url: route,
         method,
-        reducers,
-      },
-    };
+        reducers}};
   });
 };
 

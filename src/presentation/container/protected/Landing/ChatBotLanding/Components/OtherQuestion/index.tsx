@@ -9,20 +9,17 @@ const OtherQuestion = (props: any) => {
         {
             id: 1,
             message: 'Non',
-            type: 'user',
-        },
+            type: 'user'},
         {
             id: 2,
             message: 'Merci et à très bientôt 😊🖐',
-            type: 'bot',
-        },
+            type: 'bot'},
     ];
 
     const handleYesClick = () => {
         setState((prevState) => ({
             ...prevState,
-            messages: [...messages, ...messageUser],
-        }));
+            messages: [...messages, ...messageUser]}));
     };
 
     const handleTrue=()=>{

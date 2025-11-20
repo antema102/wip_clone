@@ -20,5 +20,4 @@ export const Zonnage_BDL = () => ( {
         if (result.isError) error(result)
         else success(result);
       })
-  },
-})
+  }})

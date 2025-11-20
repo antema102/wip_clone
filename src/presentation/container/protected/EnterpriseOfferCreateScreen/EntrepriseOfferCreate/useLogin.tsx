@@ -1,11 +1,10 @@
 import {useEffect, useState} from 'react';
-import {Platform} from 'react-native';
+;
 import {
   defaultValues,
   IError,
   showErrorValuesDefault,
-  showErrorValuesSubmit,
-} from './dto';
+  showErrorValuesSubmit} from './dto';
 
 export const useLogin = (
   /*data: any, Validate: any,handleCancel: any,handleSave: any*/ props: any,

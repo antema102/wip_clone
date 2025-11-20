@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View, TouchableOpacity, Text, Image, Linking} from 'react-native';
+
 
 import {Language} from './Language';
 import { useForm } from './useFormOther';
@@ -27,8 +27,7 @@ export const FormOther = (props: any) => {
     data,
     onChangeDataStore,
     type,
-    setValues,
-  } = props;
+    setValues} = props;
 
   const {
     handleChange,
@@ -38,8 +37,7 @@ export const FormOther = (props: any) => {
     errors,
     showErrors,
     dto,
-    languageError,
-  } = useForm(data.other, Validation, handleSave, setValues);
+    languageError} = useForm(data.other, Validation, handleSave, setValues);
 
   let textToDisplay = '';
   const languageTxtError = 'Ce champ est obligatoire';
@@ -60,7 +58,7 @@ export const FormOther = (props: any) => {
   };
 
   const openTermsAndConditions = async () => {
-    await Linking.openURL(urls.TERMS_CONDITIONS);
+    await window.open(urls.TERMS_CONDITIONS);
   };
 
   function handleSave() {
@@ -74,8 +72,7 @@ export const FormOther = (props: any) => {
   useEffect(() => {
     changeComplete(previousState => ({
       ...previousState,
-      other: data.other?.sport ? noError() : false,
-    }));
+      other: data.other?.sport ? noError() : false}));
   }, [errors]);
 
   useEffect(() => {
@@ -87,7 +84,7 @@ export const FormOther = (props: any) => {
   const activeStr = lang === 'fr' ? stringsFr : stringsEn;
 
   return (
-    <View>
+    <div>
       <Language
         values={dataOther}
         handleChange={handleChange}
@@ -97,22 +94,18 @@ export const FormOther = (props: any) => {
       />
 
       {languageError && (
-        <Text style={{color: COLORS.red_color, marginLeft: 10, marginTop: 5}}>
+        <span style={{color: COLORS.red_color, marginLeft: 10, marginTop: 5}}>
           {languageTxtError}
-        </Text>
+        </span>
       )}
 
-      <View>
+      <div>
         {/** Sports */}
         {sportList && (
-          <View
-            style={[
-              styles.inputWrap,
-              {
+          <div
+            style={{...styles.inputWrap, ...({
                 backgroundColor:
-                  type === 'read' ? COLORS.disableGray : COLORS.white,
-              },
-            ]}>
+                  type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
             <InputSelect
               label={activeString.CreationCV.sport}
               required
@@ -124,17 +117,13 @@ export const FormOther = (props: any) => {
               isEditable={type !== 'read'}
               data={sportList}
             />
-          </View>
+          </div>
         )}
         {/** Interests */}
-        <View
-          style={[
-            styles.inputWrap,
-            {
+        <div
+          style={{...styles.inputWrap, ...({
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white,
-            },
-          ]}>
+                type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
           <InputField
             label={activeString.CreationCV.centerIntrest}
             value={dataOther.centerIntrest}
@@ -143,16 +132,11 @@ export const FormOther = (props: any) => {
             maxLength={50}
             isEditable={type !== 'read'}
           />
-        </View>
-        <View
-          style={[
-            styles.inputWrap,
-            {
-              marginBottom: 20,
-              backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white,
-            },
-          ]}>
+        </div>
+        <div
+          style={{...styles.inputWrap, ...{
+              marginBottom: 20, ...(backgroundColor:
+                type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
           <InputField
             label={activeString.CreationCV.somethingAboutU}
             type="textArea"
@@ -162,43 +146,43 @@ export const FormOther = (props: any) => {
             maxLength={150}
             isEditable={type !== 'read'}
           />
-        </View>
+        </div>
 
         {type !== 'update' && type !== 'read' ? (
-          <View style={styles.checkBoxContaint}>
+          <div style={styles.checkBoxContaint}>
             <Checkbox
               checked={isChecked}
               onChange={() => setIsChecked(!isChecked)}
               styles={styles.checkBox}
               // tintColors={{true: COLORS.orange, false: COLORS.blue_border}}
             />
-            <View style={{width: '90%'}}>
-              <Text style={[formsStyles.labelStyle, styles.checkBoxText]}>
+            <div style={{width: '90%'}}>
+              <span style={[formsStyles.labelStyle, styles.checkBoxText]}>
                 {activeStr.TEXT_INFORMATIONS.CANDIDAT_CHECKBOX}
-                <Text
+                <span
                   style={[formsStyles.labelStyleTerms]}
-                  onPress={() => openTermsAndConditions()}>
+                  onClick={() => openTermsAndConditions()}>
                   Politique de confidentialité
-                </Text>
+                </span>
                 {''} à tout moment.
-              </Text>
-            </View>
-          </View>
+              </span>
+            </div>
+          </div>
         ) : null}
-      </View>
+      </div>
 
       {/** Submit buttons */}
-      <View>
+      <div>
         {type !== 'read' && (
-          <TouchableOpacity
-            onPress={handleSubmit}
+          <button
+            onClick={handleSubmit}
             disabled={type !== 'update' && type !== 'read' ? !isChecked : false}
             style={[styles.submitJob]}>
-            <Text style={styles.textButton}>{textToDisplay}</Text>
-            <Image source={icons.action} style={globalStyle.iconStyle} />
-          </TouchableOpacity>
+            <span style={styles.textButton}>{textToDisplay}</span>
+            <img src={icons.action} style={globalStyle.iconStyle} />
+          </button>
         )}
-      </View>
-    </View>
+      </div>
+    </div>
   );
 };

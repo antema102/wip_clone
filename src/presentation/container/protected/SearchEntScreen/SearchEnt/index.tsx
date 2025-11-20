@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text } from 'react-native';
+;
 
 import { RefineCompany } from './RefineCompany';
 import { defaultValues } from './dto';
@@ -22,10 +22,10 @@ export const SearchEnt = (props: any) => {
   const activeString = lang === 'fr' ? stringsFr : stringsEn;
 
   return (
-    <View>
+    <div>
       {isLoading && <MiniLoader />}
       {/* <Main {...props} /> */}
-      <View style={{ marginTop: 60, backgroundColor: COLORS.white, padding: 18, borderRadius: 10, paddingTop: 42 }}>
+      <div style={{ marginTop: 60, backgroundColor: COLORS.white, padding: 18, borderRadius: 10, paddingTop: 42 }}>
         <Tabs
           title1={activeString.SEARCH_STATUT.FIND_OFFER}
           title2={activeString.SEARCH_STATUT.FIND_CANDIDATE}
@@ -45,8 +45,8 @@ export const SearchEnt = (props: any) => {
                 isFormation={setIsFormation(false)} />}
         />
 
-      </View>
-    </View>
+      </div>
+    </div>
   );
 };
 

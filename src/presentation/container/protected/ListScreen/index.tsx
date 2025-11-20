@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { View, ScrollView, Text } from 'react-native';
+;
 import { useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { styles } from './styles';
@@ -39,8 +39,7 @@ const ListScreen = props => {
         setRefreshing(true);
         const dataForm = {
             audience: user?.role === ROLEACCOUNT.candidate ? 0 : 1,
-            companyName: companyName,
-        };
+            companyName: companyName};
         const response = await getTendersByName(dataForm, accessToken);
         setData(response?.data?.items);
         setRefreshing(false);
@@ -62,17 +61,17 @@ const ListScreen = props => {
 
     return (
         <>
-            <View style={styles.container}>
+            <div style={styles.container}>
                 {isLoading ? <MiniLoader CustomStyle={{ position: 'fixed' }} /> : <PDFViewerScreen visible={visible} setVisible={setVisible} data={dataUri} isDownloadAllowed={false} />}
                 {/* <Header {...props} /> */}
                 {/* <HeaderTitle title={title} /> */}
-                <View style={styles.containers}>
+                <div style={styles.containers}>
                     <TitleRefont title={title} />
                     {
                         refreshing ?
-                            <View style={{ minHeight: 150, justifyContent: 'center', alignItems: 'center' }}>
+                            <div style={{ minHeight: 150, justifyContent: 'center', alignItems: 'center' }}>
                                 <MiniLoader />
-                            </View>
+                            </div>
                             :
                             data && (
                                 <DataView
@@ -81,16 +80,15 @@ const ListScreen = props => {
                                     itemTemplate={renderItemTemplate}
                                     {...(!isMobile && {
                                         paginator: true,
-                                        rows: 4,
-                                    })}
+                                        rows: 4})}
                                     paginatorTemplate={paginatorTemplateCustom}
                                 />
                             ) 
 
                     }
-                </View>
+                </div>
 
-            </View >
+            </div >
         </>
     );
 };

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View } from 'react-native';
+;
 import { useSelector } from 'react-redux';
 import { Loader } from '../../components/Loader';
 import { OfferService } from '../../../service/applicatif/Offer.sa';
@@ -43,8 +43,8 @@ export const EnterpriseOffer = (props: any) => {
     }, []);
 
     return (
-        <View style={{}}>
-            <View style={stylesCard.containerFormList}>
+        <div style={{}}>
+            <div style={stylesCard.containerFormList}>
                 {!isLoading ? (
                     <ListOffer
                         data={offerList}
@@ -54,8 +54,8 @@ export const EnterpriseOffer = (props: any) => {
                 ) : (
                     <Loader />
                 )}
-            </View>
-        </View>
+            </div>
+        </div>
     );
 };
 

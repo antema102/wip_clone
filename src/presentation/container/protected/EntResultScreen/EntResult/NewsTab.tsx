@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image } from 'react-native';
+;
 import { useSelector } from 'react-redux';
 
 import Popup from './Popup';
@@ -50,49 +50,49 @@ export const NewsTab = props => {
     displayVideo();
   }, []);
   return (
-    <View style={styles.pageContainer}>
-      <View style={styles.itemWrapper}>
-        <Image
+    <div style={styles.pageContainer}>
+      <div style={styles.itemWrapper}>
+        <img
           style={styles.iconActus}
-          source={calendar}
+          src={calendar}
         />
-        <Text style={styles.valueActus} numberOfLines={2}>
+        <span style={styles.valueActus} numberOfLines={2}>
           Depuis {information?.yearOfCreation}
-        </Text>
-      </View>
-      <View style={styles.itemWrapper}>
-        <Image
+        </span>
+      </div>
+      <div style={styles.itemWrapper}>
+        <img
           style={styles.iconActus}
-          source={map}
+          src={map}
         />
-        <Text style={styles.valueActus} numberOfLines={2}>
+        <span style={styles.valueActus} numberOfLines={2}>
           {information?.headQuarter}
-        </Text>
-      </View>
-      <View style={styles.itemWrapper}>
-        <Image
+        </span>
+      </div>
+      <div style={styles.itemWrapper}>
+        <img
           style={styles.iconActus}
-          source={globe}
+          src={globe}
         />
-        <Text style={styles.valueActus} numberOfLines={2}>
+        <span style={styles.valueActus} numberOfLines={2}>
           {information?.url}
-        </Text>
-      </View>
-      <View style={styles.itemWrapper}>
-        <Image
+        </span>
+      </div>
+      <div style={styles.itemWrapper}>
+        <img
           style={styles.iconActus}
-          source={mail}
+          src={mail}
         />
-        <Text style={styles.valueActus} numberOfLines={2}>
+        <span style={styles.valueActus} numberOfLines={2}>
           {information?.email}
-        </Text>
-      </View>
+        </span>
+      </div>
 
       {
       filePath !== '' ? (
-        <View style={styles.candidateExpContainer}>
+        <div style={styles.candidateExpContainer}>
           <VideoPlayer filePath={filePath} poster={'https://i.picsum.photos/id/866/1600/900.jpg'} />
-        </View>
+        </div>
       )
         : null
       }
@@ -103,6 +103,6 @@ export const NewsTab = props => {
         phone={information?.phone}
       />
       {isLoading && <Loader />}
-    </View>
+    </div>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+;
 import { styles } from './style';
 import Avatar from '../DetailProfil/UploadFile/UploadAvatar';
 import { COLORS, SIZES } from '../../../resources/constants';
@@ -31,30 +31,27 @@ export const Frame = (props: FrameProps) => {
   useEffect(() => { }, [infoUser]);
 
   return (
-    <View style={[styles.stHeader, { borderBottomWidth: isHeader ? 0 : 1 }]}>
-      <View style={styles.containerLogoEntBottom}>
+    <div style={{...styles.stHeader, ...({ borderBottomWidth: isHeader ? 0 : 1 })}}>
+      <div style={styles.containerLogoEntBottom}>
         <Avatar style={styles.imageStyle} value={avatar} />
-      </View>
+      </div>
 
-      <View style={styles.textContainer}>
-        <View style={{ marginBottom: 10 }}>
-          <Text
-            style={[
-              styles.titlePrimaire,
-              { color: isHeader ? COLORS.primary : COLORS.black },
-            ]}>
+      <div style={styles.textContainer}>
+        <div style={{ marginBottom: 10 }}>
+          <span
+            style={{...styles.titlePrimaire, ...({ color: isHeader ? COLORS.primary : COLORS.black }), ...}}>
             {infoUser?.name && infoUser?.name !== 'invalide'
               ? infoUser?.name
               : ''}
-          </Text>
-        </View>
-        <View>
+          </span>
+        </div>
+        <div>
           {isHeader ? (
-            <Text style={styles.descriptionPrimary} numberOfLines={4}>
+            <span style={styles.descriptionPrimary} numberOfLines={4}>
               {infoUser?.activity}
-            </Text>
+            </span>
           ) : (
-            <Text style={styles.descriptionPrimary} numberOfLines={4}>
+            <span style={styles.descriptionPrimary} numberOfLines={4}>
               {[
                 infoUser?.email,
                 infoUser?.phone,
@@ -64,31 +61,31 @@ export const Frame = (props: FrameProps) => {
               ]
                 .filter(Boolean)
                 .join(' , ')}
-            </Text>
+            </span>
           )}
-        </View>
-        <View>
-          <Text style={styles.descriptionPrimary}
+        </div>
+        <div>
+          <span style={styles.descriptionPrimary}
           >
             {infoUser?.activity}
-          </Text>
-        </View>
-        <View>
+          </span>
+        </div>
+        <div>
           {infoUser?.representing &&
             infoUser?.representing !== 'invalide' ? (
-            <Text
+            <span
               style={styles.descriptionPrimary}
             >
               {infoUser?.representing}
-            </Text>
+            </span>
           ) : null}
-        </View>
-        <View>
-          <TouchableOpacity onPress={handleRedirection}>
-            <Text style={[styles.descriptionPrimary, { color: COLORS.secondary }]}>{activeString.ENTERPRISE_OFFER.MORE_PLUS} ....</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    </View>
+        </div>
+        <div>
+          <button onClick={handleRedirection}>
+            <span style={[styles.descriptionPrimary, { color: COLORS.secondary }]}>{activeString.ENTERPRISE_OFFER.MORE_PLUS} ....</span>
+          </button>
+        </div>
+      </div>
+    </div>
   );
 };

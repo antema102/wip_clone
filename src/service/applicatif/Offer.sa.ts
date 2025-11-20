@@ -68,6 +68,5 @@ export const OfferService = () => {
 
     getFavorite: token => getFavorite(token),
 
-    history: token => history(token),
-  };
+    history: token => history(token)};
 };

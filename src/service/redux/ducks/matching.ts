@@ -59,65 +59,49 @@ export type MatchingState = {
 };
 
 export const enum MatchingType {
-  matching = '[Auth] filter with matching cv',
-}
+  matching = '[Auth] filter with matching cv'}
 
 export const initiaMatchingState: MatchingState = {
   matching: {
     language: {
       value: '',
-      score: 0,
-    },
+      score: 0},
     filiere: {
       value: '',
-      score: 0,
-    },
+      score: 0},
     level: {
       value: '',
-      score: 0,
-    },
+      score: 0},
     province: {
       value: '',
-      score: 0,
-    },
+      score: 0},
     adress: {
       value: '',
-      score: 0,
-    },
+      score: 0},
     country: {
       value: '',
-      score: 0,
-    },
+      score: 0},
     region: {
       value: '',
-      score: 0,
-    },
+      score: 0},
     ville: {
       value: '',
-      score: 0,
-    },
+      score: 0},
     arrondissement: {
       value: '',
-      score: 0,
-    },
+      score: 0},
     disponibility: {
       value: '',
-      score: 0,
-    },
+      score: 0},
     yearOfExp: {
       value: '',
-      score: 0,
-    },
+      score: 0},
     jobType: {
       value: '',
-      score: 0,
-    },
+      score: 0},
     jobPlace: {
       value: '',
-      score: 0,
-    },
-  },
-};
+      score: 0}}};
 
 export const MatchingReducer = (state = initiaMatchingState, action) => {
   const {type, payload} = action;
@@ -125,8 +109,7 @@ export const MatchingReducer = (state = initiaMatchingState, action) => {
     case MatchingType.matching:
       return {
         ...state,
-        matching: payload,
-      };
+        matching: payload};
 
     default:
       return state;
@@ -142,13 +125,11 @@ export const useMatching = () => {
         const payload = await filterMatching(type,data);
         dispatch({
           payload,
-          type: MatchingType.matching,
-        });
+          type: MatchingType.matching});
 
         return payload;
       } catch (error) {
         return Promise.reject(error);
       }
-    },
-  };
+    }};
 };

@@ -17,8 +17,7 @@ export const generateBdl = (constants: any) => {
           ? await api[method](`${url}${urlID}`, data)
           : data;
         return translateResponse(response);
-      },
-    };
+      }};
   }, {});
 };
 
@@ -27,8 +26,7 @@ const allBdl = () => {
     const {constants} = curr;
     return {
       ...acc,
-      ...generateBdl(constants),
-    };
+      ...generateBdl(constants)};
   }, {});
 };
 

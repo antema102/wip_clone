@@ -21,8 +21,7 @@ interface ChatBotConfig {
     widgets?: {
         widgetName: string;
         widgetFunc: React.ComponentType<any>,
-        mapStateToProps?: string[],
-    }[];
+        mapStateToProps?: string[]}[];
 }
 
 const config: ChatBotConfig = {
@@ -32,8 +31,7 @@ const config: ChatBotConfig = {
         }),
     ],
     customComponents: {
-        botAvatar: (props) => <Avatar {...props} />,
-    },
+        botAvatar: (props) => <Avatar {...props} />},
     state:
     {
         candidatQuestion: [
@@ -58,33 +56,26 @@ const config: ChatBotConfig = {
             "Comment puis-je voir les candidats qui ont postulé à mes offres ?",
             "Puis-je contacter un candidat directement ?",
             "Puis-je suivre mes annonces publicitaires sur WIPwork ?"
-        ],
-    }
+        ]}
     ,
     widgets: [
         {
             widgetName: "HomeCta",
-            widgetFunc: (props) => <HomeCta {...props} />,
-        },
+            widgetFunc: (props) => <HomeCta {...props} />},
         {
             widgetName: "AskCandidat",
             widgetFunc: (props) => <AskCandidat {...props} />,
-            mapStateToProps: ["candidatQuestion"],
-        },
+            mapStateToProps: ["candidatQuestion"]},
         {
             widgetName: "AskCompany",
             widgetFunc: (props) => <AskCompany {...props} />,
-            mapStateToProps: ["companyQuestion"],
-        },
+            mapStateToProps: ["companyQuestion"]},
         {
             widgetName: "otherQuestion",
-            widgetFunc: (props) => <OtherQuestion {...props} />,
-        },
+            widgetFunc: (props) => <OtherQuestion {...props} />},
         {
             widgetName: "FiltreQuestion",
-            widgetFunc: (props) => <FiltreQuestion {...props} />,
-        }
-    ],
-};
+            widgetFunc: (props) => <FiltreQuestion {...props} />}
+    ]};
 
 export default config;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+;
 import { useEffect, useState } from 'react';
 import { AnnounceService } from '../../../../service/applicatif/Announce.sa';
 import { useSelector } from 'react-redux';
@@ -9,8 +9,7 @@ import { COLORS } from '../../../../resources/constants';
 
 interface AnnouncesType {
     isAll?: boolean,
-    item: string,
-}
+    item: string}
 
 const Announces = (props: AnnouncesType) => {
     const [listAnnounce, setListAnnounce] = useState<{ file: string, title: string, description: string, contact: string }[]>([]);
@@ -50,7 +49,7 @@ const Announces = (props: AnnouncesType) => {
     }, [item]);
 
     return (<>{isLoading ? <Loader /> :
-        <View
+        <div
             style={{
                 flexDirection: 'row',
                 flexWrap: 'wrap',
@@ -58,37 +57,35 @@ const Announces = (props: AnnouncesType) => {
                 justifyContent: 'space-between',
                 minHeight: 155,
                 backgroundColor: COLORS.white,
-                marginHorizontal: 20,
-            }}>
-            <View style={{ flex: 1 }}>
+                marginHorizontal: 20}}>
+            <div style={{ flex: 1 }}>
                 {listAnnounce.map((item, index) => {
                     return (
-                        <View
+                        <div
                             key={`announce_,${index}`}
                             style={styles.itemAnnounces}>
-                            <View style={styles.candidateImgContainer}>
-                                <Image
+                            <div style={styles.candidateImgContainer}>
+                                <img
                                     style={{
                                         width: 110,
                                         height: 110,
-                                        borderRadius: 8,
-                                    }}
-                                    source={{ uri: item.file }}
+                                        borderRadius: 8}}
+                                    src={item.file }
                                 />
-                            </View>
-                            <View
+                            </div>
+                            <div
                                 style={[styles.candidateDetailsContainer, { marginLeft: 15 }]}>
-                                <Text style={styles.candidatName}>{item.title}</Text>
-                                <Text style={{ color: 'black' }}>{item.description}</Text>
-                                <Text style={{ color: 'blue', marginTop: 3 }}>
+                                <span style={styles.candidatName}>{item.title}</span>
+                                <span style={{ color: 'black' }}>{item.description}</span>
+                                <span style={{ color: 'blue', marginTop: 3 }}>
                                     {item.contact}
-                                </Text>
-                            </View>
-                        </View>
+                                </span>
+                            </div>
+                        </div>
                     );
                 })}
-            </View>
-        </View>
+            </div>
+        </div>
     }
     </>
     );

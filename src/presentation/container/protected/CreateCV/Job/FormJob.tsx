@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { View, TouchableOpacity, Image, Text } from 'react-native';
+;
 import { useSelector } from 'react-redux';
 
 import styles from '../styles';
@@ -39,8 +39,7 @@ export const FormJob = (props: any) => {
     data,
     onChangeDataStore,
     type,
-    setValues,
-  } = props;
+    setValues} = props;
 
   const {
     handleChange,
@@ -50,8 +49,7 @@ export const FormJob = (props: any) => {
     errors,
     showErrors,
     dto,
-    salaryError,
-  } = useForm(data.job, Validation, handleSave, setValues);
+    salaryError} = useForm(data.job, Validation, handleSave, setValues);
   const [salary, setSalary] = useState(dataJob.minimumWageRequired);
   const salaryTxtError = 'Ce champ est obligatoire';
   const settingSalary = formattedValue => {
@@ -69,8 +67,7 @@ export const FormJob = (props: any) => {
   useEffect(() => {
     changeComplete(previousState => ({
       ...previousState,
-      job: data.job?.levelOfStudy ? noError() : false,
-    }));
+      job: data.job?.levelOfStudy ? noError() : false}));
   }, [errors]);
 
   useEffect(() => {
@@ -106,8 +103,7 @@ export const FormJob = (props: any) => {
     data?.map(element => {
       dataList.push({
         label: element[label],
-        value: element[value],
-      });
+        value: element[value]});
     });
     return dataList;
   };
@@ -196,18 +192,14 @@ export const FormJob = (props: any) => {
   // --------------------------------------------------------------------------
 
   return (
-    <View>
-      <View>
+    <div>
+      <div>
         {/** Level of Study field */}
         {gradeList && (
-          <View
-            style={[
-              styles.inputWrap,
-              {
+          <div
+            style={{...styles.inputWrap, ...({
                 backgroundColor:
-                  type === 'read' ? COLORS.disableGray : COLORS.white,
-              },
-            ]}>
+                  type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
             <InputSelect
               label={activeString.CreationCV.levelOfStudy}
               required
@@ -219,24 +211,20 @@ export const FormJob = (props: any) => {
               isEditable={type !== 'read'}
               data={gradeList}
             />
-          </View>
+          </div>
         )}
 
         {/** Faculty field */}
         {subjectList && (
-          <View
-            style={[
-              styles.inputWrap,
-              {
+          <div
+            style={{...styles.inputWrap, ...({
                 backgroundColor:
                   type === 'read'
                     ? COLORS.disableGray
                     : dataJob.levelOfStudy !== studyLevel.cepe &&
                       dataJob.levelOfStudy !== studyLevel.bepc
                       ? COLORS.white
-                      : COLORS.disableGray,
-              },
-            ]}>
+                      : COLORS.disableGray}), ...}}>
             <InputSelect
               label={TitleLabels.CreationCV.faculty}
               required
@@ -248,19 +236,15 @@ export const FormJob = (props: any) => {
               isEditable={type !== 'read'}
               data={subjectList}
             />
-          </View>
+          </div>
         )}
 
         {/** Level of Activity Area field */}
         {activityList && (
-          <View
-            style={[
-              styles.inputWrap,
-              {
+          <div
+            style={{...styles.inputWrap, ...({
                 backgroundColor:
-                  type === 'read' ? COLORS.disableGray : COLORS.white,
-              },
-            ]}>
+                  type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
             <InputSelect
               label={activeString.CreationCV.activityArea}
               required
@@ -272,18 +256,14 @@ export const FormJob = (props: any) => {
               isEditable={type !== 'read'}
               data={activityList}
             />
-          </View>
+          </div>
         )}
 
         {/** University field */}
-        <View
-          style={[
-            styles.inputWrap,
-            {
+        <div
+          style={{...styles.inputWrap, ...({
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white,
-            },
-          ]}>
+                type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
           <InputField
             label={activeString.CreationCV.university}
             required
@@ -295,17 +275,13 @@ export const FormJob = (props: any) => {
             isEditable={type !== 'read'}
             maxLength={50}
           />
-        </View>
+        </div>
 
         {/** Desired Posiiton field */}
-        <View
-          style={[
-            styles.inputWrap,
-            {
+        <div
+          style={{...styles.inputWrap, ...({
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white,
-            },
-          ]}>
+                type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
           <InputField
             label={activeString.CreationCV.desiredPosition}
             required
@@ -317,16 +293,12 @@ export const FormJob = (props: any) => {
             isEditable={type !== 'read'}
             maxLength={50}
           />
-        </View>
+        </div>
 
-        <View
-          style={[
-            styles.inputWrap,
-            {
+        <div
+          style={{...styles.inputWrap, ...({
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white,
-            },
-          ]}>
+                type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
           <InputField
             label={activeString.CreationCV.portfolio}
             value={dataJob.portfolio}
@@ -335,17 +307,13 @@ export const FormJob = (props: any) => {
             maxLength={100}
             isEditable={type !== 'read'}
           />
-        </View>
+        </div>
 
         {/**Profil facebook */}
-        <View
-          style={[
-            styles.inputWrap,
-            {
+        <div
+          style={{...styles.inputWrap, ...({
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white,
-            },
-          ]}>
+                type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
           <InputField
             label={TitleLabels.CreationCV.facebook}
             value={dataJob.socioLink}
@@ -354,48 +322,45 @@ export const FormJob = (props: any) => {
             maxLength={100}
             isEditable={type !== 'read'}
           />
-        </View>
+        </div>
 
         {/** Add pdf buttons */}
-        <View
+        <div
           style={{
             padding: 16,
             marginTop: 28,
             borderRadius: 10,
             borderColor: COLORS.blue_border,
             borderWidth: 1,
-            backgroundColor: type === 'read' ? COLORS.disableGray : COLORS.white,
-          }}
+            backgroundColor: type === 'read' ? COLORS.disableGray : COLORS.white}}
         >
-          <Text
+          <span
             style={{
               color: COLORS.primary,
               fontSize: 12,
-              fontWeight: '700',
-            }}
+              fontWeight: '700'}}
           >
             Importer votre CV en pdf, docx (Max 3 Mo) *
-          </Text>
+          </span>
 
-          <View style={{ paddingHorizontal: 26, marginTop: 26 }}>
-            <TouchableOpacity onPress={triggerFileInput} disabled={type === 'read'}>
-              <View
+          <div style={{ paddingHorizontal: 26, marginTop: 26 }}>
+            <button onClick={triggerFileInput} disabled={type === 'read'}>
+              <div
                 style={{
                   alignItems: 'center',
                   flexDirection: 'row',
                   paddingVertical: 16,
                   justifyContent: 'center',
                   backgroundColor: 'rgb(1, 18, 158)',
-                  borderRadius: 10,
-                }}
+                  borderRadius: 10}}
               >
-                <Image
-                  source={icons.cv}
+                <img
+                  src={icons.cv}
                   style={{ tintColor: 'white', marginRight: 16, height: 24, width: 24 }}
                 />
-                <Text style={{ color: 'white', fontWeight: '700' }}>Importer</Text>
-              </View>
-            </TouchableOpacity>
+                <span style={{ color: 'white', fontWeight: '700' }}>Importer</span>
+              </div>
+            </button>
 
             {/* Input HTML natif, invisible mais déclenché par le bouton */}
             <input
@@ -405,47 +370,42 @@ export const FormJob = (props: any) => {
               ref={fileInputRef}
               onChange={handleFileSelect}
             />
-          </View>
+          </div>
 
           {dataJob?.fileCv?.length > 0 && (
-            <View style={{ paddingHorizontal: 26, marginTop: 26 }}>
-              <TouchableOpacity onPress={() => handleGetFile(dataJob.fileCv)}>
-                <View
+            <div style={{ paddingHorizontal: 26, marginTop: 26 }}>
+              <button onClick={() => handleGetFile(dataJob.fileCv)}>
+                <div
                   style={{
                     alignItems: 'center',
                     flexDirection: 'row',
                     paddingVertical: 16,
                     justifyContent: 'center',
                     backgroundColor: COLORS.orange,
-                    borderRadius: 10,
-                  }}
+                    borderRadius: 10}}
                 >
-                  <Image
-                    source={icons.cv}
+                  <img
+                    src={icons.cv}
                     style={{ tintColor: 'white', marginRight: 16, height: 24, width: 24 }}
                   />
-                  <Text style={{ color: 'white', fontWeight: '700' }}>
+                  <span style={{ color: 'white', fontWeight: '700' }}>
                     Visualiser votre CV
-                  </Text>
-                </View>
-              </TouchableOpacity>
-            </View>
+                  </span>
+                </div>
+              </button>
+            </div>
           )}
           {showErrors.fileCv && !dataJob.fileCv && (
-            <Text style={styles.textError}>Ce champ est requis. Veuillez le remplir.</Text>
+            <span style={styles.textError}>Ce champ est requis. Veuillez le remplir.</span>
           )}
-        </View>
+        </div>
 
         {/** Year of Experience field */}
         {experienceList && (
-          <View
-            style={[
-              styles.inputWrap,
-              {
+          <div
+            style={{...styles.inputWrap, ...({
                 backgroundColor:
-                  type === 'read' ? COLORS.disableGray : COLORS.white,
-              },
-            ]}>
+                  type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
             <InputSelect
               label={activeString.CreationCV.yearOfExp}
               required
@@ -457,7 +417,7 @@ export const FormJob = (props: any) => {
               isEditable={type !== 'read'}
               data={experienceList}
             />
-          </View>
+          </div>
         )}
 
         <DesiredPosition
@@ -490,14 +450,10 @@ export const FormJob = (props: any) => {
 
         {/** Availablity */}
         {availabilityList && (
-          <View
-            style={[
-              styles.inputWrap,
-              {
+          <div
+            style={{...styles.inputWrap, ...({
                 backgroundColor:
-                  type === 'read' ? COLORS.disableGray : COLORS.white,
-              },
-            ]}>
+                  type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
             <InputSelect
               label={activeString.CreationCV.availability}
               required
@@ -509,19 +465,15 @@ export const FormJob = (props: any) => {
               isEditable={type !== 'read'}
               data={availabilityList}
             />
-          </View>
+          </div>
         )}
 
         {/** Status */}
         {statusList && (
-          <View
-            style={[
-              styles.inputWrap,
-              {
+          <div
+            style={{...styles.inputWrap, ...({
                 backgroundColor:
-                  type === 'read' ? COLORS.disableGray : COLORS.white,
-              },
-            ]}>
+                  type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
             <InputSelect
               label={activeString.CreationCV.status}
               required
@@ -533,18 +485,14 @@ export const FormJob = (props: any) => {
               isEditable={type !== 'read'}
               data={statusList}
             />
-          </View>
+          </div>
         )}
 
         {/** Expected Salary */}
-        <View
-          style={[
-            styles.inputWrap,
-            {
+        <div
+          style={{...styles.inputWrap, ...({
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white,
-            },
-          ]}>
+                type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
           {type === 'read' ? (
             <InputField
               label={activeString.CreationCV.minimumWage}
@@ -558,12 +506,12 @@ export const FormJob = (props: any) => {
               maxLength={50}
             />
           ) : (
-            <View>
-              <View>
-                <Text style={[formsStyles.labelStyle]}>
+            <div>
+              <div>
+                <span style={[formsStyles.labelStyle]}>
                   {activeString.CreationCV.minimumWage}
-                </Text>
-              </View>
+                </span>
+              </div>
               <CurrencyInput
                 value={salary}
                 onChangeValue={setSalary}
@@ -576,33 +524,32 @@ export const FormJob = (props: any) => {
                 }}
                 style={styles.textIput}
               />
-            </View>
+            </div>
           )}
-        </View>
+        </div>
         {salaryError && (
-          <Text
+          <span
             style={{
               color: COLORS.red_color,
               marginLeft: 10,
-              marginTop: 5,
-            }}>
+              marginTop: 5}}>
             {salaryTxtError}
-          </Text>
+          </span>
         )}
-        <View style={{ height: 24 }} />
-      </View>
-      {isLoading ? <Loader /> : <View />}
+        <div style={{ height: 24 }} />
+      </div>
+      {isLoading ? <Loader /> : <div />}
       {/** Submit buttons */}
-      <View>
+      <div>
         {type !== 'read' && (
-          <TouchableOpacity
-            onPress={handleSubmit}
+          <button
+            onClick={handleSubmit}
             style={[styles.submitJob]}>
-            <Text style={styles.textButton}>Autres</Text>
-            <Image source={icons.action} style={globalStyle.iconStyle} />
-          </TouchableOpacity>
+            <span style={styles.textButton}>Autres</span>
+            <img src={icons.action} style={globalStyle.iconStyle} />
+          </button>
         )}
-      </View>
+      </div>
       <Popup
         visible={popupVisible}
         message={popupMessage}

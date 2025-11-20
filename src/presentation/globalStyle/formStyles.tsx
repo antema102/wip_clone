@@ -1,39 +1,33 @@
-import { Dimensions, Platform, StyleSheet } from 'react-native';
+;
 import { COLORS, SIZES, FONTS } from '../../resources/constants';
 
-const windowDim = Dimensions.get('window').width;
-const windowHeight = Dimensions.get('window').height;
-export const formsStyles = StyleSheet.create({
+const windowDim = window.innerWidth;
+const windowHeight = window.innerHeight;
+export const formsStyles = {
   containerHeader: {
     flex: 1,
-    paddingTop: Platform.OS === 'web' ? 0 : 20,
-  },
+    paddingTop: Platform.OS === 'web' ? 0 : 20},
   formContainFull: {
     width: '100%',
-    backgroundColor: 'white',
-  },
+    backgroundColor: 'white'},
   webformContainFull: {
-    width: '100%',
-  },
+    width: '100%'},
   webformContain: {
     backgroundColor: '#fff',
     justifyContent: 'space-between',
     alignContent: 'center',
     alignItems: 'center',
     flex: 1,
-    position: 'relative',
-  },
+    position: 'relative'},
   webformContainContract: {
     display: 'flex',
     flex: 1,
     alignContent: 'center',
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: Platform.OS === 'web' ? 0 : 0,
-  },
+    marginVertical: Platform.OS === 'web' ? 0 : 0},
   realFlex: {
-    flex: Platform.OS === 'web' ? 1 : 0,
-  },
+    flex: Platform.OS === 'web' ? 1 : 0},
   formContainPayment: {
     paddingTop: Platform.OS === 'web' ? 0 : 5,
     paddingBottom: Platform.OS === 'web' ? 48 : 16,
@@ -42,8 +36,7 @@ export const formsStyles = StyleSheet.create({
     maxWidth: Platform.OS === 'web' ? 1025 : '100%',
     width: '100%',
     borderRadius: Platform.OS === 'web' ? 10 : 0,
-    minHeight: windowHeight - 75,
-  },
+    minHeight: windowHeight - 75},
   webformContainChat: {
     display: 'flex',
     justifyContent: 'flex-start',
@@ -51,8 +44,7 @@ export const formsStyles = StyleSheet.create({
     alignItems: 'center',
     marginVertical: Platform.OS === 'web' ? 40 : 0,
     flex: 1,
-    height: Platform.OS === 'web' ? windowHeight - 75 : '100%',
-  },
+    height: Platform.OS === 'web' ? windowHeight - 75 : '100%'},
 
   formContainChat: {
     height: Platform.OS === 'web' ? windowHeight - 75 : '100%',
@@ -63,20 +55,15 @@ export const formsStyles = StyleSheet.create({
     maxWidth: Platform.OS === 'web' ? 1025 : '100%',
     width: '100%',
     borderRadius: Platform.OS === 'web' ? 10 : 0,
-    minHeight: windowHeight - 75,
-  },
+    minHeight: windowHeight - 75},
   bgTrans: {
-    backgroundColor: 'transparent',
-  },
+    backgroundColor: 'transparent'},
   formWebs: {
-    maxWidth: 640,
-  },
+    maxWidth: 640},
   fondUnlogged: {
-    resizeMode: 'cover',
-  },
+    objectFit: 'cover' as const},
   formGroup: {
-    paddingVertical: 16,
-  },
+    paddingVertical: 16},
   itemSearchStyle: {
     borderWidth: 1,
     borderColor: 'rgba(224, 224, 224, 1)',
@@ -87,32 +74,27 @@ export const formsStyles = StyleSheet.create({
     marginTop: 16,
     marginBottom: 5,
     marginLeft: 20,
-    height: 50,
-  },
+    height: 50},
   itemSearchIcone: {
     marginLeft: 15,
     marginTop: 15,
     width: 20,
-    height: 20,
-  },
+    height: 20},
   itemSearchIconeDetailContract: {
     marginLeft: 15,
     marginTop: 50,
     width: 20,
-    height: 20,
-  },
+    height: 20},
   itemSearchIconeContract: {
     marginLeft: 15,
     marginTop: 15,
     width: 20,
     height: 20,
     right: 90,
-    display: 'flex',
-  },
+    display: 'flex'},
   itemSearchInput: {
     marginLeft: 20,
-    flex: 1,
-  },
+    flex: 1},
 
   itemInputStyleTextArea: {
     borderRadius: 4,
@@ -124,8 +106,7 @@ export const formsStyles = StyleSheet.create({
     marginBottom: 16,
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
-    alignContent: 'flex-start',
-  },
+    alignContent: 'flex-start'},
   itemSelectStyle: {
     borderRadius: 4,
     borderColor: COLORS.blue_border,
@@ -134,15 +115,13 @@ export const formsStyles = StyleSheet.create({
     height: 20,
     margin: 0,
     fontFamily: 'Oxygen-Regular',
-    width: '98%',
-  },
+    width: '98%'},
   itemSelectPickerStyle: {
     width: '104%',
     borderRadius: 4,
     top: -10,
     left: -10,
-    zIndex: 0,
-  },
+    zIndex: 0},
   itemTextAreaStyle: {
     borderWidth: 1,
     borderColor: 'rgba(224, 224, 224, 1)',
@@ -152,60 +131,50 @@ export const formsStyles = StyleSheet.create({
     marginTop: 5,
     marginBottom: 20,
     height: 150,
-    color: '#fff',
-  },
+    color: '#fff'},
   containerResponse: {
     marginVertical: 16,
     justifyContent: 'center',
     alignItems: 'center',
     alignContent: 'center',
-    paddingVertical: 8,
-  },
+    paddingVertical: 8},
   inputError: {
-    borderColor: '#f00',
-  },
+    borderColor: '#f00'},
   imagesLink: {
     width: 40,
     height: 40,
-    resizeMode: 'contain',
-  },
+    objectFit: 'contain' as const},
   line: {
     flex: 1,
     borderBottomColor: '#e0e0e0',
     borderBottomWidth: 1,
-    marginHorizontal: 10,
-  },
+    marginHorizontal: 10},
   formLogInscr: {
     backgroundColor: '#fff',
     position: 'relative',
     flex: 1,
     marginTop: 42, 
-    borderRadius: 10,
-  },
+    borderRadius: 10},
   FondMobile: {
     width: windowDim / 2.1,
     height: windowHeight / 3,
-    resizeMode: 'cover',
+    objectFit: 'cover' as const,
     position: 'absolute',
     right: -20,
-    top: -5,
-  },
+    top: -5},
   profilInscOuter: {
     width: 80,
     height: 80,
     borderRadius: 40,
-    overflow: 'hidden',
-  },
+    overflow: 'hidden'},
   profilInsc: {
     width: 80,
     height: 80,
-    borderRadius: 40,
-  },
+    borderRadius: 40},
   profilForm: {
     flexDirection: 'row',
     justifyContent: 'center',
-    alignContent: 'center',
-  },
+    alignContent: 'center'},
   profilFormInput: {
     backgroundColor: 'rgba(240, 244, 248, 0.875)',
     borderRadius: 30,
@@ -217,8 +186,7 @@ export const formsStyles = StyleSheet.create({
     paddingLeft: 16,
     marginBottom: 16,
     height: 50,
-    fontFamily: 'Oxygen-Regular',
-  },
+    fontFamily: 'Oxygen-Regular'},
   profilFormInputEditable: {
     backgroundColor: '#ffffff',
     borderRadius: 30,
@@ -233,8 +201,7 @@ export const formsStyles = StyleSheet.create({
     paddingLeft: 16,
     marginBottom: 16,
     height: 50,
-    fontFamily: 'Oxygen-Regular',
-  },
+    fontFamily: 'Oxygen-Regular'},
   autoComplete: {
     borderWidth: 1,
     borderColor: 'rgba(224, 224, 224, 1)',
@@ -245,21 +212,18 @@ export const formsStyles = StyleSheet.create({
     flexDirection: 'column',
     padding: 16,
     marginBottom: 16,
-    fontFamily: 'Oxygen-Regular',
-  },
+    fontFamily: 'Oxygen-Regular'},
   autoCompleteTxt: {
     backgroundColor: '#fff',
     fontSize: 14,
     paddingHorizontal: 16,
     paddingVertical: 4,
-    fontFamily: 'Oxygen-Regular',
-  },
+    fontFamily: 'Oxygen-Regular'},
   iconEye: {
     height: 14,
     width: 28,
     marginLeft: 10,
-    marginTop: 2,
-  },
+    marginTop: 2},
   iconEdit: {
     height: 19.5,
     width: 19.5,
@@ -278,30 +242,25 @@ export const formsStyles = StyleSheet.create({
   dateIcon: {
     height: 22,
     width: 20,
-    marginLeft: 283,
-  },
+    marginLeft: 283},
   paymentContain: {
     minHeight: windowHeight - 80,
-    backgroundColor: '#fff',
-  },
+    backgroundColor: '#fff'},
   rowFlex: {
     display: 'flex',
     flexWrap: 'nowrap',
-    flexDirection: 'row',
-  },
+    flexDirection: 'row'},
   columnFlex: {
     display: 'flex',
     flexWrap: 'nowrap',
-    flexDirection: 'column',
-  },
+    flexDirection: 'column'},
   switchContainer: {
     paddingHorizontal: 16,
     borderRadius: 8,
     borderWidth: 1,
     borderColor: '#E0E0E0',
     minHeight: 50,
-    marginVertical: 10,
-  },
+    marginVertical: 10},
 
   /* ADD STYLES */
 
@@ -309,15 +268,13 @@ export const formsStyles = StyleSheet.create({
     color: COLORS.blueLight,
     fontSize: 12,
     fontWeight: '700',
-    marginTop: 4,
-  },
+    marginTop: 4},
   labelStyleTerms: {
     color: '#007bff',
     fontSize: 12,
     fontWeight: '700',
     textDecorationLine: 'underline',
-    textAlignVertical: 'bottom',
-  },
+    textAlignVertical: 'bottom'},
   itemInputStyle: {
     color: COLORS.primary,
     fontSize: 16,
@@ -328,45 +285,37 @@ export const formsStyles = StyleSheet.create({
     margin: 0,
     height: 40,
     lineHeight: 20,
-    width: '97%',
-  },
+    width: '97%'},
   formContain: {
     backgroundColor: '#fff',
     justifyContent: 'space-between',
     alignContent: 'center',
-    alignItems: 'center',
-  },
+    alignItems: 'center'},
   inputWrap: {
     borderWidth: 1,
     borderColor: COLORS.blue_border,
     borderRadius: SIZES.radius,
     marginTop: SIZES.padding,
     paddingLeft: 10,
-    backgroundColor: COLORS.white,
-  },
+    backgroundColor: COLORS.white},
   inputWrapBlue: {
     backgroundColor: COLORS.blue_back,
     padding: SIZES.padding2,
     borderRadius: SIZES.radius,
     marginBottom: SIZES.padding2,
-    position: 'relative',
-
-  },
+    position: 'relative'},
   inputWrapBlueCreate: {
     backgroundColor: COLORS.blue_back,
     padding: SIZES.padding2,
     borderRadius: SIZES.radius,
     marginTop: SIZES.padding2,
     paddingTop: 0,
-    marginBottom: 0,
-  },
+    marginBottom: 0},
   inputWrapBorderBlue: {
     backgroundColor: COLORS.white,
     padding: SIZES.padding2,
     borderRadius: SIZES.radius,
     borderColor: COLORS.blue_border,
     marginTop: SIZES.padding,
-    borderWidth: 1,
-  },
-  wrappContent: {},
-});
+    borderWidth: 1},
+  wrappContent: {}});

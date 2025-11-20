@@ -25,5 +25,4 @@ export const TitleLabels = {
         pretension: "Salaire brut (Ariary)",
         other: "Autres",
         candidate_search:'Statut du candidat'
-    },
-};
+    }};

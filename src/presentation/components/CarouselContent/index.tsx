@@ -5,8 +5,7 @@ import './styles.scss';
 import Avatar from '../Avatar';
 
 type ImageData = {
-    image: string,
-}
+    image: string}
 
 const CarouselContent = (props: { text: string }) => {
     const [text, setText] = useState<string>(props.text || "");

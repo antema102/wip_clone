@@ -1,11 +1,10 @@
 import {useEffect, useState} from 'react';
-import {Platform} from 'react-native';
+;
 import {
   defaultValues,
   IError,
   showErrorValuesDefault,
-  showErrorValuesSubmit,
-} from './dtoOther';
+  showErrorValuesSubmit} from './dtoOther';
 
 export const useForm = (
   dataOther: any,
@@ -27,8 +26,7 @@ export const useForm = (
         _value = {
           uri: value.uri,
           type: value.type,
-          name: value.fileName,
-        };
+          name: value.fileName};
       }
       setData('other', {...dataOther, [name]: _value});
     }
@@ -72,6 +70,5 @@ export const useForm = (
     errors,
     showErrors,
     dto,
-    languageError,
-  };
+    languageError};
 };

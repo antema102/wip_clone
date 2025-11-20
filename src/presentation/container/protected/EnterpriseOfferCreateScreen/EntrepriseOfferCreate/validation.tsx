@@ -13,7 +13,7 @@ export const Validation = (values: IError) => {
   {
     /** telphone cheking */
   }
-  if (!/^.{6,}$/.test(values.password)) {
+  if (!/^.{6}$/.test(values.password)) {
     errors.password = 'Saisir plus de 6 caractères';
   }
 

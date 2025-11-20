@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import React, {useEffect, useState, useRef, } from 'react';
-import {Text, View, TouchableOpacity, Image} from 'react-native';
+import React, {useEffect, useState, useRef} from 'react';
+;
 import {Picker} from '@react-native-picker/picker';
 import {formsStyles} from '../../../formStyles';
 import styles from './styles';
@@ -17,8 +17,7 @@ export const InputSelect = (props: any) => {
     error,
     showError,
     isEditable,
-    data,
-  } = props;0
+    data} = props;0
 
   const pickerRef = useRef(null);
 
@@ -67,14 +66,13 @@ export const InputSelect = (props: any) => {
   }, [error]);
 
   return (
-    <TouchableOpacity onPress={open}>
+    <button onClick={open}>
       <TitleLabel label={label} required={required} />
-        <View style={{
+        <div style={{
           
           justifyContent: 'space-between',
           flexDirection: 'row',
-          height: 40,
-        }}>
+          height: 40}}>
           <Picker
             ref={pickerRef}
             style={{
@@ -84,8 +82,7 @@ export const InputSelect = (props: any) => {
               position: 'relative',
               left: -15,
               top: -10,
-              zIndex: -1,
-            }}
+              zIndex: -1}}
             selectedValue={selectedValue}
             enabled={isEditable}
             dropdownIconColor={(isEditable) ? COLORS.white : COLORS.lightGray}
@@ -95,21 +92,20 @@ export const InputSelect = (props: any) => {
             {dataOptions}
           </Picker>
 
-          <View
+          <div
             style={{
              
               alignItems: 'center',
               paddingTop: 7,
-              paddingRight: 10,
-            }}>
-            <Image style={[formsStyles.iconSelect]} source={icons.down} />
-          </View>
-        </View>
-      {/* </View> */}
+              paddingRight: 10}}>
+            <img style={[formsStyles.iconSelect]} src={icons.down} />
+          </div>
+        </div>
+      {/* </div> */}
       {required && showError && errorToDisplay !== '' && (
-        <Text style={styles.textError}>{errorToDisplay}</Text>
+        <span style={styles.textError}>{errorToDisplay}</span>
       )}
-    </TouchableOpacity>
+    </button>
   );
 };
 
@@ -123,8 +119,7 @@ InputSelect.propTypes = {
   onChange: PropTypes.func,
   maxLength: PropTypes.number,
   isEditable: PropTypes.bool,
-  data: PropTypes.any,
-};
+  data: PropTypes.any};
 
 InputSelect.defaultProps = {
   data: [],
@@ -136,5 +131,4 @@ InputSelect.defaultProps = {
   error: '',
   maxLength: 500,
   type: '',
-  isEditable: true,
-};
+  isEditable: true};

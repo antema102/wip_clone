@@ -77,6 +77,5 @@ export const useOfferList = idType => {
     getAllOfferJob,
     isLoading,
     jobList,
-    totalValue,
-  };
+    totalValue};
 };

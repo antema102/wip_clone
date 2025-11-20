@@ -22,5 +22,4 @@ export const paginatorTemplateCustom = {
       Suivant 
       <span> {">"} </span>
     </button>
-  ),
-};
+  )};

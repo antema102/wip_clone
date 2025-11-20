@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, ScrollView } from 'react-native';
+;
 import { Form } from './Form';
 import { formsStyles } from '../../../../globalStyle/formStyles';
 import { useLogin } from '../../EnterpriseOfferCreateScreen/EntrepriseOfferCreate/useLogin';
@@ -15,7 +15,7 @@ const EntrepriseFormationCreate = (props: any) => {
     const { navigation, route } = props;
     const detailOffer = route?.params?.detailOffer;
     return (
-        <View style={formsStyles.formLogInscr}>
+        <div style={formsStyles.formLogInscr}>
             <TitleRefont title={`Création formation , stage, alternance`} />
             {!postSucces && !IsLoading ? (
                 <Form
@@ -27,9 +27,9 @@ const EntrepriseFormationCreate = (props: any) => {
                     navigation={navigation}
                 />
             ) : (
-                <View />
+                <div />
             )}
-        </View>
+        </div>
     );
 };
 export default EntrepriseFormationCreate;

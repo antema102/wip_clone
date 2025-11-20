@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { View, Text } from 'react-native';
+;
 import { styles } from './styles';
 
 import { SwitchComponent } from '../../Switch';
@@ -34,8 +34,7 @@ interface Props {
     necessary?: boolean;
     reset?: boolean;
     resetProvince?: boolean;
-    noSwitch?: boolean,
-}
+    noSwitch?: boolean}
 
 export default ({
     label,
@@ -58,8 +57,7 @@ export default ({
     necessary = false,
     reset,
     resetProvince,
-    noSwitch = false,
-}: Props) => {
+    noSwitch = false}: Props) => {
     useEffect(() => {
         initValue(isEditable[name]);
     }, [isEditable[name]]);
@@ -104,10 +102,10 @@ export default ({
     const { lang } = useLang();
     const activeString = lang === 'fr' ? TitleLabels : TitleLabels_en;
     return (
-        <View style={[styles.defaultCriterion]}>
+        <div style={[styles.defaultCriterion]}>
 
-            <View style={noSwitch ? styles.withoutSwitch : styles.alignSwitch}>
-                <Text style={styles.titleGroup}>{label}</Text>
+            <div style={noSwitch ? styles.withoutSwitch : styles.alignSwitch}>
+                <span style={styles.titleGroup}>{label}</span>
                 {typeof onChangeEditable === 'function' && !noSwitch ? (
                     <SwitchComponent
                         onChangeValue={() => {
@@ -122,16 +120,13 @@ export default ({
                         value={isEditable[name]}
                     />
                 ) : null}
-            </View>
+            </div>
 
             {(isEditable[name] || noSwitch) && (
-                <View style={styles.contentChamp}>
+                <div style={styles.contentChamp}>
                     {/** Study Level */}
-                    <View
-                        style={[
-                            formsStyles.inputWrap,
-                            { backgroundColor: status ? COLORS.white : COLORS.disableGray },
-                        ]}>
+                    <div
+                        style={{...formsStyles.inputWrap, ...({ backgroundColor: status ? COLORS.white : COLORS.disableGray }), ...}}>
                         {type === 'select' ? (
                             <InputSelect
                                 label={label}
@@ -157,7 +152,7 @@ export default ({
                                 showError={showErrors[name]}
                             />
                         ) : type === 'salary' ? (
-                            <View>
+                            <div>
                                 <InputField
                                     label={`${label} minimum`}
                                     required={required}
@@ -184,7 +179,7 @@ export default ({
                                     showError
                                     type={'numeric'}
                                 />
-                            </View>
+                            </div>
                         ) : type === 'date' ? (
                             <InputDatePicker
                                 value={values[name]}
@@ -205,8 +200,8 @@ export default ({
                         ) : (
                             ''
                         )}
-                    </View>
-                    <Text style={{ color: 'red', marginTop: 5 }}>{errorSalary}</Text>
+                    </div>
+                    <span style={{ color: 'red', marginTop: 5 }}>{errorSalary}</span>
 
                     {/** Priorisation Critera */}
                     {label == activeString.FindCriteria.Accommodated ||
@@ -215,15 +210,9 @@ export default ({
                         label == 'Poste souhaité' ||
                         label == activeString.FindCriteria.candidate_search
                         ? null : (
-                            <View
-                                style={[
-                                    formsStyles.inputWrap,
-                                    {
-                                        backgroundColor: status ? COLORS.white : COLORS.disableGray,
-                                        marginTop: SIZES.padding4,
-
-                                    },
-                                ]}>
+                            <div
+                                style={{...formsStyles.inputWrap, ...({
+                                        backgroundColor: status ? COLORS.white : COLORS.disableGray), ...marginTop: SIZES.padding4}, ...}}>
                                 <InputSelect
                                     label={activeString.FindOffer.levelLab}
                                     required={required}
@@ -235,10 +224,10 @@ export default ({
                                     error={errors[`${name}_level`]}
                                     showError
                                 />
-                            </View>
+                            </div>
                         )}
-                </View>
+                </div>
             )}
-        </View>
+        </div>
     );
 };

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Pressable, Modal, Image } from 'react-native';
+import { Dialog } from 'primereact/dialog';
+
 import { useNavigate } from 'react-router-dom';
 
 import { images } from '../../../resources/constants';
@@ -21,29 +22,29 @@ export const PaymentWays = props => {
     window.scrollTo(0, 0);
   };
   return (
-    <View style={styles.container}>
-      <View style={styles.alignHorizontally}>
-        {/* <Pressable onPress={handleMvolaPayment}>
-          <Image
+    <div style={styles.container}>
+      <div style={styles.alignHorizontally}>
+        {/* <button onClick={handleMvolaPayment}>
+          <img
             style={styles.imgStyle}
-            source={images.mvola}
+            src={images.mvola}
           />
-        </Pressable> */}
-        <View style={styles.intermediate} />
-        <Pressable onPress={handleOrangePayment}>
-          <Image
+        </button> */}
+        <div style={styles.intermediate} />
+        <button onClick={handleOrangePayment}>
+          <img
             style={styles.imgStyle}
-            source={images.orangeMoney}
+            src={images.orangeMoney}
           />
-        </Pressable>
-        <View style={styles.intermediate} />
-        <Pressable onPress={handleVisaPayment}>
-          <Image
+        </button>
+        <div style={styles.intermediate} />
+        <button onClick={handleVisaPayment}>
+          <img
             style={styles.imgStyle}
-            source={images.visa}
+            src={images.visa}
           />
-        </Pressable>
-      </View>
-    </View>
+        </button>
+      </div>
+    </div>
   );
 };

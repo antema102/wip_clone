@@ -9,7 +9,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import CarouselContent from '../../../components/CarouselContent';
 import './styles.scss';
 import { Toast } from 'primereact/toast';
-import { ActivityIndicator } from 'react-native';
+;
 import { time } from 'console';
 export const Confirmation = (props: any): any => {
   const [errorMessage, setErrorMessage] = useState('');
@@ -28,8 +28,7 @@ export const Confirmation = (props: any): any => {
   const resendCode = async () => {
     setIsLoadingResend(true);
     const data = {
-      email: values && values?.email,
-    };
+      email: values && values?.email};
     await resendEmail(data);
     toast.current?.show({ severity: 'success', summary: 'Success', detail: RESET_PASSWORD.RESEND_MESSAGE, life: 3000 });
     setTimeout(() => {
@@ -173,12 +172,12 @@ export const Confirmation = (props: any): any => {
               <div className='confirmation__btn'>
                 <button className='margin-bottom-8' onClick={handleSubmit}>
                   {
-                    isLoading ? <ActivityIndicator /> : "Confirmer le code de validations"
+                    isLoading ? <span className="spinner" /> : "Confirmer le code de validations"
                   }
                 </button>
                 <button onClick={resendCode}>
                   {
-                    isLoadingResend ? <ActivityIndicator /> : "Renvoyer le code de validations"
+                    isLoadingResend ? <span className="spinner" /> : "Renvoyer le code de validations"
                   }
                 </button>
               </div>

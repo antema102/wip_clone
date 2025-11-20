@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { View, Text, TouchableOpacity } from 'react-native';
+;
 import { useNavigate } from 'react-router-dom';
 import { OfferService } from '../../../../service/applicatif/Offer.sa';
 import { useTender } from '../../../../service/redux/ducks/tender';
@@ -34,8 +34,7 @@ const AnnounceBox = ({ category }: Props) => {
   const getCategoryForTenders = async () => {
     setIsRefreshing(true);
     const data = {
-      audience: user?.role === ROLEACCOUNT.candidate ? 0 : 1,
-    };
+      audience: user?.role === ROLEACCOUNT.candidate ? 0 : 1};
     await getTenderCategory(data, accessToken);
     if (dataCategory.length === 0) {
       setIsEmpty(true);
@@ -50,8 +49,7 @@ const AnnounceBox = ({ category }: Props) => {
       state: {
         list: listDatas,
         isClicked: index,
-        item: item,
-      }
+        item: item}
     });
   };
 
@@ -59,8 +57,7 @@ const AnnounceBox = ({ category }: Props) => {
     navigation('/ListScreen', {
       state: {
         title: "Liste des appels d'offres",
-        companyName: item,
-      }
+        companyName: item}
     });
   };
 
@@ -96,19 +93,18 @@ const AnnounceBox = ({ category }: Props) => {
 
   return (<>
     {isRefreshing ? <Loader /> : (
-      <View
+      <div
         style={{
           marginTop: 20,
           justifyContent: 'space-between',
           minHeight: 100,
-          backgroundColor: COLORS.white,
-        }}>
+          backgroundColor: COLORS.white}}>
 
         {
           isEmpty && (dataCategory?.length === 0) ? (
-            <View style={styles.centerItem}>
-              <Text style={styles.noItemText}> Aucun résultat</Text>
-            </View>
+            <div style={styles.centerItem}>
+              <span style={styles.noItemText}> Aucun résultat</span>
+            </div>
           ) :
             (
               category === 'tender' ?
@@ -116,7 +112,7 @@ const AnnounceBox = ({ category }: Props) => {
                 :
                 <DynamicBox listJobs={listDatas} navigateCombinaisonCandidat={handleRedirection} />
             )}
-      </View>
+      </div>
     )}
   </>
   );

@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {View, Text} from 'react-native';
+;
 
 import styles from '../../styles';
 import { formsStyles } from '../../../../../globalStyle/formStyles';
@@ -19,7 +19,7 @@ interface Props {
   type: string;
 }
 
-export const ListOfExperience = ({
+export const ListOfExperience = {
   item,
   index,
   values,
@@ -27,22 +27,21 @@ export const ListOfExperience = ({
   onRemove,
   errors,
   showErrors,
-  type,
-}: Props) => {
+  type}: Props) => {
   const handleRemove = () => {
     onRemove(item);
   };
 
   return (
-    <View style={[formsStyles.inputWrapBlueCreate, {paddingTop: 20}]}>
-      <View style={styles.btnRemoveContainer}>
-        <Text
-          style={styles.btnRemoveTitle}>{`Ancienne expérience ${index}`}</Text>
+    <div style={[formsStyles.inputWrapBlueCreate, {paddingTop: 20}]}>
+      <div style={styles.btnRemoveContainer}>
+        <span
+          style={styles.btnRemoveTitle}>{`Ancienne expérience ${index}`}</span>
 
         {type !== 'read' && (
           <Buttons
             _style={[styles.btnRemove, globalStyle.elevationBlue]}
-            onPress={handleRemove}
+            onClick={handleRemove}
             title=""
             color=""
             styleBtnTxt={{color: COLORS.white}}
@@ -50,17 +49,13 @@ export const ListOfExperience = ({
             iconStyles={{margin: 5}}
           />
         )}
-      </View>
+      </div>
 
-      <View key={`listOfExp-${item}`}>
-        <View
-          style={[
-            styles.inputWrap,
-            {
+      <div key={`listOfExp-${item}`}>
+        <div
+          style={{...styles.inputWrap, ...({
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white,
-            },
-          ]}>
+                type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
           <InputField
             label={'Année'}
             required
@@ -73,15 +68,11 @@ export const ListOfExperience = ({
             isEditable={type !== 'read'}
             maxLength={50}
           />
-        </View>
-        <View
-          style={[
-            styles.inputWrap,
-            {
+        </div>
+        <div
+          style={{...styles.inputWrap, ...({
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white,
-            },
-          ]}>
+                type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
           <InputField
             label={'Poste'}
             required
@@ -93,15 +84,11 @@ export const ListOfExperience = ({
             isEditable={type !== 'read'}
             maxLength={50}
           />
-        </View>
-        <View
-          style={[
-            styles.inputWrap,
-            {
+        </div>
+        <div
+          style={{...styles.inputWrap, ...({
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white,
-            },
-          ]}>
+                type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
           <InputField
             label={'Chez'}
             required
@@ -113,15 +100,11 @@ export const ListOfExperience = ({
             isEditable={type !== 'read'}
             maxLength={50}
           />
-        </View>
-        <View
-          style={[
-            styles.inputWrap,
-            {
+        </div>
+        <div
+          style={{...styles.inputWrap, ...({
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white,
-            },
-          ]}>
+                type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
           <InputField
             label={'Description'}
             required
@@ -134,8 +117,8 @@ export const ListOfExperience = ({
             isEditable={type !== 'read'}
             maxLength={200}
           />
-        </View>
-      </View>
-    </View>
+        </div>
+      </div>
+    </div>
   );
 };

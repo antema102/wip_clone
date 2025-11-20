@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View} from 'react-native';
+;
 
 import {ListPosition} from './ListPosition';
 import {AddLayer} from '../../AddLayer';
@@ -19,15 +19,14 @@ interface Props {
   type: string;
 }
 
-export const DesiredPosition = ({
+export const DesiredPosition = {
   values,
   handleChange,
   errors,
   showErrors,
   formatSelectData,
   country,
-  type,
-}: Props) => {
+  type}: Props) => {
   // ------------------------------
   // Desired Location handler
   const [listPosition, setListPosition] = useState<any[]>([]);
@@ -69,8 +68,7 @@ export const DesiredPosition = ({
         _id: id,
         country: '',
         province: '',
-        zone: '',
-      },
+        zone: ''},
     ]);
 
     values['country_' + id] = '';
@@ -95,21 +93,17 @@ export const DesiredPosition = ({
   return (
     <>
       {listPosition.length === 0 && type == 'read' ? (
-        <View
-          style={[
-            styles.inputWrap,
-            {
+        <div
+          style={{...styles.inputWrap, ...({
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white,
-            },
-          ]}>
+                type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
           <InputField
             label={TitleLabels.CreationCV.desiredLocalisation}
             isEditable={type !== 'read'}
           />
-        </View>
+        </div>
       ) : (
-        <View style={formsStyles.inputWrapBorderBlue}>
+        <div style={formsStyles.inputWrapBorderBlue}>
           {type !== 'read' && (
             <AddLayer
               title={'Localisation Souhaitée'}
@@ -137,7 +131,7 @@ export const DesiredPosition = ({
               />
             );
           })}
-        </View>
+        </div>
       )}
     </>
   );

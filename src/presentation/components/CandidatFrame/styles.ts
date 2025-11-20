@@ -1,9 +1,9 @@
-import {StyleSheet, Dimensions} from 'react-native';
+;
 import { COLORS, SIZES } from '../../../resources/constants';
 
-let windowWidth = Dimensions.get('window').width;
+let windowWidth = window.innerWidth;
 
-export const styles = StyleSheet.create({
+export const styles = {
   blueBanner: {
     paddingHorizontal: SIZES.padding,
     width: '100%',
@@ -14,20 +14,17 @@ export const styles = StyleSheet.create({
     height: 100,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
-    // top: 60,
-  },
+    // top: 60},
   displayLeftHorizontal: {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-  },
+    justifyContent: 'center'},
   displayCenterVertical: {
     display: 'flex',
     flexDirection: 'column',
     //alignItems: 'center',
-    justifyContent: 'center',
-  },
+    justifyContent: 'center'},
   text: {
     fontSize: SIZES.h3,
     color: COLORS.secondary,
@@ -37,6 +34,4 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 0,
     paddingVertical: windowWidth * 0.08,
     lineHeight: 24,
-    letterSpacing: 0.15,
-  },
-});
+    letterSpacing: 0.15}});

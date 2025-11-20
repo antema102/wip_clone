@@ -9,5 +9,4 @@ export const MatchingBDL = () => ({
 
   filterMatchingJob: async (data: any): Promise<any> => {
     return await api.post(urls.FILTER_WITH_MATCHING_JOB, data);
-  },
-});
+  }});

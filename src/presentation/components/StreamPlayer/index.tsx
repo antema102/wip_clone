@@ -14,8 +14,7 @@ type videoPlayerProps = {
     isStyled?: boolean,
     isExample?: boolean,
     candidatId?: string,
-    viewOnly?: boolean,
-}
+    viewOnly?: boolean}
 
 const StreamPlayer = ({ width, height, poster, isStyled = true, id = uuid(), isExample, candidatId, viewOnly }: videoPlayerProps) => {
     const { user } = useSelector(({ auth }: any) => auth);

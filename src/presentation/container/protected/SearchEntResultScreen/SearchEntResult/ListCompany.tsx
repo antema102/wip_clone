@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { View, Text, Image } from 'react-native';
+;
 import { styles } from "./styles"
 import { Company } from '../../../../components/SearchEntResult/Company';
 import { SEARCHENT_RESULT } from '../../../../../data/constants/strings';
@@ -24,13 +24,12 @@ export const ListCompany = ({ displayCandidateDetail, data, isMobile }) => {
   const paginator = {
     paginator: true,
     rows: 4,
-    totalRecords: dataList.length,
-  };
+    totalRecords: dataList.length};
 
   return (
-    <View>
+    <div>
       {/** Listes des candidtas */}
-      <View style={{ flex: 1 }}>
+      <div style={{ flex: 1 }}>
 
         {dataList?.length ?
           // dataList.map(item => (
@@ -42,9 +41,9 @@ export const ListCompany = ({ displayCandidateDetail, data, isMobile }) => {
           // )) 
 
           <>
-            <View style={{ paddingBottom: 28 }}>
-              <Text style={{ fontSize: 15, fontWeight: '700' }}>Profil trouvé :</Text>
-            </View>
+            <div style={{ paddingBottom: 28 }}>
+              <span style={{ fontSize: 15, fontWeight: '700' }}>Profil trouvé :</span>
+            </div>
 
             {
             !isMobile ? (
@@ -65,30 +64,30 @@ export const ListCompany = ({ displayCandidateDetail, data, isMobile }) => {
             }
           </>
           :
-          <View style={styles.contentResultContainer}>
-            <View style={styles.contentTitle}>
-              <Text style={styles.title}>
+          <div style={styles.contentResultContainer}>
+            <div style={styles.contentTitle}>
+              <span style={styles.title}>
                 {
                   SEARCHENT_RESULT.FIND_COMPANY_THAT_ARE_HIRING
                 }
-              </Text>
-            </View>
+              </span>
+            </div>
 
-            <View style={{ alignItems: 'center', gap: 24, paddingTop: 34 }}>
-              <View style={{ paddingVertical: 18, paddingHorizontal: 32, backgroundColor: COLORS.blue_title, minWidth: 300, borderRadius: 20 }}>
-                <Text style={styles.contentResult}>{SEARCHENT_RESULT.NO_RESULT_FOUND}</Text>
-              </View>
+            <div style={{ alignItems: 'center', gap: 24, paddingTop: 34 }}>
+              <div style={{ paddingVertical: 18, paddingHorizontal: 32, backgroundColor: COLORS.blue_title, minWidth: 300, borderRadius: 20 }}>
+                <span style={styles.contentResult}>{SEARCHENT_RESULT.NO_RESULT_FOUND}</span>
+              </div>
 
-              <View style={{ alignItems: 'center', }}>
+              <div style={{ alignItems: 'center'}}>
                 <Divider type='solid' align='center' style={{ width: 100 }} />
-                <Image source={{ uri: images.hands }} style={styles.image} />
-              </View>
+                <img src={images.hands } style={styles.image} />
+              </div>
 
-            </View>
-          </View>
+            </div>
+          </div>
         }
-      </View>
+      </div>
 
-    </View>
+    </div>
   );
 };

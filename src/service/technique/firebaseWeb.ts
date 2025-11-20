@@ -11,8 +11,7 @@ const firebaseConfig = {
   storageBucket: 'wip-work.firebasestorage.app',
   messagingSenderId: '119803414077',
   appId: '1:119803414077:web:4d3bf6c8424f6ff4cecc54',
-  measurementId: 'G-D6LHSJ75S5',
-};
+  measurementId: 'G-D6LHSJ75S5'};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -27,8 +26,7 @@ export const getGoogleToken = async () => {
 
     const currentToken = await getToken(messaging, {
       vapidKey:
-        'BBwWoi2e0oftWs1LqAqASVRdkllRywXHPlQ0Nfb9x4ql0EtY0q8kQ-ttxJLFNHBKRFccLuoCceXwvskNIbY-v3I',
-    });
+        'BBwWoi2e0oftWs1LqAqASVRdkllRywXHPlQ0Nfb9x4ql0EtY0q8kQ-ttxJLFNHBKRFccLuoCceXwvskNIbY-v3I'});
 
     if (currentToken) {
       return currentToken;

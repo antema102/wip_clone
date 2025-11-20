@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Platform } from 'react-native';
+;
 import {
   defaultValues,
   IError,
   showErrorValuesDefault,
-  showErrorValuesSubmit,
-} from './dtoInfo';
+  showErrorValuesSubmit} from './dtoInfo';
 
 export const useForm = (
   dataInfo: any,
@@ -28,8 +27,7 @@ export const useForm = (
         _value = {
           uri: value.uri,
           type: value.type,
-          name: value.fileName,
-        };
+          name: value.fileName};
       }
       setData('info', { ...dataInfo, [name]: _value });
     }
@@ -66,6 +64,5 @@ export const useForm = (
     errors,
     showErrors,
     dto,
-    showError,
-  };
+    showError};
 };

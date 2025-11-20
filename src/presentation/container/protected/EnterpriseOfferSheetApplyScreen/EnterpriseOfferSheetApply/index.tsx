@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
+;
 import { useOfferr } from '../../../../../service/redux/ducks/offer';
 import { ListOfferApply } from './ListOfferApply';
 import ViewFrame from '../../../../components/ViewDetails/viewFrame';
@@ -50,66 +50,66 @@ export const EnterpriseOfferSheetApply = props => {
         }
     };
     return (
-        <View>
+        <div>
             {/* <Header {...props} typeApp="Enterprise ?" /> */}
             {isLoading || refreshing ? (
                 <Loader />
             ) : (
                 <>
-                    <ScrollView style={{ backgroundColor: COLORS.white, borderRadius: 10 }}>
+                    <div style={{overflowY: "auto", ...{ backgroundColor: COLORS.white, borderRadius: 10 }}}>
                         {/* <MainPageHeader title={data?.name || ''} /> */}
                         {data?.users?.length ?
                             (<>
-                                <View style={{ paddingHorizontal: 32 }}>
-                                    <TouchableOpacity style={styles.contentImage} onPress={handleBack}>
+                                <div style={{ paddingHorizontal: 32 }}>
+                                    <button style={styles.contentImage} onClick={handleBack}>
                                         <img src={icons.arrowPrevious} style={styles.imageArrow} />
-                                        <Text>Retour</Text>
-                                    </TouchableOpacity>
-                                    <View style={{ marginTop: 8, display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 14 }}>
-                                        <View>
+                                        <span>Retour</span>
+                                    </button>
+                                    <div style={{ marginTop: 8, display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+                                        <div>
                                             <img height={80} width={80} src={avatar ? avatar : images.avatar_1} style={{ objectFit: 'cover' }} />
-                                        </View>
-                                        <View style={{ gap: 4 }}>
-                                            <Text style={{ fontSize: 20, fontWeight: '600' }}>{data?.name}</Text>
-                                            <View style={{ flexDirection: 'row', gap: 4 }}>
-                                                <Text style={{ color: 'rgba(0, 0, 0, 0.4)', fontSize: 12 }}>{data?.lieu}</Text>
-                                            </View>
-                                        </View>
-                                    </View>
-                                </View>
+                                        </div>
+                                        <div style={{ gap: 4 }}>
+                                            <span style={{ fontSize: 20, fontWeight: '600' }}>{data?.name}</span>
+                                            <div style={{ flexDirection: 'row', gap: 4 }}>
+                                                <span style={{ color: 'rgba(0, 0, 0, 0.4)', fontSize: 12 }}>{data?.lieu}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-                                <View style={styles.containers}>
+                                <div style={styles.containers}>
                                     {/* <ViewFrame data={data} /> */}
                                     <ViewFrameCompments data={data} />
-                                    <View style={''}>
+                                    <div style={''}>
                                         <>
-                                            <View style={{ alignItems: 'center', gap: 14, flexDirection: 'row', paddingTop: 16 }}>
-                                                {/* <View style={{ height: 15, width: 15, backgroundColor: '#D9D9D9' }}></View> */}
-                                                <Text style={styles.titleOfferList}>
+                                            <div style={{ alignItems: 'center', gap: 14, flexDirection: 'row', paddingTop: 16 }}>
+                                                {/* <div style={{ height: 15, width: 15, backgroundColor: '#D9D9D9' }}></div> */}
+                                                <span style={styles.titleOfferList}>
                                                     Ceux qui ont postulé
-                                                </Text>
-                                            </View>
+                                                </span>
+                                            </div>
                                             <ListOfferApply
                                                 dataUsers={data?.users}
                                                 displayOfferApply={displayOfferApply}
                                             />
                                         </>
-                                    </View>
+                                    </div>
 
-                                </View>
+                                </div>
                             </>
                             )
                             : (
-                                <Text style={styles.noEvents}>
+                                <span style={styles.noEvents}>
                                     Aucun candidat a postulé sur cette offre
-                                </Text>
+                                </span>
                             )
 
                         }
-                    </ScrollView>
+                    </div>
                 </>
             )}
-        </View>
+        </div>
     );
 };
 
