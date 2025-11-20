@@ -1,4 +1,3 @@
-;
 import { COLORS, SIZES } from '../../../resources/constants';
 
 let windowWidth = window.innerWidth;
@@ -18,7 +17,8 @@ export const styles = {
   subscriptionContainer: {
     marginTop: 24,
     marginHorizontal: 24,
-    flexDirection: 'column'},
+    flexDirection: 'column'
+  },
   subscriptionDetailsContainer: {
     flex: 1,
     display: 'flex',
@@ -28,16 +28,19 @@ export const styles = {
   },
   btnDetail: {
     marginTop: 16,
-    paddingBottom: 16},
+    paddingBottom: 16
+  },
   btnBuy: {
-    minWidth: 200},
+    minWidth: 200
+  },
   description: {
   },
 
   subscriptionName: {
     fontSize: 20,
     color: COLORS.vector_orange,
-    fontWeight: 'bold'},
+    fontWeight: 'bold'
+  },
   descriptionText: {
     fontSize: 15,
     color: COLORS.black,
@@ -48,14 +51,16 @@ export const styles = {
   smallBtnTxt: {
     fontSize: SIZES.body4,
     color: COLORS.white,
-    fontWeight: '700'},
+    fontWeight: '700'
+  },
   smallButtonContainer: {
     height: 40,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: SIZES.radiusTwo,
     paddingHorizontal: 8,
-    width: '100%'},
+    width: '100%'
+  },
   centeredView: {
     flex: 1,
     width: '100%',
@@ -69,30 +74,36 @@ export const styles = {
     backgroundColor:COLORS.vector_orange,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: SIZES.padding2},
+    marginBottom: SIZES.padding2
+  },
   detailSub: {
     width: '100%',
     marginBottom: 20,
-    marginTop: 20},
+    marginTop: 20
+  },
   titleDetails: {
     fontStyle: 'normal',
     fontWeight: '700',
     fontSize: 16,
-    lineHeight: 24},
+    lineHeight: 24
+  },
   detailValue: {
     fontStyle: 'normal',
     fontWeight: '400',
     color: '#323F4B',
     fontSize: 16,
-    lineHeight: 24},
+    lineHeight: 24
+  },
   detailItem: {
     display: 'flex',
     flexDirection: 'row',
-    marginBottom: 15},
+    marginBottom: 15
+  },
   textBtnSecondary: {
     color: COLORS.white,
     fontWeight: 'bold',
-    fontSize: SIZES.h5},
+    fontSize: SIZES.h5
+  },
   icon: {
     width: 24, // Set the width of the image
     height: 24, // Set the height of the image
@@ -113,8 +124,11 @@ export const styles = {
       height: 2},
     shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 5},
+    elevation: 5
+  },
   buttonContainer: {
     marginTop: 20,
     flexDirection: 'row',
-    justifyContent: 'space-between'}});
+    justifyContent: 'space-between'
+  }
+};

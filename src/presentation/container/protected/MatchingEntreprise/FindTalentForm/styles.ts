@@ -1,4 +1,3 @@
-;
 import { COLORS, SIZES } from '../../../../../resources/constants';
 
 let windowWidth = window.innerWidth;
@@ -34,9 +33,11 @@ export const styles = {
   },
   containt: {},
   vtitle: {
-    width: windowWidth},
+    width: windowWidth
+  },
   headerScreenDescription: {
-    color: 'white'},
+    color: 'white'
+  },
   candidateContainer: {},
   title: {},
   candidateImgContainer: {},
@@ -55,23 +56,27 @@ export const styles = {
   // ---------------------------------------------------------
   defaultCriterion: {},
   minusBtn: {
-    width: '100%'},
+    width: '100%'
+  },
   namedSwitchField: {},
 
   layerContainer: {
-    width: '100%'},
+    width: '100%'
+  },
   layerTitleContainer: {},
   fullWidth: {
     width: windowWidth - 48,
     flexDirection: 'row',
-    justifyContent: 'space-between'},
+    justifyContent: 'space-between'
+  },
   footerForm: {
     backgroundColor: COLORS.blue_back,
     height: 84,
     flexDirection: 'column',
     justifyContent: 'center',
     width: windowWidth,
-    marginLeft: -24},
+    marginLeft: -24
+  },
   footerFormLarge: {
     backgroundColor: COLORS.blue_back,
     height: 84,
@@ -80,7 +85,8 @@ export const styles = {
     alignItems: 'center',
     width: windowWidth,
     paddingHorizontal: SIZES.padding,
-    marginLeft: -24},
+    marginLeft: -24
+  },
   submitJob: {
     height: 52,
     paddingHorizontal: 16,
@@ -89,7 +95,8 @@ export const styles = {
     alignItems: 'center',
     justifyContent: 'space-between',
     borderRadius: SIZES.radius,
-    flexDirection: 'row'},
+    flexDirection: 'row'
+  },
   submitJobSimple: {
     height: 52,
     paddingHorizontal: 16,
@@ -97,33 +104,40 @@ export const styles = {
     alignItems: 'center',
     marginRight: 24,
     justifyContent: 'space-between',
-    flexDirection: 'row'},
+    flexDirection: 'row'
+  },
   textButton: {
     fontSize: SIZES.h5,
     color: COLORS.white,
-    fontWeight: 'bold'},
+    fontWeight: 'bold'
+  },
   textButtonOrange: {
     color: COLORS.orange,
     fontSize: SIZES.h5,
-    fontWeight: 'bold'},
+    fontWeight: 'bold'
+  },
   iconReload: {
     width: 16,
     height: 16,
-    marginLeft: 6},
+    marginLeft: 6
+  },
   reinit: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingBottom: 1,
     borderBottomWidth: 1,
-    borderBottomColor: COLORS.orange},
+    borderBottomColor: COLORS.orange
+  },
   footerFormLargeSec: {
     height: 64,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    width: '100%'},
+    width: '100%'
+  },
   contentForm: {
-    flex: 0.7},
+    flex: 0.7
+  },
   alignSwitch: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -134,4 +148,6 @@ export const styles = {
   titleGroup: {
     fontSize: SIZES.h5,
     color: COLORS.black,
-    alignItems: 'center'}});
+    alignItems: 'center'
+  }
+};

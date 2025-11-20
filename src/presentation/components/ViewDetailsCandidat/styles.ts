@@ -1,4 +1,3 @@
-;
 import { COLORS } from '../../../resources/constants';
 const winWidth = window.innerWidth;
 const winHeight = window.innerHeight;
@@ -24,4 +23,6 @@ export const styles = {
   },
   textLabel:{
     fontWeight:600,fontSize:12
-  }});
+  
+  }
+};

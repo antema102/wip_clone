@@ -1,26 +1,30 @@
-;
 import { COLORS, FONTS, SIZES } from '../../../resources/constants';
 let windowWidth = window.innerWidth;
 let windowHeight = window.innerHeight;
 export const styles = {
   container: {
     flex: 1,
-    width: '100%'},
+    width: '100%'
+  },
   Logo: {
     alignItems: 'center',
-    justifyContent: 'center'},
+    justifyContent: 'center'
+  },
   productImg: {
     width: '100%', // Set the width of the product image container to 100%
     height: 200,
-    objectFit: 'contain' as const},
+    objectFit: 'contain' as const
+  },
   text: {
     color: COLORS.black,
     fontSize: SIZES.h5,
-    textAlign: 'center'},
+    textAlign: 'center'
+  },
   centerElement: {
     width: '100%',
     alignItems: 'center',
-    marginTop: 70},
+    marginTop: 70
+  },
   linkView: {
     width: '20%',
     position: 'absolute',
@@ -32,20 +36,24 @@ export const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: SIZES.padding2,
-    paddingHorizontal: 10},
+    paddingHorizontal: 10
+  },
   name: {
     fontSize: 28,
     color: '#696969',
-    fontWeight: 'bold'},
+    fontWeight: 'bold'
+  },
   description: {
     textAlign: 'center',
     marginTop: 10,
-    color: '#696969'},
+    color: '#696969'
+  },
   btnColor: {
     height: 30,
     width: 30,
     borderRadius: 30,
-    marginHorizontal: 3},
+    marginHorizontal: 3
+  },
   btnSize: {
     height: 40,
     width: 40,
@@ -57,17 +65,22 @@ export const styles = {
 
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center'},
+    alignItems: 'center'
+  },
   contentColors: {
     justifyContent: 'center',
     marginHorizontal: 30,
     flexDirection: 'row',
-    marginTop: 20},
+    marginTop: 20
+  },
   contentSize: {
     justifyContent: 'center',
     marginHorizontal: 30,
     flexDirection: 'row',
-    marginTop: 20},
+    marginTop: 20
+  },
   separator: {
     backgroundColor: '#eeeeee',
-    marginHorizontal: 30}});
+    marginHorizontal: 30
+  }
+};

@@ -1,4 +1,3 @@
-;
 import { COLORS, SIZES } from '../../../../resources/constants';
 
 let windowWidth = window.innerWidth;
@@ -6,14 +5,17 @@ let windowWidth = window.innerWidth;
 export const styles = {
   containers: {
     height: '100%',
-    width: '100%'},
+    width: '100%'
+  },
   containt: {
     width: '100%',
     justifyContent: 'space-between',
     flexDirection: 'row',
-    backgroundColor: COLORS.secondary},
+    backgroundColor: COLORS.secondary
+  },
   vtitle: {
-    marginBottom: 16},
+    marginBottom: 16
+  },
   badgeContainer: {
     backgroundColor: COLORS.badge_color,
     paddingBottom: 20,
@@ -25,29 +27,36 @@ export const styles = {
     padding: 24,
     backgroundColor: '#2ca5ff',
     height: windowWidth * 0.25,
-    maxHeight: 112},
+    maxHeight: 112
+  },
   recommmandationBadge: {
     width: 24,
     height: 24,
     objectFit: 'contain' as const,
-    marginTop: 3},
+    marginTop: 3
+  },
   headerScreenTitle: {
     color: 'white',
     fontSize: 20,
-    fontWeight: 'bold'},
+    fontWeight: 'bold'
+  },
   headerScreenDescription: {
-    color: 'white'},
+    color: 'white'
+  },
   candidateContainer: {
     // paddingTop: 20,
     // marginVertical: -50,
     // marginHorizontal: 16,
-    flexDirection: 'row'},
+    flexDirection: 'row'
+  },
   title: {
-    fontSize: 32},
+    fontSize: 32
+  },
   candidateImgContainer: {
   },
   candidateDetailsContainer: {
-    flex: 2},
+    flex: 2
+  },
   candidateBtnContainer: {
     flex: 2,
     maxWidth: 150,
@@ -63,19 +72,22 @@ export const styles = {
     fontSize: 16,
     color: COLORS.black,
     fontWeight: 'bold',
-    marginBottom: 10},
+    marginBottom: 10
+  },
   candidatPost: {
     fontSize: 12,
     color: COLORS.black,
     fontWeight: 'normal',
     letterSpacing: 0.2,
-    // height: windowWidth * 0.04},
+    // height: windowWidth * 0.04
+  },
   candidatExp: {
     fontSize: 12,
     color: COLORS.primary,
     fontWeight: 'normal',
     letterSpacing: 0.2,
-    marginTop: 20},
+    marginTop: 20
+  },
   footerContainer: {
     backgroundColor: COLORS.blue_back,
     height: 84,
@@ -84,12 +96,14 @@ export const styles = {
     paddingVertical: 0,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center'},
+    alignItems: 'center'
+  },
   footerScreenLabel: {
     alignSelf: 'center',
     fontSize: SIZES.body3,
     fontFamily: 'IBMPlexSans-SemiBold',
-    color: COLORS.secondary},
+    color: COLORS.secondary
+  },
   footerScreenBtn: {},
   smallBtnTxt: {
     fontSize: 11,
@@ -107,6 +121,9 @@ export const styles = {
   // Refine Candidats
   // ----------------
   refineContainer: {
-    flex: 1},
+    flex: 1
+  },
   layerContainer: {},
-  layerTitleContainer: {}});
+  layerTitleContainer: {
+  }
+};

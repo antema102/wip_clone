@@ -22,7 +22,8 @@ export const stylesCard = {
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-    elevation: 5},
+    elevation: 5
+  },
   image: {
     width: '100%',
     height: 150,
@@ -34,7 +35,8 @@ export const stylesCard = {
     flex: 1,
     marginBottom: 5,
     paddingHorizontal: 10,
-    paddingVertical: '5%'},
+    paddingVertical: '5%'
+  },
   price: {
     fontSize: 20,
     fontWeight: 'bold',
@@ -54,7 +56,8 @@ export const stylesCard = {
     flexDirection: 'row',
     borderTopWidth: 1,
     borderTopColor: '#dcdcdc',
-    justifyContent: 'space-between'},
+    justifyContent: 'space-between'
+  },
   beds: {
     fontSize: 14,
     color: '#ffa500',

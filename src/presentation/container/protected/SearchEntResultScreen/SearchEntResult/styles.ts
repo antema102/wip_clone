@@ -1,4 +1,3 @@
-;
 import { COLORS, SIZES } from '../../../../../resources/constants';
 
 let windowWidth = window.innerWidth;
@@ -18,9 +17,11 @@ export const styles = {
     shadowOpacity: 0.1,
     shadowRadius: 5,
     elevation: 5,
-    boxShadow: 'none'},
+    boxShadow: 'none'
+  },
   containerFormList: {
-    width: '100%'},
+    width: '100%'
+  },
   contentResultContainer: {
   },
   contentResult: {
@@ -31,7 +32,8 @@ export const styles = {
     textAlign:'center'
   },
   contentTitle: {
-    paddingVertical: 32},
+    paddingVertical: 32
+  },
   title:{
     color:'#203F63',
     fontWeight:'700'

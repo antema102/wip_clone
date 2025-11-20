@@ -1,4 +1,3 @@
-;
 import { COLORS, icons, images, SIZES } from '../../../resources/constants';
 const winWidth = window.innerWidth;
 export const styles = {
@@ -14,7 +13,8 @@ export const styles = {
   contenair: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: -50},
+    marginTop: -50
+  },
   content: {
     padding: 16,
     borderRadius: 50,
@@ -37,14 +37,18 @@ export const styles = {
   lines: {
     height: 4,
     backgroundColor: COLORS.secondary,
-    marginTop: 10},
+    marginTop: 10
+  },
   activebtn: {
-    backgroundColor: COLORS.blueInput},
+    backgroundColor: COLORS.blueInput
+  },
   noBtn: {
-    backgroundColor:'#D9CAD5'},
+    backgroundColor:'#D9CAD5'
+  },
   images:{
     height:20,
-    width:20},
+    width:20
+  },
   activeImages:{
     tintColor:'white'
   },

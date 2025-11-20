@@ -1,4 +1,3 @@
-;
 
 import {COLORS, FONTS, SIZES} from '../../resources/constants';
 let windowDim = window.innerWidth;
@@ -12,7 +11,8 @@ export const styles = {
     width: windowDim,
     height: windowDim * 0.16,
     maxHeight: 64,
-    zIndex: 99},
+    zIndex: 99
+  },
   containerHeader: {
     display: 'flex',
     flexDirection: 'row',
@@ -61,52 +61,62 @@ export const styles = {
       height: 4},
     shadowOpacity: 0.3,
     shadowRadius: 7,
-    elevation: 8},
+    elevation: 8
+  },
   modalContainer: {
     backgroundColor:'transparent',
     width: windowDim,
     height: windowHeig,
     position: 'absolute',
     alignItems: 'flex-start',
-    justifyContent: 'center'},
+    justifyContent: 'center'
+  },
   iconsMenu: {
     width: 22,
     height: 22,
     marginRight: 10,
     alignSelf: 'center',
-    marginBottom: 10},
+    marginBottom: 10
+  },
   iconsMenuH: {
     width: 22,
     height: 22,
     marginRight: 10,
     alignSelf: 'center',
-    marginBottom: 10},
+    marginBottom: 10
+  },
   ValignFlex: {
     flexDirection: 'row',
     paddingHorizontal: 20,
     paddingVertical: 6,
     justifyContent: 'flex-start',
-    alignItem: 'center'},
+    alignItem: 'center'
+  },
   logoWrap: {
     width: windowDim * 0.6,
     alignSelf: 'center',
-    alignContent: 'center'},
+    alignContent: 'center'
+  },
   backWrap: {
     width: 24,
     alignSelf: 'center',
-    alignContent: 'center'},
+    alignContent: 'center'
+  },
   bellingWrap: {
     width: 24,
     alignSelf: 'center',
-    alignContent: 'center'},
+    alignContent: 'center'
+  },
   vmoreWrap: {
     width: 24,
     alignSelf: 'center',
-    alignContent: 'center'},
+    alignContent: 'center'
+  },
   badgeStyle: {
     position: 'absolute',
     top: -10,
     right: -17,
     backgroundColor:'white'
-  }});
-
+  
+  }
+};

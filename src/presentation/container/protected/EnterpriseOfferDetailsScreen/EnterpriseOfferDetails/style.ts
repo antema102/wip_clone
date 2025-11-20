@@ -1,4 +1,3 @@
-;
 import { COLORS, SIZES } from '../../../../../resources/constants';
 const windowDimension = window.innerWidth;
 
@@ -14,12 +13,14 @@ export const styles = {
     elevation: 5,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
-    // backgroundColor: COLORS.white},
+    // backgroundColor: COLORS.white
+  },
   containt: {
     width: '100%',
     justifyContent: 'space-between',
     flexDirection: 'row',
-    backgroundColor: COLORS.secondary},
+    backgroundColor: COLORS.secondary
+  },
   containeroffer: {
     borderRadius:20,
     flexDirection:'row',
@@ -35,7 +36,8 @@ export const styles = {
   },
   avatarImg: {
     height: '100%',
-    width: '100%'},
+    width: '100%'
+  },
   contentOffer: {
     gap: 42,
     flex:1
@@ -44,39 +46,47 @@ export const styles = {
     display: 'flex',
     flexDirection: 'row',
     gap: 16,
-    alignItems: 'center'},
+    alignItems: 'center'
+  },
   titleOffer: {
     marginBottom: 14,
     fontSize: windowDimension > 991 ? 20 : 14,
-    fontWeight: '700'},
+    fontWeight: '700'
+  },
   subTitleOffer: {
     display: 'flex',
     alignItems: 'flex-start',
     flexDirection: 'row',
-    gap: 10},
+    gap: 10
+  },
   textSubOffer: {
     fontSize: 16,
     color: '#rgba(0, 0, 0, 0.2)'},
 
   vtitle: {
-    marginBottom: 16},
+    marginBottom: 16
+  },
   bigBtnTxt: {
     fontSize: SIZES.body3,
     color: COLORS.white,
-    fontWeight: 'bold'},
+    fontWeight: 'bold'
+  },
   txtDetails: {
     fontSize: SIZES.padding2,
     color: COLORS.black,
     lineHeight: 24,
     fontStyle: 'normal',
     // width: windowDimension - 48,
-    paddingRight: 8},
+    paddingRight: 8
+  },
   offerSpace: {
-    marginTop: 24},
+    marginTop: 24
+  },
   offerTitle: {
     fontSize: SIZES.h2,
     color: COLORS.black,
-    alignItems: 'center'},
+    alignItems: 'center'
+  },
   offerPosition: {
     height:
       windowDimension <= 991 ? windowDimension * 0.2 : windowDimension * 0.05,
@@ -86,10 +96,12 @@ export const styles = {
     paddingBottom: 20,
     backgroundColor: '#f0f9ff',
     borderTopLeftRadius: 20,
-    borderTopRightRadius: 20},
+    borderTopRightRadius: 20
+  },
   candidatIdentityName: {
     color: '#01129e',
-    fontSize: 18},
+    fontSize: 18
+  },
   offerActions: {
     paddingRight: SIZES.padding2,
     marginHorizontal: 40,
@@ -99,7 +111,8 @@ export const styles = {
     backgroundColor: COLORS.orange,
     justifyContent: 'space-between',
     alignItems: 'center',
-    overflow: 'hidden'},
+    overflow: 'hidden'
+  },
   buttonActions: {
     paddingRight: SIZES.padding2,
     marginHorizontal: 40,
@@ -108,7 +121,8 @@ export const styles = {
     flexDirection: 'row-reverse',
     backgroundColor: '#01129E',
     justifyContent: 'space-between',
-    alignItems: 'center'},
+    alignItems: 'center'
+  },
   buttonActionsOrange: {
     paddingRight: SIZES.padding2,
     marginHorizontal: 40,
@@ -117,16 +131,19 @@ export const styles = {
     flexDirection: 'row-reverse',
     backgroundColor: COLORS.orange,
     justifyContent: 'space-between',
-    alignItems: 'center'},
+    alignItems: 'center'
+  },
   compatibilityContainer: {
     backgroundColor: '#01129e',
     padding: 20,
     marginHorizontal: 20,
     flexDirection: 'row',
-    justifyContent: 'center'},
+    justifyContent: 'center'
+  },
   compatibilityItem: {
     flex: 1,
-    alignItems: 'center'},
+    alignItems: 'center'
+  },
   candidateAboutContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -134,11 +151,14 @@ export const styles = {
     borderTopWidth: 1,
     borderStyle: 'dashed',
     marginHorizontal: 24,
-    paddingTop: 24},
+    paddingTop: 24
+  },
   candidateAboutItem: {
-    width: '50%'},
+    width: '50%'
+  },
   candidateExpContainer: {
-    paddingTop: 34},
+    paddingTop: 34
+  },
   candidateExpContent:{
  paddingVertical: 10, paddingHorizontal: 24,
   backgroundColor: COLORS.blueLight, borderRadius: 10,maxWidth:250,justifyContent:'center',alignItems:'center', 
@@ -150,32 +170,41 @@ export const styles = {
     fontWeight: 'bold',
     lineHeight: 24,
     fontStyle: 'normal',
-    letterSpacing: 0.15},
+    letterSpacing: 0.15
+  },
   candidatExpItem: {
     paddingTop: 20,
-    flexDirection: 'row'},
+    flexDirection: 'row'
+  },
   viewBlue: {
-    marginTop: 8},
+    marginTop: 8
+  },
   viewText: {
-    marginHorizontal: 10},
+    marginHorizontal: 10
+  },
   pointBlue: {
     width: 8,
-    height: 8},
+    height: 8
+  },
   compatibilityBtnContainer: {
     marginHorizontal: 20,
     paddingVertical: 20,
     backgroundColor: '#f0f9ff',
-    alignItems: 'center'},
+    alignItems: 'center'
+  },
   compatibilityBtnTitle: {
-    marginBottom: 40},
+    marginBottom: 40
+  },
   titleh2Container: {
     height: 50,
-    justifyContent: 'center'},
+    justifyContent: 'center'
+  },
   titleh2: {
     color: COLORS.black,
     fontWeight: 'bold',
     fontSize: 24,
-    paddingTop: 0},
+    paddingTop: 0
+  },
   stHeader: {
     flexDirection: 'row',
     // width: windowDimension - 48,
@@ -184,47 +213,57 @@ export const styles = {
     paddingBottom: SIZES.padding2,
     backgroundColor: COLORS.blue_back,
     borderBottomColor: COLORS.trait_blue,
-    marginBottom: 10},
+    marginBottom: 10
+  },
   containerLogoEntBottom: {
     width: 80,
     height: 80,
     // borderRadius:SIZES.radiusTwo,
     overflow: 'hidden',
-    // backgroundColor:COLORS.white},
+    // backgroundColor:COLORS.white
+  },
   imgLogoEntBottom: {
     objectFit: 'cover' as const,
     // maxHeight:80,
     // maxWidth:80,
     justifyContent: 'center',
     alignItems: 'center',
-    alignSelf: 'center'},
+    alignSelf: 'center'
+  },
   imageStyle: {
     borderRadius: 6,
     width: 80,
-    height: 80},
+    height: 80
+  },
   textContainer: {
     flexDirection: 'column',
-    paddingHorizontal: SIZES.padding},
+    paddingHorizontal: SIZES.padding
+  },
   titlePrimaire: {
     fontWeight: 'bold',
     fontSize: SIZES.h5,
-    lineHeight: 16},
+    lineHeight: 16
+  },
   descriptionPrimary: {
     fontSize: SIZES.body5,
     color: COLORS.black,
     marginVertical: 10,
-    // width: windowDimension - 130},
+    // width: windowDimension - 130
+  },
   paragraph: {
     fontSize: SIZES.h5,
-    color: COLORS.gray_title},
+    color: COLORS.gray_title
+  },
   text1_2: {
     height: 30,
     fontWeight: 'bold',
     fontSize: SIZES.h5,
-    color: COLORS.secondary},
+    color: COLORS.secondary
+  },
   dart: {
     width: 16,
-    height: 15},
+    height: 15
+  },
   nextContainer: {
     flexDirection: 'row',
     alignItems:'center',
@@ -233,15 +272,18 @@ export const styles = {
   },
   blue_container: {
     flexDirection: 'column',
-    backgroundColor: COLORS.blue_back},
+    backgroundColor: COLORS.blue_back
+  },
   page_container: {
-    backgroundColor: COLORS.blue_back},
+    backgroundColor: COLORS.blue_back
+  },
   ContactButtonContainer: {
     elevation: 8,
     backgroundColor: COLORS.vector_orange,
     borderRadius: 20,
     paddingVertical: 16,
-    paddingHorizontal: 36},
+    paddingHorizontal: 36
+  },
   ContactButtonText: {
     fontSize: 18,
     color: '#fff',
@@ -261,7 +303,8 @@ export const styles = {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 22},
+    marginTop: 22
+  },
   modalView: {
     margin: 20,
     backgroundColor: 'white',
@@ -274,25 +317,32 @@ export const styles = {
       height: 2},
     shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 5},
+    elevation: 5
+  },
   button: {
     borderRadius: 20,
     padding: 10,
-    elevation: 2},
+    elevation: 2
+  },
   buttonOpen: {
-    backgroundColor: '#F194FF'},
+    backgroundColor: '#F194FF'
+  },
   buttonClose: {
-    backgroundColor: '#2196F3'},
+    backgroundColor: '#2196F3'
+  },
   textStyle: {
     color: 'white',
     fontWeight: 'bold',
-    textAlign: 'center'},
+    textAlign: 'center'
+  },
   modalText: {
     marginBottom: 15,
-    textAlign: 'center'},
+    textAlign: 'center'
+  },
   buttonContainer: {
     marginTop: 20,
-    marginBottom: -10},
+    marginBottom: -10
+  },
   buttonBlue: {
     paddingHorizontal: SIZES.padding,
     height: 52,
@@ -302,13 +352,16 @@ export const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: SIZES.padding2,
-    // width: windowDimension - 96},
+    // width: windowDimension - 96
+  },
   btnTxt: {
     color: COLORS.white,
-    fontSize: SIZES.h5},
+    fontSize: SIZES.h5
+  },
   textBtnSecondary: {
     color: COLORS.secondary,
-    fontSize: SIZES.h5},
+    fontSize: SIZES.h5
+  },
   buttonAnnuler: {
     paddingHorizontal: SIZES.padding,
     height: 50,
@@ -320,52 +373,63 @@ export const styles = {
     borderWidth: 1,
     borderColor: COLORS.secondary,
     marginBottom: SIZES.padding2,
-    // width: windowDimension - 96},
+    // width: windowDimension - 96
+  },
   bloc3_3: {
-    flexDirection: 'row'},
+    flexDirection: 'row'
+  },
   bloc2: {
     flexDirection: 'column',
     paddingLeft: 10,
-    paddingTop: 0},
+    paddingTop: 0
+  },
   iconStyle: {
     width: 8,
     height: 8,
     backgroundColor: COLORS.primary,
     borderRadius: SIZES.radiusTwo,
-    marginTop: 4},
+    marginTop: 4
+  },
   textBloc1: {
     flexDirection: 'column',
     height: 19,
-    width: 267},
+    width: 267
+  },
   item3: {
     backgroundColor: '#F0F9FF',
     paddingVertical: 5,
     marginVertical: 3,
     marginHorizontal: 0,
-    flexDirection: 'row'},
+    flexDirection: 'row'
+  },
   title: {
     flex: 1,
     flexWrap: 'wrap',
     fontWeight: '400',
     fontStyle: 'normal',
-    fontSize: 16},
+    fontSize: 16
+  },
   text: {
     fontWeight: '700',
-    fontSize: 12},
+    fontSize: 12
+  },
   label: {
     fontWeight: 'bold',
     fontSize: SIZES.body5,
     letterSpacing: 0.2,
     color: COLORS.black,
-    textTransform: 'uppercase'},
+    textTransform: 'uppercase'
+  },
   value: {
     fontWeight: 'bold',
     fontSize: SIZES.body4,
     letterSpacing: 0.2,
-    color: COLORS.black},
+    color: COLORS.black
+  },
   date_text: {
     textAlign: 'right',
-    fontSize: 14},
+    fontSize: 14
+  },
   screenContainer: {
     paddingBottom: 32},
 
@@ -378,7 +442,8 @@ export const styles = {
     width: 48,
     height: 48,
     borderRadius: 6,
-    flex: 0},
+    flex: 0
+  },
   candidatExp: {
     fontSize: 12,
     color: COLORS.secondary,
@@ -421,9 +486,11 @@ export const styles = {
     // paddingVertical: windowDimension * 0.03,
     borderBottomWidth: 1,
     borderBottomColor: COLORS.blue_border,
-    borderStyle: 'dashed'},
+    borderStyle: 'dashed'
+  },
   containersPageWidth: {
-    width: '100%'},
+    width: '100%'
+  },
   candidateExpContainerMobile:{
 
   }

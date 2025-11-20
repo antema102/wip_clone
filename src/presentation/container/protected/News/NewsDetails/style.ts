@@ -1,23 +1,26 @@
-;
 import { COLORS, SIZES } from '../../../../../resources/constants';
 
 const windowDim = window.innerWidth;
 
-export default ({
+const styles = {
   container: {
-    // flexDirection: 'row'},
+    // flexDirection: 'row'
+  },
   category: {
     fontSize: SIZES.font,
     color: COLORS.secondary,
-    marginBottom: SIZES.padding6},
+    marginBottom: SIZES.padding6
+  },
   image: {
     width: 24,
     height: 24,
-    flex: 0},
+    flex: 0
+  },
   bigBtnTxt: {
     fontSize: SIZES.body3,
     color: COLORS.white,
-    fontWeight: '700'},
+    fontWeight: '700'
+  },
   buttonHomeExport: {
     paddingHorizontal: 8,
     height: 56,
@@ -25,22 +28,26 @@ export default ({
     flexDirection: 'row',
     backgroundColor: COLORS.orange,
     justifyContent: 'center',
-    alignItems: 'center'},
+    alignItems: 'center'
+  },
   warn: {
     color: COLORS.secondary,
     fontWeight: 'bold',
     fontSize: SIZES.h5,
-    marginBottom: SIZES.padding5},
+    marginBottom: SIZES.padding5
+  },
   advice: {
     color: COLORS.black,
-    fontSize: SIZES.body5},
+    fontSize: SIZES.body5
+  },
   info: {
     backgroundColor: COLORS.blue_back,
     borderRadius: SIZES.radius,
     padding: SIZES.padding5,
     width: 50,
     flexDirection: 'row',
-    marginBottom: SIZES.padding},
+    marginBottom: SIZES.padding
+  },
   filter: {
     flexWrap: 'wrap',
     borderColor: COLORS.blue_border,
@@ -53,17 +60,21 @@ export default ({
     alignItems: 'center',
     marginRight: SIZES.padding5,
     marginBottom: SIZES.padding5,
-    paddingHorizontal: 8},
+    paddingHorizontal: 8
+  },
   itemActive: {
-    backgroundColor: COLORS.blue_back},
+    backgroundColor: COLORS.blue_back
+  },
   headWrapperText: {
     // width: windowDim - 85,
     flex: 0,
     marginRight: 10,
-    paddingHorizontal: SIZES.padding6},
+    paddingHorizontal: SIZES.padding6
+  },
   wrapperText: {
     flex: 1,
-    alignItems: 'flex-start'},
+    alignItems: 'flex-start'
+  },
   title: {
     fontWeight: 'bold',
     flex: 1,
@@ -79,17 +90,21 @@ export default ({
     borderRadius: SIZES.radiusTwo,
     paddingHorizontal: SIZES.padding6,
     marginBottom: SIZES.padding6,
-    lineHeight: 28},
+    lineHeight: 28
+  },
   source: {
-    fontWeight: '700'},
+    fontWeight: '700'
+  },
   wrapperImg: {
     marginTop: SIZES.padding,
     flex: 1,
-    alignItems: 'flex-end'},
+    alignItems: 'flex-end'
+  },
   itemImg: {  
     width: 96,
     height: 74,
-    borderRadius: SIZES.radiusTwo},
+    borderRadius: SIZES.radiusTwo
+  },
   wrapperItem: {
     display: 'flex',
     flexDirection: 'row', // This places text on the left and image on the right
@@ -98,7 +113,8 @@ export default ({
     paddingVertical: SIZES.padding2,
     borderBottomColor: COLORS.gray_border,
     borderBottomWidth: 1,
-    borderStyle: 'dashed'},
+    borderStyle: 'dashed'
+  },
   noResultFoundContainer: {
     height: 300, 
     justifyContent: 'center'
@@ -106,4 +122,6 @@ export default ({
   noResultFoundText: {
     textAlign: 'center',
     color: 'black'}
-});
+};
+
+export default styles;

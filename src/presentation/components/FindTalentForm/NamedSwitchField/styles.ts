@@ -1,4 +1,3 @@
-;
 import {COLORS, SIZES} from '../../../../resources/constants';
 
 let windowWidth = window.innerWidth;
@@ -11,13 +10,16 @@ export const styles = {
     padding: 24,
     backgroundColor: COLORS.primary,
     height: windowWidth * 0.25,
-    maxHeight: 112},
+    maxHeight: 112
+  },
   headerScreenTitle: {
     color: 'white',
     fontSize: 20,
-    fontFamily: 'Oxygen-Bold'},
+    fontFamily: 'Oxygen-Bold'
+  },
   headerScreenDescription: {
-    color: 'white'},
+    color: 'white'
+  },
   candidateContainer: {},
   title: {},
   candidateImgContainer: {},
@@ -42,10 +44,14 @@ export const styles = {
   // Refine Candidats
   // ----------------
   refineContainer: {
-    padding: 20},
+    padding: 20
+  },
   layerContainer: {
     padding: 20,
     borderWidth: 5,
     borderRadius: SIZES.radius,
-    width: '100%'},
-  layerTitleContainer: {}});
+    width: '100%'
+  },
+  layerTitleContainer: {
+  }
+};

@@ -1,4 +1,3 @@
-;
 import { COLORS, SIZES } from '../../../resources/constants';
 
 let largeurFenetre = window.innerWidth;
@@ -6,70 +5,86 @@ let largeurFenetre = window.innerWidth;
 export const styles = {
   containers: {
     height: '100%',
-    width: '100%'},
+    width: '100%'
+  },
   containt: {
     width: '100%',
     justifyContent: 'space-between',
     flexDirection: 'row',
-    backgroundColor: COLORS.secondary},
+    backgroundColor: COLORS.secondary
+  },
   vtitle: {
-    marginBottom: 16},
+    marginBottom: 16
+  },
   headerContainer: {
     padding: 24,
     backgroundColor: '#2ca5ff',
     height: largeurFenetre * 0.25,
-    maxHeight: 112},
+    maxHeight: 112
+  },
   headerScreenTitle: {
     color: 'white',
     fontSize: 20,
     fontWeight: 'bold',
-    fontFamily: 'oxygen'},
+    fontFamily: 'oxygen'
+  },
   headerScreenDescription: {
-    color: 'white'},
+    color: 'white'
+  },
   candidateContainer: {
     borderBottomColor: COLORS.blue_border,
     borderBottomWidth: 1,
     borderStyle: 'dashed',
     paddingHorizontal: 10,
     marginHorizontal: 16,
-    flexDirection: 'row'},
+    flexDirection: 'row'
+  },
   title: {
-    fontSize: 32},
+    fontSize: 32
+  },
   candidateImgContainer: {
     flex: 1,
-    marginRight: 10},
+    marginRight: 10
+  },
   candidateDetailsContainer: {
-    flex: 2},
+    flex: 2
+  },
   candidateBtnContainer: {
     flex: 2,
-    maxWidth: 128},
+    maxWidth: 128
+  },
   candidatImg: {
     width: 50,
     height: 50,
-    borderRadius: SIZES.radiusTwo},
+    borderRadius: SIZES.radiusTwo
+  },
   candidatName: {
     fontSize: 16,
     color: COLORS.black,
-    fontWeight: 'bold'},
+    fontWeight: 'bold'
+  },
   candidatPost: {
     fontSize: 12,
     color: COLORS.black,
     fontWeight: 'normal',
-    letterSpacing: 0.2},
+    letterSpacing: 0.2
+  },
   historyplace: {
     fontSize: 12,
     color: COLORS.black,
     fontWeight: 'normal',
     fontFamily: 'Oxygen',
     letterSpacing: 0.2,
-    marginBottom: 4},
+    marginBottom: 4
+  },
   candidatExp: {
     fontSize: 12,
     color: COLORS.primary,
     fontWeight: 'normal',
     fontFamily: 'Oxygen',
     letterSpacing: 0.2,
-    marginTop: 20},
+    marginTop: 20
+  },
   footerContainer: {
     backgroundColor: COLORS.blue_back,
     height: 84,
@@ -78,18 +93,21 @@ export const styles = {
     paddingVertical: 0,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center'},
+    alignItems: 'center'
+  },
   footerScreenLabel: {
     alignSelf: 'center',
     fontSize: SIZES.body3,
     fontFamily: 'IBMPlexSans-SemiBold',
-    color: COLORS.secondary},
+    color: COLORS.secondary
+  },
   footerScreenBtn: {},
   smallBtnTxt: {
     fontSize: SIZES.body5,
     color: COLORS.white,
     fontFamily: 'Oxygen',
-    fontWeight: '700'},
+    fontWeight: '700'
+  },
   smallButtonContainer: {
     height: 32,
     justifyContent: 'center',
@@ -100,6 +118,9 @@ export const styles = {
   // Refine Candidats
   // ----------------
   refineContainer: {
-    flex: 1},
+    flex: 1
+  },
   layerContainer: {},
-  layerTitleContainer: {}});
+  layerTitleContainer: {
+  }
+};

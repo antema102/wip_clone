@@ -1,4 +1,3 @@
-;
 import { COLORS, SIZES } from '../../../resources/constants';
 
 export const styles = {
@@ -6,16 +5,19 @@ export const styles = {
     width: 100,
     height: 30,
     objectFit: 'contain' as const,
-    marginBottom: 16},
+    marginBottom: 16
+  },
   logoMobile: {
     width: 80,
     height: 30,
     marginBottom: 5,
-    objectFit: 'contain' as const},
+    objectFit: 'contain' as const
+  },
   logoGuideline: {
     width: 24,
     height: 24,
-    objectFit: 'contain' as const},
+    objectFit: 'contain' as const
+  },
   container: {
     marginTop: 20,
     marginHorizontal: 10},
@@ -30,10 +32,12 @@ export const styles = {
   logoWip: {
     width: 200,
     height: 50,
-    objectFit: 'contain' as const},
+    objectFit: 'contain' as const
+  },
   underline: {
     borderBottomWidth: 4,
-    borderBottomColor: '#FE6D02'},
+    borderBottomColor: '#FE6D02'
+  },
   navigationContainer: {
     justifyContent: 'center',
     alignSelf: 'center',
@@ -47,7 +51,8 @@ export const styles = {
     flexDirection: 'row'},
 
   active: {
-    tintColor: COLORS.blueInput},
+    tintColor: COLORS.blueInput
+  },
   nonActive: {
     tintColor:'rgba(114, 174, 233, 0.5)'
   },
@@ -67,7 +72,8 @@ export const styles = {
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
-    borderRadius: 10},
+    borderRadius: 10
+  },
   boxShadowBottom: {
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },

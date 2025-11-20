@@ -1,4 +1,3 @@
-;
 import { COLORS, SIZES } from '../../../resources/constants';
 const winWidth = window.innerWidth;
 const winHeight = window.innerHeight;
@@ -10,33 +9,39 @@ export const buttonsStyles = {
     borderRadius: SIZES.radius,
     width: 56,
     height: 56,
-    paddingVertical: 20},
+    paddingVertical: 20
+  },
   buttonContainerHome: {
     paddingHorizontal: 8,
     height: 56,
     borderRadius: SIZES.radius,
-    flexDirection: 'row'},
+    flexDirection: 'row'
+  },
   buttonContainer: {
     paddingHorizontal: 8,
     height: 32,
     borderRadius: 8,
-    flexDirection: 'row'},
+    flexDirection: 'row'
+  },
   txtButton: {
     fontFamily: 'Oxygen',
     color: COLORS.white,
     fontSize: 12,
     lineHeight: 32,
-    textAlign: 'center'},
+    textAlign: 'center'
+  },
   iconStyle: {
     width: 24,
     height: 24,
     justifyContent: 'center',
-    alignSelf: 'center'},
+    alignSelf: 'center'
+  },
   nextIconStyle: {
     width: 40,
     height: 24,
     justifyContent: 'center',
-    alignSelf: 'center'},
+    alignSelf: 'center'
+  },
   iconStyle2: {
     width: 20,
     height: 20,
@@ -65,4 +70,6 @@ export const buttonsStyles = {
     flexGrow: 1,
     flexShrink: 1,
     // borderColor: COLORS.secondary,
-    // borderWidth: 1}});
+    // borderWidth: 1
+  }
+};

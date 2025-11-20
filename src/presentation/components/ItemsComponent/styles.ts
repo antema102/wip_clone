@@ -1,9 +1,8 @@
-;
 import { COLORS, SIZES } from '../../../resources/constants';
 
 const winWidth = window.innerWidth;
 
-export default ({
+const styles = {
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -66,7 +65,8 @@ export default ({
   image: {
     width: 58,
     height: 58,
-    borderRadius: 6},
+    borderRadius: 6
+  },
   simpleBtn: {
     paddingHorizontal: 10,
     paddingVertical: 4,
@@ -77,7 +77,8 @@ export default ({
     flexDirection: 'row',
     alignItems: 'center',
     height: 32,
-    marginBottom: SIZES.padding4},
+    marginBottom: SIZES.padding4
+  },
   activeBtn: {
     paddingHorizontal: 10,
     paddingVertical: 4,
@@ -87,11 +88,13 @@ export default ({
     alignItems: 'center',
     height: 32,
     marginBottom: SIZES.padding4,
-    backgroundColor: COLORS.blue_back},
+    backgroundColor: COLORS.blue_back
+  },
   textMenu: {
     fontWeight: 'bold',
     fontSize: SIZES.body5,
-    color: COLORS.black},
+    color: COLORS.black
+  },
   textMenuActive: {
     fontWeight: 'bold',
     fontSize: SIZES.body5,
@@ -103,65 +106,80 @@ export default ({
     fontSize: SIZES.h5,
     paddingLeft: winWidth * 0.03,
     // width: winWidth * 0.58 - 76,
-    justifyContent: 'center'},
+    justifyContent: 'center'
+  },
   jobPlace: {
     fontSize: SIZES.body5,
     color: COLORS.white,
     // paddingLeft: winWidth * 0.03,
-    // width: winWidth * 0.58 - 66},
+    // width: winWidth * 0.58 - 66
+  },
   candidatExp: {
     fontSize: 12,
     color: COLORS.secondary,
     fontWeight: '400',
     fontStyle: 'normal',
     letterSpacing: 0.2,
-    flex: 12},
-  favorisView: {position: 'absolute', right: 0},
+    flex: 12
+  },
+  favorisView: {position: 'absolute', right: 0
+  },
   favorisImage: {
     width: 19.5,
-    height: 18},
+    height: 18
+  },
   footerFrame: {
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
     alignItems: 'flex-start',
     marginTop: 32,
-    // width: winWidth * 0.9},
+    // width: winWidth * 0.9
+  },
   jobPlaceItem: {
     fontSize: SIZES.body5,
     color: COLORS.black,
-    // width: winWidth - 86},
+    // width: winWidth - 86
+  },
   jobDate: {
     flex: 1,
     flexBasis: '100%',
     fontSize: SIZES.body5,
     color: COLORS.white,
-    marginTop: SIZES.padding3},
+    marginTop: SIZES.padding3
+  },
   jobDateItem: {
     flex: 1,
     flexBasis: '100%',
     fontSize: SIZES.body5,
     color: COLORS.secondary,
-    marginTop: 10},
+    marginTop: 10
+  },
   wrapperText: {
     // width: winWidth * 0.58 - 86,
     flex: 1,
-    paddingRight: 20},
+    paddingRight: 20
+  },
   wrapperTextItem: {
     // width: winWidth - 100,
     flex: 1,
     paddingRight: 10,
-    paddingLeft: 10},
+    paddingLeft: 10
+  },
   listItemOffer: {
     marginVertical: 10,
-    overflow: 'scroll'},
+    overflow: 'scroll'
+  },
   card_templateItem: {
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
     alignItems: 'flex-start',
-    justifyContent: 'space-between'},
+    justifyContent: 'space-between'
+  },
   wapperTitle: {
     height: 50,
     justifyContent: 'center',
-    marginTop: 10}});
+    marginTop: 10}};
+
+export default styles;

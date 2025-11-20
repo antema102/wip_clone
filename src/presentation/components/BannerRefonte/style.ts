@@ -1,8 +1,10 @@
-;
 export const styles = {
   containerImage: {
-    height: 279},
+    height: 279
+  },
   image: {
     height: '100%',
     objectFit: 'cover',
-    width: '100%'}});
+    width: '100%'
+  }
+};

@@ -1,4 +1,3 @@
-;
 import { COLORS } from '../../../../resources/constants';
 let windowWidth = window.innerWidth;
 let windowHeight = window.innerHeight;
@@ -14,10 +13,12 @@ export const styles = {
   },
   appelOffersTitle: {
     fontSize: 18,
-    fontWeight: 600},
+    fontWeight: 600
+  },
   appelOffersContent: {
     justifyContent: 'center',
-    alignItems: 'center'},
+    alignItems: 'center'
+  },
   appelOffersButton: {
     backgroundColor: COLORS.blueInput,
     paddingVertical: 16,
@@ -30,4 +31,6 @@ export const styles = {
     color: COLORS.white,
     textAlign:'center',
     fontWeight:700
-  }});
+  
+  }
+};

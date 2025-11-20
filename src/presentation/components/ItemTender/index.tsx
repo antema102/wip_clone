@@ -15,7 +15,7 @@ interface Props {
     actionDelete?: any;
 }
 
-export const ItemTender = {
+export const ItemTender = ({
     item1,
     item2,
     item,
