@@ -105,7 +105,7 @@ export const ListPosition = {
         <div
           style={{...styles.inputWrap, ...({
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
+                type === 'read' ? COLORS.disableGray : COLORS.white})}}>
           <InputSelect
             label={TitleLabels.CreationCV.country}
             required

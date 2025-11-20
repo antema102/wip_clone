@@ -87,7 +87,7 @@ export const Language = {
         <div
           style={{...styles.inputWrap, ...({
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
+                type === 'read' ? COLORS.disableGray : COLORS.white})}}>
           <InputField label={'Langue'} isEditable={type !== 'read'} />
         </div>
       ) : (

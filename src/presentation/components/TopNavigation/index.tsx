@@ -354,7 +354,7 @@ const TopNavigation = (): any => {
                     </div>
                 )
             }
-            <div style={{...(isMobile ? navbarStyle.footerMobile : navbarStyle.header), ...{ flex: 1, ...zIndex: 2 }}} forceInset={{ bottom: 'never' }}>
+            <div style={{...(isMobile ? navbarStyle.footerMobile : navbarStyle.header), flex: 1, zIndex: 2 }} forceInset={{ bottom: 'never' }}>
 
                 {pdfFile && <PDFViewerScreen visible={showPDF} setVisible={setShowPDF} data={pdfFile} isDownloadAllowed={true} isBlob={true} />}
                 {
@@ -371,7 +371,7 @@ const TopNavigation = (): any => {
                     {condition ? <>
                         <button
                             style={{...(isMobile ? { marginTop: 20 } :
-                                    styles.container), ...(active1 ? styles.underline : styles.nonActive), ...}}
+                                    styles.container), ...(active1 ? styles.underline : styles.nonActive)}}
                             onClick={handleSetActive1}
                         >
                             <img
@@ -382,7 +382,7 @@ const TopNavigation = (): any => {
 
                         <button
                             style={{...(isMobile ? { marginTop: 20 } :
-                                    styles.container), ...(active2 ? styles.underline : styles.nonActive), ...}}
+                                    styles.container), ...(active2 ? styles.underline : styles.nonActive)}}
                             onClick={handleSetActive2}
                         >
                             <div style={styles.bellContainer}>
@@ -394,7 +394,7 @@ const TopNavigation = (): any => {
                         {user?.role !== "company" &&
                             <button
                                 style={{...(isMobile ? { marginTop: 20 } :
-                                        styles.container), ...(activeAppelOffer ? styles.underline : styles.nonActive), ...}}
+                                        styles.container), ...(activeAppelOffer ? styles.underline : styles.nonActive)}}
                                 onClick={handleSetActiveAppel}
                             >
                                 <img
@@ -407,7 +407,7 @@ const TopNavigation = (): any => {
 
                         <button
                             style={{...(isMobile ? { marginTop: 20 } :
-                                    styles.container), ...(active4 ? styles.underline : styles.nonActive), ...}}
+                                    styles.container), ...(active4 ? styles.underline : styles.nonActive)}}
                             onClick={handleSetActive4}
                         >
                             <img
@@ -422,7 +422,7 @@ const TopNavigation = (): any => {
                             isMobile && (
                                 <button
                                     style={{...(isMobile ? { marginTop: 20 } :
-                                            styles.container), ...(active7 ? styles.underline : styles.nonActive), ...}}
+                                            styles.container), ...(active7 ? styles.underline : styles.nonActive)}}
                                     onClick={handleSetActive7}
                                 >
                                     <img

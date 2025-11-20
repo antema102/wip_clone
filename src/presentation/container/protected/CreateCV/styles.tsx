@@ -1,18 +1,18 @@
-;
 import { COLORS, SIZES } from '../../../../resources/constants';
-const { width } = Dimensions.get('window');
 
 const Colors = {
   mBackColor: '#efefef',
   mBorderColor: '#efefef',
   white: '#FFFFFF',
-  shadowColor: '#A69E9E'};
+  shadowColor: '#A69E9E'
+};
 
 const Metrics = {
-  containerWidth: width - 30,
-  switchWidth: width / 2.7};
+  containerWidth: 600,
+  switchWidth: 200
+};
 
-export default ({
+const styles = {
   containers: {
     height: '100%',
     width: '100%',
@@ -360,4 +360,6 @@ export default ({
     width: 25,
     objectFit:'contain'
   }
-});
+};
+
+export default styles;

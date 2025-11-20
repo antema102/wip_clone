@@ -105,7 +105,7 @@ export const FormOther = (props: any) => {
           <div
             style={{...styles.inputWrap, ...({
                 backgroundColor:
-                  type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
+                  type === 'read' ? COLORS.disableGray : COLORS.white})}}>
             <InputSelect
               label={activeString.CreationCV.sport}
               required
@@ -123,7 +123,7 @@ export const FormOther = (props: any) => {
         <div
           style={{...styles.inputWrap, ...({
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
+                type === 'read' ? COLORS.disableGray : COLORS.white})}}>
           <InputField
             label={activeString.CreationCV.centerIntrest}
             value={dataOther.centerIntrest}
@@ -134,9 +134,9 @@ export const FormOther = (props: any) => {
           />
         </div>
         <div
-          style={{...styles.inputWrap, ...{
-              marginBottom: 20, ...(backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
+          style={{...styles.inputWrap, 
+              marginBottom: 20, 
+              backgroundColor: type === 'read' ? COLORS.disableGray : COLORS.white}}>
           <InputField
             label={activeString.CreationCV.somethingAboutU}
             type="textArea"

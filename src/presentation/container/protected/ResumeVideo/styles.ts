@@ -1,4 +1,3 @@
-;
 import { COLORS, SIZES } from '../../../../resources/constants';
 
 export const styles = {
@@ -37,13 +36,13 @@ export const styles = {
     width: 60,
     height: 60,
     backgroundColor: 'white',
-    borderRadius: 150 / 2,
+    borderRadius: 150 / 2},
     // marginLeft: screenWidth / 2 - 30},
   switchingCircleShape: {
     width: 60,
     height: 60,
     backgroundColor: 'white',
-    borderRadius: 150 / 2,
+    borderRadius: 150 / 2},
     // marginLeft: screenWidth / 4 - 40},
   centeredView: {
     flex: 1,

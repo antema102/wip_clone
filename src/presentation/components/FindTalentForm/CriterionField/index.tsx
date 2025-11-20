@@ -126,7 +126,7 @@ export default ({
                 <div style={styles.contentChamp}>
                     {/** Study Level */}
                     <div
-                        style={{...formsStyles.inputWrap, ...({ backgroundColor: status ? COLORS.white : COLORS.disableGray }), ...}}>
+                        style={{...formsStyles.inputWrap, ...({ backgroundColor: status ? COLORS.white : COLORS.disableGray })}}>
                         {type === 'select' ? (
                             <InputSelect
                                 label={label}

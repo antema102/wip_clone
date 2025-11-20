@@ -85,7 +85,7 @@ export const InputField = (props: any) => {
         style={{...(type === 'textArea'
             ? formsStyles.itemInputStyleTextArea
             : formsStyles.itemInputStyle), ...required && showError && error !== '' && formsStyles.inputError, ...({
-            backgroundColor: isEditable ? COLORS.white : COLORS.disableGray}), ...}}
+            backgroundColor: isEditable ? COLORS.white : COLORS.disableGray})}}
       >
         <input
           style={{...localStyle.textIput, ...{
