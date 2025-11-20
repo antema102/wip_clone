@@ -1,0 +1,50 @@
+@import '../../../../../../assets/scss/main.scss';
+
+.testimonyCardsItem {
+  flex: 1;
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  padding: 32px;
+  min-height: 250px;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @media($min-laptop){
+    min-width: 275px;
+  }
+  img {
+    height: 80px;
+    width: 80px;
+    object-fit: contain;
+    border-radius: 10px;
+  }
+  &__cardsAvatar {
+    background-color: $color-white;
+    border-radius: 10px;
+    max-height: 80px;
+  }
+  &__cardsName {
+    font-family: $font-orkney;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 0;
+    color: black;
+  }
+  &__cardsWork {
+    font-weight: 500;
+    font-family: $font-orkney;
+    font-size: 14px;
+    color: #4f4f4f;
+    padding: 0;
+  }
+  &__cardsHeader {
+    color: $color-obscure-gray;
+    max-width: 530px;
+  }
+  &__cardsFooter {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+}

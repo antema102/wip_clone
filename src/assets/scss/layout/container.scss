@@ -1,0 +1,28 @@
+@import '../base/breakpoint.scss';
+
+.container,
+.blockContainer {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+
+  @media ($min-tablette) {
+    max-width: 720px;
+  }
+
+  @media ($min-laptop) {
+    max-width: 960px;
+  }
+
+  @media ($min-desktop) {
+    max-width: 1140px;
+  }
+
+  @media screen and (min-width: 1400px) {
+    max-width: 1445px;
+  }
+}
+
+.blockContainer {
+  padding: 24px 16px;
+}

@@ -1,0 +1,17 @@
+.avatar {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  &__img {
+    img {
+      border-radius: 50px;
+      &:not(&:first-child) {
+        margin-left: -10px;
+      }
+    }
+  }
+  &__text {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 1);
+  }
+}

@@ -1,0 +1,134 @@
+@import '../../../../../assets/scss/main.scss';
+
+.nav {
+  padding: 24px 0;
+  font-weight: 700;
+  font-size: 14px;
+
+  a {
+    cursor: pointer;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -4px;
+      height: 1px;
+      background-color: $color-black;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+      transform-origin: left;
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+    }
+  }
+
+  @media ($max-tablette) {
+    padding: 24px 16px;
+  }
+
+  &__dektop {
+    display: flex;
+    justify-content: space-between;
+
+    @media ($max-tablette) {
+      display: none;
+    }
+  }
+
+  &__mobile {
+    display: block;
+
+    ul:first-child {
+      display: flex;
+      justify-content: space-between;
+
+      li {
+        img {
+          height: 45px;
+          object-fit: cover;
+        }
+      }
+
+      li:last-child {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        .btn {
+          font-size: 12px;
+          border: none;
+          padding-left: 14px;
+          padding-right: 14px;
+          background: $color-white;
+          color: $color-black;
+          border: 1px solid $color-white;
+        }
+
+        .nav__burgeur {
+          background-color: $color-orange;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 10px;
+          cursor: pointer;
+          padding: 15px;
+
+          img {
+            object-fit: contain;
+            height: 100%;
+          }
+
+          @media ($min-laptop) {
+            padding: 11px 14px;
+          }
+        }
+      }
+    }
+
+    .nav__menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      gap: 24px;
+
+      li:first-child {
+        margin-top: 32px;
+      }
+    }
+
+    .nav__menu--open {
+      max-height: 300px;
+    }
+
+    @media ($min-laptop) {
+      display: none;
+    }
+  }
+
+  a:hover,
+  a:focus,
+  a {
+    text-decoration: none;
+  }
+
+  &__left,
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .nav__left {
+    .nav__item:nth-child(2) {
+      padding-left: 45px;
+    }
+  }
+}

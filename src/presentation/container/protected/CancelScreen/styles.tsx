@@ -1,0 +1,87 @@
+import { Dimensions, StyleSheet } from 'react-native';
+import { COLORS, SIZES } from '../../../../resources/constants';
+
+export const styles = StyleSheet.create({
+  formContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    bottom: 150,
+    marginTop: 100,
+  },
+  buttonStyles: {
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    marginLeft: 5,
+    borderRadius: 10,
+  },
+  loginContainer: {
+    flex: 1,
+    marginLeft: 12,
+    alignSelf: 'center',
+    backgroundColor: COLORS.white,
+  },
+  loginForm: {
+    borderWidth: 1,
+    borderColor: COLORS.blue_border,
+    borderRadius: SIZES.radius,
+    marginTop: SIZES.padding,
+    width: '60%',
+    backgroundColor: COLORS.white,
+    paddingHorizontal: '5%',
+  },
+  txtSwitchselected: {
+    color: COLORS.white,
+    fontSize: SIZES.body4,
+    fontFamily: 'Oxygen-Bold',
+  },
+  txtSwith: {
+    color: COLORS.secondary,
+    fontSize: SIZES.body4,
+    fontFamily: 'Oxygen-Bold',
+    padding: 10,
+  },
+  logoForm: {
+    width: '70%',
+    paddingTop: '20%',
+    paddingHorizontal: '5%',
+    justifyContent: 'center',
+    alignSelf: 'center',
+  },
+  buttonTextStyles: {
+    color: COLORS.white,
+    justifyContent: 'center',
+    alignSelf: 'center',
+  },
+  alignHorizontal: {
+    justifyContent: 'center',
+    alignSelf: 'center',
+    marginTop: 10,
+  },
+  container: {
+    height: SIZES.height,
+    backgroundColor: COLORS.white,
+    flexDirection: 'row',
+  },
+  borderFormForLogin: {
+    borderWidth: 1,
+    borderColor: COLORS.blue_border,
+    borderRadius: SIZES.radius,
+    marginTop: SIZES.padding2,
+    paddingLeft: 10,
+    height: 40,
+    backgroundColor: COLORS.white,
+    flex: 1,
+  },
+  heightBanner: {
+    paddingTop: 20,
+  },
+  sampleLine: {
+    paddingTop: 30,
+    width: '50%',
+    justifyContent: 'center',
+    alignSelf: 'center',
+    borderBottomWidth: 1,
+    borderBottomColor: '#E3E7EB',
+  },
+});

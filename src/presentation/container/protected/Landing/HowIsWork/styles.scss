@@ -1,0 +1,8 @@
+@import '../../../../../assets/scss/main.scss';
+
+.howIsWork{
+    padding: 42px 24px;
+    @media($min-laptop){
+        padding: 42px 0;
+    }
+}

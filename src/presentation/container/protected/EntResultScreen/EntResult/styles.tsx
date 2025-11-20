@@ -1,0 +1,346 @@
+import { StyleSheet, Dimensions } from 'react-native';
+import { COLORS, SIZES } from '../../../../../resources/constants';
+
+let windowDim = Dimensions.get('window').width;
+
+export default StyleSheet.create({
+  containers: {
+    width: '100%',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 5,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    backgroundColor: COLORS.white
+  },
+  stHeader: {
+    flexDirection: 'row',
+    height: 148,
+    borderRadius: 0,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: COLORS.blue_back,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+  },
+  main_container: {
+    flex: 1,
+  },
+  pageContainer: {
+    paddingHorizontal: SIZES.padding,
+    marginTop: SIZES.padding,
+    marginBottom: 70,
+  },
+  candidateExpContainer: {
+    padding: SIZES.padding,
+  },
+  image2: {
+    width: 30,
+    height: 30,
+    backgroundColor: 'gray',
+  },
+  image3: {
+    width: 76,
+    height: 76,
+    backgroundColor: 'white',
+  },
+  textContainer: {
+    flexDirection: 'column',
+    paddingHorizontal: SIZES.padding,
+    justifyContent: 'center',
+  },
+  bloc3: {
+    width: 363,
+    height: 80,
+    flexDirection: 'row',
+  },
+  ButtonBloc: {
+    flexDirection: 'column',
+    height: 156,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  image: {
+    width: 80,
+    height: 80,
+    borderRadius: 8,
+  },
+  titlePrimaire: {
+    fontWeight: 'bold',
+    fontSize: SIZES.h5,
+    color: COLORS.primary,
+    lineHeight: 16,
+  },
+  descriptionPrimary: {
+    fontSize: SIZES.body5,
+    color: COLORS.black,
+    marginVertical: 10,
+    // width:windowDim - 130,
+  },
+  navigator: {
+    flex: 1,
+  },
+  container: {
+    marginTop: 10,
+  },
+  item: {
+    backgroundColor: 'white',
+    padding: 5,
+    marginVertical: 8,
+    marginHorizontal: 16,
+    flexDirection: 'row',
+  },
+  item2: {
+    backgroundColor: 'white',
+    padding: 5,
+    marginVertical: 8,
+    marginHorizontal: 5,
+    flexDirection: 'row',
+  },
+  title: {
+    height: 24,
+    fontSize: 16,
+  },
+  title1: {
+    height: 50,
+    fontSize: 16,
+    textAlign: 'center',
+  },
+  containerAreaButton: {
+    marginTop: SIZES.padding,
+    // width: windowDim - 50,
+    flex: 1,
+  },
+  screenContainer: {
+    justifyContent: 'center',
+    width: 250,
+    padding: 16,
+    position: 'relative',
+    alignItems: 'center',
+  },
+  ContactButtonContainer: {
+    // elevation: 8,
+    backgroundColor: COLORS.secondary,
+    borderRadius: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 16,
+  },
+  ContactButtonText: {
+    fontSize: 16,
+    color: '#fff',
+    alignSelf: 'center',
+    fontWeight: 'bold',
+  },
+  text10: {
+    width: 363,
+    height: 100,
+    fontSize: 16,
+    lineHeight: 150,
+    marginTop: 24,
+    color: '#00003E',
+    marginLeft: 0,
+  },
+  textinput: {
+    marginTop: 50,
+    marginLeft: 5,
+    marginRight: 5,
+    height: 50,
+    borderColor: '#000000',
+    borderWidth: 1,
+    paddingLeft: 5,
+  },
+  contentStyle: {},
+  iconActus: {
+    width: 24,
+    height: 24,
+    backgroundColor: 'white',
+    marginRight: 20,
+  },
+  itemWrapper: {
+    backgroundColor: 'white',
+    padding: 0,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    minHeight: 72,
+    borderBottomColor: COLORS.gray_border,
+    borderBottomWidth: 1,
+  },
+  valueActus: {
+    flex: 1,
+    flexWrap: 'wrap',
+    color: COLORS.black,
+    fontSize: SIZES.h5,
+  },
+  date_text: {
+    textAlign: 'right',
+    fontSize: 14,
+  },
+  itemWrapperOffer: {
+    paddingHorizontal: SIZES.padding,
+  },
+  itemOffer: {
+    top: 10,
+    flexDirection: 'row',
+    alignItems: 'center'
+    // borderBottomColor: COLORS.gray_border,
+    // borderBottomWidth: 1,
+    // borderStyle: 'dashed',
+    // paddingVertical: SIZES.padding,
+  },
+  logoSte: {
+    width: 48,
+    height: 48,
+    borderRadius: SIZES.radiusTwo,
+    marginRight: SIZES.padding2,
+  },
+  titlePost: {
+    fontWeight: 'bold',
+    color: COLORS.black,
+    fontSize: SIZES.h5,
+    // width: windowDim - 110,
+  },
+  textAlign: {
+    alignItems: 'flex-start',
+  },
+  lieuPost: {
+    color: COLORS.black,
+    fontSize: SIZES.body5,
+    flexWrap: 'wrap',
+  },
+  periodePost: {
+    color: COLORS.secondary,
+    fontSize: SIZES.body5,
+    marginTop: 12,
+  },
+  contenOffer: {
+    marginBottom: 60,
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+    // width:windowDim - 48,
+    paddingHorizontal: SIZES.padding,
+  },
+  buttonAnnuler: {
+    paddingHorizontal: SIZES.padding,
+    height: 50,
+    borderRadius: SIZES.radius,
+    flexDirection: 'row',
+    backgroundColor: COLORS.white,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: COLORS.secondary,
+    // marginBottom:SIZES.padding2,
+    // width:windowDim - 96,
+  },
+  buttonOpen: {
+    backgroundColor: "#F194FF",
+  },
+  buttonClose: {
+    backgroundColor: "#2196F3",
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: 'bold',
+    textAlign: "center"
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center"
+  },
+  buttonBlue: {
+    paddingHorizontal: SIZES.padding,
+    height: 52,
+    borderRadius: SIZES.radius,
+    flexDirection: 'row',
+    backgroundColor: COLORS.secondary,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: SIZES.padding2,
+    // width:windowDim - 96,
+  },
+  btnTxt: {
+    color: COLORS.white,
+    fontSize: SIZES.h5,
+  },
+  buttonContainer: {
+    marginTop: 20,
+    marginBottom: -10,
+  },
+  textBtnSecondary: {
+    color: COLORS.secondary,
+    fontSize: SIZES.h5,
+  },
+  loading_container: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    height: 400,
+    width: 400,
+    backgroundColor: 'red',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  imageStyle: {
+    borderRadius: 0,
+    marginLeft: 20,
+  },
+  images: {
+    height: 135,
+    width: 135,
+    objectFit: 'contain',
+    borderWidth: 1,
+    borderRadius: '50%',
+    borderColor: COLORS.gray_fond
+  },
+  contents: {
+    backgroundColor: COLORS.white,
+    borderRadius: 10,
+    paddingVertical: 24,
+    paddingHorizontal: 70,
+    position: 'relative',
+    gap: 24
+  },
+  containerAvatar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 24,
+  },
+  textAvatar: {
+    fontSize: 26, fontWeight: 'bold'
+  },
+  textContent: {
+    flexDirection: 'row',
+    gap: 24,
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    paddingBottom: 16
+  },
+
+});

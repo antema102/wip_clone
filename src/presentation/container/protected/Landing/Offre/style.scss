@@ -1,0 +1,8 @@
+@import '../../../../../assets/scss/main.scss';
+
+.offre {
+  padding: 32px $padding;
+  @media ($min-laptop) {
+    padding: 42px 0 75px 0;
+  }
+}

@@ -1,0 +1,17 @@
+.p-dialog {
+    border-color: transparent;
+}
+
+.p-dialog .p-dialog-header {
+    background-color: #2CA5FF;
+    color: #fff ;
+}
+.p-dialog .p-dialog-footer {
+    background-color: #2CA5FF;
+    color: #fff ;
+}
+
+.p-dialog .p-dialog-content {
+    background-color: #fff;
+    color: black;
+}

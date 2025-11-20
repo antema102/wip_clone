@@ -1,0 +1,32 @@
+.p-dataview-content {
+  background-color: transparent !important;
+}
+.p-paginator.p-component.p-paginator-bottom {
+  justify-content: space-between;
+  border-top: 1px solid #e9ecef;
+}
+.p-paginator-page.p-paginator-element.p-link.p-highlight {
+  background-color: #000099;
+  color: white;
+  border-radius: 50%;
+}
+.p-paginator-page.p-paginator-element.p-link:hover {
+  border-radius: 50% !important;
+}
+.paginatorTemplateCustom.prev,
+.paginatorTemplateCustom.next {
+  display: flex;
+  border: none;
+  align-items: center;
+  gap: 4px;
+  background-color: white;
+  cursor: pointer;
+}
+.paginatorTemplateCustom.prev:disabled,
+.paginatorTemplateCustom.next:disabled {
+  cursor: default;
+}
+.p-dataview.p-dataview-list .p-dataview-content > .p-grid > div {
+  border-width: 0;
+  box-shadow: none;
+}

@@ -1,0 +1,35 @@
+@import '../../../../../../assets/scss/main.scss';
+
+.title {
+  font-size: 16px;
+  p {
+    font-size: 14px;
+    font-weight: 700;
+    color: $color-orange;
+    padding: 0;
+    @media ($min-laptop) {
+      font-size: 16px;
+      float: left;
+      margin-right: 42px;
+    }
+  }
+  h2 {
+    font-weight: 700;
+    color: $color-secondary;
+    font-size: 28px;
+    line-height: 40px;
+    margin: 0;
+    margin-bottom: 32px;
+    br{
+      display: none;
+    }
+    @media ($min-laptop) {
+      font-size: 42px;
+      line-height: 50px;
+      padding-top: 15px;
+      br{
+        display: block;
+      }
+    }
+  }
+}

@@ -1,0 +1,488 @@
+import { StyleSheet, Dimensions } from 'react-native';
+import { COLORS, SIZES } from '../../../../../resources/constants';
+const windowDim = Dimensions.get('window').width;
+
+export const styles = StyleSheet.create({
+  containers: {
+    width: '100%',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 5,
+    borderTopLeftRadius: 20, 
+    borderTopRightRadius: 20,
+    backgroundColor: COLORS.white
+  },
+  containt: {
+    width: '100%',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    backgroundColor: COLORS.secondary,
+  },
+  inBetween: {
+    flexDirection: 'row',
+    marginVertical: 4,
+  },
+  vtitle: {
+    marginBottom: 16,
+  },
+  candidatIdentity: {
+    paddingTop: 20,
+    paddingBottom: 54,
+    alignItems: 'center',
+    backgroundColor:COLORS.blue_back,
+    borderTopLeftRadius: 20, 
+    borderTopRightRadius: 20,
+  },
+  candidatIdentityName: {
+    color: COLORS.secondary,
+    fontSize: SIZES.h5,
+    fontWeight: 700,
+  },
+  candidatIdentityPost: {
+    color: COLORS.black,
+    fontSize: SIZES.body5,
+    marginTop: 6,
+  },
+  compatibilityContainer: {
+    backgroundColor: COLORS.secondary,
+    flex: 1,
+    marginHorizontal: SIZES.padding,
+    borderRadius: SIZES.radius,
+    flexDirection: 'row',
+    paddingVertical: SIZES.padding,
+    position: 'relative',
+    bottom: 30,
+    marginBottom: -10,
+  },
+  badgeContainer: {
+    backgroundColor: COLORS.badge_color,
+    flex: 1,
+    marginHorizontal: SIZES.padding,
+    marginVertical: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 40,
+    flexDirection: 'row',
+    padding: 10,
+  },
+  compatibilityItem: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  candidateAboutContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignSelf: 'center',
+    borderBottomColor: COLORS.gray_border,
+    borderBottomWidth: 1,
+    borderStyle: 'dashed',
+    marginHorizontal: 'auto',
+    paddingBottom: 10,
+    paddingLeft: 25,
+  },
+  candidateAboutItem: {
+    width: '50%',
+    // paddingHorizontal: SIZES.padding,
+    paddingVertical: SIZES.padding6,
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  candidateExpContainer: {
+    paddingVertical: 12,
+    marginHorizontal: SIZES.padding,
+  },
+  candidateExpTitle: {
+    fontSize: SIZES.h3,
+    color: COLORS.black,
+    fontWeight: 700,
+    marginVertical: 0,
+    // backgroundColor: 'green',
+  },
+  candidatExpItem: {
+    paddingTop: 20,
+  },
+  compatibilityBtnContainer: {
+    paddingVertical: SIZES.padding2,
+    backgroundColor: COLORS.blue_back,
+    alignItems: 'center',
+    padding: SIZES.padding,
+    marginHorizontal: SIZES.padding,
+    marginVertical: SIZES.padding3,
+    borderRadius: SIZES.radiusTwo,
+  },
+  compatibilityBtnTitle: {
+    marginBottom: 20,
+    fontSize: SIZES.body3,
+    color: COLORS.secondary,
+  },
+  labelInfos: {
+    color: COLORS.white,
+    fontSize: SIZES.body5,
+    marginTop: 6,
+  },
+  labelPrim: {
+    color: COLORS.black,
+    fontWeight:700,
+    fontSize: SIZES.body5,
+    textTransform: 'uppercase',
+    letterSpacing: 1.5,
+  },
+  descrPrim: {
+    color: COLORS.black,
+    fontSize: SIZES.body4,
+    lineHeight: 18,
+  },
+  puceBlue: {
+    width: windowDim * 0.02,
+    height: windowDim * 0.02,
+    backgroundColor: COLORS.secondary,
+    borderRadius: 6,
+    marginRight: 10,
+    marginTop: 2,
+  },
+  refExp: {
+    fontSize: SIZES.h5,
+    color: COLORS.black,
+    fontWeight: 700,
+  },
+  refExpPost: {
+    fontSize: SIZES.body4,
+    color: COLORS.black
+  },
+  others: {
+    fontSize: SIZES.body3,
+    color: COLORS.black
+  },
+  othersBig: {
+    fontSize: SIZES.body3,
+    color: COLORS.black,
+    fontWeight: '700',
+    marginLeft: 10,
+    width: '35%',
+  },
+  othersLarge: {
+    fontSize: SIZES.body3,
+    color: COLORS.black
+  },
+  othersBigLarge: {
+    fontSize: SIZES.body3,
+    color: COLORS.black,
+    fontWeight: '700',
+    marginLeft: 10,
+    width: '65%',
+  },
+  buttonBlue: {
+    paddingHorizontal: 12,
+    height: 52,
+    borderRadius: SIZES.radius,
+    flexDirection: 'row',
+    backgroundColor: COLORS.secondary,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  txtBtn: {
+    color: COLORS.white,
+    fontWeight: 700,
+    fontSize: SIZES.h5,
+  },
+  ofsset120: {
+    height: 120,
+  },
+  imageStyle: {
+    borderWidth: 2,
+    borderColor: COLORS.white,
+    borderRadius: 120,
+    width: 120,
+    height: 120,
+  },
+  stHeader: {
+    flexDirection: 'row',
+    height: 148,
+    width: windowDim,
+    borderRadius: 0,
+    alignItems: 'center',
+    backgroundColor: COLORS.blue_back,
+  },
+  main_container: {
+    flex: 1,
+  },
+  pageContainer: {
+    paddingHorizontal: SIZES.padding,
+    marginTop: SIZES.padding,
+    marginBottom: 70,
+  },
+  image2: {
+    width: 30,
+    height: 30,
+    backgroundColor: 'gray',
+  },
+  image3: {
+    width: 76,
+    height: 76,
+    backgroundColor: 'white',
+  },
+  textContainer: {
+    flexDirection: 'column',
+    paddingHorizontal: SIZES.padding,
+    justifyContent: 'center'
+  },
+  bloc3: {
+    width: 363,
+    height: 80,
+    flexDirection: 'row',
+  },
+  ButtonBloc: {
+    flexDirection: 'column',
+    height: 156,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F0F9FF',
+  },
+  image: {
+    width: 80,
+    height: 80,
+    borderRadius: 8,
+  },
+  titlePrimaire: {
+    fontWeight: 700,
+    fontSize: SIZES.h5,
+    color: COLORS.primary,
+    lineHeight: 16,
+  },
+  descriptionPrimary: {
+    fontSize: SIZES.body5,
+    color: COLORS.black,
+    marginVertical: 10,
+    width: windowDim - 130,
+  },
+  navigator: {
+    flex: 1,
+  },
+  container: {
+    marginTop: 10,
+  },
+  item: {
+    backgroundColor: 'white',
+    padding: 5,
+    marginVertical: 8,
+    marginHorizontal: 16,
+    flexDirection: 'row',
+  },
+  item2: {
+    backgroundColor: 'white',
+    padding: 5,
+    marginVertical: 8,
+    marginHorizontal: 5,
+    flexDirection: 'row',
+  },
+  title: {
+    height: 24,
+    fontSize: 16,
+  },
+  title1: {
+    height: 50,
+    fontSize: 16,
+    textAlign: 'center',
+  },
+  containerAreaButton: {
+    marginTop: SIZES.padding,
+    width: windowDim - 50,
+    flex: 1,
+  },
+  screenContainer: {
+    justifyContent: 'center',
+    width: 250,
+    padding: 16,
+    position: 'relative',
+    alignItems: 'center',
+  },
+  ContactButtonContainer: {
+    // elevation: 8,
+    backgroundColor: COLORS.secondary,
+    borderRadius: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 16
+  },
+  ContactButtonText: {
+    fontSize: 16,
+    color: '#fff',
+    alignSelf: 'center',
+    fontWeight: 700,
+  },
+  text10: {
+    width: 363,
+    height: 100,
+    fontSize: 16,
+    lineHeight: 150,
+    marginTop: 24,
+    color: '#00003E',
+    marginLeft: 0,
+  },
+  textinput: {
+    marginTop: 50,
+    marginLeft: 5,
+    marginRight: 5,
+    height: 50,
+    borderColor: '#000000',
+    borderWidth: 1,
+    paddingLeft: 5,
+  },
+  contentStyle: {},
+  iconActus: {
+    width: 24,
+    height: 24,
+    backgroundColor: 'white',
+    marginRight: 20,
+  },
+  itemWrapper: {
+    backgroundColor: 'white',
+    padding: 0,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    minHeight: 72,
+    borderBottomColor: COLORS.gray_border,
+    borderBottomWidth: 1,
+  },
+  valueActus: {
+    flex: 1,
+    flexWrap: 'wrap',
+    color: COLORS.black,
+    fontSize: SIZES.h5,
+  },
+  date_text: {
+    textAlign: 'right',
+    fontSize: 14,
+  },
+  itemWrapperOffer: {
+    paddingHorizontal: SIZES.padding,
+  },
+  itemOffer: {
+    flexDirection: 'row',
+    borderBottomColor: COLORS.gray_border,
+    borderBottomWidth: 1,
+    borderStyle: 'dashed',
+    paddingVertical: SIZES.padding,
+  },
+  logoSte: {
+    width: 48,
+    height: 48,
+    borderRadius: SIZES.radiusTwo,
+    marginRight: SIZES.padding2,
+  },
+  titlePost: {
+    fontWeight: 700,
+    color: COLORS.black,
+    fontSize: SIZES.h5,
+    width: windowDim - 110,
+  },
+  textAlign: {
+    alignItems: 'flex-start',
+  },
+  lieuPost: {
+    color: COLORS.black,
+    fontSize: SIZES.body5,
+    flexWrap: 'wrap',
+  },
+  periodePost: {
+    color: COLORS.secondary,
+    fontSize: SIZES.body5,
+    marginTop: 12,
+  },
+  contenOffer: {
+    marginBottom: 60,
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+    paddingHorizontal: SIZES.padding,
+  },
+  buttonAnnuler: {
+    paddingHorizontal: SIZES.padding,
+    height: 50,
+    width: 450,
+    borderRadius: SIZES.radius,
+    flexDirection: 'row',
+    backgroundColor: COLORS.white,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: COLORS.secondary,
+    marginBottom: SIZES.padding2,
+  },
+  buttonOpen: {
+    backgroundColor: "#F194FF",
+  },
+  buttonClose: {
+    backgroundColor: "#2196F3",
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: 700,
+    textAlign: "center"
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center"
+  },
+  buttonBlueForContact: {
+    paddingHorizontal: SIZES.padding,
+    height: 52,
+    borderRadius: SIZES.radius,
+    flexDirection: 'row',
+    backgroundColor: COLORS.secondary,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: SIZES.padding2,
+  },
+  btnTxt: {
+    color: COLORS.white,
+    fontSize: SIZES.h5,
+  },
+  buttonContainer: {
+    marginTop: 20,
+    marginBottom: -10,
+  },
+  textBtnSecondary: {
+    color: COLORS.secondary,
+    fontSize: SIZES.h5,
+  },
+  loading_container: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    height: 400,
+    width: 400,
+    backgroundColor: 'red',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  /* imageStyle: {
+    borderRadius: 0,
+    marginLeft: 20,
+  }, */
+});

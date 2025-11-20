@@ -1,0 +1,136 @@
+@import '../../../../assets/scss/shared.scss';
+.landing {
+  background-color: $color-gray-fond;
+  overflow: hidden;
+  .hero {
+    display: flex;
+    padding: 16px 24px;
+    flex-direction: column;
+    gap: 24px;
+    position: relative;
+    @media ($min-laptop) {
+      flex-direction: row;
+      gap: unset;
+      padding: 42px 0;
+    }
+    &__left {
+      position: relative;
+      @media ($min-laptop) {
+        flex-basis: 50%;
+        flex-grow: 0;
+        > div {
+          max-width: 500px;
+        }
+      }
+      &::before {
+        content: '';
+        z-index: 1;
+        position: absolute;
+        width: 445px;
+        height: 418px;
+        left: -131px;
+        top: 0;
+        background-color: #ff660026;
+        filter: blur(40px);
+        border-radius: 50%;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        width: 409px;
+        height: 348px;
+        left: 0;
+        top: 0;
+        background: #3399ff26;
+        filter: blur(40px);
+        transform: rotate(-70deg);
+        @media ($min-laptop) {
+          left: 275px;
+          top: 0;
+        }
+      }
+    }
+    &__right {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 107px);
+      @media ($min-laptop) {
+        grid-template-rows: repeat(2, 250px);
+        flex-basis: 50%;
+        flex-grow: 0;
+      }
+      img {
+        object-fit: cover;
+        border-radius: 10px;
+        height: 100%;
+        width: 100%;
+      }
+    }
+    &__item:nth-child(2) {
+      grid-row: span 2;
+    }
+    &__group {
+      img {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: -15px;
+        @media ($min-laptop) {
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+    &__group + span {
+      font-size: 12px;
+      @media ($min-laptop) {
+        font-size: 16px;
+      }
+    }
+    &__title {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      color: $color-obscure-gray;
+    }
+    h1 {
+      font-size: 32px;
+      color: $color-secondary;
+      @media ($min-laptop) {
+        font-size: 52px;
+      }
+    }
+    p {
+      color: $color-obscure-gray;
+      font-size: 16px;
+      line-height: 25px;
+    }
+    .btn__inscription {
+      z-index: 2;
+      position: relative;
+      margin-top: 16px;
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      .icon-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 24px;
+        height: 24px;
+        background-color: white;
+        border-radius: 4px;
+      }
+      .icon {
+        width: 12px;
+        height: 12px;
+        background-image: url('/path/to/icon.png');
+        background-size: cover;
+      }
+    }
+  }
+}

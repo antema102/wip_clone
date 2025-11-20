@@ -1,0 +1,26 @@
+.active-item {
+  color: #01129e !important;
+  background-color: #C6DBEA;
+  text-decoration-color: red;
+}
+
+.p-menuitem-text {
+  color: #01129E !important;
+  background-color: 'blue';
+}
+
+.p-menubar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-color: white;
+}
+
+.p-menuitem-icon {
+  color: #FE6D02 !important;
+}
+
+.p-splitter .p-splitter-gutter .p-splitter-gutter-handle {
+  background: transparent;
+}

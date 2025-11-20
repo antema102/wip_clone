@@ -1,0 +1,198 @@
+@import '../../../../assets/scss/main.scss';
+.validate {
+  flex: 1;
+  background-color: $color-white;
+  padding: 24px;
+  border-radius: 10px;
+  &__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    cursor: pointer;
+    img {
+      object-fit: contain;
+    }
+  }
+  &__formsText {
+    padding: 16px 0;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  &__title {
+    h1 {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    p {
+      font-size: 13px;
+      font-weight: 400;
+    }
+    h1,
+    p {
+      padding: 0;
+      margin: 0;
+    }
+  }
+  &__form {
+    display: flex;
+    flex-direction: row;
+    gap: 14px;
+  }
+  &__input {
+    position: relative;
+    flex: 1;
+    input {
+      @media ($min-laptop) {
+        padding-left: 60px;
+      }
+      height: 53px;
+      border-radius: 5px;
+      width: 100%;
+      padding-left: 40px;
+      padding-right: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      background-color: $color-white;
+      outline: none;
+      color: $color-obscure-gray;
+      font-size: 14px;
+      position: relative;
+      &::placeholder {
+        color: $color-obscure-gray;
+        font-size: 12px;
+      }
+      &:focus {
+        border-color: $color-blue-sombre;
+      }
+      &.error{
+        border: 1px solid $color-red_color;
+      }
+    }
+  }
+  &__svg {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 20%;
+    left: 10px;
+    @media ($min-laptop) {
+      left: 20px;
+    }
+    img {
+      object-fit: cover;
+    }
+  }
+  &__visibility {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 20%;
+    right: 10px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    @media ($min-laptop) {
+      top: 20%;
+      right: 25px;
+    }
+    img {
+      object-fit: cover;
+      transition: transform 10s ease;
+    }
+    &:active img {
+      transform: scale(1.2);
+    }
+  }
+  &__formulaire {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  &__btn {
+    display: flex;
+    gap: 16px;
+    padding-top: 16px;
+    button {
+      background-color: #2ca5ff;
+      font-size: 12px;
+      border: none;
+      width: 100%;
+      border-radius: 5px;
+      cursor: pointer;
+      padding: 10px;
+      border: none;
+      transition: 0.5s ease background-color;
+      text-transform: uppercase;
+      color: $color-white;
+      &.validate__btn--orange {
+        background-color: #ff6600;
+        &:hover {
+          background-color: rgba(255, 102, 0, 0.2);
+        }
+      }
+      &:hover {
+        background-color: #2ca4ff4b;
+      }
+      &[disabled] {
+        background-color: #2ca5ff4b;
+        cursor: not-allowed;
+        &:hover {
+          background-color: #2ca5ff4b;
+        }
+      }
+    }
+  }
+  &__files {
+    border: 1px dashed rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 30px;
+    label {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 8px;
+      span {
+        font-size: 11px;
+      }
+    }
+    input {
+      display: none;
+    }
+  }
+  &__checkbox {
+    display: flex;
+    gap: 8px;
+    p {
+      font-size: 12px;
+      padding: 0;
+      line-height: 17px;
+      a{
+        color: #2ca5ff;
+      }
+    }
+  }
+  &__fileText{
+    font-size: 12px;
+    padding: 0;
+  }
+  .select{
+    border: none;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    outline: none;
+    height: 50px;
+    width: 100%;
+    padding: 10px;
+    option{
+      color: $color-obscure-gray;
+    }
+  }
+}

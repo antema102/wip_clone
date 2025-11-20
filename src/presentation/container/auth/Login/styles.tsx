@@ -1,0 +1,102 @@
+import { Dimensions, StyleSheet } from 'react-native';
+import { COLORS, SIZES } from '../../../../resources/constants';
+
+export const styles = {
+  formContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    bottom: 150
+  },
+  buttonStyles: {
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    marginLeft: 5,
+    borderRadius: 10,
+  },
+  loginContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    backgroundColor: COLORS.blue_border,
+  },
+  loginForm: {
+    borderWidth: 1,
+    borderColor: COLORS.blue_border,
+    borderRadius: SIZES.radius,
+    marginTop: SIZES.padding,
+    width: '60%',
+    backgroundColor: COLORS.white,
+    paddingHorizontal: '5%',
+  },
+  loginFormMobile: {
+    borderWidth: 1,
+    borderColor: COLORS.blue_border,
+    borderRadius: SIZES.radius,
+    marginTop: SIZES.padding,
+    backgroundColor: COLORS.white,
+    paddingHorizontal: '5%',
+    marginLeft:SIZES.padding,
+    marginRight:SIZES.padding
+  },
+  logoForm: {
+    width: '70%',
+    paddingTop: '20%',
+    paddingHorizontal: '5%',
+    justifyContent: 'center',
+    alignSelf: 'center',
+  },
+  image1: {
+    justifyContent: 'center',
+    alignSelf: 'center',
+    height: 20,
+    width: 20,
+    marginVertical: 4,
+    resizeMode :'contain',
+  },
+  image2: {
+    // Your image2 styles here
+  },
+  image3: {
+    // Your image3 styles here
+  },
+  text2: {
+    // Your text2 styles here
+  },
+  buttonTextStyles: {
+    color: COLORS.white,
+    justifyContent: 'center',
+    alignSelf: 'center',
+  },
+  alignHorizontal: {
+    justifyContent: 'center',
+    alignSelf: 'center',
+    marginTop: 10,
+  },
+  container: {
+    height: SIZES.height,
+    backgroundColor: COLORS.blue_border,
+    flexDirection: 'row',
+  },
+  borderFormForLogin: {
+    borderWidth: 1,
+    borderColor: COLORS.blue_border,
+    borderRadius: SIZES.radius,
+    marginTop: SIZES.padding,
+    paddingLeft: 10,
+    height: 50,
+    backgroundColor: COLORS.white,
+    flex: 1,
+  },
+  heightBanner: {
+    paddingTop: 20,
+  },
+  sampleLine: {
+    paddingTop: 30,
+    width: '50%',
+    justifyContent: 'center',
+    alignSelf: 'center',
+    borderBottomWidth: 1,
+    borderBottomColor: '#E3E7EB',
+  },
+};

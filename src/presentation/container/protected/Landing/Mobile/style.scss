@@ -1,0 +1,125 @@
+@import '../../../../../assets/scss/main.scss';
+
+.mobile-container {
+  display: flex;
+  padding: 24px;
+  position: relative;
+  flex-direction: column;
+  .title h2 {
+    margin-bottom: 0;
+    @media ($min-laptop) {
+      margin-bottom: 32px;
+    }
+  }
+  @media ($min-laptop) {
+    padding: 42px 0;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 450px;
+    height: 401px;
+    bottom: -100px;
+    left: -340px;
+    background: rgba(255, 102, 0, 0.15);
+    filter: blur(40px);
+    z-index: 1;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 399px;
+    height: 401px;
+    background: rgba(51, 153, 255, 0.2);
+    filter: blur(40px);
+    top: 0px;
+    right: -350px;
+  }
+
+  .mobile-content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column-reverse;
+
+    @media ($min-laptop) {
+      align-items: flex-start;
+      flex-direction: row;
+    }
+
+    .mobile__left {
+      @media ($min-laptop) {
+        padding-right: 20px;
+      }
+      .text-section {
+        p {
+          font-size: 20px;
+          line-height: 30px;
+        }
+      }
+
+      @media ($min-laptop) {
+        flex-basis: 44%;
+        flex-grow: 0;
+        .text-section {
+          padding-top: 42px;
+          p {
+            font-size: 35px;
+            line-height: 45px;
+            padding-bottom: 28px;
+          }
+        }
+      }
+    }
+
+    .mobile__right {
+      display: flex;
+      justify-content: center;
+      @media ($min-laptop) {
+        flex-basis: 50%;
+        flex-grow: 0;
+        position: relative;
+      }
+
+      img {
+        object-fit: contain;
+        width: 300px;
+        @media ($min-laptop) {
+          width: 360px;
+        }
+      }
+    }
+
+    .text-section {
+      display: flex;
+      flex-direction: column;
+      color: $color-obscure-gray;
+      @media ($min-laptop) {
+        padding-top: 50px;
+      }
+      p {
+        font-size: 16px;
+        line-height: 25px;
+      }
+
+      .mobile__application {
+        display: flex;
+        flex-direction: column;
+        div {
+          display: flex;
+          margin: auto;
+          @media ($min-laptop) {
+            margin: unset;
+          }
+          a {
+            img {
+              width: 143px;
+              height: 47px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

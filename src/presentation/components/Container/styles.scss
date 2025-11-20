@@ -1,0 +1,27 @@
+@import '../../../assets/scss/shared.scss';
+
+.main__content {
+  position: relative;
+  &::before {
+    content: '';
+    position: fixed;
+    width: 400px;
+    height: 250px;
+    left: 75px;
+    top: 400px;
+    background-color: #ff660026;
+    filter: blur(40px);
+    border-radius: 50%;
+  }
+  &::after {
+    content: '';
+    position: fixed;
+    width: 409px;
+    height: 348px;
+    top: 300px;
+    right: 100px;
+    background: #3399ff26;
+    filter: blur(40px);
+    transform: rotate(-70deg);
+  }
+}

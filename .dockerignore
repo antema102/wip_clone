@@ -1,0 +1,4 @@
+.dockerignore
+Dockerfile.prod
+.gitignore
+*.git

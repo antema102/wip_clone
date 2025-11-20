@@ -1,0 +1,199 @@
+import {StyleSheet, Dimensions} from 'react-native';
+import {COLORS, SIZES} from '../../../resources/constants';
+
+const winWidth = Dimensions.get('window').width;
+const winHeight = Dimensions.get('window').height;
+export const styles = StyleSheet.create({
+  containers: {
+    height: '100%',
+    width: '100%',
+    padding: SIZES.padding,
+  },
+  pageContainer: {
+    height: winHeight * 1,
+    width: '100%',
+    paddingHorizontal: SIZES.padding,
+    paddingTop: 30,
+    paddingBottom: 40,
+    overflow: 'scroll',
+    backgroundColor: COLORS.white,
+  },
+  blueBanner: {
+    paddingHorizontal: SIZES.padding,
+    width: '100%',
+    backgroundColor: COLORS.primary,
+    position: 'relative',
+    height: winHeight * 0.16,
+    overflow: 'visible',
+    zIndex: 1,
+  },
+  imgBanner: {
+    resizeMode: 'contain',
+    position: 'absolute',
+    right: 10,
+    zIndex: 2,
+    top: winWidth * 0.03,
+    height: winHeight * 0.16 - 2,
+    width: winWidth * 0.3,
+  },
+  textBienvenue: {
+    fontSize: SIZES.h3,
+    color: COLORS.white,
+    width: '70%',
+    height: '100%',
+    paddingHorizontal: 0,
+    paddingVertical: winWidth * 0.08,
+  },
+  displayCenterVertical: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  displayCenterHorizontal: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  displayLeftHorizontal: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+  },
+  childFlexCenterHorizontal: {
+    flex: 1,
+    alignSelf: 'center',
+  },
+
+  content: {
+    width: '100%',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+  },
+
+  button: {
+    height: 56,
+    width: 363,
+    left: 24,
+    top: 312,
+    borderRadius: 16,
+    padding: 16,
+  },
+  buttonHome: {
+    paddingHorizontal: 8,
+    height: 56,
+    borderRadius: SIZES.radius,
+    flexDirection: 'row',
+    backgroundColor: COLORS.secondary,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonActions: {
+    paddingRight: SIZES.padding2,
+    height: 56,
+    borderRadius: SIZES.radius,
+    flexDirection: 'row-reverse',
+    backgroundColor: COLORS.secondary,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  buttonHomeActionsaisir: {
+    paddingHorizontal: 8,
+    height: 56,
+    borderRadius: SIZES.radius,
+    flexDirection: 'row',
+    backgroundColor: COLORS.secondary,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonHomeExport: {
+    paddingHorizontal: 8,
+    height: 56,
+    borderRadius: SIZES.radius,
+    flexDirection: 'row',
+    backgroundColor: COLORS.orange,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  bigBtnTxt: {
+    fontSize: SIZES.body3,
+    color: COLORS.white,
+    fontFamily: 'IBMPlexSans-SemiBold',
+  },
+  tagNavContainer: {
+    flexBasis: '48%',
+    borderColor: COLORS.blue_border,
+    borderWidth: 1,
+    borderRadius: SIZES.radius,
+    height: 52,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  tagNav: {
+    color: COLORS.black,
+    fontSize: SIZES.h5,
+    fontFamily: 'IBMPlexSans-SemiBold',
+  },
+  wrapPost: {
+    padding: 12,
+    borderRadius: SIZES.radius,
+    marginBottom: SIZES.padding2,
+    borderWidth: 1,
+    borderColor: COLORS.gray_border,
+  },
+  customDate: {
+    fontSize: SIZES.body5,
+    fontFamily: 'Oxygen-Bold',
+    color: COLORS.secondary,
+  },
+  customPost: {
+    fontSize: SIZES.body4,
+    fontFamily: 'Oxygen-Regular',
+    color: COLORS.black,
+    letterSpacing: 0.2,
+    lineHeight: SIZES.padding2,
+  },
+  wrapItem: {
+    paddingVertical: SIZES.padding,
+    borderTopWidth: 1,
+    borderStyle: 'dashed',
+    borderTopColor: COLORS.gray_border,
+  },
+  titleItem: {
+    color: COLORS.black,
+    fontSize: SIZES.body3,
+    fontFamily: 'Oxygen-Bold',
+  },
+  descrItem: {
+    color: COLORS.black,
+    fontSize: SIZES.body5,
+    fontFamily: 'Oxygen-Light',
+    minHeight: 40,
+    lineHeight: 40,
+  },
+  libreButtom: {
+    height: 32,
+    lineHeight: 28,
+    paddingHorizontal: SIZES.padding2,
+    borderRadius: 8,
+    color: COLORS.white,
+    fontSize: SIZES.body5,
+    marginRight: SIZES.padding2,
+  },
+  bkgBlue: {
+    backgroundColor: COLORS.primary,
+  },
+  bkgOrange: {
+    backgroundColor: COLORS.orange,
+  },
+  oxygenBold: {
+    fontFamily: 'Oxygen-Bold',
+  },
+
+  imageStyle: {
+    borderRadius: 0,
+  },
+})

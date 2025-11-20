@@ -1,0 +1,32 @@
+export const TitleLabels_en = {
+    FindOffer: {
+        levelLab: 'Level of Prioritization criterion',
+    },
+       FindCriteria: {
+        post: 'Desired position',
+        secteur: "Activity area",
+        level: "Level of study",
+        availability: "Availability",
+        transport: "Transport",
+        Accommodated: "Housed or not?",
+        recommend: "Recommended or not?",
+        contrat: "Contrat",
+        country: "Country",
+        province: "Province",
+        common: "Neighborhood or Commune",
+        experience: "Number of years of experience",
+        old_job: "Former Job",
+        old_business: "Old Company",
+        country_wish:"Desired country",
+        province_wish:"Desired province",
+        common_wish:"Desired neighborhood or municipality",
+        langue: "Language",
+        sport: "Sports",
+        center_interest:"Center of interest",
+        info:'Personal information',
+        more: 'More criteria',
+        pretension: "Gross salary (Ariary)",
+        other: "Others",
+        candidate_search:'Candidate Status'
+    },
+};

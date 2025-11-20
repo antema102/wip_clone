@@ -1,0 +1,229 @@
+@import '../../../../../assets/scss/shared.scss';
+
+.footer {
+  background-color: black;
+  color: $color-white;
+  padding: 42px 24px;
+  border-radius: 10px 10px 0 0;
+  position: relative;
+  overflow: hidden;
+  @media ($min-laptop) {
+    padding: 115px 0;
+  }
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    width: 499px;
+    height: 425px;
+    left: -8px;
+    background: rgba(255, 102, 0, 0.15);
+    filter: blur(40px);
+    z-index: 1;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 409px;
+    height: 348px;
+    left: 1087px;
+    top: 0;
+    background: rgba(255, 102, 0, 0.15);
+    filter: blur(40px);
+    z-index: 1;
+  }
+
+  p {
+    padding: 0;
+  }
+  a {
+    color: $color-white;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  &__title {
+    padding-bottom: 32px;
+    p {
+      line-height: 58px;
+      font-size: 24px;
+      &:first-child {
+        font-size: 27px;
+      }
+      &:last-child {
+        position: relative;
+        display: flex;
+        font-size: 35px;
+        font-weight: 400;
+        &::after {
+          content: '';
+          height: 1px;
+          background-color: $color-white;
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+        }
+      }
+    }
+  }
+  &__mail {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    @media ($min-laptop) {
+      flex-direction: row;
+      gap: unset;
+    }
+  }
+  &__item {
+    flex: 1;
+    li:not(.footer__cookie li) {
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column-reverse;
+      gap: 24px;
+      @media ($min-laptop) {
+        flex-direction: column;
+        gap: unset;
+      }
+    }
+    &:first-child {
+      li {
+        display: flex;
+        position: relative;
+        border-bottom: 1px solid $color-white;
+        @media ($min-laptop) {
+          max-width: 400px;
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          height: 28px;
+          width: 28px;
+          bottom: 0;
+          right: 0;
+          top: 70%;
+          transform: translate(-50%, -50%);
+        }
+
+        &:first-child::after {
+          background-image: url('../../../../../resources/assets/icons/accueil.png');
+        }
+
+        &:nth-child(2)::after {
+          background-image: url('../../../../../resources/assets/icons/info.png');
+        }
+        &:nth-child(3)::after {
+          background-image: url('../../../../../resources/assets/icons/opportunites.png');
+        }
+        &:last-child::after {
+          background-image: url('../../../../../resources/assets/icons/job-offers.png');
+        }
+      }
+      a {
+        font-size: 24px;
+        line-height: 58px;
+        color: $color-white;
+      }
+    }
+    &:last-child {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      @media ($min-laptop) {
+        gap: 0;
+      }
+      @media ($min-laptop) {
+        flex-direction: row;
+      }
+      li {
+        flex: 1;
+        p {
+          line-height: 24px;
+          &:first-child {
+            text-transform: uppercase;
+            padding-bottom: 14px;
+          }
+        }
+      }
+      ul {
+        padding-top: 24px;
+        li {
+          &:not(li:first-child) {
+            padding-bottom: 5px;
+          }
+          &:first-child {
+            padding-bottom: 14px;
+          }
+        }
+      }
+    }
+  }
+  &__resauxSocial {
+    display: flex;
+    gap: 8px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    & + span {
+      font-size: 9px;
+      display: block;
+      padding-top: 24px;
+      @media ($min-laptop) {
+        position: absolute;
+        bottom: -75px;
+        font-size: 15px;
+        display: unset;
+        padding-top: 0;
+      }
+    }
+  }
+  &__application {
+  }
+
+  &__cookie {
+    li {
+      a {
+        position: relative;
+        text-decoration: none;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          background-color: $color-white;
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 0.4s ease-in-out;
+        }
+
+        &:hover::after {
+          transform: scaleX(1);
+          transform-origin: right;
+        }
+      }
+    }
+  }
+}

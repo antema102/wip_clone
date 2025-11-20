@@ -1,0 +1,204 @@
+import React, {useEffect, useState} from 'react';
+import {View, TouchableOpacity, Text, Image, Linking} from 'react-native';
+
+import {Language} from './Language';
+import { useForm } from './useFormOther';
+import { Validation } from './validationOther';
+import { getDynamicListByKey } from '../../../../../service/technique/dynamicService';
+import urls from '../../../../../data/constants/urls';
+import { COLORS, icons } from '../../../../../resources/constants';
+import styles from '../styles';
+import { InputSelect } from '../../../../components/Inputs/InputSelect';
+import { TitleLabels } from '../titleLabels';
+import { TitleLabels_en } from '../titleLabels_en';
+import { InputField } from '../../../../components/Inputs/InputField';
+import Checkbox from '../../../../components/Checkbox';
+import { formsStyles } from '../../../../globalStyle/formStyles';
+import { TEXT_INFORMATIONS } from '../../../../../data/constants/strings';
+import globalStyle from '../../../../globalStyle/globalStyle';
+import { useLang } from '../../../../../data/translation';
+import * as stringsFr from '../../../../../data/constants/strings';
+import * as stringsEn from '../../../../../data/constants/strings_en';
+
+export const FormOther = (props: any) => {
+  const {
+    onSubmitForm,
+    changeComplete,
+    data,
+    onChangeDataStore,
+    type,
+    setValues,
+  } = props;
+
+  const {
+    handleChange,
+    handleSubmit,
+    noError,
+    dataOther,
+    errors,
+    showErrors,
+    dto,
+    languageError,
+  } = useForm(data.other, Validation, handleSave, setValues);
+
+  let textToDisplay = '';
+  const languageTxtError = 'Ce champ est obligatoire';
+  const [sportList, setSportList] = useState<any>();
+  const [isChecked, setIsChecked] = useState(false);
+
+  if (type === 'update') {
+    textToDisplay = 'Modification CV términée';
+  } else {
+    textToDisplay = 'Création CV términée';
+  }
+
+  const getDynamicList = async () => {
+    const data = await localStorage.getItem('dynamic');
+    const dataJSON = JSON.parse(data);
+    const sport = getDynamicListByKey('sports', dataJSON);
+    setSportList(sport);
+  };
+
+  const openTermsAndConditions = async () => {
+    await Linking.openURL(urls.TERMS_CONDITIONS);
+  };
+
+  function handleSave() {
+    onSubmitForm(dto.dataOther);
+  }
+
+  useEffect(() => {
+    getDynamicList();
+  }, []);
+
+  useEffect(() => {
+    changeComplete(previousState => ({
+      ...previousState,
+      other: data.other?.sport ? noError() : false,
+    }));
+  }, [errors]);
+
+  useEffect(() => {
+    onChangeDataStore(previousState => ({...previousState, other: dataOther}));
+  }, [dataOther]);
+
+  const {lang} = useLang();
+  const activeString = lang === 'fr' ? TitleLabels : TitleLabels_en;
+  const activeStr = lang === 'fr' ? stringsFr : stringsEn;
+
+  return (
+    <View>
+      <Language
+        values={dataOther}
+        handleChange={handleChange}
+        errors={errors}
+        showErrors={showErrors}
+        type={type}
+      />
+
+      {languageError && (
+        <Text style={{color: COLORS.red_color, marginLeft: 10, marginTop: 5}}>
+          {languageTxtError}
+        </Text>
+      )}
+
+      <View>
+        {/** Sports */}
+        {sportList && (
+          <View
+            style={[
+              styles.inputWrap,
+              {
+                backgroundColor:
+                  type === 'read' ? COLORS.disableGray : COLORS.white,
+              },
+            ]}>
+            <InputSelect
+              label={activeString.CreationCV.sport}
+              required
+              name={'sport'}
+              value={dataOther.sport}
+              onChange={handleChange}
+              error={errors.sport}
+              showError={showErrors.sport}
+              isEditable={type !== 'read'}
+              data={sportList}
+            />
+          </View>
+        )}
+        {/** Interests */}
+        <View
+          style={[
+            styles.inputWrap,
+            {
+              backgroundColor:
+                type === 'read' ? COLORS.disableGray : COLORS.white,
+            },
+          ]}>
+          <InputField
+            label={activeString.CreationCV.centerIntrest}
+            value={dataOther.centerIntrest}
+            name={'centerIntrest'}
+            onChange={handleChange}
+            maxLength={50}
+            isEditable={type !== 'read'}
+          />
+        </View>
+        <View
+          style={[
+            styles.inputWrap,
+            {
+              marginBottom: 20,
+              backgroundColor:
+                type === 'read' ? COLORS.disableGray : COLORS.white,
+            },
+          ]}>
+          <InputField
+            label={activeString.CreationCV.somethingAboutU}
+            type="textArea"
+            value={dataOther.somethingAboutU}
+            name="somethingAboutU"
+            onChange={handleChange}
+            maxLength={150}
+            isEditable={type !== 'read'}
+          />
+        </View>
+
+        {type !== 'update' && type !== 'read' ? (
+          <View style={styles.checkBoxContaint}>
+            <Checkbox
+              checked={isChecked}
+              onChange={() => setIsChecked(!isChecked)}
+              styles={styles.checkBox}
+              // tintColors={{true: COLORS.orange, false: COLORS.blue_border}}
+            />
+            <View style={{width: '90%'}}>
+              <Text style={[formsStyles.labelStyle, styles.checkBoxText]}>
+                {activeStr.TEXT_INFORMATIONS.CANDIDAT_CHECKBOX}
+                <Text
+                  style={[formsStyles.labelStyleTerms]}
+                  onPress={() => openTermsAndConditions()}>
+                  Politique de confidentialité
+                </Text>
+                {''} à tout moment.
+              </Text>
+            </View>
+          </View>
+        ) : null}
+      </View>
+
+      {/** Submit buttons */}
+      <View>
+        {type !== 'read' && (
+          <TouchableOpacity
+            onPress={handleSubmit}
+            disabled={type !== 'update' && type !== 'read' ? !isChecked : false}
+            style={[styles.submitJob]}>
+            <Text style={styles.textButton}>{textToDisplay}</Text>
+            <Image source={icons.action} style={globalStyle.iconStyle} />
+          </TouchableOpacity>
+        )}
+      </View>
+    </View>
+  );
+};

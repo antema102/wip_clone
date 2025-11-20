@@ -1,0 +1,171 @@
+@import '../../../../assets/scss/main.scss';
+
+.forgetPassword {
+  flex: 1;
+  background-color: $color-white;
+  padding: 24px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  &__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    cursor: pointer;
+    img {
+      object-fit: contain;
+    }
+  }
+  &__formsText {
+    padding: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  &__title {
+    h1 {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    p {
+      font-size: 13px;
+      font-weight: 400;
+    }
+    h1,
+    p {
+      padding: 0;
+      margin: 0;
+    }
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  &__input {
+    position: relative;
+    input {
+      height: 53px;
+      border-radius: 5px;
+      width: 100%;
+      padding-left: 40px;
+      padding-right: 50px;
+      @media ($min-laptop) {
+        padding-right: 70px;
+        padding-left: 60px;
+      }
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      background-color: $color-white;
+      outline: none;
+      color: $color-obscure-gray;
+      font-size: 14px;
+      position: relative;
+      &::placeholder {
+        color: $color-obscure-gray;
+        font-size: 13px;
+        @media ($min-laptop) {
+          font-size: 14px;
+        }
+      }
+      &:focus {
+        border-color: $color-blue-sombre;
+      }
+    }
+  }
+  &__svg {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 20%;
+    left: 10px;
+    @media ($min-laptop) {
+      left: 20px;
+    }
+    img {
+      object-fit: cover;
+    }
+  }
+  &__visibility {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 20%;
+    right: 10px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    @media ($min-laptop) {
+      top: 20%;
+      right: 25px;
+    }
+    img {
+      object-fit: cover;
+      transition: transform 10s ease;
+    }
+    &:active img {
+      transform: scale(1.2);
+    }
+  }
+  &__formulaire {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  &__checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+  }
+  &__checkboxText {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    span {
+      font-size: 11px;
+      @media ($min-laptop) {
+        font-size: 13px;
+      }
+      &:last-child {
+        color: #2ca5ff;
+      }
+    }
+  }
+  &__btn {
+    button {
+      background-color: $color-orange;
+      font-size: 14px;
+      border: none;
+      width: 100%;
+      border-radius: 5px;
+      cursor: pointer;
+      padding: 18px 24px;
+      border: none;
+      transition: 0.5s ease background-color;
+      color: $color-white;
+      &:hover {
+        background-color: $color-orange-hover;
+      }
+    }
+  }
+  &__ligne {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    &::before {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 145px;
+      background-color: #cecece;
+    }
+  }
+}

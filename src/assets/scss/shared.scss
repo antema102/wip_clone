@@ -1,0 +1,48 @@
+@import './main.scss';
+.btn {
+  background-color: $color-secondary;
+  padding: 16px 24px;
+  border-radius: 10px;
+  color: $color-white;
+  text-decoration: none;
+  font-weight: 700;
+  transition: background-color ease 0.5s;
+  border: none;
+  cursor: pointer;
+  &:hover {
+    background-color: $color-trait_blue;
+  }
+  &.btn--orange {
+    background-color: $color-orange;
+    &:hover {
+      background-color: $color-orange-hover;
+    }
+  }
+  &.btn--white {
+    background-color: $color-white;
+    color: $color-black;
+  }
+}
+
+.containers {
+  gap: 32px;
+  color: $color-obscure-gray;
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+  padding: 10px 0;
+  background-color: transparent;
+  height: 100vh;
+  z-index: 100;
+}
+:root {
+  font-family: $font-oxygen;
+  background: $color-white;
+}
+.p-splitter-gutter {
+  width: 0 !important;
+}
+.containerBackground {
+  background: $color-gray-fond;
+  position: relative;
+}

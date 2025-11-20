@@ -1,0 +1,163 @@
+@for $i from 0 through 100 {
+  .padding-top-#{$i} {
+    padding-top: #{$i}px;
+  }
+  .padding-bottom-#{$i} {
+    padding-bottom: #{$i}px;
+  }
+  .padding-left-#{$i} {
+    padding-left: #{$i}px;
+  }
+  .padding-right-#{$i} {
+    padding-right: #{$i}px;
+  }
+  .padding-horizontal-#{$i} {
+    padding-left: #{$i}px;
+    padding-right: #{$i}px;
+  }
+  .padding-vertical-#{$i} {
+    padding-top: #{$i}px;
+    padding-bottom: #{$i}px;
+  }
+  .padding-#{$i} {
+    padding: #{$i}px;
+  }
+}
+
+@for $i from 0 through 100 {
+  .margin-top-#{$i} {
+    margin-top: #{$i}px;
+  }
+  .margin-bottom-#{$i} {
+    margin-bottom: #{$i}px;
+  }
+  .margin-left-#{$i} {
+    margin-left: #{$i}px;
+  }
+  .margin-right-#{$i} {
+    margin-right: #{$i}px;
+  }
+  .margin-horizontal-#{$i} {
+    margin-left: #{$i}px;
+    margin-right: #{$i}px;
+  }
+  .margin-vertical-#{$i} {
+    margin-top: #{$i}px;
+    margin-bottom: #{$i}px;
+  }
+  .margin-#{$i} {
+    margin: #{$i}px;
+  }
+}
+// Text utilities
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+// Flexbox utilities
+.flex {
+  display: flex;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+// Flex alignment utilities
+.justify-content-center {
+  justify-content: center;
+}
+
+.justify-content-start {
+  justify-content: flex-start;
+}
+
+.justify-content-end {
+  justify-content: flex-end;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.justify-content-around {
+  justify-content: space-around;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.align-items-start {
+  align-items: flex-start;
+}
+
+.align-items-end {
+  align-items: flex-end;
+}
+
+.align-items-baseline {
+  align-items: baseline;
+}
+
+.align-items-stretch {
+  align-items: stretch;
+}
+
+// Flex direction utilities
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-column-reverse {
+  flex-direction: column-reverse;
+}
+
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
+// Flex wrap utilities
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+.align-self-center {
+  align-self: center;
+}
+
+.align-self-start {
+  align-self: flex-start;
+}
+
+.align-self-end {
+  align-self: flex-end;
+}
+
+.align-self-baseline {
+  align-self: baseline;
+}
+
+.align-self-stretch {
+  align-self: stretch;
+}

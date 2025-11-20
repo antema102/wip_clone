@@ -1,0 +1,62 @@
+.active-item {
+  color: #01129e !important;
+  background-color: #C6DBEA;
+  text-decoration-color: red;
+}
+
+.p-menuitem-text {
+  color: #01129E !important;
+  background-color: 'blue';
+}
+
+.p-menubar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-color: white;
+}
+
+.p-menuitem-icon {
+  color: #FE6D02 !important;
+}
+
+.p-overlay-badge{
+  display: flex;
+  justify-content: center; /* Horizontal centering */
+  align-items: center;
+}
+
+.p-menu  {
+  width: 420px;
+}
+
+.p-menu .p-menuitem-link {
+  width: 420px;
+  padding: 0.75rem 1rem;
+  color: rgba(255, 255, 255, 0.87);
+  border-radius: 0;
+  transition: box-shadow 0.2s;
+  user-select: none;
+}
+
+.p-badge {
+  background-color: red;
+  color: white;
+}
+
+.p-badge {
+  background-color: red;
+  color: white;
+}
+.no-item {}
+
+.p-menu.p-menu-overlay {
+  background: white !important;
+  border: none;
+}
+
+p-menu .p-menuitem-link {
+  flex: 1;
+  width: '100%';
+}
