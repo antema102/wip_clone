@@ -59,9 +59,12 @@ const styles = {
     marginLeft:10
   },
   checkedBox: {
-    backgroundColor: COLORS.primary},
+    backgroundColor: COLORS.primary
+  },
   label: {
     fontSize: 18,
-    color: COLORS.black}});
+    color: COLORS.black
+  }
+};
 
 export default Toggle;

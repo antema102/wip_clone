@@ -22,12 +22,13 @@ interface Props {
   data: any,
   firstItem: number}
 
-const ImageGalleria = {
+const ImageGalleria = ({
   visible,
   setVisible,
   showQuit,
   data,
-  firstItem}: Props) => {
+  firstItem
+}: Props) => {
   const imageHeight = adjustingImage(60);
   const responsiveOptions = [
     {

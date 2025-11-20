@@ -147,4 +147,4 @@ export const styles = {
       width:200,
       objectFit:'cover'
   }
-});
+};

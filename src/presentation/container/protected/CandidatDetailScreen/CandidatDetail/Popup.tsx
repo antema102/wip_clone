@@ -232,7 +232,6 @@ const Popup = (props: PopupType) => {
               <div style={styles.buttonContainer}>
                 <Buttons
                   title={`Tel : ${phone || CONTACT_CANDIDAT.NO_PHONE_PHONENUMBER}`}
-                  }`}
                   _style={[styles.buttonBlueForContact]}
                   styleBtnTxt={styles.btnTxt}
                   isDisable={true}

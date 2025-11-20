@@ -521,7 +521,7 @@ const TopNavigation = (): any => {
                         </div>
                     </>
                 }
-            </View >
+            </div >
             <Dialog title={'À propos'} visible={visible} setVisible={setVisible} content={<OnBoarding />} />
         </>
     );
@@ -608,7 +608,9 @@ const navbarStyle = {
         cursor: 'pointer'
     },
     logoutIcon: {
-        tintColor: COLORS.blueInput}});
+        tintColor: COLORS.blueInput
+    }
+};
 
 
 export default TopNavigation;
