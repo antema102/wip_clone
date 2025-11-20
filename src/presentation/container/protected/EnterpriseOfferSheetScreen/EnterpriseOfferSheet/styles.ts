@@ -1,34 +1,29 @@
-import {StyleSheet, Dimensions} from 'react-native';
+;
 import { COLORS, SIZES } from '../../../../../resources/constants';
-let windowDim = Dimensions.get('window').width;
+let windowDim = window.innerWidth;
 
-export const styles = StyleSheet.create({
+export const styles = {
   container: {
     flex: 1,
     justifyContent: 'center',
-    padding: 8,
-  },
+    padding: 8},
   buttonBack: {
     flexDirection: 'row',
     gap: 14,
-    alignItems: 'center',
-  },
+    alignItems: 'center'},
   titleh2: {
     color: COLORS.black,
     fontWeight: 'bold',
     fontSize: SIZES.h3,
-    paddingTop: 15,
-  },
+    paddingTop: 15},
   titleh2Container: {
     height: 50,
-    justifyContent: 'center',
-  },
+    justifyContent: 'center'},
   text1_2: {
     height: 30,
     fontWeight: 'bold',
     fontSize: SIZES.h5,
-    color: COLORS.secondary,
-  },
+    color: COLORS.secondary},
   inputWrap: {
     borderWidth: 1,
     borderColor: COLORS.blue_border,
@@ -41,12 +36,10 @@ export const styles = StyleSheet.create({
   dart: {
     width: 16,
     height: 15,
-    backgroundColor: '#F0F9FF',
-  },
+    backgroundColor: '#F0F9FF'},
   paragraph: {
     fontSize: SIZES.h5,
-    color: COLORS.gray_title,
-  },
+    color: COLORS.gray_title},
   card_template: {
     width: windowDim * 0.58,
     height: windowDim * 0.3,
@@ -65,8 +58,7 @@ export const styles = StyleSheet.create({
   title: {
     fontWeight: '700',
     fontSize: 16,
-    color: '#00003E',
-  },
+    color: '#00003E'},
 
   navbarBtn: {
     width: 100,
@@ -76,27 +68,23 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     marginBottom: 5,
     marginRight: 10,
-    paddingLeft: 10,
-  },
+    paddingLeft: 10},
 
   textBtn: {
     color: 'red',
-    fontSize: 12,
-  },
+    fontSize: 12},
 
   textList: {
     fontStyle: 'normal',
     fontWeight: 'normal',
     fontSize: 12,
     color: COLORS.secondary,
-    marginBottom: 5,
-  },
+    marginBottom: 5},
 
   duration: {
     color: COLORS.secondary,
     fontStyle: 'normal',
-    fontWeight: 'normal',
-  },
+    fontWeight: 'normal'},
 
   list: {
     display: 'flex',
@@ -104,15 +92,13 @@ export const styles = StyleSheet.create({
     borderStyle: 'dashed',
     borderColor: COLORS.gray_line,
     borderWidth: 1,
-    paddingTop: 15,
-  },
+    paddingTop: 15},
 
   image: {
     width: 48,
     height: 48,
     borderRadius: 6,
-    flex: 0,
-  },
+    flex: 0},
   simpleBtn: {
     paddingHorizontal: 10,
     paddingVertical: 4,
@@ -123,8 +109,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     height: 32,
-    marginBottom: SIZES.padding4,
-  },
+    marginBottom: SIZES.padding4},
   activeBtn: {
     paddingHorizontal: 10,
     paddingVertical: 4,
@@ -134,18 +119,15 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     height: 32,
     marginBottom: SIZES.padding4,
-    backgroundColor: COLORS.blue_back,
-  },
+    backgroundColor: COLORS.blue_back},
   textMenu: {
     fontWeight: 'bold',
     fontSize: SIZES.body5,
-    color: COLORS.black,
-  },
+    color: COLORS.black},
   textMenuActive: {
     fontWeight: 'bold',
     fontSize: SIZES.body5,
-    color: COLORS.primary,
-  },
+    color: COLORS.primary},
 
   card_title: {
     fontWeight: 'bold',
@@ -153,70 +135,58 @@ export const styles = StyleSheet.create({
     fontSize: SIZES.h5,
     paddingLeft: windowDim * 0.03,
     width: windowDim * 0.58 - 76,
-    justifyContent: 'center',
-  },
+    justifyContent: 'center'},
   jobPlace: {
     fontSize: SIZES.body5,
     color: COLORS.white,
     paddingLeft: windowDim * 0.03,
-    width: windowDim * 0.58 - 66,
-  },
+    width: windowDim * 0.58 - 66},
   candidatExp: {
     fontSize: 12,
     color: COLORS.secondary,
     fontWeight: '400',
     fontStyle: 'normal',
     letterSpacing: 0.2,
-    flex: 12,
-  },
+    flex: 12},
   favorisView: {position: 'absolute', right: 0},
   favorisImage: {
     width: 19.5,
-    height: 18,
-  },
+    height: 18},
   footerFrame: {
     flexDirection: 'row',
     marginTop: 32,
-    width: windowDim * 0.75,
-  },
+    width: windowDim * 0.75},
   jobPlaceItem: {
     fontSize: SIZES.body5,
     color: COLORS.black,
-    width: windowDim - 86,
-  },
+    width: windowDim - 86},
   jobDate: {
     flex: 1,
     flexBasis: '100%',
     fontSize: SIZES.body5,
     color: COLORS.white,
-    marginTop: SIZES.padding3,
-  },
+    marginTop: SIZES.padding3},
   jobDateItem: {
     flex: 1,
     flexBasis: '100%',
     fontSize: SIZES.body5,
     color: COLORS.secondary,
-    marginTop: 10,
-  },
+    marginTop: 10},
   wrapperText: {
     width: windowDim * 0.58 - 86,
     flex: 1,
-    paddingRight: 20,
-  },
+    paddingRight: 20},
   wrapperTextItem: {
     width: windowDim - 100,
     flex: 0,
     paddingRight: 10,
-    paddingLeft: 10,
-  },
+    paddingLeft: 10},
   listItemOffer: {
     marginVertical: 10,
-    overflow: 'scroll',
-  },
+    overflow: 'scroll'},
   blue_container: {
     flexDirection: 'column',
-    backgroundColor: COLORS.blue_back,
-  },
+    backgroundColor: COLORS.blue_back},
   card_templateItem: {
     display: 'flex',
     flexDirection: 'row',
@@ -226,20 +196,17 @@ export const styles = StyleSheet.create({
     paddingVertical: windowDim * 0.03,
     borderBottomWidth: 1,
     borderBottomColor: COLORS.blue_border,
-    borderStyle: 'dashed',
-  },
+    borderStyle: 'dashed'},
   wapperTitle: {
     height: 50,
     justifyContent: 'center',
-    marginTop: 10,
-  },
+    marginTop: 10},
   containers: {
     width: '100%',
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 4,
-    },
+      height: 4},
     shadowOpacity: 0.1,
     shadowRadius: 5,
     elevation: 5,
@@ -252,28 +219,23 @@ export const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'space-between',
     flexDirection: 'row',
-    backgroundColor: COLORS.secondary,
-  },
+    backgroundColor: COLORS.secondary},
   vtitle: {
-    marginBottom: 16,
-  },
+    marginBottom: 16},
   bigBtnTxt: {
     fontSize: SIZES.body3,
     color: COLORS.white,
     fontWeight: 'bold',
-    paddingLeft: 20,
-  },
+    paddingLeft: 20},
   txtDetails: {
     fontSize: SIZES.padding2,
     color: COLORS.black,
     lineHeight: 24,
     fontStyle: 'normal',
     // width: windowDim - 48,
-    paddingRight: 8,
-  },
+    paddingRight: 8},
   offerSpace: {
-    marginTop: 24,
-  },
+    marginTop: 24},
   offerTitle: {
     fontSize: SIZES.h2,
     color: COLORS.black,
@@ -281,8 +243,7 @@ export const styles = StyleSheet.create({
   },
   offerPosition: {
     height: windowDim * 0.05,
-    justifyContent: 'center',
-  },
+    justifyContent: 'center'},
 
   candidatIdentity: {
     backgroundColor: '#f0f9ff',
@@ -291,8 +252,7 @@ export const styles = StyleSheet.create({
   },
   candidatIdentityName: {
     color: '#01129e',
-    fontSize: 18,
-  },
+    fontSize: 18},
   offerActions: {
     paddingRight: SIZES.padding2,
     marginHorizontal: 40,
@@ -302,8 +262,7 @@ export const styles = StyleSheet.create({
     backgroundColor: COLORS.orange,
     justifyContent: 'space-between',
     alignItems: 'center',
-    overflow: 'hidden',
-  },
+    overflow: 'hidden'},
   buttonActions: {
     paddingRight: SIZES.padding2,
     marginHorizontal: 40,
@@ -312,8 +271,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row-reverse',
     backgroundColor: '#01129E',
     justifyContent: 'space-between',
-    alignItems: 'center',
-  },
+    alignItems: 'center'},
   buttonActionsOrange: {
     paddingRight: SIZES.padding2,
     height: 52,
@@ -329,12 +287,10 @@ export const styles = StyleSheet.create({
     padding: 20,
     marginHorizontal: 20,
     flexDirection: 'row',
-    justifyContent: 'center',
-  },
+    justifyContent: 'center'},
   compatibilityItem: {
     flex: 1,
-    alignItems: 'center',
-  },
+    alignItems: 'center'},
   candidateAboutContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -342,14 +298,11 @@ export const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderStyle: 'dashed',
     marginHorizontal: 24,
-    paddingTop: 24,
-  },
+    paddingTop: 24},
   candidateAboutItem: {
-    width: '50%',
-  },
+    width: '50%'},
   candidateExpContainer: {
-    padding: SIZES.padding,
-  },
+    padding: SIZES.padding},
   candidateExpTitle: {
     fontSize: 20,
     color: COLORS.black,
@@ -357,29 +310,21 @@ export const styles = StyleSheet.create({
     lineHeight: 24,
     fontStyle: 'normal',
     marginBottom: 16,
-    letterSpacing: 0.15,
-  },
+    letterSpacing: 0.15},
   candidatExpItem: {
     paddingTop: 20,
-    flexDirection: 'row',
-  },
+    flexDirection: 'row'},
   viewBlue: {
-    marginTop: 8,
-  },
+    marginTop: 8},
   viewText: {
-    marginHorizontal: 10,
-  },
+    marginHorizontal: 10},
   pointBlue: {
     width: 8,
-    height: 8,
-  },
+    height: 8},
   compatibilityBtnContainer: {
     marginHorizontal: 20,
     paddingVertical: 20,
     backgroundColor: '#f0f9ff',
-    alignItems: 'center',
-  },
+    alignItems: 'center'},
   compatibilityBtnTitle: {
-    marginBottom: 40,
-  },
-});
+    marginBottom: 40}});

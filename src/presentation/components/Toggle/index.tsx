@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Pressable, Text, StyleSheet } from 'react-native';
+;
 import { COLORS } from '../../../resources/constants';
 
 const Toggle = (props: any) => {
@@ -19,23 +19,22 @@ const Toggle = (props: any) => {
   }, [invisible, actif, passif]);
 
   return (
-    <View style={styles.container}>
+    <div style={styles.container}>
         {STATES.map((label, index) => (
-          <Pressable key={index} style={styles.item} onPress={() => handlePress(index)}>
-            <Text style={styles.label}>{label}</Text>
-            <View style={[styles.checkbox, selectedIndex === index && styles.checkedBox]} />
-          </Pressable>
+          <button key={index} style={styles.item} onClick={() => handlePress(index)}>
+            <span style={styles.label}>{label}</span>
+            <div style={[styles.checkbox, selectedIndex === index && styles.checkedBox]} />
+          </button>
         ))}
-    </View>
+    </div>
   );
 };
 
-const styles = StyleSheet.create({
+const styles = {
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom:10,
-  },
+    marginBottom:10},
   item: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -60,12 +59,9 @@ const styles = StyleSheet.create({
     marginLeft:10
   },
   checkedBox: {
-    backgroundColor: COLORS.primary,
-  },
+    backgroundColor: COLORS.primary},
   label: {
     fontSize: 18,
-    color: COLORS.black,
-  },
-});
+    color: COLORS.black}});
 
 export default Toggle;

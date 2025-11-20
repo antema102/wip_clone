@@ -13,6 +13,5 @@ export function useHome() {
 
   return {
     refreshing,
-    init,
-  };
+    init};
 }

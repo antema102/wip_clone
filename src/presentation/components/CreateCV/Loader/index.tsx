@@ -1,19 +1,20 @@
 import React, {useEffect} from 'react';
-import {Modal, Text, ActivityIndicator, View} from 'react-native';
+import { Dialog } from 'primereact/dialog';
+
 import styles from './styles';
 import { COLORS } from '../../../../resources/constants';
 
 export const Loader = () => {
   return (
-    <View style={styles.centeredView}>
-      <Modal transparent={true} visible={true}>
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <ActivityIndicator size="large" color={COLORS.primary} />
-          </View>
-        </View>
-      </Modal>
-    </View>
+    <div style={styles.centeredView}>
+      <Dialog transparent={true} visible={true}>
+        <div style={styles.centeredView}>
+          <div style={styles.modalView}>
+            <span className="spinner" size="large" color={COLORS.primary} />
+          </div>
+        </div>
+      </Dialog>
+    </div>
   );
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+;
 import TopNagivation from '../../../components/TopNavigation';
 import Container from '../../../components/Container';
 import { FindTalentForm } from './FindTalentForm';

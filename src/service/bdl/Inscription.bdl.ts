@@ -18,5 +18,4 @@ export const InscriptionBDL = () => ({
   postSendEmail: async (data: any) =>
     await api.post(`${urls.VERIFY_EMAIL}`, data, ''),
   resendEmail: async (data: any) =>
-    await api.post(`${urls.RESEND_EMAIL}`, data, ''),
-});
+    await api.post(`${urls.RESEND_EMAIL}`, data, '')});

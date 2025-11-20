@@ -1,6 +1,6 @@
 import './styles.scss';
 import React, { useEffect, useRef, useState } from 'react';
-import { ActivityIndicator } from 'react-native';
+;
 import { useNavigate } from 'react-router-dom';
 import { InputField } from '../../../components/Inputs/InputField';
 import { styles } from './styles';
@@ -53,8 +53,7 @@ export const Inscription = (props: any): any => {
       password: '',
       confirmPwd: '',
       entreprise: '',
-      role: value,
-    });
+      role: value});
   };
 
   // Test create values
@@ -63,8 +62,7 @@ export const Inscription = (props: any): any => {
     password: '',
     confirmPwd: '',
     entreprise: '',
-    role: 'candidate',
-  });
+    role: 'candidate'});
   const navigate = useNavigate();
   const handleNavigation = (): any => {
     navigate('/login');
@@ -153,8 +151,7 @@ export const Inscription = (props: any): any => {
           password: values.password,
           entreprise: values.entreprise,
           confirmationPassword: values.confirmPwd,
-          role: values.role,
-        };
+          role: values.role};
         const response = await postSendEmail(data);
         if (response?.status === HttpStatus.ServerError) {
           setIsLoading(false);
@@ -266,7 +263,7 @@ export const Inscription = (props: any): any => {
                 <div className='inscription__btn'>
                   <button onClick={handleSubmit} disabled={!isChecked}>
                     {
-                      isLoading ? <ActivityIndicator /> : INSCRIPTION.CONTINUE
+                      isLoading ? <span className="spinner" /> : INSCRIPTION.CONTINUE
                     }
 
                   </button>
@@ -274,7 +271,7 @@ export const Inscription = (props: any): any => {
                 <div className='inscription__ligne'>
                 </div>
                 <Footer
-                  onPress={handleNavigation}
+                  onClick={handleNavigation}
                   infoText={'Vous avez déjà un compte ? '}
                   linkText={'Se connecter'}
                 />

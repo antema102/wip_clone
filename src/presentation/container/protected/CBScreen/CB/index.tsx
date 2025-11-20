@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, RefreshControl, BackHandler, Alert, Text } from 'react-native';
+
 import { connect, useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
@@ -69,8 +69,7 @@ export const CB = (props: any) => {
         url: defaultUrl,
         data,
         timeout: 800000,
-        withCredentials: true,
-      };
+        withCredentials: true};
       const res = await axios({ ...axiosParams });
       return res;
     } catch (e) {
@@ -132,13 +131,11 @@ export const CB = (props: any) => {
       const data = {
         montant: amount,
         motif: reason,
-        nationality: 'MD',
-      };
+        nationality: 'MD'};
       const response = await payCb(data, accessToken);
       const formData = toFormData(response?.data?.data);
       const res = await postFormData(formData, response?.data.paiementUrl, {
-        'Content-Type': 'multipart/form-data',
-      });
+        'Content-Type': 'multipart/form-data'});
       const newWindow = window.open(
         response?.data.paiementUrl,
         '_blank',
@@ -163,8 +160,7 @@ export const CB = (props: any) => {
         motif: reason,
         clientNumber: numTel,
         utilisateurId: user?.id,
-        nationality: 'MD',
-      };
+        nationality: 'MD'};
       const response = await payMvola(data, accessToken);
       setTimeout(async () => {
         const status = await getTransactionMvola(
@@ -190,8 +186,7 @@ export const CB = (props: any) => {
         montant: amount,
         motif: reason,
         numero: numTel,
-        nationality: 'MD',
-      };
+        nationality: 'MD'};
       const response = await payOrange(data, accessToken);
       const newWindow = window.open(
         `${response.data.paiementUrl}`,
@@ -258,10 +253,10 @@ export const CB = (props: any) => {
   }, []);
 
   return (
-    <View
+    <div
       style={styles.containers}>
       <TitleRefont title={`${returnTitle()}`} />
-      {type !== 'visa' ? <View style={styles.inputWrap}>
+      {type !== 'visa' ? <div style={styles.inputWrap}>
         <InputField
           label="Numéro de téléphone"
           value={numTel}
@@ -270,14 +265,14 @@ export const CB = (props: any) => {
           onChange={handleChange}
           isEditable={true}
         />
-      </View> : null}
+      </div> : null}
       {errorNum && (
-        <View style={styles.errorText}>
-          <Text style={{ color: COLORS.red_color }}>{errorText}</Text>
-        </View>
+        <div style={styles.errorText}>
+          <span style={{ color: COLORS.red_color }}>{errorText}</span>
+        </div>
       )}
 
-      <View style={styles.inputWrap}>
+      <div style={styles.inputWrap}>
         <InputField
           label="Montant en Ariary"
           required
@@ -287,8 +282,8 @@ export const CB = (props: any) => {
           onChange={handleChange}
           isEditable={true}
         />
-      </View>
-      <View style={styles.inputWrap}>
+      </div>
+      <div style={styles.inputWrap}>
         <InputField
           label={"Date d'effet"}
           required
@@ -297,8 +292,8 @@ export const CB = (props: any) => {
           maxLength={100}
           isEditable={false}
         />
-      </View>
-      <View style={styles.inputWrap}>
+      </div>
+      <div style={styles.inputWrap}>
         <InputField
           label={'Motif'}
           required
@@ -307,13 +302,13 @@ export const CB = (props: any) => {
           value={reason}
           isEditable={true}
         />
-      </View>
-      <View style={styles.submitButtons}>
+      </div>
+      <div style={styles.submitButtons}>
         <CustomButton
           _style={styles.buttonStyles}
           styleBtnTxt={{ color: COLORS.white, fontWeight: 'bold' }}
           color={COLORS.secondary}
-          onPress={() => handlePayment()}
+          onClick={() => handlePayment()}
           title="Acheter"
           isDisable={condition}
         />
@@ -322,10 +317,10 @@ export const CB = (props: any) => {
           _style={styles.buttonStyles}
           styleBtnTxt={{ color: COLORS.white, fontWeight: 'bold' }}
           color={COLORS.orange}
-          onPress={() => handleCancel()}
+          onClick={() => handleCancel()}
           title="Annuler"
         />
-      </View>
+      </div>
       <Popup
         message={message}
         visible={messageVisible}
@@ -333,6 +328,6 @@ export const CB = (props: any) => {
         btnTitle="OK"
       />
       {isLoading && <Loader />}
-    </View>
+    </div>
   );
 };

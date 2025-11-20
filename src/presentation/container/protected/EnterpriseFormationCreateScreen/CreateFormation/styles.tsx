@@ -1,64 +1,55 @@
-import {Dimensions, StyleSheet} from 'react-native';
+;
 import { COLORS, SIZES } from '../../../../../resources/constants';
 const {width} = Dimensions.get('window');
 
-const windowDim = Dimensions.get('window').width;
+const windowDim = window.innerWidth;
 
 const Colors = {
   mBackColor: '#efefef',
   mBorderColor: '#efefef',
   white: '#FFFFFF',
-  shadowColor: '#A69E9E',
-};
+  shadowColor: '#A69E9E'};
 
 const Metrics = {
   containerWidth: width - 30,
-  switchWidth: width / 2.7,
-};
-export const styles = StyleSheet.create({
+  switchWidth: width / 2.7};
+export const styles = {
   containers: {
     width: '100%',
     padding: SIZES.padding,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 4,
-    },
+      height: 4},
     shadowOpacity: 0.1,
     shadowRadius: 5,
-    elevation: 5,
-  },
+    elevation: 5},
   checkBoxContaint: {
     display: 'flex',
     flexDirection: 'row',
     marginTop: SIZES.padding,
     paddingLeft: 10,
-    paddingVertical: 0,
-  },
+    paddingVertical: 0},
   checkBox: {
     // backgroundColor: 'red',
     color: 'red',
     tintColor: 'red',
     borderColor: 'red',
     shadowColor: 'red',
-    overlayColor: 'red',
-  },
+    overlayColor: 'red'},
   formContainer: {
     padding: 8,
-    flex: 1,
-  },
+    flex: 1},
   displayHorizontal: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'stretch',
-  },
+    alignItems: 'stretch'},
   titleGroup: {
     fontFamily: 'Oxygen-Bold',
     fontSize: SIZES.h5,
     color: COLORS.black,
-    alignItems: 'center',
-  },
+    alignItems: 'center'},
   // containers: {
   //   width: Metrics.containerWidth,
   //   height: 55,
@@ -79,8 +70,7 @@ export const styles = StyleSheet.create({
   //   backgroundColor: '#69bbea',
   // },
   container: {
-    marginVertical: 8,
-  },
+    marginVertical: 8},
   input: {
     borderStyle: 'solid',
     borderWidth: 1,
@@ -89,8 +79,7 @@ export const styles = StyleSheet.create({
     paddingLeft: 5,
     fontSize: 16,
     height: 40,
-    color: '#c0cbd3',
-  },
+    color: '#c0cbd3'},
   info: {
     backgroundColor: 'black',
     width: 20,
@@ -98,16 +87,13 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    zIndex: 9999,
-  },
+    zIndex: 9999},
   colorWhite: {
     zIndex: 9999,
-    color: 'white',
-  },
+    color: 'white'},
   App: {
     textAlign: 'left',
-    paddingTop: '10px',
-  },
+    paddingTop: '10px'},
   label: {
     marginRight: 20,
     marginLeft: 20,
@@ -115,18 +101,14 @@ export const styles = StyleSheet.create({
     marginBottom: 10,
     fontSize: 16,
     fontWeight: 'normal',
-    color: 'black',
-  },
+    color: 'black'},
   bold: {
-    fontWeight: 'bold',
-  },
+    fontWeight: 'bold'},
   textError: {
     color: '#f00',
-    fontSize: 14,
-  },
+    fontSize: 14},
   item: {
-    marginBottom: 14,
-  },
+    marginBottom: 14},
   btnAnnuler: {},
   btnValider: {
     paddingHorizontal: 24,
@@ -135,61 +117,51 @@ export const styles = StyleSheet.create({
 
   button: {
     borderRadius: 20,
-    paddingHorizontal: 40,
-  },
+    paddingHorizontal: 40},
   fullFlex: {
     display: 'flex',
     flex: 1,
     flexDirection: 'row',
     width: width - 50,
     justifyContent: 'space-between',
-    alignItems: 'center',
-  },
+    alignItems: 'center'},
   heightForm: {
-    height: width * 0.16,
-  },
+    height: width * 0.16},
   heightBanner: {
-    height: width * 0.26,
-  },
+    height: width * 0.26},
   buttonOrange: {
     backgroundColor: COLORS.orange,
     borderRadius: SIZES.radius,
     paddingHorizontal: 24,
-    height: 48,
-  },
+    height: 48},
   labelWhite: {
     color: COLORS.white,
     lineHeight: 48,
     fontFamily: 'Oxygen',
     fontSize: 14,
-    fontWeight: 'bold',
-  },
+    fontWeight: 'bold'},
   shadowOrange: {
     shadowColor: '#FE6D02',
     shadowOffset: {
       width: 1,
-      height: 2,
-    },
+      height: 2},
     shadowOpacity: 0.4,
     shadowRadius: 7,
-    elevation: 5,
-  },
+    elevation: 5},
   inputWrap: {
     borderWidth: 1,
     borderColor: COLORS.blue_border,
     borderRadius: SIZES.radius,
     marginTop: SIZES.padding,
     paddingLeft: 10,
-    paddingVertical: 0,
-  },
+    paddingVertical: 0},
   borderForm: {
     borderWidth: 1,
     borderColor: COLORS.blue_border,
     borderRadius: SIZES.radius,
     marginTop: SIZES.padding,
     paddingLeft: 10,
-    backgroundColor: COLORS.white,
-  },
+    backgroundColor: COLORS.white},
   textInput: {
     fontSize: SIZES.h5,
     color: COLORS.black,
@@ -197,13 +169,11 @@ export const styles = StyleSheet.create({
     height: 38,
     justifyContent: 'flex-start',
     alignItems: 'flex-end',
-    marginBottom: 0,
-  },
+    marginBottom: 0},
   screenContainer2: {
     flex: 1,
     flexDirection: 'row',
-    paddingTop: 20,
-  },
+    paddingTop: 20},
   buttonAnnuler: {
     height: 50,
     borderRadius: SIZES.radius,
@@ -214,13 +184,11 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: COLORS.secondary,
     marginBottom: SIZES.padding2,
-    width: windowDim / 2 - 50,
-  },
+    width: windowDim / 2 - 50},
   textBtnSecondary: {
     color: COLORS.secondary,
     fontFamily: 'IBMPlexSans-SemiBold',
-    fontSize: SIZES.h5,
-  },
+    fontSize: SIZES.h5},
   buttonAnnuler2: {
     height: 50,
     borderRadius: SIZES.radius,
@@ -234,11 +202,8 @@ export const styles = StyleSheet.create({
     width: windowDim / 2 - 50,
     position: 'absolute',
     right: 0,
-    top: 20,
-  },
+    top: 20},
   textBtnSecondary2: {
     color: COLORS.white,
     fontFamily: 'IBMPlexSans-SemiBold',
-    fontSize: SIZES.h5,
-  },
-});
+    fontSize: SIZES.h5}});

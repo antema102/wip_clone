@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text } from 'react-native';
+;
 import CurrencyInput from 'react-native-currency-input';
 
 import { TitleLabels } from './titleLabels';
@@ -105,8 +105,7 @@ export const Form = (props: any) => {
         isVideo: false,
         video: '',
         boost: false,
-        price: 50000,
-    });
+        price: 50000});
 
     const redirection = async () => {
         setResultVisible(false);
@@ -129,8 +128,7 @@ export const Form = (props: any) => {
             isVideo: false,
             video: '',
             boost: false,
-            price: 50000,
-        });
+            price: 50000});
           navigation('/home', {state:{isFormation: false}});
     };
 
@@ -176,8 +174,7 @@ export const Form = (props: any) => {
                 isVideo: data?.isVideo,
                 video: data?.video,
                 boost: data?.boost,
-                price: 50000,
-            });
+                price: 50000});
             setName(data.name);
             setDescription(data.description);
             setTaches(data.taches);
@@ -347,8 +344,7 @@ export const Form = (props: any) => {
                 try {
                     const response = await updateOfferJob('', data?.id, {
                         ...values,
-                        id: data.id,
-                    });
+                        id: data.id});
                     if (response && response.data.isError) {
                         setTimeout(() => {
                             setModalVisible(true);
@@ -416,13 +412,12 @@ export const Form = (props: any) => {
 
 
     return (
-        <View
+        <div
             style={{
                 paddingHorizontal: SIZES.padding,
-                justifyContent: 'space-between',
-            }}>
+                justifyContent: 'space-between'}}>
             <CustomModal title={"Moyen de paiement"} visible={showPayment} setVisible={setShowPayment} content={<PaymentWays/>} />
-            <View style={styles.inputWrap}>
+            <div style={styles.inputWrap}>
                 <InputField
                     label={activeStr.create.ref}
                     value={values.ref}
@@ -431,10 +426,10 @@ export const Form = (props: any) => {
                     required
                     maxLength={150}
                 />
-            </View>
-            {refError && <Text style={{ color: COLORS.red_color }}>{refTxtError}</Text>}
+            </div>
+            {refError && <span style={{ color: COLORS.red_color }}>{refTxtError}</span>}
 
-            <View style={styles.inputWrap}>
+            <div style={styles.inputWrap}>
                 <InputField
                     label={activeStr.create.name}
                     value={values.name}
@@ -443,11 +438,11 @@ export const Form = (props: any) => {
                     required
                     maxLength={150}
                 />
-            </View>
+            </div>
             {nameError && (
-                <Text style={{ color: COLORS.red_color }}>{nameTxtError}</Text>
+                <span style={{ color: COLORS.red_color }}>{nameTxtError}</span>
             )}
-            <View style={[{ marginBottom: 20 }, styles.inputWrap]}>
+            <div style={[{ marginBottom: 20 }, styles.inputWrap]}>
                 <InputField
                     label={activeStr.create.description}
                     value={values.description}
@@ -457,11 +452,11 @@ export const Form = (props: any) => {
                     required
                     maxLength={350}
                 />
-            </View>
+            </div>
             {descriptionError && (
-                <Text style={{ color: COLORS.red_color }}>{descriptionTxtError}</Text>
+                <span style={{ color: COLORS.red_color }}>{descriptionTxtError}</span>
             )}
-            <View style={[{ marginBottom: 20 }, styles.inputWrap]}>
+            <div style={[{ marginBottom: 20 }, styles.inputWrap]}>
                 <InputField
                     label={activeStr.create.taches}
                     value={values.taches}
@@ -471,12 +466,12 @@ export const Form = (props: any) => {
                     type="textArea"
                     maxLength={400}
                 />
-            </View>
+            </div>
             {tachesError && (
-                <Text style={{ color: COLORS.red_color }}>{tachesTxtError}</Text>
+                <span style={{ color: COLORS.red_color }}>{tachesTxtError}</span>
             )}
             {availabilityList && (
-                <View style={styles.inputWrap}>
+                <div style={styles.inputWrap}>
                     <InputSelect
                         label={activeStr.create.disponipility}
                         name="disponibility"
@@ -486,12 +481,12 @@ export const Form = (props: any) => {
                         required
                         data={availabilityList}
                     />
-                </View>
+                </div>
             )}
             {disponibilityError && (
-                <Text style={{ color: COLORS.red_color }}>{disponibilityTxtError}</Text>
+                <span style={{ color: COLORS.red_color }}>{disponibilityTxtError}</span>
             )}
-            <View style={styles.inputWrap}>
+            <div style={styles.inputWrap}>
                 <InputField
                     label={activeStr.create.place}
                     value={values.lieu}
@@ -500,13 +495,13 @@ export const Form = (props: any) => {
                     maxLength={50}
                     required
                 />
-            </View>
+            </div>
             {placeError && (
-                <Text style={{ color: COLORS.red_color }}>{placeErrorTxtError}</Text>
+                <span style={{ color: COLORS.red_color }}>{placeErrorTxtError}</span>
             )}
 
             {statusList && (
-                <View style={styles.inputWrap}>
+                <div style={styles.inputWrap}>
                     <InputSelect
                         label={activeStr.create.contrat}
                         name="contrat"
@@ -516,15 +511,15 @@ export const Form = (props: any) => {
                         data={statusList}
                         required
                     />
-                </View>
+                </div>
             )}
             
             {contratError && (
-                <Text style={{ color: COLORS.red_color }}>{contratTxtError}</Text>
+                <span style={{ color: COLORS.red_color }}>{contratTxtError}</span>
             )}
 
             {profilList && (
-                <View style={styles.inputWrap}>
+                <div style={styles.inputWrap}>
                     <InputSelect
                         label={activeStr.create.profil}
                         name="profil"
@@ -534,10 +529,10 @@ export const Form = (props: any) => {
                         data={profilList}
                         required
                     />
-                </View>
+                </div>
             )}
             {activityList && (
-                <View style={styles.inputWrap}>
+                <div style={styles.inputWrap}>
                     <InputSelect
                         label={activeStr.create.type}
                         name="type"
@@ -547,14 +542,14 @@ export const Form = (props: any) => {
                         data={activityList}
                         required
                     />
-                </View>
+                </div>
             )}
             {typeDataError && (
-                <Text style={{ color: COLORS.red_color }}>{typeDataTxtError}</Text>
+                <span style={{ color: COLORS.red_color }}>{typeDataTxtError}</span>
             )}
 
             {experienceList && (
-                <View style={styles.inputWrap}>
+                <div style={styles.inputWrap}>
                     <InputSelect
                         label={activeStr.create.experience}
                         name="experience"
@@ -564,18 +559,18 @@ export const Form = (props: any) => {
                         data={experienceList}
                         required
                     />
-                </View>
+                </div>
             )}
 
             {experienceError && (
-                <Text style={{ color: COLORS.red_color }}>{experienceTxtError}</Text>
+                <span style={{ color: COLORS.red_color }}>{experienceTxtError}</span>
             )}
-            <View style={styles.inputWrap}>
-                <View>
-                    <Text style={[formsStyles.labelStyle]}>
+            <div style={styles.inputWrap}>
+                <div>
+                    <span style={[formsStyles.labelStyle]}>
                         {activeStr.create.prestation}
-                    </Text>
-                </View>
+                    </span>
+                </div>
                 <CurrencyInput
                     value={salary}
                     onChangeValue={setSalary}
@@ -588,22 +583,22 @@ export const Form = (props: any) => {
                     }}
                     style={[styles.textInput, { outline: 'none', borderWidth: 0 }]}
                 />
-            </View>
+            </div>
             {salaryError && (
-                <Text style={{ color: COLORS.red_color }}>{salaryTxtError}</Text>
+                <span style={{ color: COLORS.red_color }}>{salaryTxtError}</span>
             )}
 
-            <View style={{ paddingVertical: 20 }}>
+            <div style={{ paddingVertical: 20 }}>
                 <FileUploader handleFileChange={selectVideo} accept="video/*" fileName={fileName} />
-            </View>
+            </div>
 
             {videoError && (
-                <Text style={{ color: COLORS.red_color }}>{videoTxtError}</Text>
+                <span style={{ color: COLORS.red_color }}>{videoTxtError}</span>
             )}
 
-            <View style={{ paddingVertical: 20 }}>
+            <div style={{ paddingVertical: 20 }}>
                 <CustomButtons
-                    onPress={() => setValues({ ...values, boost: !values.boost })}
+                    onClick={() => setValues({ ...values, boost: !values.boost })}
                     title={values.boost ? activeString.ENTERPRISE_OFFER.BOOSTED_OFFER : activeString.ENTERPRISE_OFFER.BOOSTED_OFFER}
                     _style={[
                         globalStyle.buttonBoost,
@@ -615,11 +610,11 @@ export const Form = (props: any) => {
                     icon={icons.boost}
                     styleBtnTxt={globalStyle.bigBtnTxt}
                 />
-            </View>
+            </div>
 
             <VideoPlayer filePath={filePath} poster={'https://i.picsum.photos/id/866/1600/900.jpg'} />
 
-            <View
+            <div
                 style={{
                     flex: 1,
                     height: 150,
@@ -631,7 +626,7 @@ export const Form = (props: any) => {
                     cancelAction={handleCancel}
                     submitTitle="Enregistrer"
                 />
-            </View>
+            </div>
             <Popup
                 message={message}
                 visible={modalVisible}
@@ -656,6 +651,6 @@ export const Form = (props: any) => {
                 action={handleSubmit}
             />
             {isLoading && <Loader />}
-        </View>
+        </div>
     );
 };

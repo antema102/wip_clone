@@ -1,28 +1,22 @@
-import { StyleSheet, Dimensions } from 'react-native';
+;
 import { COLORS, SIZES } from '../../../resources/constants';
 
-let windowWidth = Dimensions.get('window').width;
+let windowWidth = window.innerWidth;
 
-export const styles = StyleSheet.create({
+export const styles = {
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-  },
+    alignItems: 'center'},
   alignHorizontally: {
     flexDirection: 'row',
-    marginVertical: 7,
-  },
+    marginVertical: 7},
   imgStyle: {
-    resizeMode: 'contain',
+    objectFit: 'contain' as const,
     borderRadius: 10,
     marginTop: 10,
     alignSelf: 'center',
     height: 120,
-    width: 120,
-  },
+    width: 120},
   intermediate: {
-    width: 40,
-  },
-
-});
+    width: 40}});

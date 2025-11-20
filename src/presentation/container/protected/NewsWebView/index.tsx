@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {
-  ScrollView,
-  TextInput,
-  Text,
-  View,
-} from 'react-native';
+
 import styles from './styles';
 import { COLORS } from '../../../../resources/constants';
 import { useLocation } from 'react-router-dom';
@@ -14,13 +9,13 @@ const NewsWebViewScreen = (props: any) => {
   const [isLoading, setIsLoading] = useState(false);
 
   return (
-    <ScrollView style={styles.container}>
+    <div style={{overflowY: "auto"}} style={styles.container}>
       {/* <Header
         {...props}
-        style={{ elevation: 2, }}
+        style={{ elevation: 2}}
       /> */}
-      <Text style={styles.title}>{props?.data?.title}</Text>
-      <TextInput
+      <span style={styles.title}>{props?.data?.title}</span>
+      <input
         style={{ color: COLORS.black, fontSize: 14}}
         multiline={true}
         numberOfLines={20}
@@ -30,7 +25,7 @@ const NewsWebViewScreen = (props: any) => {
   />
 
      {/*
-     <WebView css={{ color: COLORS.black, fontSize: 14}} source={{ html: params?.data?.body}} 
+     <WebView css={{ color: COLORS.black, fontSize: 14}} src={{ html: params?.data?.body}} 
         
         onLoadStart={({ nativeEvent }) => {
           setIsLoading(nativeEvent.loading);
@@ -44,7 +39,7 @@ const NewsWebViewScreen = (props: any) => {
 
       {isLoading ? <Loader /> : null}
 
-    </ScrollView>
+    </div>
   );
 };
 

@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {
-    View,
-    Text,
-    Pressable,
-    BackHandler,
-    Platform,
-} from 'react-native';
+
 import { useSelector } from 'react-redux';
 
 import { TitleLabels } from './titleLabels';
@@ -130,8 +124,7 @@ export const FormAdvertisement = (props: any) => {
                 abonmentDuration: null,
                 price: 0,
                 thumbnail: '',
-                audience: 3,
-            }
+                audience: 3}
             : {
                 name: '',
                 description: '',
@@ -153,8 +146,7 @@ export const FormAdvertisement = (props: any) => {
                 abonmentDuration: null,
                 price: 0,
                 thumbnail: '',
-                audience: 3,
-            },
+                audience: 3},
     );
 
     /** build Datafrom */
@@ -210,8 +202,7 @@ export const FormAdvertisement = (props: any) => {
             spot: [0, 1, 2],
             video: [3, 4, 5],
             banner: [6, 7, 8],
-            image: [9, 10, 11],
-        };
+            image: [9, 10, 11]};
         if (type in typeMap) {
             const [idx1, idx2, idx3] = typeMap[type];
             switch (duration) {
@@ -317,8 +308,7 @@ export const FormAdvertisement = (props: any) => {
             abonmentDuration: null,
             price: 0,
             thumbnail: '',
-            audience: 3,
-        });
+            audience: 3});
         navigate('/EnterpriseAdvertisingScreen');
     };
 
@@ -579,13 +569,12 @@ export const FormAdvertisement = (props: any) => {
     useEffect(() => { }, [filePath, minPrice, maxPrice]);
 
     return (
-        <View
+        <div
             style={{
                 paddingHorizontal: SIZES.padding,
-                justifyContent: 'space-between',
-            }}>
+                justifyContent: 'space-between'}}>
             <CustomModal title={"Moyen de paiement"} visible={showPayment} setVisible={setShowPayment} content={<PaymentWays />} />
-            <View style={[styles.inputWrap, modiferData ? { backgroundColor: COLORS.disableGray } : {}]}>
+            <div style={[styles.inputWrap, modiferData ? { backgroundColor: COLORS.disableGray } : {}]}>
                 <InputField
                     label={TitleLabels.advertisement.name}
                     value={values.name}
@@ -595,12 +584,12 @@ export const FormAdvertisement = (props: any) => {
                     maxLength={150}
                     isEditable={!modiferData}
                 />
-            </View>
+            </div>
             {nameError && (
-                <Text style={{ color: COLORS.red_color }}>{nameTxtError}</Text>
+                <span style={{ color: COLORS.red_color }}>{nameTxtError}</span>
             )}
 
-            <View style={[{ marginBottom: 20 }, styles.inputWrap, modiferData ? { backgroundColor: COLORS.disableGray } : {}]}>
+            <div style={[{ marginBottom: 20 }, styles.inputWrap, modiferData ? { backgroundColor: COLORS.disableGray } : {}]}>
                 <InputField
                     label={TitleLabels.advertisement.description}
                     value={values.description}
@@ -611,13 +600,13 @@ export const FormAdvertisement = (props: any) => {
                     maxLength={100}
                     isEditable={!modiferData}
                 />
-            </View>
+            </div>
             {descriptionError && (
-                <Text style={{ color: COLORS.red_color }}>{descriptionTxtError}</Text>
+                <span style={{ color: COLORS.red_color }}>{descriptionTxtError}</span>
             )}
 
             {!modiferData && (
-                <View style={styles.inputWrap}>
+                <div style={styles.inputWrap}>
                     <InputSelect
                         label={TitleLabels.tender.audience}
                         name="audience"
@@ -626,15 +615,15 @@ export const FormAdvertisement = (props: any) => {
                         isEditable={true}
                         data={audienceList}
                     />
-                </View>
+                </div>
             )}
 
             {audienceError && (
-                <Text style={{ color: COLORS.red_color }}>{ERROR.EMPTY_PICK}</Text>
+                <span style={{ color: COLORS.red_color }}>{ERROR.EMPTY_PICK}</span>
             )}
 
             {!modiferData ? (
-                <View style={styles.inputWrap}>
+                <div style={styles.inputWrap}>
                     <InputSelect
                         label={TitleLabels.advertisement.categorie}
                         name="categorie"
@@ -643,10 +632,10 @@ export const FormAdvertisement = (props: any) => {
                         isEditable={true}
                         data={tarifs}
                     />
-                </View>)
+                </div>)
                 :
                 (
-                    <View style={styles.inputWrap}>
+                    <div style={styles.inputWrap}>
                         <InputSelect
                             label={TitleLabels.advertisement.categorie}
                             name="categorie"
@@ -655,16 +644,16 @@ export const FormAdvertisement = (props: any) => {
                             isEditable={false}
                             data={tarifs}
                         />
-                    </View>
+                    </div>
                 )
             }
 
             {categorieError && (
-                <Text style={{ color: COLORS.red_color }}>{ERROR.EMPTY_PICK}</Text>
+                <span style={{ color: COLORS.red_color }}>{ERROR.EMPTY_PICK}</span>
             )}
 
             {!modiferData && (
-                <View style={styles.inputWrap}>
+                <div style={styles.inputWrap}>
                     <InputSelect
                         label={TitleLabels.advertisement.tarif}
                         name="abonmentDuration"
@@ -673,13 +662,13 @@ export const FormAdvertisement = (props: any) => {
                         isEditable={true}
                         data={handeTarif(values.categorie)}
                     />
-                </View>
+                </div>
             )}
 
-            {abonmentDurationError && (<Text style={{ color: COLORS.red_color }}>{ERROR.EMPTY_PICK}</Text>)}
+            {abonmentDurationError && (<span style={{ color: COLORS.red_color }}>{ERROR.EMPTY_PICK}</span>)}
 
             {!modiferData && (
-                <View style={styles.inputWrap}>
+                <div style={styles.inputWrap}>
                     <CustomInputDatePicker
                         value={values.datePublication}
                         required
@@ -703,17 +692,17 @@ export const FormAdvertisement = (props: any) => {
                             ).toISOString()
                         }
                     />
-                </View>
+                </div>
             )}
 
             {datePublicationError && (
-                <Text style={{ color: COLORS.red_color }}>{ERROR.EMPTY_PICK}</Text>
+                <span style={{ color: COLORS.red_color }}>{ERROR.EMPTY_PICK}</span>
             )}
 
             {!modiferData &&
                 values.categorie !== 'video' &&
                 values.categorie !== 'spot' ? (
-                <View style={styles.inputWrap}>
+                <div style={styles.inputWrap}>
                     <InputField
                         label={TitleLabels.advertisement.link}
                         value={values.link}
@@ -722,12 +711,12 @@ export const FormAdvertisement = (props: any) => {
                         maxLength={150}
                         isEditable={!modiferData}
                     />
-                </View>
+                </div>
             ) : null}
 
             {(values?.categorie === 'video' || values?.categorie === 'image') &&
                 values.audience == 0 ? (
-                <View style={styles.inputWrap}>
+                <div style={styles.inputWrap}>
                     <InputSelect
                         label={TitleLabels.advertisement.type}
                         name="type"
@@ -736,7 +725,7 @@ export const FormAdvertisement = (props: any) => {
                         isEditable={true}
                         data={type}
                     />
-                </View>
+                </div>
             ) : null}
 
             {!modiferData &&
@@ -744,7 +733,7 @@ export const FormAdvertisement = (props: any) => {
                 values.audience == 0 &&
                 (values.categorie === 'video' || values.categorie === 'image') ? (
                 <>
-                    <View style={styles.inputWrap}>
+                    <div style={styles.inputWrap}>
                         <InputSelect
                             label={TitleLabels.advertisement.child}
                             name="child"
@@ -753,13 +742,13 @@ export const FormAdvertisement = (props: any) => {
                             isEditable={true}
                             data={logerOrNot}
                         />
-                    </View>
+                    </div>
                     {childError && (
-                        <Text style={{ color: COLORS.red_color }}>{childTxtError}</Text>
+                        <span style={{ color: COLORS.red_color }}>{childTxtError}</span>
                     )}
 
                     {activityList && (
-                        <View style={styles.inputWrap}>
+                        <div style={styles.inputWrap}>
                             <InputSelect
                                 label={TitleLabels.advertisement.activityArea}
                                 name="activityArea"
@@ -768,14 +757,14 @@ export const FormAdvertisement = (props: any) => {
                                 isEditable={true}
                                 data={activityList}
                             />
-                        </View>
+                        </div>
                     )}
                     {activityError && (
-                        <Text style={{ color: COLORS.red_color }}>{activityTxtError}</Text>
+                        <span style={{ color: COLORS.red_color }}>{activityTxtError}</span>
                     )}
 
                     {sportList && (
-                        <View style={styles.inputWrap}>
+                        <div style={styles.inputWrap}>
                             <InputSelect
                                 label={TitleLabels.advertisement.hobby}
                                 name="hobby"
@@ -784,14 +773,14 @@ export const FormAdvertisement = (props: any) => {
                                 isEditable={true}
                                 data={sportList}
                             />
-                        </View>
+                        </div>
                     )}
                     {hobbyError && (
-                        <Text style={{ color: COLORS.red_color }}>{hobbyTxtError}</Text>
+                        <span style={{ color: COLORS.red_color }}>{hobbyTxtError}</span>
                     )}
 
                     {petList && (
-                        <View style={styles.inputWrap}>
+                        <div style={styles.inputWrap}>
                             <InputSelect
                                 label={TitleLabels.advertisement.pet}
                                 name="pet"
@@ -800,14 +789,14 @@ export const FormAdvertisement = (props: any) => {
                                 isEditable={true}
                                 data={petList}
                             />
-                        </View>
+                        </div>
                     )}
                     {petError && (
-                        <Text style={{ color: COLORS.red_color }}>{petTxtError}</Text>
+                        <span style={{ color: COLORS.red_color }}>{petTxtError}</span>
                     )}
 
                     {transportList && (
-                        <View style={styles.inputWrap}>
+                        <div style={styles.inputWrap}>
                             <InputSelect
                                 label={TitleLabels.advertisement.transport}
                                 name="transport"
@@ -816,17 +805,17 @@ export const FormAdvertisement = (props: any) => {
                                 isEditable={true}
                                 data={transportList}
                             />
-                        </View>
+                        </div>
                     )}
                     {transportError && (
-                        <Text style={{ color: COLORS.red_color }}>{transportTxtError}</Text>
+                        <span style={{ color: COLORS.red_color }}>{transportTxtError}</span>
                     )}
 
-                    <View style={{ marginTop: 20 }}>
-                        <Text style={styles.titleGroup}>
+                    <div style={{ marginTop: 20 }}>
+                        <span style={styles.titleGroup}>
                             {TitleLabels.advertisement.price}
-                        </Text>
-                    </View>
+                        </span>
+                    </div>
 
                     {maxPrice ? (
                         <MultiSlider
@@ -838,11 +827,11 @@ export const FormAdvertisement = (props: any) => {
                         />
                     ) : null}
 
-                    <View style={{ marginTop: 20 }}>
-                        <Text style={styles.titleGroup}>
+                    <div style={{ marginTop: 20 }}>
+                        <span style={styles.titleGroup}>
                             {TitleLabels.advertisement.age}
-                        </Text>
-                    </View>
+                        </span>
+                    </div>
                     <MultiSlider
                         min={minAge}
                         max={maxAge}
@@ -853,12 +842,12 @@ export const FormAdvertisement = (props: any) => {
             ) : null}
 
             {!modiferData && (
-                <View style={{ paddingVertical: 20 }}>
+                <div style={{ paddingVertical: 20 }}>
                     <FileUploader handleFileChange={(e) => selectImage(e, false)} fileName={videoName ? videoName : 'Importer'} />
-                </View>
+                </div>
             )}
             {imageError && (
-                <Text style={{ color: COLORS.red_color }}>{imageTxtError}</Text>
+                <span style={{ color: COLORS.red_color }}>{imageTxtError}</span>
             )}
 
             {filePath !== '' ? (
@@ -872,11 +861,11 @@ export const FormAdvertisement = (props: any) => {
 
             {
                 imageName !== '' ? (
-                    <View
+                    <div
                         style={{ justifyContent: 'center', alignItems: 'center', height: 300 }}
                     >
                         <img src={`data:image/jpg;base64,${imageName}`} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
-                    </View>
+                    </div>
                 ) : null
             }
 
@@ -890,39 +879,38 @@ export const FormAdvertisement = (props: any) => {
                             poster="https://i.picsum.photos/id/866/1600/900.jpg"
                         />
                     ) : (
-                        <View style={{ justifyContent: 'center', alignItems: 'center', height: 300 }}>
+                        <div style={{ justifyContent: 'center', alignItems: 'center', height: 300 }}>
                             <img
                                 src={modiferData.image}
                                 style={{ width: '100%', height: '100%', objectFit: 'contain' }}
                                 alt="Preview"
                             />
-                        </View>
+                        </div>
                     )
                 ) : null
             }
 
 
-            <View
+            <div
                 style={{
                     flex: 1,
-                    height: 260,
-                }}>
-                <View>
+                    height: 260}}>
+                <div>
                     {!modiferData && (
-                        <View style={styles.screenContainer2}>
-                            <Pressable
+                        <div style={styles.screenContainer2}>
+                            <button
                                 style={[styles.buttonAnnuler]}
-                                onPress={(e: any) => handleCancel()}>
-                                <Text style={styles.textBtnSecondary}>Annuler</Text>
-                            </Pressable>
-                            <Pressable style={[styles.buttonAnnuler2]} onPress={handleSubmit}>
-                                <Text style={styles.textBtnSecondary2}>
+                                onClick={(e: any) => handleCancel()}>
+                                <span style={styles.textBtnSecondary}>Annuler</span>
+                            </button>
+                            <button style={[styles.buttonAnnuler2]} onClick={handleSubmit}>
+                                <span style={styles.textBtnSecondary2}>
                                     {ENTERPRISE_INFORMATIONS.VALIDATE}
-                                </Text>
-                            </Pressable>
-                        </View>
+                                </span>
+                            </button>
+                        </div>
                     )}
-                </View>
+                </div>
                 {modiferData && (
                     <SubmitButtons
                         underlineType={true}
@@ -932,7 +920,7 @@ export const FormAdvertisement = (props: any) => {
                     />
                 )}
 
-            </View>
+            </div>
             <Popup
                 message={TENDER.CONFIRMATION_AD}
                 visible={confirmation}
@@ -958,6 +946,6 @@ export const FormAdvertisement = (props: any) => {
                 advertisementOKAds={true}
             />
             {isLoading && <Loader />}
-        </View>
+        </div>
     );
 };

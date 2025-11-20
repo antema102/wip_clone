@@ -1,9 +1,9 @@
-import {StyleSheet, Dimensions} from 'react-native';
+;
 import { COLORS, SIZES } from '../../../../resources/constants';
 
 const {width} = Dimensions.get('window');
 
-export default StyleSheet.create({
+export default ({
   container: {
     display: 'flex',
     flexDirection: 'row',
@@ -13,8 +13,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     // backgroundColor: 'red',
-    paddingHorizontal: 0,
-  },
+    paddingHorizontal: 0},
 
   button: {
     // width: 150,
@@ -29,15 +28,13 @@ export default StyleSheet.create({
     // marginRight: 10,
     // marginHorizontal: 10,
     paddingHorizontal: 10,
-    backgroundColor: 'red',
-  },
+    backgroundColor: 'red'},
 
   text: {
     fontFamily: 'IBMPlexSans-SemiBold',
     color: COLORS.black,
     fontSize: SIZES.h5,
-    textAlign: 'center',
-  },
+    textAlign: 'center'},
   tagNavContainer: {
     width: width / 2.4,
     height: 50,
@@ -49,6 +46,4 @@ export default StyleSheet.create({
     marginBottom: SIZES.padding2,
     // marginRight: 10,
     // marginHorizontal: 10,
-    paddingHorizontal: 10,
-  },
-});
+    paddingHorizontal: 10}});

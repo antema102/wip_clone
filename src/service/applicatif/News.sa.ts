@@ -11,6 +11,5 @@ export const NewsService = () => {
 		,
 		getNewsById: (id: string) =>
 			getNewsById(id)
-		,
-	}
+		}
 }

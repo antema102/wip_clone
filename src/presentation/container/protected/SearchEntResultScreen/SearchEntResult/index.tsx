@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View } from 'react-native';
+;
 import { ListCompany } from './ListCompany';
 import MainPageHeader from '../../../../components/MainPageHeader';
 import { SEARCHENT_RESULT } from '../../../../../data/constants/strings';
@@ -25,15 +25,15 @@ export const SearchEntResult = props => {
 
     const init = () => setRefreshing(true);
     return (
-        <View>
-            <View>
-                <View style={styles.containers}>
-                    <View style={styles.containerFormList}>
+        <div>
+            <div>
+                <div style={styles.containers}>
+                    <div style={styles.containerFormList}>
                         <ListCompany data={data} displayCandidateDetail={_displayCandidateDetail} isMobile={isMobile} />
-                    </View>
-                </View>
-            </View>
-        </View>
+                    </div>
+                </div>
+            </div>
+        </div>
     );
 };
 

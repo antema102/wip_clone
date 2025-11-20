@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, ScrollView} from 'react-native';
+;
 import {useEffect, useState} from 'react';
 import {useSelector} from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -49,8 +49,7 @@ const ListItem = (props: any) => {
     navigation('/EnterpriseOfferDetailsScreen', {state: {
       formation,
       candidat: true,
-      isFormation: true,
-    }
+      isFormation: true}
   });
   };
 
@@ -66,10 +65,10 @@ const ListItem = (props: any) => {
   );
 
   return (
-    <ScrollView style={styles.listItemOffer}>
+    <div style={{overflowY: "auto"}} style={styles.listItemOffer}>
       {isLoading && <Loader />}
       {ListFormation && <DataView value={ListFormation} layout="list" itemTemplate={renderItemTemplate} paginator rowsPerPageOptions={[4, 10, 50, 100]} rows={4} />}
-    </ScrollView>
+    </div>
   );
 };
 

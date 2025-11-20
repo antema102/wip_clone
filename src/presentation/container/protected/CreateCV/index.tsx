@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { TouchableOpacity, View, Text, Image } from 'react-native';
+;
 import {  useSelector } from 'react-redux';
 import { FormInfo } from './Info/FormInfo';
 import { FormJob } from './Job/FormJob';
@@ -38,8 +38,7 @@ const CreateCVScreen = (props: any) => {
                 id: '',
                 info: { ...defaultValuesInfo },
                 job: { ...defaultValuesJob },
-                other: { ...defaultValuesOther },
-            },
+                other: { ...defaultValuesOther }},
     );
 
     let isFromSearch = state?.isFromSearch;
@@ -51,8 +50,7 @@ const CreateCVScreen = (props: any) => {
         message: '',
         btnTitle: '',
         navigateTo: '',
-        navigationParams: {},
-    });
+        navigationParams: {}});
 
     const [postSucces, setPostSuccess] = useState(false);
 
@@ -66,8 +64,7 @@ const CreateCVScreen = (props: any) => {
                 current: 'info',
                 info: false,
                 job: false,
-                other: false,
-            },
+                other: false},
     );
 
     const setValues = (name: string, value: any) =>
@@ -101,8 +98,7 @@ const CreateCVScreen = (props: any) => {
             message: message,
             btnTitle: btnTitle,
             navigateTo: navigateTo,
-            navigationParams: navigationParams,
-        });
+            navigationParams: navigationParams});
     };
 
     const handleMessage = (res: any) => {
@@ -146,8 +142,7 @@ const CreateCVScreen = (props: any) => {
         await updateData(
             {
                 ...format({ ...dataStore }, 'send', user?.id),
-                id: state?.dataStore ? state?.dataStore?.id : dataStore?.id,
-            },
+                id: state?.dataStore ? state?.dataStore?.id : dataStore?.id},
             user?.accessToken,
             state.dataStore ? state.dataStore.id : dataStore?.id,
         ).then(res => {
@@ -194,8 +189,7 @@ const CreateCVScreen = (props: any) => {
                     setIsLoading(true);
                     updateData({
                         ...format({ ...dataStore, other: dataForm }, 'send', user?.id),
-                        id: state?.dataStore?.id ? state?.dataStore?.id : dataStore?.id,
-                    },
+                        id: state?.dataStore?.id ? state?.dataStore?.id : dataStore?.id},
                         user?.accessToken,
                         state?.dataStore?.id ? state?.dataStore?.id : dataStore?.id,
                     ).then(res => {
@@ -219,10 +213,10 @@ const CreateCVScreen = (props: any) => {
     useEffect(() => { }, [currentScreen.type]);
 
     return (
-        <View style={styles.container}>
-            <View style={styles.webformContain}>
+        <div style={styles.container}>
+            <div style={styles.webformContain}>
                 <TitleRefont title={activeString.CreationCV.textLabel} />
-                <View style={{ marginTop: 24 }}>
+                <div style={{ marginTop: 24 }}>
 
                     {/** Current Screen */}
                     {!postSucces && (
@@ -237,10 +231,10 @@ const CreateCVScreen = (props: any) => {
                             data={
                                 <>
                                     {currentScreen.type === 'create' ? (
-                                        <View></View>
+                                        <div></div>
                                     ) : (
-                                        <TouchableOpacity
-                                            onPress={() => {
+                                        <button
+                                            onClick={() => {
                                                 if (currentScreen.type === 'read') {
                                                     setCurrentScreen({ ...currentScreen, type: 'update' });
                                                     setDataStore(dataStore);
@@ -250,11 +244,11 @@ const CreateCVScreen = (props: any) => {
                                                 }
                                             }}
                                             style={styles.buttonCv}>
-                                            <Image source={icons.editV1} style={styles.buttonIcons} />
-                                            <Text style={styles.textButton}>
+                                            <img src={icons.editV1} style={styles.buttonIcons} />
+                                            <span style={styles.textButton}>
                                                 {currentScreen.type === 'read' ? activeString.CreationCV.modify : activeString.CreationCV.save}
-                                            </Text>
-                                        </TouchableOpacity>
+                                            </span>
+                                        </button>
                                     )}
                                 </>
                             }
@@ -295,7 +289,7 @@ const CreateCVScreen = (props: any) => {
                             setValues={setValues}
                         />
                     )}
-                </View>
+                </div>
 
                 <Popup
                     message={modalData.message}
@@ -312,16 +306,15 @@ const CreateCVScreen = (props: any) => {
                         currentScreen.type === 'create'
                             ? {
                                 currentScreen: { ...currentScreen, type: 'read' },
-                                dataStore: dataStore,
-                            }
+                                dataStore: dataStore}
                             : modalData.navigationParams
                     }
                 />
                 {/* <Popup message={'Enregistré'} visible={modalVisible} validation={setModalVisible} btnTitle={'Fermer'} /> */}
 
                 {/** Loader */}
-            </View>
-        </View>
+            </div>
+        </div>
 
     );
 };

@@ -29,6 +29,5 @@ export function useResult(matching: any) {
     refreshing,
     resultMatching,
     isLoading,
-    init,
-  }
+    init}
 }

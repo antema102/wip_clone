@@ -12,8 +12,7 @@ export const enum InscriptionActionType {
   setIsRegister = '[Inscription] Set register status',
   setIsRegisterInitiate = '[Inscription] Set register status initiate',
   updateCredentials = '[Inscription] Update credentials',
-  error = '[Inscription] Error Register',
-}
+  error = '[Inscription] Error Register'}
 
 export const initialInscriptionState: InscriptionState = {
   userRegistered: {},
@@ -35,8 +34,7 @@ export const inscriptionReducer = (state = initialInscriptionState, action) => {
     case InscriptionActionType.updateCredentials:
       return {
         ...state,
-        credentials: payload,
-      };
+        credentials: payload};
     case InscriptionActionType.setIsRegisterInitiate:
       return {
         ...state,
@@ -65,15 +63,13 @@ export const useInscription = () => {
 
         dispatch({
           payload,
-          type: InscriptionActionType.setIsRegister,
-        });
+          type: InscriptionActionType.setIsRegister});
 
         return payload;
       } catch (error) {
         return Promise.reject(error);
       }
-    },
-  };
+    }};
 };
 
 

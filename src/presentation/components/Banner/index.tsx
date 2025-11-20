@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { View, TouchableOpacity, Text } from 'react-native';
+;
 import { Image } from 'primereact/image';
 import { Carousel } from 'primereact/carousel';
 import { styles } from './styles';
@@ -11,10 +11,9 @@ interface Props {
 
 interface itemTemplateType {
   link: string,
-  image: string,
-}
+  image: string}
 
-const Banner = ({
+const Banner = {
   data
 }: Props) => {
   const responsiveOptions = [
@@ -46,27 +45,27 @@ const Banner = ({
 
     return (
       <Fragment>
-        <View>
-          <View style={styles.Logo}>
-            <Image src={item.image} alt="Image" preview width="200" height='200' />
-          </View>
-        </View>
-        <View style={styles.separator}></View>
-        {item?.link ? <View style={styles.centerElement}>
-          <TouchableOpacity
+        <div>
+          <div style={styles.Logo}>
+            <img src={item.image} alt="Image" preview width="200" height='200' />
+          </div>
+        </div>
+        <div style={styles.separator}></div>
+        {item?.link ? <div style={styles.centerElement}>
+          <button
             style={styles.linkView}
-            onPress={() => redirectToExternalLink(item)}>
-            <Text style={styles.text}>Voir le lien</Text>
-          </TouchableOpacity>
-        </View> : null}
+            onClick={() => redirectToExternalLink(item)}>
+            <span style={styles.text}>Voir le lien</span>
+          </button>
+        </div> : null}
       </Fragment>
     );
   };
   return (
-    <View style={styles.container}>
+    <div style={styles.container}>
       <Carousel value={data} numVisible={1} numScroll={1} responsiveOptions={responsiveOptions} className="custom-carousel" circular
         autoplayInterval={30000} itemTemplate={itemTemplate} showNavigators={false} showIndicators={true} contentClassName="custom-carousel-container" />
-    </View>
+    </div>
   );
 };
 

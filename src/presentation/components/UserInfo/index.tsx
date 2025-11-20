@@ -1,5 +1,5 @@
 import React, { Fragment, useRef, useState } from 'react';
-import { TouchableOpacity, Image, Text, View } from 'react-native';
+;
 
 import { images, icons } from '../../../resources/constants';
 import { UploadFileService } from '../../../service/applicatif/UploadFile.sa';
@@ -23,8 +23,7 @@ const UserInfo = ({ userAvatar, setUserAvatar, style, isChangeable, userName, us
 	const [isLoading, setIsLoading] = useState(false);
 	const [popupData, setPopupData] = useState({
 		message: '',
-		isVisible: false,
-	});
+		isVisible: false});
 	const fileInputRef = useRef(null);
 
 	const setPopupVisible = (value: boolean) => {
@@ -39,8 +38,7 @@ const UserInfo = ({ userAvatar, setUserAvatar, style, isChangeable, userName, us
 			setIsLoading(false);
 			setPopupData({
 				message: DETAIL_PROFIL.SUCCESS_UPLOAD,
-				isVisible: true,
-			});
+				isVisible: true});
 		} else {
 			setPopupData({ message: 'Fichier non valide', isVisible: true });
 
@@ -66,21 +64,21 @@ const UserInfo = ({ userAvatar, setUserAvatar, style, isChangeable, userName, us
 	};
 	return (
 		<>
-			<View style={styles.header}>
-				<View style={styles.avatarContainer}>
-					<Image
+			<div style={styles.header}>
+				<div style={styles.avatarContainer}>
+					<img
 						style={styles.avatar}
-						source={userAvatar ? { uri: userAvatar } : images.avatar_6 as import('react-native').ImageSourcePropType}
+					 src={userAvatar ? { uri: userAvatar } : images.avatar_6 as import('react-native').ImageSourcePropType}
 					/>
 					{isChangeable && (
 						<Fragment>
-							<TouchableOpacity
+							<button
 								style={styles.editIcon}
-								onPress={handleEditClick}
+							 onClick={handleEditClick}
 							>
 								{/* You can replace this with your edit icon */}
-								<Image source={icons.camera as import('react-native').ImageSourcePropType} style={styles.iconEdit} />
-							</TouchableOpacity>
+								<img src={icons.camera as import('react-native').ImageSourcePropType} style={styles.iconEdit} />
+							</button>
 							<input
 								type="file"
 								accept="image/*"
@@ -90,12 +88,12 @@ const UserInfo = ({ userAvatar, setUserAvatar, style, isChangeable, userName, us
 							/>
 						</Fragment>
 					)}
-				</View>
-				<View style={styles.info}>
-					<Text style={styles.name}>{userName}</Text>
-					<Text style={styles.username}>{userPost}</Text>
-				</View>
-			</View>
+				</div>
+				<div style={styles.info}>
+					<span style={styles.name}>{userName}</span>
+					<span style={styles.username}>{userPost}</span>
+				</div>
+			</div>
 
 			<Popup
 				message={popupData.message}

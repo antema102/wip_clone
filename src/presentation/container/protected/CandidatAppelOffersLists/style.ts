@@ -1,8 +1,8 @@
-import { StyleSheet, Dimensions } from 'react-native';
+;
 import { COLORS } from '../../../../resources/constants';
-let windowWidth = Dimensions.get('window').width;
-let windowHeight = Dimensions.get('window').height;
-export const styles = StyleSheet.create({
+let windowWidth = window.innerWidth;
+let windowHeight = window.innerHeight;
+export const styles = {
   appelOffersContainer: {
     backgroundColor: COLORS.white,
     borderRadius: 5,
@@ -14,12 +14,10 @@ export const styles = StyleSheet.create({
   },
   appelOffersTitle: {
     fontSize: 18,
-    fontWeight: 600,
-  },
+    fontWeight: 600},
   appelOffersContent: {
     justifyContent: 'center',
-    alignItems: 'center',
-  },
+    alignItems: 'center'},
   appelOffersButton: {
     backgroundColor: COLORS.blueInput,
     paddingVertical: 16,
@@ -32,5 +30,4 @@ export const styles = StyleSheet.create({
     color: COLORS.white,
     textAlign:'center',
     fontWeight:700
-  },
-});
+  }});

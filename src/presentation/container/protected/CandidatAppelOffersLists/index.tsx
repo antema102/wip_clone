@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
+
 import { styles } from './style'
 import { DataView } from 'primereact/dataview'
 import { useSelector } from 'react-redux'
@@ -27,16 +27,14 @@ const CandidatAppelOffersLists = () => {
             state: {
                 id: index,
                 title: `Liste des appels d'offres ${item}`,
-                companyName: item,
-            }
+                companyName: item}
         });
     };
 
     const getCategoryForTenders = async () => {
         setIsLoading(true);
         const data = {
-            audience: user?.role === ROLEACCOUNT.candidate ? 0 : 1,
-        };
+            audience: user?.role === ROLEACCOUNT.candidate ? 0 : 1};
         const response = await getTenderCategory(data, accessToken);
         setListDatas(response.data);
         setIsLoading(false);
@@ -48,32 +46,32 @@ const CandidatAppelOffersLists = () => {
 
     const itemOffers = (data: string, index: number) => {
         return (
-            <View style={{ alignItems: 'center' }}>
-                <TouchableOpacity style={styles.appelOffersButton} onPress={() => reidirectionTender(index, data)}>
-                    <Text style={styles.appelOffersButtonText}>{data}</Text>
-                </TouchableOpacity>
-            </View>
+            <div style={{ alignItems: 'center' }}>
+                <button style={styles.appelOffersButton} onClick={() => reidirectionTender(index, data)}>
+                    <span style={styles.appelOffersButtonText}>{data}</span>
+                </button>
+            </div>
         )
     }
 
     return (
-        <View>
-            <View style={styles.appelOffersContainer}>
-                <Text style={styles.appelOffersTitle}>{activeString.APPEL_OFFRE.TITLE_OFFERS}</Text>
+        <div>
+            <div style={styles.appelOffersContainer}>
+                <span style={styles.appelOffersTitle}>{activeString.APPEL_OFFRE.TITLE_OFFERS}</span>
                 {
                     isLoading ?
                         <MiniLoader /> :
-                        <View >
+                        <div >
                             <DataView
                                 value={listDatas}
                                 itemTemplate={(data, index) => itemOffers(data, index)}
                                 rows={2}
                                 paginatorTemplate={paginatorTemplateCustom}
                                 paginator />
-                        </View>
+                        </div>
                 }
-            </View>
-        </View>
+            </div>
+        </div>
 
     )
 }

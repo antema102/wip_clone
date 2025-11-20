@@ -25,5 +25,4 @@ export const TitleLabels_en = {
         pretension: "Gross salary (Ariary)",
         other: "Others",
         candidate_search:'Candidate Status'
-    },
-};
+    }};

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, ScrollView, Text } from 'react-native';
+;
 import { defaultValues } from './dto';
 import { RefineCandidat } from './RefineCandidat';
 import { Header } from '../../../../components/Header';
@@ -46,11 +46,11 @@ export const FindTalentForm = props => {
     <>
       {candidat ?
         (
-          <View>
-            <View>
-              <View style={{ borderRadius: 20, borderWidth: 1, borderColor: COLORS.blue_title }}>
-                <Text style={{ fontWeight: 700, fontSize: 15, padding: 16, color: COLORS.border_blue }}>{activeString.FIND_TALENT_C.TEXT_C}</Text>
-              </View>
+          <div>
+            <div>
+              <div style={{ borderRadius: 20, borderWidth: 1, borderColor: COLORS.blue_title }}>
+                <span style={{ fontWeight: 700, fontSize: 15, padding: 16, color: COLORS.border_blue }}>{activeString.FIND_TALENT_C.TEXT_C}</span>
+              </div>
               <RefineCandidat
                 data={dataDto}
                 onCancelForm={handleCancel}
@@ -58,11 +58,11 @@ export const FindTalentForm = props => {
                 {...props}
                 candidat={candidat}
               />
-            </View>
-          </View>
+            </div>
+          </div>
         ) :
         (
-          <View style={[styles.containers, { borderRadius: 10, marginTop: 75, backgroundColor: COLORS.white, paddingTop: 85 }]}>
+          <div style={[styles.containers, { borderRadius: 10, marginTop: 75, backgroundColor: COLORS.white, paddingTop: 85 }]}>
             <Tabs
               title1={activeString.FIND_TALENT_C.TITLE_C}
               title2={"Les meilleurs talents via l’IA"}
@@ -82,7 +82,7 @@ export const FindTalentForm = props => {
                 GoToChat
               }
             />
-          </View>
+          </div>
         )
       }
     </>

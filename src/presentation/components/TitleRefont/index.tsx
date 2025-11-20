@@ -1,19 +1,19 @@
 import React from 'react'
-import { View, Text,StyleProp,ViewStyle } from 'react-native'
+
 import {styles} from './style'
 
 interface TitleRefontType {
     title: string,
-    _customStyle?: StyleProp<ViewStyle>; // Utilisation du bon type pour le style
+    _customStyle?: React.CSSProperties; // Utilisation du bon type pour le style
 }
 
 const TitleRefont = ({ title,_customStyle }: TitleRefontType) => {
     return (
-        <View style={[styles.content,_customStyle]}>
-            <Text style={styles.title}>
+        <div style={[styles.content,_customStyle]}>
+            <span style={styles.title}>
                 {title}
-            </Text>
-        </View>
+            </span>
+        </div>
     )
 }
 

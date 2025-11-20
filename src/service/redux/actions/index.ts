@@ -18,8 +18,7 @@ export const generateActions = constants =>
     return {
       ...acc,
       [name]: (data = {}, callBack, url) =>
-        action(data, callBack, type, name, url),
-    };
+        action(data, callBack, type, name, url)};
   }, {});
 
 export const constatnsToActions = (constantsToAction = []) =>
@@ -27,8 +26,7 @@ export const constatnsToActions = (constantsToAction = []) =>
     const {constants} = curr;
     return {
       ...acc,
-      ...generateActions(constants),
-    };
+      ...generateActions(constants)};
   }, {});
 
 export const mapDispatchToProps = constantsToAction => dispatch => {
@@ -39,8 +37,7 @@ export const mapDispatchToProps = constantsToAction => dispatch => {
         [curr]: (payload, cb, url) =>
           dispatch(
             constatnsToActions(constantsToAction)[curr](payload, cb, url),
-          ),
-      };
+          )};
     },
     {
       setLocationInput: (payload: any) =>
@@ -48,8 +45,7 @@ export const mapDispatchToProps = constantsToAction => dispatch => {
       setLocationCurrent: (payload: any) =>
         dispatch({type: 'SET_LOCATION_CURRENT', payload}),
       initialScreenUsers: (payload: any) =>
-        dispatch({type: 'SET_INITIAL_SCREEN', payload}),
-    },
+        dispatch({type: 'SET_INITIAL_SCREEN', payload})},
   );
 };
 

@@ -4,5 +4,4 @@ export const HttpStatus = {
   Unauthorized: 401,
   BadRequest: 402,
   Notfound: 404,
-  ServerError: 500,
-};
+  ServerError: 500};

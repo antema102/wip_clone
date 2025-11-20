@@ -58,6 +58,5 @@ export const AuthService = () => {
           })
           .catch(exception => error(exception));
       });
-    },
-  };
+    }};
 };

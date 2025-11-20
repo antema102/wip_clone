@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View} from 'react-native';
+;
 
 import {AddLayer} from '../../AddLayer';
 import {ListOfExperience} from './ListOfExperience';
@@ -17,13 +17,12 @@ interface Props {
   type: string;
 }
 
-export const YearsOfExperience = ({
+export const YearsOfExperience = {
   values,
   handleChange,
   errors,
   showErrors,
-  type,
-}: Props) => {
+  type}: Props) => {
   // ------------------------------
   // Desired Location handler
   const [yearOfExp, setYearOfExp] = useState<any[]>([]);
@@ -65,8 +64,7 @@ export const YearsOfExperience = ({
         _id: id,
         year: '',
         position: '',
-        at: '',
-      },
+        at: ''},
     ]);
 
     values['year_' + id] = '';
@@ -103,21 +101,20 @@ export const YearsOfExperience = ({
   return (
     <>
       {yearOfExp.length === 0 && type == 'read' ? (
-        <View
+        <div
           style={[
             styles.inputWrap,
             {
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white,
-            },
+                type === 'read' ? COLORS.disableGray : COLORS.white},
           ]}>
           <InputField
             label={TitleLabels.CreationCV.previousPositions}
             isEditable={type !== 'read'}
           />
-        </View>
+        </div>
       ) : (
-        <View style={formsStyles.inputWrapBorderBlue}>
+        <div style={formsStyles.inputWrapBorderBlue}>
           {type !== 'read' && (
             <AddLayer
               title={'Ancienne expérience'}
@@ -144,7 +141,7 @@ export const YearsOfExperience = ({
               />
             );
           })}
-        </View>
+        </div>
       )}
     </>
   );

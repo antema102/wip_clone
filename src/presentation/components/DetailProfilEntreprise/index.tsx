@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+;
 import { useSelector } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 
@@ -17,8 +17,7 @@ import ButtonAside from '../ButtonAside';
 interface profilType {
     name?: string,
     activity?: string,
-    post?: string,
-}
+    post?: string}
 
 const ProfilEntreprise = () => {
     const navigate = useNavigate();
@@ -75,72 +74,72 @@ const ProfilEntreprise = () => {
 
     return (
         <>
-            <View style={styles.container}>
+            <div style={styles.container}>
                 <UserInfo userAvatar={avatar} setUserAvatar={setAvatar} userName={profil?.name} userPost={profil?.post} isChangeable={true} />
-                <View style={styles.contentProfil}>
+                <div style={styles.contentProfil}>
                     <ButtonAside
-                        onPress={() => navigate('/MyAccount')}
+                        onClick={() => navigate('/MyAccount')}
                         title={activeString.DETAIL_PROFIL.MON_COMPTE}
                         icon={icons.profil}
                     />
                     <ButtonAside
-                        onPress={() => navigate('/EnterpriseInformations')}
+                        onClick={() => navigate('/EnterpriseInformations')}
                         title={activeString.DETAIL_PROFIL.MON_INFO}
                         icon={icons.cv}
 
                     />
                     <ButtonAside
-                        onPress={() => navigate('/EnterpriseProfilBackupScreen')}
+                        onClick={() => navigate('/EnterpriseProfilBackupScreen')}
                         title={activeString.DETAIL_PROFIL.MES_SAUVEGARDES}
                         icon={icons.save}
                     />
                     {condition &&
                         <ButtonAside
-                            onPress={() => navigate('/PresentationVideoScreen')}
+                            onClick={() => navigate('/PresentationVideoScreen')}
                             title={activeString.DETAIL_PROFIL.MA_PRESENTATION_VIDEO}
                             icon={icons.video}
                         />
                     }
                     <ButtonAside
-                        onPress={() => navigate('/EnterpriseAdvertisingScreen')}
+                        onClick={() => navigate('/EnterpriseAdvertisingScreen')}
                         title={activeString.DETAIL_PROFIL.GESTION_PUBLICITES}
                         icon={icons.ads}
                     />
                     <ButtonAside
-                        onPress={() => navigate('/EntrepriseOfferCreateScreen')}
+                        onClick={() => navigate('/EntrepriseOfferCreateScreen')}
                         title={activeString.DETAIL_PROFIL.GESTION_APPEL_OFFRE}
                         icon={icons.work}
                     />
 
-                </View>
+                </div>
 
 
-            </View>
-            <View style={[styles.containerMore]}>
-                <Text style={styles.textMore}>{activeString.STRING_ALL.FOLLOW}</Text>
-                <View style={styles.contentMore}>
-                    <TouchableOpacity>
+            </div>
+            <div style={[styles.containerMore]}>
+                <span style={styles.textMore}>{activeString.STRING_ALL.FOLLOW}</span>
+                <div style={styles.contentMore}>
+                    <button>
                         <Link to={'https://www.linkedin.com/company/wipwork/'} target='_blank'>
                             <img src={icons.linkedin} style={styles.stylesButtons} />
                         </Link>
-                    </TouchableOpacity>
-                    <TouchableOpacity>
+                    </button>
+                    <button>
                         <Link to='https://youtube.com' target='_blank'>
                             <img src={icons.youtubeRound} style={styles.stylesButtons} />
                         </Link>
-                    </TouchableOpacity>
-                    <TouchableOpacity>
+                    </button>
+                    <button>
                         <Link to='https://www.facebook.com/profile.php?id=100092615205995' target='_blank'>
                             <img src={icons.facebook_blue} style={styles.stylesButtons} />
                         </Link>
-                    </TouchableOpacity>
-                    <TouchableOpacity>
+                    </button>
+                    <button>
                         <Link to='https://www.instagram.com' target='_blank'>
                             <img src={icons.instagram} style={styles.stylesButtons} />
                         </Link>
-                    </TouchableOpacity>
-                </View>
-            </View>
+                    </button>
+                </div>
+            </div>
         </>
     );
 };

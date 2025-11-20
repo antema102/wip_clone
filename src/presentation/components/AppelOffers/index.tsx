@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
+
 import { styles } from './style'
 import { DataView } from 'primereact/dataview'
 
@@ -12,24 +12,24 @@ const AppelOffers = ({ listOffers, navigateCombinaisonCandidat }: appelOffersTyp
 
     const itemOffers = (data: string, index: number) => {
         return (
-            <TouchableOpacity style={styles.appelOffersButton} onPress={() => navigateCombinaisonCandidat(index, data)}>
-                <Text style={styles.appelOffersButtonText}>{data}</Text>
-            </TouchableOpacity>
+            <button style={styles.appelOffersButton} onClick={() => navigateCombinaisonCandidat(index, data)}>
+                <span style={styles.appelOffersButtonText}>{data}</span>
+            </button>
         )
     }
 
     return (
-        <View style={styles.appelOffersContainer}>
-            <Text style={styles.appelOffersTitle}>Appels d’offres :</Text>
-            <View style={styles.appelOffersContent}>
+        <div style={styles.appelOffersContainer}>
+            <span style={styles.appelOffersTitle}>Appels d’offres :</span>
+            <div style={styles.appelOffersContent}>
                 <DataView
                     value={listOffers}
                     itemTemplate={(data, index) => itemOffers(data, index)}
                     rows={2}
                     paginator
                     paginatorTemplate="PrevPageLink PageLinks NextPageLink" />
-            </View>
-        </View>
+            </div>
+        </div>
     )
 }
 

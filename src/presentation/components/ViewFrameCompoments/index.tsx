@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+;
 import ViewDetailsCandidat from '../ViewDetailsCandidat';
 import { COLORS } from '../../../resources/constants';
 import { viewStyles } from './style';
@@ -11,16 +11,16 @@ interface Props {
 const ViewFrameCompments = ({ data }: Props) => {
 	const tab = ["lieu", "contrat", "experience", "disponibility", "profil"]
 	return (
-		<View style={viewStyles.container}>
+		<div style={viewStyles.container}>
 			{Object.entries(data).map(([key, val], index) => {
 				return tab.includes(key) && val ?
 					(
-						<View key={index}>
+						<div key={index}>
 							<ViewDetailsCandidat label={key} value={val} />
-						</View>
+						</div>
 					) : null;
 			})}
-		</View>
+		</div>
 
 	);
 };

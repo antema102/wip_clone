@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+;
 import { styles } from './styles';
 import { useLocation } from 'react-router';
 import { COLORS } from '../../../resources/constants';
@@ -21,70 +21,70 @@ const Tabs = (props: any) => {
   };
 
   return (
-    <View style={{ position: 'relative' }}>
+    <div style={{ position: 'relative' }}>
       {props.type === 'candidate' ? (
         <>
-          <View style={styles.search1}>
-            <TouchableOpacity
+          <div style={styles.search1}>
+            <button
               style={styles.container}
-              onPress={() => handleShow('Offers')}
+              onClick={() => handleShow('Offers')}
             >
-              <Text style={[styles.text, !isActive ? { fontWeight: '700' } : {}]}>
+              <span style={[styles.text, !isActive ? { fontWeight: '700' } : {}]}>
                 {props.title1}
-              </Text>
-              {!isActive && <View style={styles.linesSearch} />}
-            </TouchableOpacity>
-          </View>
+              </span>
+              {!isActive && <div style={styles.linesSearch} />}
+            </button>
+          </div>
 
-          <View style={styles.search2}>
-            <TouchableOpacity
+          <div style={styles.search2}>
+            <button
               style={styles.container}
-              onPress={() => handleShow('Formations')}
+              onClick={() => handleShow('Formations')}
             >
-              <Text style={[styles.text, isActive ? { fontWeight: '700' } : {}]}>
+              <span style={[styles.text, isActive ? { fontWeight: '700' } : {}]}>
                 {props.title2}
-              </Text>
-              {isActive && <View style={styles.linesSearch} />}
-            </TouchableOpacity>
-          </View>
+              </span>
+              {isActive && <div style={styles.linesSearch} />}
+            </button>
+          </div>
 
-          <View style={styles.textContent}>
-            <Text style={styles.textTitle}>Trouvez des talents</Text>
-          </View>
+          <div style={styles.textContent}>
+            <span style={styles.textTitle}>Trouvez des talents</span>
+          </div>
         </>
       ) : (
-        <View>
-          <View style={[styles.tabContent, { left: 25 }]}>
-            <TouchableOpacity
-              onPress={() => handleShow('Offers')}
+        <div>
+          <div style={[styles.tabContent, { left: 25 }]}>
+            <button
+              onClick={() => handleShow('Offers')}
               style={styles.content}
             >
-              <Text style={isActive ? styles.ButtonTabs : styles.active}>
+              <span style={isActive ? styles.ButtonTabs : styles.active}>
                 {props.title1}
-              </Text>
-              {!isActive && <View style={styles.lines} />}
-            </TouchableOpacity>
-          </View>
+              </span>
+              {!isActive && <div style={styles.lines} />}
+            </button>
+          </div>
 
-          <View style={[styles.tabContent, { right: 25 }]}>
-            <TouchableOpacity
-              onPress={() => handleShow('Formations')}
+          <div style={[styles.tabContent, { right: 25 }]}>
+            <button
+              onClick={() => handleShow('Formations')}
               style={styles.content}
             >
-              <Text style={!isActive ? styles.ButtonTabs : styles.active}>
+              <span style={!isActive ? styles.ButtonTabs : styles.active}>
                 {props.title2}
-              </Text>
-              {isActive && <View style={styles.lines} />}
-            </TouchableOpacity>
-          </View>
-        </View>
+              </span>
+              {isActive && <div style={styles.lines} />}
+            </button>
+          </div>
+        </div>
       )}
 
       {/* Affichage du contenu via JSX plutôt que de l'exécuter directement */}
-      <View>
+      <div>
         {show === 'Offers' ? <props.Offers /> : <props.Formations />}
-      </View>
-    </View>
+      </div>
+    </div>
   );
 };
 

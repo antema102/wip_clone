@@ -1,6 +1,7 @@
-import React, { useRef, useState, useCallback, useEffect, } from 'react';
+import React, { useRef, useState, useCallback, useEffect} from 'react';
+import { Dialog } from 'primereact/dialog';
 import axios from 'axios';
-import { Modal, View, Text, Pressable } from 'react-native';
+
 import { icons } from '../../../../resources/constants';
 import { UserSA } from '../../../../service/applicatif/User.sa';
 import { useSelector } from 'react-redux';
@@ -103,12 +104,10 @@ const ChatWip = () => {
 
                 if (enterprise_ids !== undefined) {
                     navigate(`/chat/${!type || type === "" ? "c" : type}/${sessionID}`, {
-                        state: { messagesQuerry: message, enterprise_ids, uuid, country_ids, abonnementID: abonnementID },
-                    });
+                        state: { messagesQuerry: message, enterprise_ids, uuid, country_ids, abonnementID: abonnementID }});
                 } else {
                     navigate(`/chat/${type}/${sessionID}`, {
-                        state: { messagesQuerry: message, enterprise_ids, uuid, country_ids, abonnementID: abonnementID },
-                    });
+                        state: { messagesQuerry: message, enterprise_ids, uuid, country_ids, abonnementID: abonnementID }});
                 }
             }
             else if (uploadedFileName) {
@@ -200,8 +199,7 @@ const ChatWip = () => {
                 await axios.post(urls.POST_PDF, formData, {
                     headers: {
                         Authorization: `Bearer ${accessToken}`,
-                        "X-API-Key": "bf80J843-1e70-1435-a8c1-14e1be58ddbe",
-                    },
+                        "X-API-Key": "bf80J843-1e70-1435-a8c1-14e1be58ddbe"},
                     onUploadProgress: (progressEvent: ProgressEvent) => {
                         const total = progressEvent.total || 1;
                         const percent = progressEvent.loaded / total;
@@ -210,8 +208,7 @@ const ChatWip = () => {
                         if (currentFileProgress >= 99) {
                             setMessageWaiting(`${activeString.IA.PROCESSING_FILE} ${file.name}...`);
                         }
-                    },
-                });
+                    }});
             } catch (error: any) {
                 console.error('Erreur lors de l\'upload du fichier :', error);
             }
@@ -291,8 +288,7 @@ const ChatWip = () => {
             '643e8d24bd0b9b4dfe552f70': [''],
             '643e8da6bd0b9b4dfe55307d': [''],
             '6903247bd4a86732cb6f4f05': ['CompanyDefault', 'company',],
-            '69032fe9d4a86732cb6f4f09': ['CompanyDefault', 'company', 'flag'],
-        };
+            '69032fe9d4a86732cb6f4f09': ['CompanyDefault', 'company', 'flag']};
         const allowed = allowedCompanies[abonnementID] || [];
         if (!companyType) return true;
         return allowed.includes(companyType);
@@ -352,7 +348,7 @@ const ChatWip = () => {
             <Toast ref={toast} position='bottom-left' />
             {isLoading && <Loader />}
             {/* Modal pour afficher les CV */}
-            <Modal
+            <Dialog
                 animationType="fade"
                 transparent
                 visible={isCvListModalVisible}
@@ -438,8 +434,8 @@ const ChatWip = () => {
                         </div>
                     </div>
                 </div>
-            </Modal>
-            <Modal
+            </Dialog>
+            <Dialog
                 animationType="fade"
                 transparent
                 visible={isUploadModalVisible}
@@ -544,8 +540,8 @@ const ChatWip = () => {
                         </div>
                     </div>
                 </div>
-            </Modal>
-            <Modal
+            </Dialog>
+            <Dialog
                 animationType="slide"
                 transparent
                 visible={modalVisible}
@@ -553,30 +549,30 @@ const ChatWip = () => {
                     setModalVisible(!modalVisible);
                 }}>
                 {isThereprogressStatus ? (
-                    <View style={styles.centeredView}>
+                    <div style={styles.centeredView}>
                         <VideoProgressBar
                             progressBar={progressBar}
                             waitingText={messageWaiting}
                             goBack={hideTheProgressBar}
                         />
-                    </View>
+                    </div>
                 ) : (
-                    <View style={styles.centeredView}>
-                        <View style={styles.modalView}>
-                            <Text style={styles.modalText}>{serverResponse}</Text>
-                            <Pressable
+                    <div style={styles.centeredView}>
+                        <div style={styles.modalView}>
+                            <span style={styles.modalText}>{serverResponse}</span>
+                            <button
                                 style={[styles.button, styles.buttonClose]}
-                                onPress={() => {
+                                onClick={() => {
                                     setModalVisible(!modalVisible);
                                 }}>
-                                <Text style={styles.textStyle}>
+                                <span style={styles.textStyle}>
                                     {activeString.IA.CLOSE}
-                                </Text>
-                            </Pressable>
-                        </View>
-                    </View>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
                 )}
-            </Modal>
+            </Dialog>
             <div className="chat">
                 <div className="chat__container">
                     {isLoading ? <Loader /> :

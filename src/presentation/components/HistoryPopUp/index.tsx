@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Dimensions, View, Text } from 'react-native';
+;
 import { Dialog } from 'primereact/dialog';
 import { useHomeCompany } from '../ActivityOffer/useHomeCompany';
 import styles from './styles';
@@ -29,8 +29,7 @@ enum typeActivity {
   ELEC = 'electronics',
   IT = 'it',
   HOT = 'hotels',
-  COM = 'communication',
-}
+  COM = 'communication'}
 
 const HistoryPopup = (props: SearchHistoryPopup) => {
   const { visible, historyId, setVisible } = props;
@@ -101,24 +100,24 @@ const HistoryPopup = (props: SearchHistoryPopup) => {
       <p className="m-0">{activeString.HISTORY.SEARCH_HISTORY}</p>
       {histories ? (
         Object.keys(histories).map(item => (
-          <View style={styles.item}>
-            <View style={styles.itemDetails} key={item}>
-              <Text style={styles.textLabel}>{activeString.HISTORY.NAME}</Text>
-              <Text style={styles.textValue}>
+          <div style={styles.item}>
+            <div style={styles.itemDetails} key={item}>
+              <span style={styles.textLabel}>{activeString.HISTORY.NAME}</span>
+              <span style={styles.textValue}>
                 {getActivitySector(histories[item].value)}
-              </Text>
-            </View>
-            <View style={styles.itemDetails}>
-              <Text style={styles.textLabel}>{activeString.HISTORY.LEVELS}</Text>
-              <Text style={styles.textValue}>
+              </span>
+            </div>
+            <div style={styles.itemDetails}>
+              <span style={styles.textLabel}>{activeString.HISTORY.LEVELS}</span>
+              <span style={styles.textValue}>
                 {' '}
                 {getLevel(histories[item].score)}
-              </Text>
-            </View>
-          </View>
+              </span>
+            </div>
+          </div>
         ))
       ) : (
-        <Text> Aucun resultats</Text>
+        <span> Aucun resultats</span>
       )}
     </Dialog>
 

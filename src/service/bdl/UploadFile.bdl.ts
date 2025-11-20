@@ -17,8 +17,7 @@ export const UPLOADFILE_BDL = () => ({
           },
           error(error) {
             reject(error);
-          },
-        });
+          }});
       }
     );
     formData.append('file', compressedImage);
@@ -27,10 +26,8 @@ export const UPLOADFILE_BDL = () => ({
       await fetch(urls.UPLOAD_AVATAR, {
         method: 'POST',
         headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        body: formData,
-      });
+          Authorization: `Bearer ${token}`},
+        body: formData});
     } catch (error) {}
   },
   downloadImage: async (token) =>
@@ -38,5 +35,4 @@ export const UPLOADFILE_BDL = () => ({
   downloadImageById: async (id, token) =>
     await getFileById(urls.DOWNLOAD_AVATAR, id, token),
   testCVVideo: async (id: string, token: string) =>
-    await api.get(`${urls.TEST_CV_VIDEO}/${id}`, token),
-});
+    await api.get(`${urls.TEST_CV_VIDEO}/${id}`, token)});

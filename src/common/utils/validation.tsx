@@ -9,6 +9,6 @@ export const AIRTEL_TELEPHONE_VALIDATION = /^033\d{7}$/;
 
 export const ORANGE_TELEPHONE_VALIDATION = /^032\d{7}$/;
 
-export const PASSWORD_VALIDATION = /^.{8,}$/;
+export const PASSWORD_VALIDATION = /^.{8}$/;
 
 export const NUM_IMMATRICULATION = /[^A-Za-z0-9\s]$/;

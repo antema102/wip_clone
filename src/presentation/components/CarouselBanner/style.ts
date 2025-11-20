@@ -1,15 +1,14 @@
 import React from 'react';
-import { StyleSheet, Dimensions } from 'react-native';
+;
 import { COLORS } from '../../../resources/constants';
 import { Carousel } from 'primereact/carousel';
 
-const screenHeight = Dimensions.get('window').height;
+const screenHeight = window.innerHeight;
 
-export default StyleSheet.create({
+export default ({
   containerCarousel: {
     flexDirection: 'column',
-    gap: 16,
-  },
+    gap: 16},
   carouselName: {
     marginTop: 16,
     fontSize: 14,
@@ -20,6 +19,4 @@ export default StyleSheet.create({
     backgroundColor: COLORS.blueInput,
     padding: 10,
     borderRadius: 5,
-    alignSelf: 'flex-start',
-  },
-});
+    alignSelf: 'flex-start'}});

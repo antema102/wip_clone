@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, SafeAreaView, FlatList, } from 'react-native';
+
 import { connect, useSelector } from 'react-redux';
 import { styles } from './styles';
 import MainPageHeader from '../../../../components/MainPageHeader';
@@ -32,21 +32,21 @@ export const Subcription = (props: any) => {
   }, []);
 
   return (
-    <View
+    <div
       style={styles.containers}>
       {!refreshing && <TitleRefont title={isCredit ? activeString.SUBSCRIPTION.LIST_OF_PACKS : activeString.SUBSCRIPTION.LIST_OF_SUBSCRIPTIONS} />}
       {refreshing ?
         <Loader /> :
-        <View style={{ margin: 40, borderWidth: 1, borderColor: 'rgba(207, 231, 255, 0.8)', borderRadius: 10 }}>
-          <FlatList
+        <div style={{ margin: 40, borderWidth: 1, borderColor: 'rgba(207, 231, 255, 0.8)', borderRadius: 10 }}>
+          <div
             data={data}
             renderItem={({ item }) =>
               <SubscriptionComponent item={item} />
             }
             keyExtractor={item => item.id}
           />
-        </View>
+        </div>
       }
-    </View>
+    </div>
   );
 };

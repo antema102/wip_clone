@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, TouchableOpacity, Image } from 'react-native'
+
 import { Divider } from 'primereact/divider';
 import styles from './styles';
 
@@ -13,24 +13,24 @@ interface ButtonAsideProps {
 const ButtonAside = ({ title, onPress, icon, toogle }: ButtonAsideProps) => {
     return (
         toogle ?
-            <View style={styles.containerButton}>
-                <View style={styles.button}>
-                    <View style={styles.buttonContent}>
-                        <Image source={icon} style={styles.buttonIcon} />
-                        <Text style={styles.buttonTitle}>{title}</Text>
-                    </View>
-                </View>
+            <div style={styles.containerButton}>
+                <div style={styles.button}>
+                    <div style={styles.buttonContent}>
+                        <img src={icon} style={styles.buttonIcon} />
+                        <span style={styles.buttonTitle}>{title}</span>
+                    </div>
+                </div>
                 <Divider type='solid' />
-            </View> :
-            <View style={styles.containerButton}>
-                <TouchableOpacity style={styles.button} onPress={onPress}>
-                    <View style={styles.buttonContent}>
-                        <Image source={icon} style={styles.buttonIcon} />
-                        <Text style={styles.buttonTitle}>{title}</Text>
-                    </View>
-                </TouchableOpacity>
+            </div> :
+            <div style={styles.containerButton}>
+                <button style={styles.button} onClick={onPress}>
+                    <div style={styles.buttonContent}>
+                        <img src={icon} style={styles.buttonIcon} />
+                        <span style={styles.buttonTitle}>{title}</span>
+                    </div>
+                </button>
                 <Divider type='solid' />
-            </View>
+            </div>
     )
 }
 

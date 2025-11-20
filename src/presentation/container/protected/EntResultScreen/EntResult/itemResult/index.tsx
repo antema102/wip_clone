@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+
 import { styles } from './styles'
 import Label from '../../../../../components/Inputs/Label';
 
@@ -9,12 +9,12 @@ interface itemResultType {
 }
 const ItemResult = ({ text,label }: itemResultType) => {
     return (
-        <View style={styles.itemResult}>
-            <View style={styles.content}>
-                <Text style={styles.text}>{label }:</Text>
-                <Text >{text}</Text>
-            </View>
-        </View>
+        <div style={styles.itemResult}>
+            <div style={styles.content}>
+                <span style={styles.text}>{label }:</span>
+                <span >{text}</span>
+            </div>
+        </div>
 
     )
 }

@@ -1,12 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import {
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  Platform,
-  Modal,
-} from 'react-native';
+import { Dialog } from 'primereact/dialog';
+
 import { useSelector } from 'react-redux';
 
 import { styles } from './styles';
@@ -106,46 +100,46 @@ export default ({
         validation={setModalVisible}
         btnTitle="ok"
       />
-      <TouchableOpacity onPress={onPress} style={styles.candidateContainer}>
-        <View style={styles.candidateImgContainer}>
-          <Image
+      <button onClick={onPress} style={styles.candidateContainer}>
+        <div style={styles.candidateImgContainer}>
+          <img
             style={styles.candidatImg}
-            source={avatar ? { uri: avatar } : { uri: images.avatar_6 }}
+            src={avatar ? { uri: avatar } : { uri: images.avatar_6 }}
           />
-        </View>
-        <View style={styles.candidateDetailsContainer}>
-          <Text style={styles.candidatName}>
+        </div>
+        <div style={styles.candidateDetailsContainer}>
+          <span style={styles.candidatName}>
             {condition ? getAcronym(name) : name}
-          </Text>
-          <Text style={styles.candidatPost}>{description} {user?.role === ROLEACCOUNT.candidate ? '' : <Text style={{ fontWeight: 'bold', color: isAvailable ? '#008000' : COLORS.red_color }} >{isAvailable ? ' En recherche actif' : ' En recherche passif'} </Text>} </Text>
-          <Text style={styles.candidatExp}>
+          </span>
+          <span style={styles.candidatPost}>{description} {user?.role === ROLEACCOUNT.candidate ? '' : <span style={{ fontWeight: 'bold', color: isAvailable ? '#008000' : COLORS.red_color }} >{isAvailable ? ' En recherche actif' : ' En recherche passif'} </span>} </span>
+          <span style={styles.candidatExp}>
             {yearOfExp
               ? `EXP: ${yearOfExp} ${yearOfExp === '1' ? 'an - Travail' : 'années - Travail'
               }`
               : ''}
-          </Text>
+          </span>
           {recommandation && (
-            <View style={styles.badgeContainer}>
-              <Image source={{ uri: icons.badge }} style={styles.recommmandationBadge} />
-              <Text style={{ color: '#BF9500', marginTop: 5 }}> Recommandé</Text>
-            </View>
+            <div style={styles.badgeContainer}>
+              <img src={{ uri: icons.badge }} style={styles.recommmandationBadge} />
+              <span style={{ color: '#BF9500', marginTop: 5 }}> Recommandé</span>
+            </div>
           )}
-        </View>
-        <View style={styles.candidateBtnContainer}>
+        </div>
+        <div style={styles.candidateBtnContainer}>
           <CustomButton
             color={getCompatibilityColor(score)}
             title={`Compatibilité: ${score.toString().includes('.') ? score.toFixed(2) : score
               }%`}
 
-            onPress={displayDetailsScore}
+            onClick={displayDetailsScore}
             _style={[
               styles.smallButtonContainer,
             ]}
             styleBtnTxt={styles.smallBtnTxt}
             iconRight={true}
           />
-        </View>
-      </TouchableOpacity>
+        </div>
+      </button>
     </>
   );
 };

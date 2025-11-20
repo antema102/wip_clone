@@ -2,9 +2,7 @@ export const displayVideoBlob = async (url, token) => {
     try {
       const response = await fetch(url, {
         headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+          Authorization: `Bearer ${token}`}});
   
       if (response.ok) {
         return response.blob();
@@ -18,9 +16,7 @@ export const displayVideoBlob = async (url, token) => {
     try {
       const response = await fetch(url, {
         headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+          Authorization: `Bearer ${token}`}});
   
       if (response.ok) {
         const totalBytes = response.headers.get('Content-Length');
@@ -54,9 +50,7 @@ export const displayVideoBlob = async (url, token) => {
     try {
       const response = await fetch(`${url}${id}`, {
         headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+          Authorization: `Bearer ${token}`}});
   
       if (response.ok) {
         return response.blob();
@@ -81,10 +75,8 @@ export const displayVideoBlob = async (url, token) => {
       const response = await fetch(url, {
         method: 'POST',
         headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        body: formData,
-      });
+          Authorization: `Bearer ${token}`},
+        body: formData});
   
       if (response.ok) {
         return response;
@@ -107,6 +99,5 @@ export const displayVideoBlob = async (url, token) => {
     catchError,
     displayVideoBlob,
     uploadAnyFileToServer,
-    displayVideoWithProgress,
-  };
+    displayVideoWithProgress};
   

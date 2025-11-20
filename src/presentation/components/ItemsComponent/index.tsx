@@ -1,13 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {
-  ScrollView,
-  View,
-  Text,
-  Image,
-  FlatList,
-  TouchableOpacity,
-  Platform,
-} from 'react-native';
+
 import { resultDate } from '../../../data/factory/dateFactory';
 import { images } from '../../../resources/constants';
 import styles from './styles';
@@ -15,19 +7,19 @@ import styles from './styles';
 const ItemsComponent = props => {
   const {offer, showDetails, index} = props;
   return (
-    <TouchableOpacity
+    <button
       key={index}
       style={styles.card_templateItem}
-      onPress={() => showDetails(offer.id)}>
-      <Image source={images.avatar_6} style={styles.image} />
-      <View style={styles.wrapperTextItem}>
-        <Text style={styles.title}>{offer.title}</Text>
-        <Text style={styles.jobPlaceItem}>{offer.place}</Text>
-      </View>
-      <View style={styles.footerFrame}>
-        <Text style={styles.candidatExp}>{resultDate(offer.createdAt)}</Text>
-      </View>
-    </TouchableOpacity>
+      onClick={() => showDetails(offer.id)}>
+      <img src={images.avatar_6} style={styles.image} />
+      <div style={styles.wrapperTextItem}>
+        <span style={styles.title}>{offer.title}</span>
+        <span style={styles.jobPlaceItem}>{offer.place}</span>
+      </div>
+      <div style={styles.footerFrame}>
+        <span style={styles.candidatExp}>{resultDate(offer.createdAt)}</span>
+      </div>
+    </button>
   );
 };
 

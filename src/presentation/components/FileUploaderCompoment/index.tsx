@@ -13,8 +13,7 @@ interface FileUploaderCompoment {
     type: string,
     file?: any,
     pdfName?: string,
-    onPressPdf?: any,
-}
+    onPressPdf?: any}
 
 const FileUploaderCompoment = ({ id = uuid(), img, handleFileChange, fileName, label, accept = "file/*", type, file, pdfName, onPressPdf }: FileUploaderCompoment) => {
     return (

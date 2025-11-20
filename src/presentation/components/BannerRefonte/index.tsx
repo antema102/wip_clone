@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Image, ImageStyle, StyleProp } from 'react-native'
+
 import { images } from '../../../resources/constants'
 import { styles } from './style'
 
@@ -8,9 +8,9 @@ interface typeBanner {
 }
 const BannerRefonte = ({ _customStyle }: typeBanner) => {
     return (
-        <View style={styles.containerImage}>
-            <Image source={{ uri: images.header_gif }} style={[styles.image, _customStyle]} />
-        </View>
+        <div style={styles.containerImage}>
+            <img src={{ uri: images.header_gif }} style={[styles.image, _customStyle]} />
+        </div>
     )
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, FlatList, Text } from 'react-native';
+;
 import globalStyle from '../../globalStyle/globalStyle';
 import { Offer } from '../Offer';
 import { DataView } from 'primereact/dataview';
@@ -15,8 +15,7 @@ interface ListFormation {
     displayOfferSheet: (id: string) => void,
     data: string[],
     displayOfferSheetApply?: any,
-    isFormation?: boolean,
-}
+    isFormation?: boolean}
 
 export const ListFormation = (props: ListFormation) => {
 
@@ -34,8 +33,8 @@ export const ListFormation = (props: ListFormation) => {
         />
     );
     return (
-        <View style={globalStyle.containersPageWidth}>
-            <View style={{}}>
+        <div style={globalStyle.containersPageWidth}>
+            <div style={{}}>
                 {/** Listes des formations */}
                 {data.length ?
                     <DataView value={data}
@@ -44,9 +43,9 @@ export const ListFormation = (props: ListFormation) => {
                         paginator
                         paginatorTemplate={paginatorTemplateCustom}
                         rows={4} /> :
-                    <View style={{ margin: 'auto', paddingTop: 34 }}>
-                        <Text style={{ fontWeight: 700 }}>{activeString.FORMATIONS.NOT_FOUND}</Text>
-                    </View>
+                    <div style={{ margin: 'auto', paddingTop: 34 }}>
+                        <span style={{ fontWeight: 700 }}>{activeString.FORMATIONS.NOT_FOUND}</span>
+                    </div>
                 }
                 <FixedButtonCircle handleNavigate={createFormation}
                     activeTooltip={true}
@@ -57,9 +56,8 @@ export const ListFormation = (props: ListFormation) => {
                         position: 'fixed',
                         bottom: 56,
                         justifyContent: 'center',
-                        right: 500,
-                    }} />
-            </View>
-        </View>
+                        right: 500}} />
+            </div>
+        </div>
     );
 };

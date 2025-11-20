@@ -1,14 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
-import {
-    View,
-    RefreshControl,
-    Text,
-    Image,
-    Platform,
-    TouchableOpacity,
-} from 'react-native';
+
 import { useNavigate } from 'react-router-dom';
 
 import { useUser } from '../../../../../service/redux/ducks/user';
@@ -250,14 +243,12 @@ const EnterpriseOfferSheet = (props: any) => {
                 if (isFormation) {
                     navigate('/home', {
                         state: {
-                            isFormation: true,
-                        }
+                            isFormation: true}
                     });
                 } else {
                     navigate('/home', {
                         state: {
-                            isFormation: false,
-                        }
+                            isFormation: false}
                     });
                 }
             }
@@ -303,9 +294,7 @@ const EnterpriseOfferSheet = (props: any) => {
                 data: {
                     description: description,
                     taches: taches,
-                    id: offerDetail?.id,
-                },
-            };
+                    id: offerDetail?.id}};
             setIsLoadingDel(true);
             const response = await updateOfferJob('', offerDetail?.id, data);
             if (response && response.data.isError) {
@@ -329,37 +318,37 @@ const EnterpriseOfferSheet = (props: any) => {
         navigate(-1)
     }
     return (
-        <View style={isMobile ? styles.container : ''}>
+        <div style={isMobile ? styles.container : ''}>
             <CustomModal title={"Moyen de paiement"} visible={showPayment} setVisible={setShowPayment} content={<PaymentWays />} />
             {isLoading ? (
                 <Loader />
             ) : (
                 <>
-                    <View style={[styles.containers]}>
-                        <View style={{ width: "100%" }}>
-                            <View style={styles.vtitle}>
-                                <View style={{ paddingHorizontal: 26 }}>
+                    <div style={[styles.containers]}>
+                        <div style={{ width: "100%" }}>
+                            <div style={styles.vtitle}>
+                                <div style={{ paddingHorizontal: 26 }}>
 
-                                    <TouchableOpacity style={[styles.buttonBack, { marginTop: 24 }]} onPress={handleBack}>
+                                    <button style={[styles.buttonBack, { marginTop: 24 }]} onClick={handleBack}>
                                         <img src={icons.arrowPrevious} height={16} width={16} style={{ objectFit: 'contain' }} />
-                                        <Text>Retour</Text>
-                                    </TouchableOpacity>
+                                        <span>Retour</span>
+                                    </button>
 
-                                    <View style={{ gap: 16 }}>
+                                    <div style={{ gap: 16 }}>
 
-                                        <View style={{ marginTop: 32, display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 14 }}>
-                                            <View>
+                                        <div style={{ marginTop: 32, display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+                                            <div>
                                                 <img height={100} width={100} src={avatar ? avatar : images.avatar_1} style={{ objectFit: 'cover' }} />
-                                            </View>
-                                            <View style={{ gap: 4 }}>
-                                                <Text style={{ fontSize: 20, fontWeight: '600' }}>{isFormation ? offerDetail.title : offerDetail.name}</Text>
-                                                <View style={{ flexDirection: 'row', gap: 4 }}>
-                                                    <Text style={{ color: 'rgba(0, 0, 0, 0.4)', fontSize: 12 }}>• {offerDetail?.place || offerDetail?.lieu || ''}</Text>
-                                                </View>
-                                            </View>
-                                        </View>
+                                            </div>
+                                            <div style={{ gap: 4 }}>
+                                                <span style={{ fontSize: 20, fontWeight: '600' }}>{isFormation ? offerDetail.title : offerDetail.name}</span>
+                                                <div style={{ flexDirection: 'row', gap: 4 }}>
+                                                    <span style={{ color: 'rgba(0, 0, 0, 0.4)', fontSize: 12 }}>• {offerDetail?.place || offerDetail?.lieu || ''}</span>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                        <View style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', columnGap: 16, rowGap: 10, marginVertical: 24 }}>
+                                        <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', columnGap: 16, rowGap: 10, marginVertical: 24 }}>
                                             <ViewDetailsCandidat
                                                 label={activeString.ENTERPRISE_OFFER.LIEU}
                                                 value={offerDetail?.place || offerDetail?.lieu || ''}
@@ -417,27 +406,27 @@ const EnterpriseOfferSheet = (props: any) => {
                                                 label={activeString.ENTERPRISE_OFFER.PUBLICATION_DATE}
                                                 value={format(offerDetail?.createdAt, 'dd MMMM yyyy', { locale: fr })}
                                             />
-                                        </View>
-                                    </View>
+                                        </div>
+                                    </div>
 
-                                    <View style={{ marginVertical: 16 }}>
-                                        <View style={[{ alignSelf: 'flex-start' }, !isMobile && { borderRightWidth: 1, borderRightColor: '#D9D9D9', paddingRight: 16 }]}>
-                                            <View style={{ flexDirection: 'row', gap: 15, alignItems: 'center' }}>
-                                                <View><img src={icons.statistique} height={14} width={14} /> </View>
-                                                <Text>{activeString.ENTERPRISE_OFFER.STATISTICS}</Text>
-                                            </View>
+                                    <div style={{ marginVertical: 16 }}>
+                                        <div style={[{ alignSelf: 'flex-start' }, !isMobile && { borderRightWidth: 1, borderRightColor: '#D9D9D9', paddingRight: 16 }]}>
+                                            <div style={{ flexDirection: 'row', gap: 15, alignItems: 'center' }}>
+                                                <div><img src={icons.statistique} height={14} width={14} /> </div>
+                                                <span>{activeString.ENTERPRISE_OFFER.STATISTICS}</span>
+                                            </div>
 
-                                            <View style={{ paddingTop: 14, gap: 16 }}>
-                                                <Text style={{ fontWeight: 700, fontSize: 20 }}>{viewsCount} {activeString.ENTERPRISE_OFFER.VIEW} </Text>
-                                                <Text>{activeString.ENTERPRISE_OFFER.NUMBER_OF_CANDIDATES_VIEWED_YOUR_OFFER} {isFormation ? "formation " : "offre "}</Text>
-                                            </View>
-                                        </View>
-                                    </View>
+                                            <div style={{ paddingTop: 14, gap: 16 }}>
+                                                <span style={{ fontWeight: 700, fontSize: 20 }}>{viewsCount} {activeString.ENTERPRISE_OFFER.VIEW} </span>
+                                                <span>{activeString.ENTERPRISE_OFFER.NUMBER_OF_CANDIDATES_VIEWED_YOUR_OFFER} {isFormation ? "formation " : "offre "}</span>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                     {!isFormation ? (
-                                        <View style={{ top: 20, marginBottom: 24 }}>
+                                        <div style={{ top: 20, marginBottom: 24 }}>
                                             <CustomButton
-                                                onPress={() =>
+                                                onClick={() =>
                                                     navigate(
                                                         '/EnterpriseOfferSheetApplyScreen',
                                                         { state: { id: offerDetail.id, images: avatar } },
@@ -452,11 +441,11 @@ const EnterpriseOfferSheet = (props: any) => {
                                                 icon={icons.action}
                                                 styleBtnTxt={styles.bigBtnTxt}
                                             />
-                                        </View>
+                                        </div>
                                     ) : null}
-                                </View>
+                                </div>
 
-                                {!isFormation ? <View style={[{ marginBottom: 20 }, styles.inputWrap]}>
+                                {!isFormation ? <div style={[{ marginBottom: 20 }, styles.inputWrap]}>
                                     <InputField
                                         label={'Description'}
                                         value={description}
@@ -466,20 +455,20 @@ const EnterpriseOfferSheet = (props: any) => {
                                         required
                                         maxLength={150}
                                     />
-                                </View>
-                                    : <View style={styles.candidateExpContainer}>
-                                        <Text style={styles.candidateExpTitle}>Description</Text>
-                                        <Text style={styles.txtDetails}>
+                                </div>
+                                    : <div style={styles.candidateExpContainer}>
+                                        <span style={styles.candidateExpTitle}>Description</span>
+                                        <span style={styles.txtDetails}>
                                             {' '}
                                             {offerDetail?.description}
-                                        </Text>
-                                    </View>}
+                                        </span>
+                                    </div>}
 
                                 {descriptionError && (
-                                    <Text style={{ color: COLORS.red_color, marginLeft: 25 }}>{ERROR.EMPTY_FIELD}</Text>
+                                    <span style={{ color: COLORS.red_color, marginLeft: 25 }}>{ERROR.EMPTY_FIELD}</span>
                                 )}
 
-                                {!isFormation ? <View style={[{ marginBottom: 20 }, styles.inputWrap]}>
+                                {!isFormation ? <div style={[{ marginBottom: 20 }, styles.inputWrap]}>
                                     <InputField
                                         label={activeString.ENTERPRISE_OFFER.YOUR_TASK}
                                         value={taches}
@@ -489,22 +478,22 @@ const EnterpriseOfferSheet = (props: any) => {
                                         type="textArea"
                                         maxLength={150}
                                     />
-                                </View> : null}
+                                </div> : null}
                                 {tachesError && (
-                                    <Text style={{ color: COLORS.red_color, marginLeft: 25 }}>{activeString.ERROR.EMPTY_FIELD}</Text>
+                                    <span style={{ color: COLORS.red_color, marginLeft: 25 }}>{activeString.ERROR.EMPTY_FIELD}</span>
                                 )}
 
                                 {filePath &&
-                                    <View style={styles.candidateExpContainer}>
+                                    <div style={styles.candidateExpContainer}>
                                         <VideoPlayer filePath={filePath} />
-                                    </View>
+                                    </div>
                                 }
-                            </View>
+                            </div>
 
                             {!isFormation && (
-                                <View style={{ paddingVertical: 20, marginHorizontal: 25 }}>
+                                <div style={{ paddingVertical: 20, marginHorizontal: 25 }}>
                                     <CustomButtons
-                                        onPress={() => setMessageVisible(true)}
+                                        onClick={() => setMessageVisible(true)}
                                         title={
                                             boostStatus ? activeString.ENTERPRISE_OFFER.BOOSTED_OFFER : activeString.ENTERPRISE_OFFER.BOOST_THIS_OFFER
                                         }
@@ -519,13 +508,13 @@ const EnterpriseOfferSheet = (props: any) => {
                                         styleBtnTxt={globalStyle.bigBtnTxt}
                                         isDisable={boostStatus}
                                     />
-                                </View>
+                                </div>
                             )}
 
                             {!isFormation && (
-                                <View style={{ paddingVertical: 20, marginHorizontal: 25 }}>
+                                <div style={{ paddingVertical: 20, marginHorizontal: 25 }}>
                                     <CustomButtons
-                                        onPress={handleSubmit}
+                                        onClick={handleSubmit}
                                         title={activeString.ENTERPRISE_OFFER.MODIFY}
                                         _style={[
                                             globalStyle.buttonBoost,
@@ -534,11 +523,11 @@ const EnterpriseOfferSheet = (props: any) => {
                                         color={'red'}
                                         styleBtnTxt={globalStyle.bigBtnTxt}
                                     />
-                                </View>
+                                </div>
                             )}
 
                             {!isFromCandidat && (
-                                <View
+                                <div
                                     style={[
                                         globalStyle.btnContainerWhite,
                                         { paddingHorizontal: SIZES.padding },
@@ -552,7 +541,7 @@ const EnterpriseOfferSheet = (props: any) => {
                                         }
                                         color={{ color: 'white', backgroundColor: 'red' }}
                                     />
-                                </View>
+                                </div>
                             )}
 
                             <Popup
@@ -590,35 +579,34 @@ const EnterpriseOfferSheet = (props: any) => {
                                     action={handleBoost}
                                 />
                             )}
-                        </View>
+                        </div>
                         {isLoadingDel && <Loader />}
-                    </View>
+                    </div>
                     {props.candidate ? (
-                        <View style={globalStyle.floatWrapperBtn}>
-                            <TouchableOpacity
-                                onPress={() =>
+                        <div style={globalStyle.floatWrapperBtn}>
+                            <button
+                                onClick={() =>
                                     navigate('/EntrepriseOfferCreateScreen', {
                                         state: {
-                                            detailOffer: offerDetail,
-                                        }
+                                            detailOffer: offerDetail}
                                     })
                                 }
                                 style={[
                                     globalStyle.btnCircular,
                                     globalStyle.shadowButtonCircular,
                                 ]}>
-                                <Image
-                                    source={icons.edit}
+                                <img
+                                    src={icons.edit}
                                     style={{ justifyContent: 'center', width: 18, height: 18 }}
                                 />
-                            </TouchableOpacity>
-                        </View>
+                            </button>
+                        </div>
                     ) : (
-                        <View />
+                        <div />
                     )}
                 </>
             )}
-        </View>
+        </div>
     );
 };
 

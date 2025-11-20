@@ -1,5 +1,4 @@
 import React from 'react';
-import {/*Platform,*/ TouchableOpacity, View} from 'react-native';
 import {buttonsStyles} from '../../boutonStyle';
 import Label from '../../components/Inputs/Label';
 import {formsStyles} from '../../formStyles';
@@ -7,19 +6,19 @@ import {formsStyles} from '../../formStyles';
 export const Footer = (props: any) => {
   const {creerCompte} = props;
   return (
-    <View>
-      <View>
-        <View style={[buttonsStyles.displaySpacedBtween]}>
+    <div>
+      <div>
+        <div style={{...buttonsStyles.displaySpacedBtween}}>
           <Label title="Pas encore inscrit ? " type="paragraph" />
-          <View style={formsStyles.line} />
-        </View>
+          <div style={formsStyles.line} />
+        </div>
 
-        <View style={[buttonsStyles.displayHorizontal]}>
-          <TouchableOpacity onPress={creerCompte}>
+        <div style={{...buttonsStyles.displayHorizontal}}>
+          <button onClick={creerCompte}>
             <Label title="Job ->" type="linkblue" />
-          </TouchableOpacity>
-        </View>
-      </View>
-    </View>
+          </button>
+        </div>
+      </div>
+    </div>
   );
 };

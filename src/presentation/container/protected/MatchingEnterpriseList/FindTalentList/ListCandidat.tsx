@@ -1,9 +1,5 @@
 import React, { Fragment } from 'react';
-import {
-	View,
-	StyleSheet,
-	SafeAreaView,
-} from 'react-native';
+
 import Candidate from '../../../../components/FindTalentList/Candidate';
 import { Divider } from 'primereact/divider';
 import { DataView } from 'primereact/dataview';
@@ -32,7 +28,7 @@ export const ListCandidat = ({ displayCandidateDetail, data }) => {
 	) : null;
 
 	return (
-		<View
+		<div
 			style={{
 				flex: 1,
 				padding: 20
@@ -52,6 +48,6 @@ export const ListCandidat = ({ displayCandidateDetail, data }) => {
 				: null}
 
 			{/** Modification Recherche */}
-		</View>
+		</div>
 	);
 };

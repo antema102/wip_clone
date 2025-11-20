@@ -68,8 +68,7 @@ export const UserSA = () => {
     postCreateUuid,
     getCountryBySessionId,
     getExternalUSer,
-    updateCv,
-  } = UserBDL();
+    updateCv} = UserBDL();
 
   return {
     getUserById: (id: string, token: string) => getUserById(id, token),
@@ -200,6 +199,5 @@ export const UserSA = () => {
     getMyCVideo: (token: string, setDownloadProgressBar: any) =>
       getMyCVPresentationVideo(token, setDownloadProgressBar),
     getAdvertisementForWeb,
-    displayGuideline,
-  };
+    displayGuideline};
 };

@@ -1,13 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {
-    View,
-    RefreshControl,
-    Text,
-    Image,
-    TouchableOpacity,
-    Platform,
-    ScrollView
-} from 'react-native';
+;
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { styles } from './style';
@@ -191,62 +183,60 @@ const EnterpriseOfferDetails = (props: any) => {
     const redirectionPlus = () => {
         navigate('/EntResultScreen', {
             state: {
-                companyId,
-            }
+                companyId}
         })
     };
     return (
-        <View>
+        <div>
             {/* <Header {...props} typeApp={candidat ? 'Candidat ?' : 'Enterprise ?'} /> */}
             {isLoading && (<Loader />)}
-            <View style={styles.container}>
-                <View style={styles.containers}>
-                    {/* <View style={styles.containeroffer} > */}
-                    <View style={[{ backgroundColor: COLORS.white }, styles.containeroffer, isMobile ? { padding: 24 } : {
-                        padding: 36,
-                    }]}>
+            <div style={styles.container}>
+                <div style={styles.containers}>
+                    {/* <div style={styles.containeroffer} > */}
+                    <div style={[{ backgroundColor: COLORS.white }, styles.containeroffer, isMobile ? { padding: 24 } : {
+                        padding: 36}]}>
                         {!isMobile &&
-                            <View style={{ height: 75 }} >
-                                <TouchableOpacity onPress={handleGoBack}>
-                                    <Image source={icons.arrowPrevious} style={{ objectFit: 'contain', height: 16, width: 16, tintColor: COLORS.black }} />
-                                </TouchableOpacity>
-                            </View>
+                            <div style={{ height: 75 }} >
+                                <button onClick={handleGoBack}>
+                                    <img src={icons.arrowPrevious} style={{ objectFit: 'contain', height: 16, width: 16, tintColor: COLORS.black }} />
+                                </button>
+                            </div>
                         }
 
-                        <View style={isMobile ? { flex: 1 } : styles.contentOffer}>
-                            <View>
+                        <div style={isMobile ? { flex: 1 } : styles.contentOffer}>
+                            <div>
                                 {candidat ? (
-                                    <View style={isMobile ? styles.headerOfferMobile : styles.headerOffer}>
-                                        <View style={styles.avatarOffer}>
+                                    <div style={isMobile ? styles.headerOfferMobile : styles.headerOffer}>
+                                        <div style={styles.avatarOffer}>
                                             <img src={avatar ? avatar : images.avatar_6} style={styles.avatarImg} />
-                                        </View>
-                                        <View style={{ flex: 1 }}>
-                                            <Text style={styles.titleOffer}>
+                                        </div>
+                                        <div style={{ flex: 1 }}>
+                                            <span style={styles.titleOffer}>
                                                 {formation ? formation?.title : offerDetail?.name}
-                                            </Text>
-                                            <View style={styles.subTitleOffer}>
-                                                <Text style={styles.textSubOffer}>
+                                            </span>
+                                            <div style={styles.subTitleOffer}>
+                                                <span style={styles.textSubOffer}>
                                                     {
                                                         infoUser?.name && infoUser?.name !== 'invalide'
                                                             ? infoUser?.name
                                                             : ''
                                                     }
-                                                </Text>
-                                                <Text style={styles.textSubOffer}>
+                                                </span>
+                                                <span style={styles.textSubOffer}>
                                                     • {
                                                         formation
                                                             ? formation?.place || ''
                                                             : offerDetail?.lieu || ''
                                                     }
-                                                </Text>
-                                            </View>
-                                        </View>
-                                    </View>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 ) : (
-                                    <View>
+                                    <div>
                                         <CustomButton
-                                            onPress={() =>
+                                            onClick={() =>
                                                 navigate(
                                                     'EnterpriseOffreSheetApplyScreen',
                                                     { state: { id: offerDetail?.id } },
@@ -261,11 +251,11 @@ const EnterpriseOfferDetails = (props: any) => {
                                             icon={icons.action}
                                             styleBtnTxt={styles.bigBtnTxt}
                                         />
-                                    </View>
+                                    </div>
                                 )}
-                            </View>
+                            </div>
                             {/** Offer about */}
-                            <View style={isMobile ? { flexDirection: 'row', flexWrap: 'wrap', gap: 16, marginTop: 32 } : { display: 'flex', flexDirection: 'row', flexWrap: 'wrap', columnGap: 16, rowGap: 10 }}>
+                            <div style={isMobile ? { flexDirection: 'row', flexWrap: 'wrap', gap: 16, marginTop: 32 } : { display: 'flex', flexDirection: 'row', flexWrap: 'wrap', columnGap: 16, rowGap: 10 }}>
                                 <ViewDetailsCandidat label={activeString.ENTERPRISE_OFFER.LIEU}
                                     value={
                                         formation
@@ -317,42 +307,42 @@ const EnterpriseOfferDetails = (props: any) => {
                                     label={formation ? activeString.ENTERPRISE_OFFER.EMAIL : activeString.ENTERPRISE_OFFER.SALAIRE_BRUTE}
                                     value={handleCondition()}
                                 />
-                            </View>
-                        </View>
-                    </View>
+                            </div>
+                        </div>
+                    </div>
 
-                    <View style={!isMobile ? { backgroundColor: COLORS.white, borderStartEndRadius: 20, borderStartStartRadius: 20, marginTop: 24, paddingHorizontal: 70, paddingVertical: 24 } : { padding: 24, marginTop: 24, backgroundColor: COLORS.white, borderRadius: 10 }}>
+                    <div style={!isMobile ? { backgroundColor: COLORS.white, borderStartEndRadius: 20, borderStartStartRadius: 20, marginTop: 24, paddingHorizontal: 70, paddingVertical: 24 } : { padding: 24, marginTop: 24, backgroundColor: COLORS.white, borderRadius: 10 }}>
                         {/** Candidate Experiences */}
-                        <View style={[isMobile ? '' : styles.candidateExpContainer, isFormation && { marginBottom: 34 }]}>
+                        <div style={[isMobile ? '' : styles.candidateExpContainer, isFormation && { marginBottom: 34 }]}>
 
-                            <View style={styles.candidateExpContent}>
-                                <Text style={styles.candidateExpTitle}>{activeString.ENTERPRISE_OFFER.DESCRIPTION}</Text>
-                            </View>
+                            <div style={styles.candidateExpContent}>
+                                <span style={styles.candidateExpTitle}>{activeString.ENTERPRISE_OFFER.DESCRIPTION}</span>
+                            </div>
 
-                            <Text style={styles.txtDetails}>
+                            <span style={styles.txtDetails}>
                                 {formation
                                     ? formation?.description
                                     : offerDetail?.description || ''}
-                            </Text>
-                        </View>
+                            </span>
+                        </div>
 
                         {/** Candidate Formations */}
                         {!isFormation && (
-                            <View style={[styles.candidateExpContainer, { paddingBottom: 26 }]}>
-                                <View style={styles.candidateExpContent}>
-                                    <Text style={styles.candidateExpTitle}>{activeString.ENTERPRISE_OFFER.YOUR_TASK}</Text>
-                                </View>
-                                <Text style={styles.txtDetails}>
+                            <div style={[styles.candidateExpContainer, { paddingBottom: 26 }]}>
+                                <div style={styles.candidateExpContent}>
+                                    <span style={styles.candidateExpTitle}>{activeString.ENTERPRISE_OFFER.YOUR_TASK}</span>
+                                </div>
+                                <span style={styles.txtDetails}>
                                     {offerDetail?.taches || ''}
-                                </Text>
-                            </View>
+                                </span>
+                            </div>
                         )}
-                    </View>
+                    </div>
 
                     {!isFormation && (
-                        <View style={styles.nextContainer}>
-                            <View style={{ height: 1, flex: 1, backgroundColor: COLORS.vector_orange }} />
-                            <View>
+                        <div style={styles.nextContainer}>
+                            <div style={{ height: 1, flex: 1, backgroundColor: COLORS.vector_orange }} />
+                            <div>
                                 <Popup
                                     {...props}
                                     idCompany={companyId}
@@ -361,24 +351,24 @@ const EnterpriseOfferDetails = (props: any) => {
                                     users={tableau}
                                     offerTitle={offerDetail.name}
                                 />
-                            </View>
-                            <View style={{ height: 1, flex: 1, backgroundColor: COLORS.vector_orange }} />
-                        </View>
+                            </div>
+                            <div style={{ height: 1, flex: 1, backgroundColor: COLORS.vector_orange }} />
+                        </div>
                     )}
 
                     {filePath !== '' ? (
-                        <View style={styles.candidateExpContainer}>
+                        <div style={styles.candidateExpContainer}>
                             <VideoPlayer filePath={filePath} poster={'https://i.picsum.photos/id/866/1600/900.jpg'} />
-                        </View>
+                        </div>
                     ) : null}
 
-                    <View style={[{ paddingBottom: 100, backgroundColor: COLORS.white }, isMobile ? { paddingHorizontal: 24 } : { paddingHorizontal: 70, }]}>
-                        <Text style={styles.titleh2}>{activeString.ENTERPRISE_OFFER.ABOUT_COMPANY}</Text>
-                    </View>
+                    <div style={[{ paddingBottom: 100, backgroundColor: COLORS.white }, isMobile ? { paddingHorizontal: 24 } : { paddingHorizontal: 70}]}>
+                        <span style={styles.titleh2}>{activeString.ENTERPRISE_OFFER.ABOUT_COMPANY}</span>
+                    </div>
 
                     {!isLoading && infoUser &&
                         (
-                            <View style={[
+                            <div style={[
                                 { backgroundColor: 'rgba(207, 231, 255, 0.8)' },
                                 isMobile ? { paddingHorizontal: 24 } : { paddingHorizontal: 70 }
                             ]}>
@@ -390,32 +380,31 @@ const EnterpriseOfferDetails = (props: any) => {
                                     isLoading={isLoading}
                                     handleRedirection={redirectionPlus}
                                 />
-                            </View>
+                            </div>
                         )
                     }
 
                     {!offerList.length || isFormation ? (
-                        <View style={{ marginBottom: 0 }} />
+                        <div style={{ marginBottom: 0 }} />
                     ) : (
-                        <View style={styles.nextContainer}>
-                            <View style={styles.titleh2Container}>
-                                <Text style={styles.titleh2}>{activeString.ENTERPRISE_OFFER.SIMILAR_OFFERS}</Text>
-                            </View>
-                            <View
+                        <div style={styles.nextContainer}>
+                            <div style={styles.titleh2Container}>
+                                <span style={styles.titleh2}>{activeString.ENTERPRISE_OFFER.SIMILAR_OFFERS}</span>
+                            </div>
+                            <div
                                 style={{
                                     paddingVertical: 0,
-                                    borderTopColor: COLORS.gray_line,
-                                }}>
+                                    borderTopColor: COLORS.gray_line}}>
                                 <FlatOffer
                                     offerList={offerList}
                                     showDetails={showDetails}
                                 />
-                            </View>
-                        </View>
+                            </div>
+                        </div>
                     )}
-                </View>
-            </View>
-        </View>
+                </div>
+            </div>
+        </div>
     );
 };
 

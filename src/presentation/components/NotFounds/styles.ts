@@ -1,16 +1,14 @@
-import { StyleSheet} from 'react-native';
+;
 
-export const styles = StyleSheet.create({
+export const styles = {
   containerNoEvents: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    minHeight: 400,
-  },
+    minHeight: 400},
   contentNoEvents: {
     justifyContent: 'center',
-    alignItems: 'center',
-  },
+    alignItems: 'center'},
   ImageNoEvents: {
     height: 230,
     width: 230,
@@ -19,6 +17,4 @@ export const styles = StyleSheet.create({
   textNoEvents: {
     paddingVertical: 16,
     gap: 16,
-    alignItems: 'center',
-  },
-});
+    alignItems: 'center'}});

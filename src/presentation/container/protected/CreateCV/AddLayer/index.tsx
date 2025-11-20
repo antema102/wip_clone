@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+;
 
 import Buttons from '../../../../components/Button/button';
 import { COLORS, icons } from '../../../../../resources/constants';
@@ -9,12 +9,12 @@ import styles from '../styles';
 export const AddLayer = props => {
   const {title, label, onChange, color, style} = props;
   return (
-    <View
+    <div
       style={[{justifyContent: 'space-between', flexDirection: 'row'}, style]}>
-      <Text style={styles.titleBtn}>{title}</Text>
+      <span style={styles.titleBtn}>{title}</span>
       <Buttons
         {...props}
-        onPress={onChange}
+        onClick={onChange}
         title={label}
         color={color}
         _style={[
@@ -23,10 +23,8 @@ export const AddLayer = props => {
             height: 32,
             backgroundColor: COLORS.orange,
             borderRadius: 18,
-            paddingTop: 10,
-          },
+            paddingTop: 10},
           globalStyle.elevationOrange,
-          ,
         ]}
         icon={icons.plus}
         iconStyles={{
@@ -34,9 +32,8 @@ export const AddLayer = props => {
           marginLeft: 5,
           justifyContent: 'center',
           width: 20,
-          height: 20,
-        }}
+          height: 20}}
       />
-    </View>
+    </div>
   );
 };

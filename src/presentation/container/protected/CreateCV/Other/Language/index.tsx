@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View} from 'react-native';
+;
 
 import {AddLayer} from '../../AddLayer';
 import {ListOfLanguage} from './ListOfLanguage';
@@ -16,13 +16,12 @@ interface Props {
   type: string;
 }
 
-export const Language = ({
+export const Language = {
   values,
   handleChange,
   errors,
   showErrors,
-  type,
-}: Props) => {
+  type}: Props) => {
   // ------------------------------
   // Desired Location handler
   const [ListLanguage, setListLanguage] = useState<any[]>([]);
@@ -61,8 +60,7 @@ export const Language = ({
     setListLanguage([
       ...ListLanguage,
       {
-        _id: id,
-      },
+        _id: id},
     ]);
 
     values['language_' + id] = '';
@@ -86,18 +84,17 @@ export const Language = ({
   return (
     <>
       {ListLanguage.length === 0 && type == 'read' ? (
-        <View
+        <div
           style={[
             styles.inputWrap,
             {
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white,
-            },
+                type === 'read' ? COLORS.disableGray : COLORS.white},
           ]}>
           <InputField label={'Langue'} isEditable={type !== 'read'} />
-        </View>
+        </div>
       ) : (
-        <View style={formsStyles.inputWrapBorderBlue}>
+        <div style={formsStyles.inputWrapBorderBlue}>
           {type !== 'read' && (
             <AddLayer
               title={'Langue'}
@@ -123,7 +120,7 @@ export const Language = ({
               />
             );
           })}
-        </View>
+        </div>
       )}
     </>
   );

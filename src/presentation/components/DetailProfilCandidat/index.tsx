@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, Image, Platform, TouchableOpacity } from 'react-native'
+
 import styles from './styles';
 import { COLORS, icons } from '../../../resources/constants';
 import { useSelector } from 'react-redux';
@@ -157,8 +157,7 @@ const ProfilCandidat = () => {
                 setProfile({
                     name: `${data?.user?.lastName || ''} - ${data?.user?.firstName || ''
                         }`,
-                    post: `${data?.jobWish?.name || ''}`,
-                });
+                    post: `${data?.jobWish?.name || ''}`});
             }
         } finally {
             getAvatar();
@@ -174,11 +173,11 @@ const ProfilCandidat = () => {
 
     return (
         <>
-            <View style={isMobile ? styles.containerMobiles : styles.container}>
+            <div style={isMobile ? styles.containerMobiles : styles.container}>
                 <UserInfo userAvatar={avatar} setUserAvatar={setAvatar} userName={profil?.name} userPost={profil?.post} isChangeable={true} />
-                <View style={styles.contentProfil}>
+                <div style={styles.contentProfil}>
                     {isCV && (
-                        <TouchableOpacity onPress={handleToogle}>
+                        <button onClick={handleToogle}>
                             <ButtonAside title={activeString.DETAIL_PROFIL.STATUS} icon={icons.statut} toogle={true} />
                             {toogle && (
                                 <Toggle
@@ -188,44 +187,44 @@ const ProfilCandidat = () => {
                                     handleChange={changeAvailabilityStatus}
                                 />
                             )}
-                        </TouchableOpacity>
+                        </button>
                     )}
                     {isCV &&
-                        <ButtonAside title={activeString.DETAIL_PROFIL.MON_CV} onPress={handleRedirectionCv} icon={icons.cv} />
+                        <ButtonAside title={activeString.DETAIL_PROFIL.MON_CV} onClick={handleRedirectionCv} icon={icons.cv} />
                     }
                     {hasMyVideo &&
-                        <ButtonAside title={activeString.DETAIL_PROFIL.MA_PRESENTATION_VIDEO} onPress={() => navigate('/ResumeVideoScreen', { state: { isShow: true } })} icon={icons.video} />
+                        <ButtonAside title={activeString.DETAIL_PROFIL.MA_PRESENTATION_VIDEO} onClick={() => navigate('/ResumeVideoScreen', { state: { isShow: true } })} icon={icons.video} />
                     }
-                    <ButtonAside title={activeString.DETAIL_PROFIL.MES_SAUVEGARDES} onPress={() => navigate('/CandidatProfilBackupScreen')} icon={icons.ads} />
-                    <ButtonAside title={activeString.DETAIL_PROFIL.MON_COMPTE} onPress={() => navigate('/MyAccount')} icon={icons.profil} />
-                    <ButtonAside title={activeString.DETAIL_PROFIL.PETITES_ANNONCES} onPress={() => navigate('/EnterpriseAdvertisingScreen')} icon={icons.description} />
-                </View>
-            </View>
-            <View style={isMobile ? { padding: 24, backgroundColor: COLORS.white } : [styles.container, styles.containerMore]}>
-                <Text style={styles.textMore}>{activeString.STRING_ALL.FOLLOW}</Text>
-                <View style={styles.contentMore}>
-                    <TouchableOpacity>
+                    <ButtonAside title={activeString.DETAIL_PROFIL.MES_SAUVEGARDES} onClick={() => navigate('/CandidatProfilBackupScreen')} icon={icons.ads} />
+                    <ButtonAside title={activeString.DETAIL_PROFIL.MON_COMPTE} onClick={() => navigate('/MyAccount')} icon={icons.profil} />
+                    <ButtonAside title={activeString.DETAIL_PROFIL.PETITES_ANNONCES} onClick={() => navigate('/EnterpriseAdvertisingScreen')} icon={icons.description} />
+                </div>
+            </div>
+            <div style={isMobile ? { padding: 24, backgroundColor: COLORS.white } : [styles.container, styles.containerMore]}>
+                <span style={styles.textMore}>{activeString.STRING_ALL.FOLLOW}</span>
+                <div style={styles.contentMore}>
+                    <button>
                         <Link to={'https://www.linkedin.com/company/wipwork/'} target='_blank'>
                             <img src={icons.linkedin} style={styles.stylesButtons} />
                         </Link>
-                    </TouchableOpacity>
-                    <TouchableOpacity>
+                    </button>
+                    <button>
                         <Link to='https://youtube.com' target='_blank'>
                             <img src={icons.youtubeRound} style={styles.stylesButtons} />
                         </Link>
-                    </TouchableOpacity>
-                    <TouchableOpacity>
+                    </button>
+                    <button>
                         <Link to='https://www.facebook.com/profile.php?id=100092615205995' target='_blank'>
                             <img src={icons.facebook_blue} style={styles.stylesButtons} />
                         </Link>
-                    </TouchableOpacity>
-                    <TouchableOpacity>
+                    </button>
+                    <button>
                         <Link to='https://www.instagram.com' target='_blank'>
                             <img src={icons.instagram} style={styles.stylesButtons} />
                         </Link>
-                    </TouchableOpacity>
-                </View>
-            </View>
+                    </button>
+                </div>
+            </div>
         </>
     )
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+;
 import { styles } from './styles';
 import { dateToString } from '../../../data/factory/dateFactory';
 
@@ -13,10 +13,8 @@ interface HistoryType {
     activitySector: { [key: string]: string },
     createdAt: Date,
     lastjobType: { [key: string]: string },
-    filiere: { [key: string]: string },
-  },
-  displayHistoryDetail: (id: string) => void,
-}
+    filiere: { [key: string]: string }},
+  displayHistoryDetail: (id: string) => void}
 
 export const History = (props: HistoryType) => {
   const { item, displayHistoryDetail } = props;
@@ -28,8 +26,7 @@ export const History = (props: HistoryType) => {
     activitySector,
     createdAt,
     lastjobType,
-    filiere,
-  } = item;
+    filiere} = item;
 
   const getValue = (value: string) => Object.keys(value).length !== 0 && region;
 
@@ -63,15 +60,15 @@ export const History = (props: HistoryType) => {
   const date = dateToString(createdAt);
 
   return (
-    <TouchableOpacity
+    <button
       style={styles.candidateContainer}
-      onPress={() => {
+      onClick={() => {
         displayHistoryDetail(item.id);
       }}>
-      <View style={styles.candidateDetailsContainer}>
+      <div style={styles.candidateDetailsContainer}>
         {/** A propos du candidat */}
-        <Text style={styles.candidatName}>{date}</Text>
-        <Text style={styles.candidatPost}>
+        <span style={styles.candidatName}>{date}</span>
+        <span style={styles.candidatPost}>
           {[
             activitySector?.value && activitySector?.value !== 'string'
               ? getActivitySector(activitySector.value)
@@ -86,11 +83,11 @@ export const History = (props: HistoryType) => {
           ]
             .filter(Boolean)
             .join(' , ')}
-        </Text>
-        <Text style={styles.historyplace}>
+        </span>
+        <span style={styles.historyplace}>
           {getValue(region)} {getValue(ville)} {getValue(arrondissement)}{' '}
-        </Text>
-      </View>
-    </TouchableOpacity>
+        </span>
+      </div>
+    </button>
   );
 };

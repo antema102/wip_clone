@@ -3,7 +3,4 @@ export const TitleLabels = {
         post: 'Poste souhaité',
         secteur: "Secteur d'activité",
         availability: "Disponibilité de travail",
-        pretension: "Prétention salariale brut (Ariary)",
-
-    },
-};
+        pretension: "Prétention salariale brut (Ariary)"}};

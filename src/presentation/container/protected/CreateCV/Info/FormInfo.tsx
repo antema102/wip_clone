@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, TouchableOpacity, Image} from 'react-native';
+;
 import {useSelector} from 'react-redux';
 
 import {useForm} from './useFormInfo';
@@ -34,8 +34,7 @@ export const FormInfo = (props: any) => {
     data,
     onChangeDataStore,
     type,
-    setValues,
-  } = props;
+    setValues} = props;
   const {
     handleChange,
     handleSubmit,
@@ -44,8 +43,7 @@ export const FormInfo = (props: any) => {
     errors,
     showErrors,
     dto,
-    showError,
-  } = useForm(data.info, Validation, handleSave, setValues);
+    showError} = useForm(data.info, Validation, handleSave, setValues);
 
   function handleSave() {
     onSubmitForm(dto.dataInfo);
@@ -54,8 +52,7 @@ export const FormInfo = (props: any) => {
   useEffect(() => {
     changeComplete(previousState => ({
       ...previousState,
-      info: data.info?.firstname ? noError() : false,
-    }));
+      info: data.info?.firstname ? noError() : false}));
   }, [errors]);
 
   //-----------------------------------------------------------------------
@@ -76,8 +73,7 @@ export const FormInfo = (props: any) => {
     data?.map(element => {
       dataList.push({
         label: element[label],
-        value: element[value],
-      });
+        value: element[value]});
     });
     return dataList;
   };
@@ -138,16 +134,15 @@ export const FormInfo = (props: any) => {
 
   // ----------------------------------------------------------------------
   return (
-    <View>
-      <View>
+    <div>
+      <div>
         {/** Name field */}
-        <View
+        <div
           style={[
             styles.inputWrap,
             {
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white,
-            },
+                type === 'read' ? COLORS.disableGray : COLORS.white},
           ]}>
           <InputField
             label={activeString.CreationCV.name}
@@ -160,16 +155,15 @@ export const FormInfo = (props: any) => {
             maxLength={50}
             isEditable={type !== 'read'}
           />
-        </View>
+        </div>
 
         {/** Firstname field */}
-        <View
+        <div
           style={[
             styles.inputWrap,
             {
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white,
-            },
+                type === 'read' ? COLORS.disableGray : COLORS.white},
           ]}>
           <InputField
             label={activeString.CreationCV.firstname}
@@ -182,16 +176,15 @@ export const FormInfo = (props: any) => {
             maxLength={50}
             isEditable={type !== 'read'}
           />
-        </View>
+        </div>
 
               {/** Type Date here */}
-              <View
+              <div
                   style={[
                       styles.inputWrap,
                       {
                           backgroundColor:
-                              type === 'read' ? COLORS.disableGray : COLORS.white,
-                      },
+                              type === 'read' ? COLORS.disableGray : COLORS.white},
                   ]}>
                   <CustomInputDatePicker
                       value={dataInfo.birthdate}
@@ -211,17 +204,16 @@ export const FormInfo = (props: any) => {
                           ).toISOString()
                       }
                   />
-              </View>
+              </div>
 
         {/** Type Select Civil Status */}
         {situationList && (
-          <View
+          <div
             style={[
               styles.inputWrap,
               {
                 backgroundColor:
-                  type === 'read' ? COLORS.disableGray : COLORS.white,
-              },
+                  type === 'read' ? COLORS.disableGray : COLORS.white},
             ]}>
             <InputSelect
               label={activeString.CreationCV.civilstatus}
@@ -234,17 +226,16 @@ export const FormInfo = (props: any) => {
               isEditable={type !== 'read'}
               data={situationList}
             />
-          </View>
+          </div>
         )}
 
         {/** Number of child */}
-        <View
+        <div
           style={[
             styles.inputWrap,
             {
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white,
-            },
+                type === 'read' ? COLORS.disableGray : COLORS.white},
           ]}>
           <InputField
             label={activeString.CreationCV.child}
@@ -258,16 +249,15 @@ export const FormInfo = (props: any) => {
             maxLength={50}
             isEditable={type !== 'read'}
           />
-        </View>
+        </div>
 
         {/** Phone number */}
-        <View
+        <div
           style={[
             styles.inputWrap,
             {
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white,
-            },
+                type === 'read' ? COLORS.disableGray : COLORS.white},
           ]}>
           <InputField
             label={activeString.CreationCV.phone}
@@ -281,17 +271,16 @@ export const FormInfo = (props: any) => {
             maxLength={50}
             isEditable={type !== 'read'}
           />
-        </View>
+        </div>
 
         {/** Means of transport */}
         {transportList && (
-          <View
+          <div
             style={[
               styles.inputWrap,
               {
                 backgroundColor:
-                  type === 'read' ? COLORS.disableGray : COLORS.white,
-              },
+                  type === 'read' ? COLORS.disableGray : COLORS.white},
             ]}>
             <InputSelect
               label={activeString.CreationCV.transport}
@@ -304,18 +293,17 @@ export const FormInfo = (props: any) => {
               isEditable={type !== 'read'}
               data={transportList}
             />
-          </View>
+          </div>
         )}
 
         {/** List of pets */}
         {petList && (
-          <View
+          <div
             style={[
               styles.inputWrap,
               {
                 backgroundColor:
-                  type === 'read' ? COLORS.disableGray : COLORS.white,
-              },
+                  type === 'read' ? COLORS.disableGray : COLORS.white},
             ]}>
             <InputSelect
               label={activeString.CreationCV.pet}
@@ -328,13 +316,13 @@ export const FormInfo = (props: any) => {
               isEditable={type !== 'read'}
               data={petList}
             />
-          </View>
+          </div>
         )}
 
-        <View style={{marginTop: 20}}>
-          <View style={formsStyles.inputWrapBlue}>
-            <View style={styles.alignSwitch}>
-              <Text style={styles.titleGroup}>Est ce que vous êtes logé?</Text>
+        <div style={{marginTop: 20}}>
+          <div style={formsStyles.inputWrapBlue}>
+            <div style={styles.alignSwitch}>
+              <span style={styles.titleGroup}>Est ce que vous êtes logé?</span>
               <SwitchComponent
                 onChangeValue={
                   type === 'read'
@@ -346,21 +334,20 @@ export const FormInfo = (props: any) => {
                 }
                 value={housed}
               />
-            </View>
-          </View>
-        </View>
+            </div>
+          </div>
+        </div>
 
         {/** Résidence Actuel */}
-        <View style={styles.currentResidence}>
-          <Text style={{...FONTS.h3Black}}>Résidence Actuelle</Text>
+        <div style={styles.currentResidence}>
+          <span style={{...FONTS.h3Black}}>Résidence Actuelle</span>
           {/** Users Province */}
-          <View
+          <div
             style={[
               styles.inputWrap,
               {
                 backgroundColor:
-                  type === 'read' ? COLORS.disableGray : COLORS.white,
-              },
+                  type === 'read' ? COLORS.disableGray : COLORS.white},
             ]}>
             <InputSelect
               label={activeString.CreationCV.country}
@@ -373,18 +360,17 @@ export const FormInfo = (props: any) => {
               isEditable={type !== 'read'}
               data={country}
             />
-          </View>
+          </div>
 
           {/** Users Region */}
-          <View
+          <div
             style={[
               styles.inputWrap,
               {
                 backgroundColor:
                   type === 'read' || !dataInfo?.country?.length
                     ? COLORS.disableGray
-                    : COLORS.white,
-              },
+                    : COLORS.white},
             ]}>
             <InputSelect
               label={activeString.CreationCV.province}
@@ -397,18 +383,17 @@ export const FormInfo = (props: any) => {
               isEditable={type !== 'read' && dataInfo?.country !== ''}
               data={province}
             />
-          </View>
+          </div>
 
           {/** Users Zone */}
-          <View
+          <div
             style={[
               styles.inputWrap,
               {
                 backgroundColor:
                   type === 'read' || !dataInfo?.province?.length
                     ? COLORS.disableGray
-                    : COLORS.white,
-              },
+                    : COLORS.white},
             ]}>
             <InputField
               label={activeString.CreationCV.zone}
@@ -420,31 +405,30 @@ export const FormInfo = (props: any) => {
               showError={showErrors.zone}
               isEditable={type !== 'read' && dataInfo?.province !== ''}
             />
-          </View>
-        </View>
-      </View>
+          </div>
+        </div>
+      </div>
 
-      {isLoading ? <Loader /> : <View />}
+      {isLoading ? <Loader /> : <div />}
 
       {/** Submit buttons */}
-      <View>
+      <div>
         {type !== 'read' && (
-          <TouchableOpacity
-            onPress={handleSubmit}
+          <button
+            onClick={handleSubmit}
             style={[styles.submitJob]}>
-            <Text style={styles.textButton}>Job</Text>
-            <Image
-              source={icons.action}
+            <span style={styles.textButton}>Job</span>
+            <img
+              src={icons.action}
               style={{
                 width: 16,
                 height: 15,
-                resizeMode: 'cover',
-                marginLeft: 10,
-              }}
+                objectFit: 'cover' as const,
+                marginLeft: 10}}
             />
-          </TouchableOpacity>
+          </button>
         )}
-      </View>
-    </View>
+      </div>
+    </div>
   );
 };

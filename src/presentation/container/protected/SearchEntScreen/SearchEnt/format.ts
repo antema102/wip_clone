@@ -18,8 +18,7 @@ interface model {
   profil?: modelObject,
   activitySector?: modelObject,
   disponibility?: modelObject,
-  salaryExpectation?: modelObject,
-}
+  salaryExpectation?: modelObject}
 
 // -----------------------------------------------------------
 

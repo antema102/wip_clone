@@ -1,12 +1,11 @@
 import {useEffect, useState} from 'react';
-import {Platform} from 'react-native';
+;
 import {
   defaultValues,
   defaultErrorValues,
   IError,
   showErrorValuesDefault,
-  showErrorValuesSubmit,
-} from './dto';
+  showErrorValuesSubmit} from './dto';
 import {transformData} from './format';
 import { MatchingService } from '../../../../../service/applicatif/Matching.sa';
 import { MATCHING } from '../../../../../data/constants/strings';
@@ -36,15 +35,13 @@ export const useForm = (
     if (value === 'INVALID INPUT') {
       setValues(previousValues => ({
         ...previousValues,
-        [name]: 'INVALID INPUT',
-      }));
+        [name]: 'INVALID INPUT'}));
     } else {
       if (Platform.OS !== 'web' && name === 'image') {
         _value = {
           uri: value.uri,
           type: value.type,
-          name: value.fileName,
-        };
+          name: value.fileName};
       }
       setValues(previousValues => ({...previousValues, [name]: value}));
     }
@@ -98,8 +95,7 @@ export const useForm = (
             item?.disponibility,
             point2,
           ),
-          'Prétention salariale (Ariary)': checkOrNot(salary, item?.salaire, point3),
-        };
+          'Prétention salariale (Ariary)': checkOrNot(salary, item?.salaire, point3)};
         let keys = Object.keys(matching);
         for (let i = 0; i < keys.length; i++) {
           if (matching[keys[i]] === 'vide') {
@@ -108,14 +104,12 @@ export const useForm = (
         }
         return {
           ...item,
-          data: matching,
-        };
+          data: matching};
       });
 
       if (res?.data?.length) {
         navigate('/SearchEntResultScreen', {state: {
-          data: variables.filter(item => item.score > 20),
-        }});
+          data: variables.filter(item => item.score > 20)}});
       } else {
         navigate('/SearchEntResultScreen', {state: {data: []}});
       }
@@ -175,6 +169,5 @@ export const useForm = (
     errors,
     showErrors,
     handleInit,
-    error,
-  };
+    error};
 };

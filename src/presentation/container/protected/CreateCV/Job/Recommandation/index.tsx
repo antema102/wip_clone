@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View} from 'react-native';
+;
 
 import {AddLayer} from '../../AddLayer';
 import {TitleLabels} from '../../titleLabels';
@@ -17,13 +17,12 @@ interface Props {
   type: string;
 }
 
-export const Recommandation = ({
+export const Recommandation = {
   values,
   handleChange,
   errors,
   showErrors,
-  type,
-}: Props) => {
+  type}: Props) => {
   // ------------------------------
   // Desired Location handler
   const [recommandation, setRecommandation] = useState<any[]>([]);
@@ -65,8 +64,7 @@ export const Recommandation = ({
         _id: id,
         name: '',
         reference: '',
-        file: '',
-      },
+        file: ''},
     ]);
 
     values['name_' + id] = '';
@@ -93,21 +91,20 @@ export const Recommandation = ({
   return (
     <>
       {recommandation.length === 0 && type == 'read' ? (
-        <View
+        <div
           style={[
             styles.inputWrap,
             {
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white,
-            },
+                type === 'read' ? COLORS.disableGray : COLORS.white},
           ]}>
           <InputField
             label={TitleLabels.CreationCV.recommandation}
             isEditable={type !== 'read'}
           />
-        </View>
+        </div>
       ) : (
-        <View style={formsStyles.inputWrapBorderBlue}>
+        <div style={formsStyles.inputWrapBorderBlue}>
           {type !== 'read' && (
             <AddLayer
               title={'Recommandation'}
@@ -133,7 +130,7 @@ export const Recommandation = ({
               />
             );
           })}
-        </View>
+        </div>
       )}
     </>
   );

@@ -1,19 +1,19 @@
 import React from 'react';
-import { View, ActivityIndicator, StyleSheet,ViewProps,ViewStyle } from 'react-native';
+
 
 interface MiniLoaderProps {
-  CustomStyle?:ViewStyle
+  CustomStyle?: React.CSSProperties
 }
 
 const MiniLoader = ({CustomStyle}: MiniLoaderProps) => {
   return (
-    <View style={[styles.loaderContainer, CustomStyle]}>
-      <ActivityIndicator size="large" color="#0000ff" />
-    </View>
+    <div style={[styles.loaderContainer, CustomStyle]}>
+      <span className="spinner" size="large" color="#0000ff" />
+    </div>
   );
 };
 
-const styles = StyleSheet.create({
+const styles = {
   loaderContainer: {
     position: 'absolute',
     top: 0,
@@ -24,7 +24,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'rgba(255, 255, 255, 0.7)', // Semi-transparent white background
     zIndex: 1000, // Ensure the loader appears above other content
-  },
-});
+  }});
 
 export default MiniLoader;

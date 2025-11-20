@@ -15,5 +15,4 @@ export const getDynamicEchelleByKey = (key: string, dataJSON: any) => {
 };
 
 export default {
-  getDynamicListByKey,
-};
+  getDynamicListByKey};

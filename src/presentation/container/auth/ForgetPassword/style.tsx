@@ -1,4 +1,4 @@
-import { Dimensions, StyleSheet } from 'react-native';
+;
 import { COLORS, SIZES } from '../../../../resources/constants';
 
 export const styles = {
@@ -12,14 +12,12 @@ export const styles = {
     paddingVertical: 10,
     paddingHorizontal: 20,
     marginLeft: 5,
-    borderRadius: 10,
-  },
+    borderRadius: 10},
   loginContainer: {
     flex: 1,
     justifyContent: 'center',
     alignSelf: 'center',
-    backgroundColor: COLORS.blue_border,
-  },
+    backgroundColor: COLORS.blue_border},
   loginForm: {
     borderWidth: 1,
     borderColor: COLORS.blue_border,
@@ -27,8 +25,7 @@ export const styles = {
     marginTop: SIZES.padding,
     width: '60%',
     backgroundColor: COLORS.white,
-    paddingHorizontal: '5%',
-  },
+    paddingHorizontal: '5%'},
   loginFormMobile: {
     borderWidth: 1,
     borderColor: COLORS.blue_border,
@@ -44,23 +41,19 @@ export const styles = {
     paddingTop: '20%',
     paddingHorizontal: '5%',
     justifyContent: 'center',
-    alignSelf: 'center',
-  },
+    alignSelf: 'center'},
   buttonTextStyles: {
     color: COLORS.white,
     justifyContent: 'center',
-    alignSelf: 'center',
-  },
+    alignSelf: 'center'},
   alignHorizontal: {
     justifyContent: 'center',
     alignSelf: 'center',
-    marginTop: 10,
-  },
+    marginTop: 10},
   container: {
     height: SIZES.height,
     backgroundColor: COLORS.blue_border,
-    flexDirection: 'row',
-  },
+    flexDirection: 'row'},
   borderFormForLogin: {
     borderWidth: 1,
     borderColor: COLORS.blue_border,
@@ -69,25 +62,20 @@ export const styles = {
     paddingLeft: 10,
     height: 50,
     backgroundColor: COLORS.white,
-    flex: 1,
-  },
+    flex: 1},
   heightBanner: {
-    paddingTop: 20,
-  },
+    paddingTop: 20},
   sampleLine: {
     paddingTop: 30,
     width: '50%',
     justifyContent: 'center',
     alignSelf: 'center',
     borderBottomWidth: 1,
-    borderBottomColor: '#E3E7EB',
-  },
+    borderBottomColor: '#E3E7EB'},
   textTitle: {
     flex: 1,
     fontSize: 16,
     color: '#0000CC',
     fontWeight: '700',
     marginTop: 20,
-    marginLeft: 0,
-  },
-};
+    marginLeft: 0}};

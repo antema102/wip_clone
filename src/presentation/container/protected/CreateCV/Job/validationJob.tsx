@@ -7,7 +7,7 @@ export const Validation = (values: IError) => {
     /** minimumWageRequired cheking */
   }
   if (
-    !/^[0-9 ]{1,}(([aA]{1}r(iary)?)|([fF]{1}mg))?$/.test(
+    !/^[0-9 ]{1}(([aA]{1}r(iary)?)|([fF]{1}mg))?$/.test(
       values.minimumWageRequired,
     )
   ) {

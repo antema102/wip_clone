@@ -1,17 +1,6 @@
-import {
-    Alert,
-    View,
-    Text,
-    Image,
-    TouchableOpacity,
-    ScrollView,
-    Modal,
-    TextInput,
-    Dimensions,
-    Platform,
-    Pressable
-} from 'react-native';
+
 import { useState, useEffect } from 'react';
+import { Dialog } from 'primereact/dialog';
 import { useSelector } from 'react-redux';
 import { Fragment } from 'react';
 
@@ -34,7 +23,7 @@ export const EnterpriseInformations = (props: any) => {
     const { getUserById } = UserSA();
     const [information, setInformation] = useState<any>({});
     const [isLoading, setIsLoading] = useState(true);
-    let ScreenWidth = Dimensions.get('window').width;
+    let ScreenWidth = window.innerWidth;
     const [modalVisible, setModalVisible] = useState(false);
     const [mail, setMail] = useState('');
     const [web, setWeb] = useState('');
@@ -73,10 +62,9 @@ export const EnterpriseInformations = (props: any) => {
                 activity: activite,
                 url: web,
                 phone: telephone,
-                yearOfCreation: year,
-            });
+                yearOfCreation: year});
             if (!response?.isError) {
-                Alert.alert(
+                window.alert(
                     'Information : ',
                     activeString.ENTERPRISE_INFORMATIONS.MODIFICATION_SUCCEED,
                     [
@@ -112,90 +100,90 @@ export const EnterpriseInformations = (props: any) => {
         }
     };
 
-    const modalContent = (<View style={{ backgroundColor: 'white' }}>
-        <View style={{ marginLeft: 20, marginRight: 20 }}>
-            <Text style={styles.textTitle}>{activeString.ENTERPRISE_INFORMATIONS.ABOUT_THE_COMPANY}</Text>
-            <View>
-                <Image
+    const modalContent = (<div style={{ backgroundColor: 'white' }}>
+        <div style={{ marginLeft: 20, marginRight: 20 }}>
+            <span style={styles.textTitle}>{activeString.ENTERPRISE_INFORMATIONS.ABOUT_THE_COMPANY}</span>
+            <div>
+                <img
                     style={styles.iconActus}
-                    source={icons.infos}
+                    src={icons.infos}
                 />
-                <TextInput
+                <input
                     style={[styles.specialborderForm]}
                     multiline={true}
                     onChangeText={newAbout => setAbout(newAbout)}
                     defaultValue={about}
                 />
-            </View>
-            <Text style={styles.textTitle}>{activeString.ENTERPRISE_INFORMATIONS.ACTIVITY}</Text>
-            <View>
-                <Image
+            </div>
+            <span style={styles.textTitle}>{activeString.ENTERPRISE_INFORMATIONS.ACTIVITY}</span>
+            <div>
+                <img
                     style={styles.iconActus}
-                    source={icons.infos}
+                    src={icons.infos}
                 />
-                <TextInput
+                <input
                     style={[styles.specialborderForm]}
                     multiline={true}
                     onChangeText={newActivite => setActivite(newActivite)}
                     defaultValue={activite}
                 />
-            </View>
-            <Text style={styles.textTitle}>{activeString.ENTERPRISE_INFORMATIONS.YEAR_OF_CREATION} </Text>
-            <View style={styles.itemWrapper}>
-                <Image
+            </div>
+            <span style={styles.textTitle}>{activeString.ENTERPRISE_INFORMATIONS.YEAR_OF_CREATION} </span>
+            <div style={styles.itemWrapper}>
+                <img
                     style={styles.iconActus}
-                    source={icons.calendar}
+                    src={icons.calendar}
                 />
-                <TextInput
+                <input
                     style={[styles.specialborderForm]}
                     keyboardType="phone-pad"
                     onChangeText={newYear => setYear(newYear)}
                     defaultValue={year?.toString()}
 
                 />
-            </View>
+            </div>
 
-            <Text style={styles.textTitle}>{activeString.ENTERPRISE_INFORMATIONS.HEADQUARTERS} </Text>
-            <View style={styles.itemWrapper}>
-                <Image
+            <span style={styles.textTitle}>{activeString.ENTERPRISE_INFORMATIONS.HEADQUARTERS} </span>
+            <div style={styles.itemWrapper}>
+                <img
                     style={styles.iconActus}
-                    source={icons.map}
+                    src={icons.map}
                 />
-                <TextInput
+                <input
                     style={[styles.specialborderForm]}
                     multiline={true}
                     onChangeText={newAdress => setAdress(newAdress)}
                     defaultValue={adress}
                 />
-            </View>
+            </div>
 
-            <Text style={styles.textTitle}>
+            <span style={styles.textTitle}>
                 {activeString.ENTERPRISE_INFORMATIONS.URL}
-            </Text>
+            </span>
 
-            <View style={styles.itemWrapper}>
-                <Image
+            <div style={styles.itemWrapper}>
+                <img
                     style={styles.iconActus}
-                    source={icons.globe}
+                    src={icons.globe}
                 />
-                <TextInput
+                <input
                     style={[styles.specialborderForm]}
                     multiline={true}
                     onChangeText={newWeb => setWeb(newWeb)}
                     defaultValue={web}
                 />
-            </View>
+            </div>
 
-            <Text style={styles.textTitle}>
+            <span style={styles.textTitle}>
                 {activeString.ENTERPRISE_INFORMATIONS.EMAIL}
-            </Text>
+            </span>
 
-            <View style={styles.itemWrapper}>
-                <Image
+            <div style={styles.itemWrapper}>
+                <img
                     style={styles.iconActus}
-                    source={icons.mail}
+                    src={icons.mail}
                 />
-                <TextInput
+                <input
                     style={[styles.specialborderForm]}
                     multiline={true}
                     onChangeText={value => {
@@ -203,44 +191,44 @@ export const EnterpriseInformations = (props: any) => {
                     }}
                     defaultValue={mail}
                 />
-            </View>
+            </div>
 
-            <Text style={styles.textTitle}>
+            <span style={styles.textTitle}>
                 {activeString.ENTERPRISE_INFORMATIONS.PHONE_NUMBER}
-            </Text>
+            </span>
 
-            <View style={styles.itemWrapper}>
-                <Image
+            <div style={styles.itemWrapper}>
+                <img
                     style={styles.iconActus}
-                    source={icons.phone}
+                    src={icons.phone}
                 />
-                <TextInput
+                <input
                     style={[styles.specialborderForm]}
                     keyboardType="phone-pad"
                     onChangeText={newPhone => setTelephone(newPhone)}
                     defaultValue={telephone}
                 />
-            </View>
-        </View>
-    </View>);
+            </div>
+        </div>
+    </div>);
 
-    const modalFooter = (<View style={styles.screenContainer2}>
-        <Pressable
+    const modalFooter = (<div style={styles.screenContainer2}>
+        <button
             style={[styles.buttonAnnuler]}
-            onPress={() => {
+            onClick={() => {
                 setModalVisible(!modalVisible)
                 setBackButton(true)
             }}
         >
-            <Text style={styles.textBtnSecondary}>Annuler</Text>
-        </Pressable>
-        <Pressable
+            <span style={styles.textBtnSecondary}>Annuler</span>
+        </button>
+        <button
             style={[styles.buttonAnnuler2]}
-            onPress={() => submitChange()}
+            onClick={() => submitChange()}
         >
-            <Text style={styles.textBtnSecondary2}>{activeString.ENTERPRISE_INFORMATIONS.VALIDATE}</Text>
-        </Pressable>
-    </View>)
+            <span style={styles.textBtnSecondary2}>{activeString.ENTERPRISE_INFORMATIONS.VALIDATE}</span>
+        </button>
+    </div>)
 
     useEffect(() => {
         getUser();
@@ -252,12 +240,12 @@ export const EnterpriseInformations = (props: any) => {
             {isLoading ? <Loader /> : null}
             <CustomModal title='Modifier mes informations' visible={modalVisible} setVisible={setModalVisible} content={modalContent} footerContent={modalFooter} width='50%' dismissableMask={false} />
 
-            <View style={{ marginTop: 64, padding: 34, backgroundColor: 'white' }}>
+            <div style={{ marginTop: 64, padding: 34, backgroundColor: 'white' }}>
                 <TitleRefont title={changeForbiden ? activeString.ENTERPRISE_INFORMATIONS.MORE_INFORMATIONS : activeString.ENTERPRISE_INFORMATIONS.TITLE} />
-                <View style={styles.screenContainer}>
-                    {changeForbiden ? null : <TouchableOpacity
+                <div style={styles.screenContainer}>
+                    {changeForbiden ? null : <button
                         activeOpacity={0.8}
-                        onPress={() => {
+                        onClick={() => {
                             setAdress(information.headQuarter);
                             setMail(information.email);
                             setAbout(information.description);
@@ -270,26 +258,26 @@ export const EnterpriseInformations = (props: any) => {
                         style={[
                             styles.ModifyButtonContainer
                         ]}>
-                        <Text style={styles.ModifyButtonText}>{activeString.ENTERPRISE_INFORMATIONS.CHANGE}</Text>
-                    </TouchableOpacity>}
-                </View>
+                        <span style={styles.ModifyButtonText}>{activeString.ENTERPRISE_INFORMATIONS.CHANGE}</span>
+                    </button>}
+                </div>
 
-                <View style={styles.main_container}>
-                    <View style={styles.stHeader}>
-                        <Image
-                            source={avatar ? { uri: avatar } : images.avatar_6}
+                <div style={styles.main_container}>
+                    <div style={styles.stHeader}>
+                        <img
+                            src={avatar ? { uri: avatar } : images.avatar_6}
                             style={styles.image}
                         />
-                        <View style={styles.textContainer}>
-                            <View>
-                                <Text style={styles.titlePrimaire}>
+                        <div style={styles.textContainer}>
+                            <div>
+                                <span style={styles.titlePrimaire}>
                                     {information?.name && information?.name !== 'invalide'
                                         ? information?.name
                                         : ''}
-                                </Text>
-                            </View>
-                            <View>
-                                <Text style={styles.descriptionPrimary} numberOfLines={2}>
+                                </span>
+                            </div>
+                            <div>
+                                <span style={styles.descriptionPrimary} numberOfLines={2}>
                                     {adress}
                                     {adress && mail ? ' , ' : ''}
                                     {mail}
@@ -299,81 +287,81 @@ export const EnterpriseInformations = (props: any) => {
                                     {information?.stat}
                                     {information?.stat && information?.nif ? ' , ' : ''}{' '}
                                     {information?.nif}
-                                </Text>
-                            </View>
-                        </View>
-                    </View>
-                </View>
-                <View style={{ borderWidth: 1, borderStyle: 'dashed', borderRadius: 20, borderColor: COLORS.black, paddingVertical: 20 }}>
-                    <View style={styles.pageContainer}>
-                        <View>
-                            <View style={styles.itemWrapper}>
-                                <Image
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style={{ borderWidth: 1, borderStyle: 'dashed', borderRadius: 20, borderColor: COLORS.black, paddingVertical: 20 }}>
+                    <div style={styles.pageContainer}>
+                        <div>
+                            <div style={styles.itemWrapper}>
+                                <img
                                     style={styles.iconActus}
-                                    source={icons.description}
+                                    src={icons.description}
                                 />
-                                <Text style={styles.valueActus} numberOfLines={2}>
+                                <span style={styles.valueActus} numberOfLines={2}>
                                     {about}
-                                </Text>
-                            </View>
-                            <View style={styles.itemWrapper}>
-                                <Image
+                                </span>
+                            </div>
+                            <div style={styles.itemWrapper}>
+                                <img
                                     style={styles.iconActus}
-                                    source={icons.secteurdActivite}
+                                    src={icons.secteurdActivite}
                                 />
-                                <Text style={styles.valueActus} numberOfLines={2}>
+                                <span style={styles.valueActus} numberOfLines={2}>
                                     {activite}
-                                </Text>
-                            </View>
-                            <View style={styles.itemWrapper}>
-                                <Image
+                                </span>
+                            </div>
+                            <div style={styles.itemWrapper}>
+                                <img
                                     style={styles.iconActus}
-                                    source={icons.calendar}
+                                    src={icons.calendar}
                                 />
-                                <Text style={styles.valueActus} numberOfLines={2}>
+                                <span style={styles.valueActus} numberOfLines={2}>
                                     Depuis {year}
-                                </Text>
-                            </View>
-                            <View style={styles.itemWrapper}>
-                                <Image
+                                </span>
+                            </div>
+                            <div style={styles.itemWrapper}>
+                                <img
                                     style={styles.iconActus}
-                                    source={icons.map}
+                                    src={icons.map}
                                 />
-                                <Text style={styles.valueActus} numberOfLines={2}>
+                                <span style={styles.valueActus} numberOfLines={2}>
                                     {adress}
-                                </Text>
-                            </View>
-                            <View style={styles.itemWrapper}>
-                                <Image
+                                </span>
+                            </div>
+                            <div style={styles.itemWrapper}>
+                                <img
                                     style={styles.iconActus}
-                                    source={icons.globe}
+                                    src={icons.globe}
                                 />
-                                <Text style={styles.valueActus} numberOfLines={2}>
+                                <span style={styles.valueActus} numberOfLines={2}>
                                     {web}
-                                </Text>
-                            </View>
-                            <View style={styles.itemWrapper}>
-                                <Image
+                                </span>
+                            </div>
+                            <div style={styles.itemWrapper}>
+                                <img
                                     style={styles.iconActus}
-                                    source={icons.mail}
+                                    src={icons.mail}
                                 />
-                                <Text style={styles.valueActus} numberOfLines={2}>
+                                <span style={styles.valueActus} numberOfLines={2}>
                                     {mail}
-                                </Text>
-                            </View>
-                            <View style={styles.itemWrapper}>
-                                <Image
+                                </span>
+                            </div>
+                            <div style={styles.itemWrapper}>
+                                <img
                                     style={styles.iconActus}
-                                    source={icons.phone}
+                                    src={icons.phone}
                                 />
-                                <Text style={styles.valueActus} numberOfLines={2}>
+                                <span style={styles.valueActus} numberOfLines={2}>
                                     {telephone}
-                                </Text>
-                            </View>
-                        </View>
-                    </View>
-                </View>
-            </View>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
         </Fragment>

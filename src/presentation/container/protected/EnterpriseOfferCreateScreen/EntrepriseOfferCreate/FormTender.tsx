@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {
-    View,
-    Text,
-    Platform,
-    BackHandler,
-    TouchableOpacity,
-} from 'react-native';
+
 
 import { InputField } from '../../../../components/Inputs/InputField';
 import { useSelector } from 'react-redux';
@@ -75,8 +69,7 @@ export const FormTender = (props: any) => {
         audience: 3,
         datePublication: '',
         abonmentDuration: null,
-        price: 0,
-    });
+        price: 0});
     const [dataCost, setDataCost] = useState();
     const [priceWeek, setPriceWeek] = useState();
     const [priceMonth, setPriceMonth] = useState();
@@ -134,8 +127,7 @@ export const FormTender = (props: any) => {
                     ? `${initialDateIOS}`
                     : '',
             abonmentDuration: null,
-            price: 0,
-        });
+            price: 0});
         handleBackButton();
     };
 
@@ -151,8 +143,7 @@ export const FormTender = (props: any) => {
                         ? `${initialDateIOS}`
                         : '',
                 abonmentDuration: null,
-                price: 0,
-            });
+                price: 0});
         }
     }, []);
 
@@ -277,13 +268,12 @@ export const FormTender = (props: any) => {
 
     return (<>
         <PDFViewerScreen visible={visible} setVisible={setVisible} data={file} isDownloadAllowed={false} />
-        <View
+        <div
             style={{
                 paddingHorizontal: SIZES.padding,
-                justifyContent: 'space-between',
-            }}>
+                justifyContent: 'space-between'}}>
             <CustomModal title={"Moyen de paiement"} visible={showPayment} setVisible={setShowPayment} content={<PaymentWays />} />
-            <View style={styles.inputWrap}>
+            <div style={styles.inputWrap}>
                 <InputField
                     label={activeStr.tender.title}
                     value={values.title}
@@ -293,12 +283,12 @@ export const FormTender = (props: any) => {
                     maxLength={150}
                     isEditable={true}
                 />
-            </View>
+            </div>
             {titleError && (
-                <Text style={{ color: COLORS.red_color }}>{activeString.ERROR.EMPTY_FIELD}</Text>
+                <span style={{ color: COLORS.red_color }}>{activeString.ERROR.EMPTY_FIELD}</span>
             )}
 
-            <View style={styles.inputWrap}>
+            <div style={styles.inputWrap}>
                 <InputField
                     label={activeStr.tender.detail}
                     value={values.detail}
@@ -308,12 +298,12 @@ export const FormTender = (props: any) => {
                     maxLength={150}
                     isEditable={true}
                 />
-            </View>
+            </div>
             {detailError && (
-                <Text style={{ color: COLORS.red_color }}>{activeString.ERROR.EMPTY_FIELD}</Text>
+                <span style={{ color: COLORS.red_color }}>{activeString.ERROR.EMPTY_FIELD}</span>
             )}
 
-            <View style={styles.inputWrap}>
+            <div style={styles.inputWrap}>
                 <InputSelect
                     label={activeStr.tender.audience}
                     name="audience"
@@ -322,13 +312,13 @@ export const FormTender = (props: any) => {
                     isEditable={true}
                     data={audienceList}
                 />
-            </View>
+            </div>
             {audienceError && (
-                <Text style={{ color: COLORS.red_color }}>{activeString.ERROR.EMPTY_PICK}</Text>
+                <span style={{ color: COLORS.red_color }}>{activeString.ERROR.EMPTY_PICK}</span>
             )}
 
             {!modiferData && dataCost && (
-                <View style={styles.inputWrap}>
+                <div style={styles.inputWrap}>
                     <InputSelect
                         label={activeStr.advertisement.tarif}
                         name="abonmentDuration"
@@ -337,15 +327,15 @@ export const FormTender = (props: any) => {
                         isEditable={true}
                         data={dataCost}
                     />
-                </View>
+                </div>
             )}
 
             {abonmentDurationError && (
-                <Text style={{ color: COLORS.red_color }}>{activeString.ERROR.EMPTY_PICK}</Text>
+                <span style={{ color: COLORS.red_color }}>{activeString.ERROR.EMPTY_PICK}</span>
             )}
 
             {!modiferData && (
-                <View style={styles.inputWrap}>
+                <div style={styles.inputWrap}>
                     <CustomInputDatePicker
                         value={values.datePublication}
                         required
@@ -369,11 +359,11 @@ export const FormTender = (props: any) => {
                             ).toISOString()
                         }
                     />
-                </View>
+                </div>
             )}
 
             {datePublicationError && (
-                <Text style={{ color: COLORS.red_color }}>{activeString.ERROR.EMPTY_PICK}</Text>
+                <span style={{ color: COLORS.red_color }}>{activeString.ERROR.EMPTY_PICK}</span>
             )}
 
             {/* <FileUploader
@@ -396,36 +386,35 @@ export const FormTender = (props: any) => {
             />
 
             {fileError && (
-                <Text style={{ color: COLORS.red_color }}>{activeString.ERROR.EMPTY_PICK_PDF}</Text>
+                <span style={{ color: COLORS.red_color }}>{activeString.ERROR.EMPTY_PICK_PDF}</span>
             )}
             
-            <View
+            <div
                 style={{
                     flex: 1,
-                    height: 260,
-                }}>
+                    height: 260}}>
                 {!modiferData && (
-                    <View>
-                        <View>
+                    <div>
+                        <div>
 
-                            <TouchableOpacity
+                            <button
                                 style={[styles.buttonAnnuler]}
-                                onPress={(e: any) => handleCancel()}>
-                                <Text style={styles.textBtnSecondary}>Annuler</Text>
-                            </TouchableOpacity>
+                                onClick={(e: any) => handleCancel()}>
+                                <span style={styles.textBtnSecondary}>Annuler</span>
+                            </button>
 
-                            <TouchableOpacity
+                            <button
                                 style={[styles.buttonAnnuler2]}
-                                onPress={isLoading ? null : () => handleSubmit()}>
-                                <Text style={styles.textBtnSecondary2}>
+                                onClick={isLoading ? null : () => handleSubmit()}>
+                                <span style={styles.textBtnSecondary2}>
                                     {ENTERPRISE_INFORMATIONS.VALIDATE}
-                                </Text>
-                            </TouchableOpacity>
+                                </span>
+                            </button>
 
-                        </View>
-                    </View>
+                        </div>
+                    </div>
                 )}
-            </View>
+            </div>
             <Popup
                 message={message}
                 visible={resultVisible}
@@ -443,7 +432,7 @@ export const FormTender = (props: any) => {
                 advertisementOK={true}
             />
             {/* {isLoading && <Loader />} */}
-        </View>
+        </div>
     </>
     );
 };

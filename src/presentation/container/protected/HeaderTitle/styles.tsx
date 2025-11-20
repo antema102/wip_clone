@@ -1,8 +1,8 @@
-import { StyleSheet, Dimensions } from 'react-native';
+;
 import { COLORS, SIZES, FONTS } from '../../../../resources/constants';
-let windowWidth = Dimensions.get('window').width;
+let windowWidth = window.innerWidth;
 
-export const styles = StyleSheet.create({
+export const styles = {
   headerCreateCv: {
     display: 'flex',
     flexDirection: 'row',
@@ -12,8 +12,7 @@ export const styles = StyleSheet.create({
     height: 200,
     backgroundColor: COLORS.blueLight,
     borderStartEndRadius: 10,
-    borderStartStartRadius: 10,
-  },
+    borderStartStartRadius: 10},
   headerCreateCvText: {
     fontSize: 32,
     fontWeight: 'bold',
@@ -24,5 +23,4 @@ export const styles = StyleSheet.create({
     height: 185,
     width: 185,
     objectFit:"cover"
-  },
-});
+  }});

@@ -1,24 +1,21 @@
-import {StyleSheet} from 'react-native';
+;
 import { COLORS, SIZES } from '../../../../resources/constants';
 
-export default StyleSheet.create({
+export default ({
   containerSelect: {
     flex: 1,
     marginHorizontal: 4,
-    borderRadius: 12,
-  },
+    borderRadius: 12},
   textError: {
     color: '#f00',
-    fontSize: 14,
-  },
+    fontSize: 14},
 
 
   centeredView: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: 'rgba(52, 52, 52, 0.25)',
-  },
+    backgroundColor: 'rgba(52, 52, 52, 0.25)'},
   modalView: {
     width: 'auto%',
     height: 'auto',
@@ -30,14 +27,11 @@ export default StyleSheet.create({
     paddingVertical: 20,
     width: '100%',
     borderColor: COLORS.lightGray,
-    borderTopWidth: 1,
-  },
+    borderTopWidth: 1},
   buttonOpen: {
-    backgroundColor: "#F194FF",
-  },
+    backgroundColor: "#F194FF"},
   buttonClose: {
-    backgroundColor: "#2196F3",
-  },
+    backgroundColor: "#2196F3"},
   textStyle: {
     color: COLORS.black,
     paddingHorizontal: 10,
@@ -46,5 +40,4 @@ export default StyleSheet.create({
   modalText: {
     marginBottom: 15,
     textAlign: "center"
-  },
-});
+  }});

@@ -1,12 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {
-  View,
-  TouchableOpacity,
-  Text,
-  Image,
-  RefreshControl,
-  ScrollView
-} from 'react-native';
+;
 
 import { styles } from './styles';
 import { useForm } from './useForm';
@@ -31,8 +24,7 @@ export const RefineCompany = (props: any) => {
     jobWish: false,
     activitySector: false,
     disponibility: false,
-    salaryExpectation: false,
-  });
+    salaryExpectation: false});
   const [refreshing, setRefreshing] = useState(false);
   const [activityList, setActivityList] = useState<any>();
   const [availabilityList, setAvailabilityList] = useState<any>();
@@ -54,8 +46,7 @@ export const RefineCompany = (props: any) => {
     showErrors,
     handleInit,
     popupData,
-    setVisiblePopup,
-  } = useForm(data, Validation, setIsLoading, navigation, setIsLayerEditable);
+    setVisiblePopup} = useForm(data, Validation, setIsLoading, navigation, setIsLayerEditable);
 
   const getDynamicList = async () => {
     setIsLoading(true);
@@ -83,8 +74,7 @@ export const RefineCompany = (props: any) => {
   const onChangeEditable = (layerName: string) => {
     setIsLayerEditable({
       ...isLayerEditable,
-      [layerName]: !isLayerEditable[layerName],
-    });
+      [layerName]: !isLayerEditable[layerName]});
   };
 
   values.jobWish_level = 7;
@@ -94,14 +84,14 @@ export const RefineCompany = (props: any) => {
   const activeStr = lang === 'fr' ? TitleLabels : TitleLabels_en;
 
   return (
-    <View>
-      <ScrollView>
+    <div>
+      <div style={{overflowY: "auto"}}>
         {candidat ? null : <MainPageHeader title={activeString.SEARCHENT_RESULT.FIND_COMPANY_THAT_ARE_HIRING} />}
-        <View style={[styles.containers]}>
-          <ScrollView style={[styles.contentForm, styles.containerForm]}>
-            <View>
+        <div style={[styles.containers]}>
+          <div style={{overflowY: "auto"}} style={[styles.contentForm, styles.containerForm]}>
+            <div>
               {/** Layer Job Sought */}
-              <View style={formsStyles.inputWrapBlue}>
+              <div style={formsStyles.inputWrapBlue}>
                 <CriterionField
                   type="text"
                   label={activeStr.FindOffer.post}
@@ -116,10 +106,10 @@ export const RefineCompany = (props: any) => {
                   necessary
                   noSwitch={true}
                 />
-              </View>
+              </div>
               {/** Layer Activity Sector */}
               {activityList && (
-                <View style={formsStyles.inputWrapBlue}>
+                <div style={formsStyles.inputWrapBlue}>
                   <CriterionField
                     type="select"
                     label={activeStr.FindOffer.secteur}
@@ -133,12 +123,12 @@ export const RefineCompany = (props: any) => {
                     errors={errors}
                     showErrors={showErrors}
                   />
-                </View>
+                </div>
               )}
 
               {/** Layer Disponibility */}
               {availabilityList && (
-                <View style={formsStyles.inputWrapBlue}>
+                <div style={formsStyles.inputWrapBlue}>
                   <CriterionField
                     type="select"
                     label={activeStr.FindOffer.availability}
@@ -152,11 +142,11 @@ export const RefineCompany = (props: any) => {
                     errors={errors}
                     showErrors={showErrors}
                   />
-                </View>
+                </div>
               )}
 
               {/** Minimum Expected Salary */}
-              <View style={formsStyles.inputWrapBlue}>
+              <div style={formsStyles.inputWrapBlue}>
                 <CriterionField
                   type="text"
                   label={activeStr.FindOffer.pretension}
@@ -169,32 +159,32 @@ export const RefineCompany = (props: any) => {
                   errors={errors}
                   showErrors={showErrors}
                 />
-              </View>
-            </View>
-          </ScrollView>
+              </div>
+            </div>
+          </div>
 
-          <View style={isMobile ? styles.footerFormLargeSecMobile : styles.footerFormLargeSec}>
-            <TouchableOpacity onPress={handleInit} style={styles.reinit}>
-              <Text style={styles.textButtonOrange}>Reinitialiser</Text>
-              <Image source={icons.reload} style={styles.iconReload} />
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={handleSubmit}
+          <div style={isMobile ? styles.footerFormLargeSecMobile : styles.footerFormLargeSec}>
+            <button onClick={handleInit} style={styles.reinit}>
+              <span style={styles.textButtonOrange}>Reinitialiser</span>
+              <img src={icons.reload} style={styles.iconReload} />
+            </button>
+            <button
+              onClick={handleSubmit}
               style={[{ alignSelf: 'center' }, styles.submitJob]}>
-              <Text style={styles.textButton}>Rechercher</Text>
-            </TouchableOpacity>
-          </View>
+              <span style={styles.textButton}>Rechercher</span>
+            </button>
+          </div>
 
           <Popup
             visible={popupData.visibility}
             onClose={setVisiblePopup}
             cancel
             closeTitle="OK">
-            <Text style={{ color: COLORS.black }}>{popupData.message}</Text>
+            <span style={{ color: COLORS.black }}>{popupData.message}</span>
           </Popup>
-        </View>
-      </ScrollView>
-    </View>
+        </div>
+      </div>
+    </div>
 
 
   );

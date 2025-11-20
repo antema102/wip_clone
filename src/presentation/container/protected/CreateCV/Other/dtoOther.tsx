@@ -3,13 +3,10 @@ export interface IError {
 }
 
 export const showErrorValuesDefault = {
-  sport: false,
-};
+  sport: false};
 
 export const showErrorValuesSubmit = {
-  sport: true,
-};
+  sport: true};
 
 export const defaultValues: IError = {
-  sport: '',
-};
+  sport: ''};

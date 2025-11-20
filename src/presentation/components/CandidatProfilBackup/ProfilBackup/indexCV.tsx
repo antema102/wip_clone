@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+;
 import { useSelector } from 'react-redux';
 
 import { styles } from './styles';
@@ -29,8 +29,7 @@ interface ProfilBackupProps {
       jobType?: string;
       jobDescription?: string;
       [key: string]: any;
-    }>,
-  },
+    }>},
   removeFavoris: (id: string) => void,
   dateToString: (id: Date) => void,
   detailsFavorites: (id: string) => void,
@@ -67,23 +66,23 @@ export const ProfilBackup = (props: ProfilBackupProps) => {
   }, []);
 
   return (
-    <View style={styles.companyContainer}>
-      <TouchableOpacity
+    <div style={styles.companyContainer}>
+      <button
         style={{ flexDirection: 'row', alignItems: 'center' }}
-        onPress={() => detailsFavorites(id)}>
-        <View style={styles.candidateImgContainer}>
-          <Image style={styles.candidatImg} source={avatar ? { uri: avatar } : { uri: images.avatar_6 }} />
-        </View>
-        <View style={styles.candidateDetailsContainer}>
-          <Text style={styles.candidatName}>
+        onClick={() => detailsFavorites(id)}>
+        <div style={styles.candidateImgContainer}>
+          <img style={styles.candidatImg} src={avatar ? { uri: avatar } : { uri: images.avatar_6 }} />
+        </div>
+        <div style={styles.candidateDetailsContainer}>
+          <span style={styles.candidatName}>
             {condition
               ? getAcronym(
                 `${item?.user?.firstName ?? ''} ${item?.user?.lastName ?? ''
                 }`,
               )
               : `${item?.user?.firstName ?? ''} ${item?.user?.lastName ?? ''}`}
-          </Text>
-          <Text style={styles.candidatPost}>
+          </span>
+          <span style={styles.candidatPost}>
             {[
               disponibility,
               lastExperience[0]?.jobPlace,
@@ -93,14 +92,14 @@ export const ProfilBackup = (props: ProfilBackupProps) => {
             ]
               .filter(Boolean)
               .join(' - ')}
-          </Text>
-          <Text style={styles.candidatExp}>{date}</Text>
-        </View>
+          </span>
+          <span style={styles.candidatExp}>{date}</span>
+        </div>
 
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => removeFavoris(id)}>
-        <Image style={styles.favorisImage} source={{ uri: icons.favoris }} />
-      </TouchableOpacity>
-    </View>
+      </button>
+      <button onClick={() => removeFavoris(id)}>
+        <img style={styles.favorisImage} src={{ uri: icons.favoris }} />
+      </button>
+    </div>
   );
 };

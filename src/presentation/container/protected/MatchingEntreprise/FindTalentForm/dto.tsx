@@ -28,8 +28,7 @@ export const showErrorValuesDefault = {
   sport: false,
   interest: false,
   loger: false,
-  recommandation: false,
-};
+  recommandation: false};
 
 export const showErrorValuesSubmit = {
   activitySector: true,
@@ -55,15 +54,12 @@ export const showErrorValuesSubmit = {
   sport: true,
   interest: true,
   loger: true,
-  recommandation: true,
-};
+  recommandation: true};
 
 export const defaultValues: IError = {
   desiredPost: '',
-  desiredPost_level: '5',
-};
+  desiredPost_level: '5'};
 
 export const defaultErrorsValues: IError = {
   desiredPost: '',
-  desiredPost_level: '',
-};
+  desiredPost_level: ''};

@@ -1,14 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import {
-    View,
-    ScrollView,
-    Text,
-    Image,
-    FlatList,
-    Platform,
-    TouchableOpacity,
-    Modal,
-} from 'react-native';
+import { Dialog } from 'primereact/dialog';
+
 import { useSelector } from 'react-redux';
 import { CVService } from '../../../../../service/applicatif/curriculumVitae.sa';
 import { useFavorites } from '../../../../../service/redux/ducks/favorites';
@@ -274,10 +266,10 @@ const CandidatDetail = ({ stateValue }: any) => {
 
     return (
         <>
-            <View style={styles.container}>
-                <ScrollView style={{ backgroundColor: 'transparent' }}>
+            <div style={styles.container}>
+                <div style={{overflowY: "auto"}} style={{ backgroundColor: 'transparent' }}>
 
-                    <Modal
+                    <Dialog
                         animationType="slide"
                         transparent
                         visible={modalVisible}
@@ -285,28 +277,28 @@ const CandidatDetail = ({ stateValue }: any) => {
                             setModalVisible(!modalVisible);
                         }}>
                         {isThereprogressStatus ? (
-                            <View style={styles.centeredView}>
+                            <div style={styles.centeredView}>
                                 <VideoProgressBar
                                     progressBar={progressBar}
                                     waitingText={RESUME_VIDEO.WAITING_WHILE_DOWNLOADING}
                                     goBack={hideTheProgressBar}
                                 />
-                            </View>
+                            </div>
                         ) : (
                             null
                         )}
-                    </Modal>
+                    </Dialog>
 
                     {/* <Header {...props} /> */}
-                    <View style={styles.containers}>
-                        <View style={styles.vtitle}>
+                    <div style={styles.containers}>
+                        <div style={styles.vtitle}>
                             {/** Image Profile, Name and Profession */}
-                            <View style={styles.candidatIdentity}>
-                                <Image
+                            <div style={styles.candidatIdentity}>
+                                <img
                                     style={styles.imageStyle}
-                                    source={avatar ? { uri: avatar } : { uri: images.avatar_6 }}
+                                    src={avatar ? { uri: avatar } : { uri: images.avatar_6 }}
                                 />
-                                <Text style={styles.candidatIdentityName}>
+                                <span style={styles.candidatIdentityName}>
                                     {condition
                                         ? getAcronym(
                                             `${datas?.user?.firstName || ''} ${datas?.user?.lastName || ''
@@ -314,327 +306,324 @@ const CandidatDetail = ({ stateValue }: any) => {
                                         )
                                         : `${datas?.user?.firstName || ''} ${datas?.user?.lastName || ''
                                         }`}
-                                </Text>
-                                <Text style={styles.candidatIdentityPost}>
+                                </span>
+                                <span style={styles.candidatIdentityPost}>
                                     {datas?.jobWish?.name || ''}
-                                </Text>
-                            </View>
+                                </span>
+                            </div>
 
                             {/* * Compatibility Component */}
-                            <View style={[styles.compatibilityContainer]}>
+                            <div style={[styles.compatibilityContainer]}>
 
                                 {stateValue?.score ? (
-                                    <View style={[styles.compatibilityItem]}>
-                                        <Text
+                                    <div style={[styles.compatibilityItem]}>
+                                        <span
                                             style={{
                                                 color: COLORS.white,
                                                 height: 26,
-                                                fontSize: SIZES.h5,
-                                            }}>{`${stateValue.score}%`}</Text>
-                                        <Text style={styles.labelInfos}>de compatibilité</Text>
-                                    </View>
+                                                fontSize: SIZES.h5}}>{`${stateValue.score}%`}</span>
+                                        <span style={styles.labelInfos}>de compatibilité</span>
+                                    </div>
                                 ) : null}
 
-                                {user?.role === 'company' && (<View style={[styles.compatibilityItem]}>
-                                    <TouchableOpacity
-                                        onPress={toggleFavorites}
+                                {user?.role === 'company' && (<div style={[styles.compatibilityItem]}>
+                                    <button
+                                        onClick={toggleFavorites}
                                         style={styles.compatibilityItem}>
-                                        <Image
-                                            source={isFavorite ? { uri: icons.favoris } : { uri: icons.deFavoris }}
-                                            style={{ width: 28, height: 26, resizeMode: 'cover' }}
+                                        <img
+                                            src={isFavorite ? { uri: icons.favoris } : { uri: icons.deFavoris }}
+                                            style={{ width: 28, height: 26, objectFit: 'cover' as const }}
                                         />
-                                        <Text style={styles.labelInfos}>
+                                        <span style={styles.labelInfos}>
                                             {isFavorite ? 'Favoris' : 'Ajouter aux favoris'}
-                                        </Text>
-                                    </TouchableOpacity>
-                                </View>)
+                                        </span>
+                                    </button>
+                                </div>)
                                 }
                                 {!condition && CVVideo ? (
-                                    <View style={[styles.compatibilityItem]}>
-                                        <TouchableOpacity
-                                            onPress={() => displayVideoCandidat()}
+                                    <div style={[styles.compatibilityItem]}>
+                                        <button
+                                            onClick={() => displayVideoCandidat()}
                                             style={styles.compatibilityItem}>
-                                            <Image
-                                                source={{ uri: icons.youtube }}
-                                                style={{ width: 28, height: 26, resizeMode: 'cover' }}
+                                            <img
+                                                src={{ uri: icons.youtube }}
+                                                style={{ width: 28, height: 26, objectFit: 'cover' as const }}
                                             />
-                                            <Text style={styles.labelInfos}>Présentation</Text>
-                                        </TouchableOpacity>
-                                    </View>
+                                            <span style={styles.labelInfos}>Présentation</span>
+                                        </button>
+                                    </div>
                                 ) : null}
-                            </View>
+                            </div>
                             {/** Candidate about */}
-                            <View style={styles.candidateAboutContainer}>
-                                <View style={styles.candidateAboutItem}>
-                                    <View style={styles.puceBlue} />
-                                    <View>
-                                        <Text style={styles.labelPrim}>LIEU :</Text>
-                                        <Text style={styles.descrPrim}>{`${datas?.adress?.zone || ''
-                                            }`}</Text>
-                                    </View>
-                                </View>
+                            <div style={styles.candidateAboutContainer}>
+                                <div style={styles.candidateAboutItem}>
+                                    <div style={styles.puceBlue} />
+                                    <div>
+                                        <span style={styles.labelPrim}>LIEU :</span>
+                                        <span style={styles.descrPrim}>{`${datas?.adress?.zone || ''
+                                            }`}</span>
+                                    </div>
+                                </div>
 
-                                <View style={styles.candidateAboutItem}>
-                                    <View style={styles.puceBlue} />
-                                    <View>
-                                        <Text style={styles.labelPrim}>STATUT :</Text>
-                                        <Text style={styles.descrPrim}>{datas?.statut}</Text>
-                                    </View>
-                                </View>
+                                <div style={styles.candidateAboutItem}>
+                                    <div style={styles.puceBlue} />
+                                    <div>
+                                        <span style={styles.labelPrim}>STATUT :</span>
+                                        <span style={styles.descrPrim}>{datas?.statut}</span>
+                                    </div>
+                                </div>
 
-                                <View style={styles.candidateAboutItem}>
-                                    <View style={styles.puceBlue} />
-                                    <View>
-                                        <Text style={styles.labelPrim}>PROFIL :</Text>
-                                        <Text style={styles.descrPrim}>
+                                <div style={styles.candidateAboutItem}>
+                                    <div style={styles.puceBlue} />
+                                    <div>
+                                        <span style={styles.labelPrim}>PROFIL :</span>
+                                        <span style={styles.descrPrim}>
                                             {datas?.jobWish?.yearOfExperience
                                                 ? getSeniority(datas?.jobWish?.yearOfExperience)
                                                 : ''}
-                                        </Text>
-                                    </View>
-                                </View>
+                                        </span>
+                                    </div>
+                                </div>
 
-                                <View style={styles.candidateAboutItem}>
-                                    <View style={styles.puceBlue} />
-                                    <View>
-                                        <Text style={styles.labelPrim}>PRESTATION :</Text>
-                                        <Text style={styles.descrPrim}>
+                                <div style={styles.candidateAboutItem}>
+                                    <div style={styles.puceBlue} />
+                                    <div>
+                                        <span style={styles.labelPrim}>PRESTATION :</span>
+                                        <span style={styles.descrPrim}>
                                             {datas?.jobWish?.salaryExpectation
                                                 ? thousandSeparator(
                                                     datas?.jobWish?.salaryExpectation,
                                                     '.',
                                                 )
                                                 : ''}
-                                        </Text>
-                                    </View>
-                                </View>
+                                        </span>
+                                    </div>
+                                </div>
 
-                                <View style={styles.candidateAboutItem}>
-                                    <View style={styles.puceBlue} />
-                                    <View>
-                                        <Text style={styles.labelPrim}>EXPERIENCES :</Text>
-                                        <Text style={styles.descrPrim}>
+                                <div style={styles.candidateAboutItem}>
+                                    <div style={styles.puceBlue} />
+                                    <div>
+                                        <span style={styles.labelPrim}>EXPERIENCES :</span>
+                                        <span style={styles.descrPrim}>
                                             {datas?.jobWish?.yearOfExperience
                                                 ? `${datas?.jobWish?.yearOfExperience}`
                                                 : ''}
-                                        </Text>
-                                    </View>
-                                </View>
+                                        </span>
+                                    </div>
+                                </div>
 
-                                <View style={styles.candidateAboutItem}>
-                                    <View style={styles.puceBlue} />
-                                    <View>
-                                        <Text style={styles.labelPrim}>DISPONIBILITÉ :</Text>
-                                        <Text style={styles.descrPrim}>
+                                <div style={styles.candidateAboutItem}>
+                                    <div style={styles.puceBlue} />
+                                    <div>
+                                        <span style={styles.labelPrim}>DISPONIBILITÉ :</span>
+                                        <span style={styles.descrPrim}>
                                             {datas?.disponibility ? `${datas?.disponibility}` : ''}
-                                        </Text>
-                                    </View>
-                                </View>
-                            </View>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
 
                             {datas?.recommandation && datas?.recommandation.length !== 0 && (
-                                <View style={styles.badgeContainer}>
-                                    <Image
-                                        source={{ uri: icons.badge }}
-                                        style={{ width: 24, height: 24, resizeMode: 'contain' }}
+                                <div style={styles.badgeContainer}>
+                                    <img
+                                        src={{ uri: icons.badge }}
+                                        style={{ width: 24, height: 24, objectFit: 'contain' as const }}
                                     />
-                                    <Text style={{ marginLeft: 5, color: '#BF9500' }}>
+                                    <span style={{ marginLeft: 5, color: '#BF9500' }}>
                                         Recommandation :
-                                    </Text>
-                                </View>
+                                    </span>
+                                </div>
                             )}
 
                             {datas?.recommandation &&
                                 datas?.recommandation.length !== 0 &&
                                 datas?.recommandation?.map((item: {}) => (
-                                    <View style={{ width: '100%' }}>
+                                    <div style={{ width: '100%' }}>
                                         <FileDownloader data={item} />
-                                    </View>
+                                    </div>
                                 ))}
 
                             {datas?.portfolio ? (
-                                <View style={{ width: '100%' }}>
+                                <div style={{ width: '100%' }}>
                                     <FileDownloader data={datas.portfolio} isPortfolio={true} />
-                                </View>
+                                </div>
                             ) : null}
 
                             {/** Candidate Experiences */}
-                            {datas?.lastExperience.length !== 0 && (<View style={styles.candidateExpContainer}>
-                                <Text style={styles.candidateExpTitle}>Expériences</Text>
-                                <FlatList
+                            {datas?.lastExperience.length !== 0 && (<div style={styles.candidateExpContainer}>
+                                <span style={styles.candidateExpTitle}>Expériences</span>
+                                <div
                                     data={datas?.lastExperience}
                                     renderItem={({ item, index }) => (
-                                        <View style={styles.candidatExpItem}>
-                                            <Text
+                                        <div style={styles.candidatExpItem}>
+                                            <span
                                                 style={
                                                     styles.refExp
-                                                }>{`${item.year} : ${item.jobPlace}`}</Text>
-                                            <Text style={styles.refExpPost}>{item.jobType}</Text>
-                                            <View
+                                                }>{`${item.year} : ${item.jobPlace}`}</span>
+                                            <span style={styles.refExpPost}>{item.jobType}</span>
+                                            <div
                                                 style={{
                                                     height: 2,
                                                     width: 30,
                                                     backgroundColor: COLORS.trait_blue,
-                                                    marginTop: 10,
-                                                }}
+                                                    marginTop: 10}}
                                             />
-                                        </View>
+                                        </div>
                                     )}
                                     keyExtractor={(item, index) => `experiences_${index}`}
                                 />
-                            </View>)}
+                            </div>)}
 
                             {/** Candidate Formations */}
-                            <View style={styles.candidateExpContainer}>
-                                <Text style={styles.candidateExpTitle}>Formations</Text>
-                                <FlatList
+                            <div style={styles.candidateExpContainer}>
+                                <span style={styles.candidateExpTitle}>Formations</span>
+                                <div
                                     data={datas?.studyArea}
                                     renderItem={({ item }) => (
-                                        <View style={styles.candidatExpItem}>
-                                            <Text style={styles.refExp}>{item?.level}</Text>
-                                            <Text style={styles.refExpPost}>{item.filiere}</Text>
+                                        <div style={styles.candidatExpItem}>
+                                            <span style={styles.refExp}>{item?.level}</span>
+                                            <span style={styles.refExpPost}>{item.filiere}</span>
                                             {item?.university ? (
-                                                <View style={styles.inBetween}>
-                                                    <Text style={styles.others}>
+                                                <div style={styles.inBetween}>
+                                                    <span style={styles.others}>
                                                         Ecole ou université :{' '}
-                                                    </Text>
-                                                    <Text style={styles.othersBig}>{item?.university}</Text>
-                                                </View>
+                                                    </span>
+                                                    <span style={styles.othersBig}>{item?.university}</span>
+                                                </div>
                                             ) : null}
-                                            <View
+                                            <div
                                                 style={{
                                                     height: 2,
                                                     width: 30,
                                                     backgroundColor: COLORS.trait_blue,
-                                                    marginTop: 10,
-                                                }}
+                                                    marginTop: 10}}
                                             />
-                                        </View>
+                                        </div>
                                     )}
                                     keyExtractor={(item, index) => `formations_${index}`}
                                 />
-                            </View>
+                            </div>
 
                             {datas && datas.lenght !== 0 && (
-                                <View style={styles.candidateExpContainer}>
-                                    <Text style={styles.candidateExpTitle}>AUTRES</Text>
-                                    <View style={styles.inBetween}>
-                                        <Text style={styles.others}>Age : </Text>
-                                        <Text style={styles.othersBig}>
+                                <div style={styles.candidateExpContainer}>
+                                    <span style={styles.candidateExpTitle}>AUTRES</span>
+                                    <div style={styles.inBetween}>
+                                        <span style={styles.others}>Age : </span>
+                                        <span style={styles.othersBig}>
                                             {calculateAge(datas?.user?.birthDate)}
-                                        </Text>
-                                    </View>
-                                    <View style={styles.inBetween}>
-                                        <Text style={styles.others}>Etat civil : </Text>
-                                        <Text style={styles.othersBig}>{datas?.user?.civility}</Text>
-                                    </View>
-                                    <View style={styles.inBetween}>
-                                        <Text style={styles.others}>Nombre d'enfants : </Text>
-                                        <Text style={styles.othersBig}>
+                                        </span>
+                                    </div>
+                                    <div style={styles.inBetween}>
+                                        <span style={styles.others}>Etat civil : </span>
+                                        <span style={styles.othersBig}>{datas?.user?.civility}</span>
+                                    </div>
+                                    <div style={styles.inBetween}>
+                                        <span style={styles.others}>Nombre d'enfants : </span>
+                                        <span style={styles.othersBig}>
                                             {datas?.user?.childrenNumber}
-                                        </Text>
-                                    </View>
-                                    <View style={styles.inBetween}>
-                                        <Text style={styles.others}>Animal de compagnie: </Text>
-                                        <Text style={styles.othersBig}>{datas?.pet}</Text>
-                                    </View>
-                                    <View style={styles.inBetween}>
-                                        <Text style={styles.others}>Moyen de transport: </Text>
-                                        <Text style={styles.othersBig}>{datas?.transport}</Text>
-                                    </View>
-                                    <View style={styles.inBetween}>
-                                        <Text style={styles.others}>Logé : </Text>
-                                        <Text style={styles.othersBig}>
+                                        </span>
+                                    </div>
+                                    <div style={styles.inBetween}>
+                                        <span style={styles.others}>Animal de compagnie: </span>
+                                        <span style={styles.othersBig}>{datas?.pet}</span>
+                                    </div>
+                                    <div style={styles.inBetween}>
+                                        <span style={styles.others}>Moyen de transport: </span>
+                                        <span style={styles.othersBig}>{datas?.transport}</span>
+                                    </div>
+                                    <div style={styles.inBetween}>
+                                        <span style={styles.others}>Logé : </span>
+                                        <span style={styles.othersBig}>
                                             {logerOrNot[datas?.loger]}
-                                        </Text>
-                                    </View>
-                                    <View style={styles.inBetween}>
-                                        <Text style={styles.others}>Pays actuel : </Text>
-                                        <Text style={styles.othersBig}>
+                                        </span>
+                                    </div>
+                                    <div style={styles.inBetween}>
+                                        <span style={styles.others}>Pays actuel : </span>
+                                        <span style={styles.othersBig}>
                                             {datas?.adress?.country?.name}
-                                        </Text>
-                                    </View>
-                                    <View style={styles.inBetween}>
-                                        <Text style={styles.others}>Province actuelle : </Text>
-                                        <Text style={styles.othersBig}>
+                                        </span>
+                                    </div>
+                                    <div style={styles.inBetween}>
+                                        <span style={styles.others}>Province actuelle : </span>
+                                        <span style={styles.othersBig}>
                                             {datas?.adress?.province?.name}
-                                        </Text>
-                                    </View>
-                                    <View style={styles.inBetween}>
-                                        <Text style={styles.others}>Zone actuelle : </Text>
-                                        <Text style={styles.othersBig}>{datas?.adress?.zone}</Text>
-                                    </View>
-                                    <View style={styles.inBetween}>
-                                        <Text style={styles.others}>Sport : </Text>
-                                        <Text style={styles.othersBig}>{datas?.sport[0]}</Text>
-                                    </View>
-                                    <View style={styles.inBetween}>
-                                        <Text style={styles.othersLarge}>Centre d'intérêt : </Text>
-                                        <Text style={styles.othersBigLarge}>{datas?.interest}</Text>
-                                    </View>
+                                        </span>
+                                    </div>
+                                    <div style={styles.inBetween}>
+                                        <span style={styles.others}>Zone actuelle : </span>
+                                        <span style={styles.othersBig}>{datas?.adress?.zone}</span>
+                                    </div>
+                                    <div style={styles.inBetween}>
+                                        <span style={styles.others}>Sport : </span>
+                                        <span style={styles.othersBig}>{datas?.sport[0]}</span>
+                                    </div>
+                                    <div style={styles.inBetween}>
+                                        <span style={styles.othersLarge}>Centre d'intérêt : </span>
+                                        <span style={styles.othersBigLarge}>{datas?.interest}</span>
+                                    </div>
 
                                     {datas?.jobLocalisation[0] ? (
-                                        <View>
-                                            <View style={styles.inBetween}>
-                                                <Text style={styles.others}>Pays souhaité: </Text>
-                                                <Text style={styles.othersBig}>
+                                        <div>
+                                            <div style={styles.inBetween}>
+                                                <span style={styles.others}>Pays souhaité: </span>
+                                                <span style={styles.othersBig}>
                                                     {datas?.jobLocalisation[0].country?.name}
-                                                </Text>
-                                            </View>
-                                            <View style={styles.inBetween}>
-                                                <Text style={styles.others}>Province souhaitée: </Text>
-                                                <Text style={styles.othersBig}>
+                                                </span>
+                                            </div>
+                                            <div style={styles.inBetween}>
+                                                <span style={styles.others}>Province souhaitée: </span>
+                                                <span style={styles.othersBig}>
                                                     {datas?.jobLocalisation[0].province?.name}
-                                                </Text>
-                                            </View>
-                                            <View style={styles.inBetween}>
-                                                <Text style={styles.others}>
+                                                </span>
+                                            </div>
+                                            <div style={styles.inBetween}>
+                                                <span style={styles.others}>
                                                     Quartier ou Commune souhaitée :{' '}
-                                                </Text>
-                                                <Text style={styles.othersBig}>
+                                                </span>
+                                                <span style={styles.othersBig}>
                                                     {datas?.jobLocalisation[0].zone}
-                                                </Text>
-                                            </View>
-                                        </View>
+                                                </span>
+                                            </div>
+                                        </div>
                                     ) : null}
-                                </View>
+                                </div>
                             )}
 
                             {datas?.presentation ? (
-                                <View style={styles.candidateExpContainer}>
-                                    <Text style={styles.candidateExpTitle}>A propos de moi</Text>
-                                    <View style={styles.inBetween}>
-                                        <Text style={styles.others}>{datas?.presentation}</Text>
-                                    </View>
-                                </View>
+                                <div style={styles.candidateExpContainer}>
+                                    <span style={styles.candidateExpTitle}>A propos de moi</span>
+                                    <div style={styles.inBetween}>
+                                        <span style={styles.others}>{datas?.presentation}</span>
+                                    </div>
+                                </div>
                             ) : null}
 
                             {/** Candidate Languages */}
-                            <View style={styles.candidateExpContainer}>
-                                <Text style={styles.candidateExpTitle}>Langues</Text>
-                                {datas?.languages && <FlatList
+                            <div style={styles.candidateExpContainer}>
+                                <span style={styles.candidateExpTitle}>Langues</span>
+                                {datas?.languages && <div
                                     data={languageFiltered(datas?.languages)}
                                     renderItem={({ item }) => (
-                                        <View style={styles.candidatExpItem}>
-                                            <Text style={styles.refExpPost}>{item?.name}</Text>
+                                        <div style={styles.candidatExpItem}>
+                                            <span style={styles.refExpPost}>{item?.name}</span>
                                             <ProgressBar
                                                 bgcolor={COLORS.primary}
                                                 level={getLanguageLvl(item.level)}
                                             />
-                                        </View>
+                                        </div>
                                     )}
                                     keyExtractor={(item, index) => `languages_${index}`}
                                 />}
-                            </View>
+                            </div>
 
                             {/** Contacting the Candidate */}
-                            <View />
-                            <View style={styles.compatibilityBtnContainer}>
-                                <Text style={styles.compatibilityBtnTitle}>
+                            <div />
+                            <div style={styles.compatibilityBtnContainer}>
+                                <span style={styles.compatibilityBtnTitle}>
                                     {stateValue?.score
                                         ? `Compatibilité avec votre profil: ${stateValue.score}%`
                                         : ''}
-                                </Text>
+                                </span>
                                 <Popup
                                     phone={phoneNumber}
                                     compatibility={''}
@@ -645,13 +634,13 @@ const CandidatDetail = ({ stateValue }: any) => {
                                     jobTitle={offerName}
                                     didApply={didApply}
                                 />
-                            </View>
-                            <View style={styles.ofsset120} />
-                        </View>
-                    </View>
-                    {isLoading ? <Loader /> : <View />}
-                </ScrollView>
-            </View>
+                            </div>
+                            <div style={styles.ofsset120} />
+                        </div>
+                    </div>
+                    {isLoading ? <Loader /> : <div />}
+                </div>
+            </div>
             {visible ? <CustomModal title={'Présentation vidéo'} visible={visible} setVisible={setVisible} content={<DisplayVideo candidatId={candidatID} viewOnly={user?.role === ROLEACCOUNT.candidate ? false : true} />} /> : null}
         </>
     );

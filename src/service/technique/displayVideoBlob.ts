@@ -5,13 +5,11 @@ export const displayVideoWithProgress = async (url, token, setDownloadProgressBa
     const response = await axios.get(url, {
       responseType: 'blob',
       headers: {
-        Authorization: `Bearer ${token}`,
-      },
+        Authorization: `Bearer ${token}`},
       onDownloadProgress: (progressEvent) => {
         const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
         setDownloadProgressBar(percentCompleted);
-      },
-    });
+      }});
     const blob = response.data;
     return URL.createObjectURL(blob);
   } catch (error) {
@@ -25,9 +23,7 @@ export const displayPDF = async (url: string, data: any, token: any) => {
     const response = await axios.post(url, data, {
       responseType: 'blob',
       headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+        Authorization: `Bearer ${token}`}});
     const blob = response.data;
     return { uri: URL.createObjectURL(blob) };
   } catch (error) {
@@ -55,8 +51,7 @@ export const uploadAnyFileToServer = async (
       headers: {
         Authorization: `Bearer ${token}`
       },
-      body: formData,
-    });
+      body: formData});
 
     const contentLength = response.headers.get('content-length');
 
@@ -89,5 +84,4 @@ export default {
   catchError,
   displayVideoWithProgress,
   uploadAnyFileToServer,
-  displayPDF,
-};
+  displayPDF};

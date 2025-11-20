@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Modal, Text, Pressable, View, Linking, TouchableOpacity, Image } from "react-native";
+
 import styles from './styles'
 import globalStyle from "../../../../globalStyle/globalStyle";
 import { icons } from "../../../../../resources/constants";
@@ -14,18 +14,18 @@ const Popup = (props) => {
   const { web, email, compatibility, phone } = props
 
   const ContactButton = ({ title }) => (
-    <TouchableOpacity
+    <button
       activeOpacity={0.8}
-      onPress={() => setTimeout(() => {
+      onClick={() => setTimeout(() => {
         setModalVisible(true);
       }, 300)}
       style={[styles.ContactButtonContainer, globalStyle.elevationBlue]}>
-      <Text style={styles.ContactButtonText}>{title}</Text>
-    </TouchableOpacity>
+      <span style={styles.ContactButtonText}>{title}</span>
+    </button>
   );
   return (
-    <View>
-      <Modal
+    <div>
+      <Dialog
         animationType="slide"
         transparent={true}
         visible={modalVisible}
@@ -33,19 +33,19 @@ const Popup = (props) => {
           setModalVisible(!modalVisible);
         }}
       >
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <View style={{ width: '100%', flexDirection: 'row', paddingVertical: 0, justifyContent: 'flex-end', marginTop: -10, marginRight: -10, }}>
-              <Pressable
-                onPress={() => setModalVisible(!modalVisible)}
+        <div style={styles.centeredView}>
+          <div style={styles.modalView}>
+            <div style={{ width: '100%', flexDirection: 'row', paddingVertical: 0, justifyContent: 'flex-end', marginTop: -10, marginRight: -10}}>
+              <button
+                onClick={() => setModalVisible(!modalVisible)}
               >
-                <View style={{ height: 20, paddingLeft: 10, paddingTop: 5, right: 0 }}>
-                  <Image source={icons.Close} />
-                </View>
-              </Pressable>
-            </View>
-            <View style={{ height: 15 }}></View>
-            <View style={styles.buttonContainer}>
+                <div style={{ height: 20, paddingLeft: 10, paddingTop: 5, right: 0 }}>
+                  <img src={icons.Close} />
+                </div>
+              </button>
+            </div>
+            <div style={{ height: 15 }}></div>
+            <div style={styles.buttonContainer}>
               {phone ? <Button
                 title={`Tel : ${phone}`}
                 _style={[styles.buttonBlue, globalStyle.elevationBlue]}
@@ -58,7 +58,7 @@ const Popup = (props) => {
                 _style={[styles.buttonBlue, globalStyle.elevationBlue]}
                 styleBtnTxt={styles.btnTxt}
                 size=""
-                onPress={() => Linking.openURL(`mailto:${email}`)}
+                onClick={() => window.open(`mailto:${email}`)}
               />
 
               <Button
@@ -66,30 +66,30 @@ const Popup = (props) => {
                 _style={[styles.buttonBlue, globalStyle.elevationBlue]}
                 styleBtnTxt={styles.btnTxt}
                 size=""
-                onPress={() => Linking.openURL(`https://${web}`)}
+                onClick={() => window.open(`https://${web}`)}
               />
-              <Pressable
+              <button
                 style={[styles.buttonAnnuler]}
-                onPress={() => setModalVisible(!modalVisible)}
+                onClick={() => setModalVisible(!modalVisible)}
               >
-                <Text style={styles.textBtnSecondary}>Annuler</Text>
-              </Pressable>
-            </View>
-          </View>
-        </View>
-      </Modal>
-      <View style={styles.containerAreaButton}>
-        <View style={styles.ButtonBloc}>
-          <View style={styles.screenContainer}>
+                <span style={styles.textBtnSecondary}>Annuler</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </Dialog>
+      <div style={styles.containerAreaButton}>
+        <div style={styles.ButtonBloc}>
+          <div style={styles.screenContainer}>
             <ContactButton
               title="Contacter l'entreprise"
               size=""
               backgroundColor="#01129E"
             />
-          </View>
-        </View>
-      </View>
-    </View>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

@@ -19,5 +19,4 @@ export const FormationBDL = () => ({
     await api.get(`${urls.FORMATION_BY_CATEGORY}/${name}`, token),
 
   getAllFormationsAvailable: async (token: string) =>
-    await api.get(urls.FORMATION_AVAILABLE, token),
-});
+    await api.get(urls.FORMATION_AVAILABLE, token)});

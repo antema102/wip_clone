@@ -17,15 +17,13 @@ export const enum userActionType {
   setNotifications = '[User] set Notifications ',
   setBadge = '[User] set Badge ',
   setHasMyCV = '[User] set hasMyCV',
-  setHasMyVideo = '[User] set hasMyVideo ',
-}
+  setHasMyVideo = '[User] set hasMyVideo '}
 
 export const initialUserState: UserState = {
   notifications: {},
   badge: 0,
   hasMyCV: false,
-  hasMyVideo: false,
-};
+  hasMyVideo: false};
 
 export const userReducer = (state = initialUserState, action) => {
   const { type, payload } = action;
@@ -33,38 +31,31 @@ export const userReducer = (state = initialUserState, action) => {
     case userActionType.updateUser:
       return {
         ...state,
-        updateUser: payload,
-      };
+        updateUser: payload};
     case userActionType.setNotifications:
       return {
         ...state,
-        notifications: payload,
-      };
+        notifications: payload};
     case userActionType.setBadge:
       return {
         ...state,
-        badge: payload,
-      };
+        badge: payload};
     case userActionType.updatePassword:
       return {
         ...state,
-        updatePassword: payload,
-      };
+        updatePassword: payload};
     case userActionType.desactivateAccount:
       return {
         ...state,
-        desactivateAccount: payload,
-      };
+        desactivateAccount: payload};
     case userActionType.setHasMyCV:
       return {
         ...state,
-        hasMyCV: payload,
-      };
+        hasMyCV: payload};
     case userActionType.setHasMyVideo:
       return {
         ...state,
-        hasMyVideo: payload,
-      };
+        hasMyVideo: payload};
     default:
       return state;
   }
@@ -77,8 +68,7 @@ export const useUser = () => {
     updatePassword,
     desactivateAccount,
     getUserById,
-    updateUserMessage,
-  } = UserSA();
+    updateUserMessage} = UserSA();
   const setCounter = async (count: number) => {
     return count;
   };
@@ -93,8 +83,7 @@ export const useUser = () => {
         const payload = await getUserById(idUser, token);
         dispatch({
           payload,
-          type: userActionType.getUser,
-        });
+          type: userActionType.getUser});
 
         return payload;
       } catch (error) {
@@ -106,8 +95,7 @@ export const useUser = () => {
         const payload = await updateUser(token, idUser, { data });
         dispatch({
           payload,
-          type: userActionType.updateUser,
-        });
+          type: userActionType.updateUser});
         return payload;
       } catch (error) {
         return Promise.reject(error);
@@ -118,8 +106,7 @@ export const useUser = () => {
         const payload = await updatePassword(token, password);
         dispatch({
           payload,
-          type: userActionType.updatePassword,
-        });
+          type: userActionType.updatePassword});
 
         return payload;
       } catch (error) {
@@ -131,8 +118,7 @@ export const useUser = () => {
         const payload = await desactivateAccount(token);
         dispatch({
           payload,
-          type: userActionType.desactivateAccount,
-        });
+          type: userActionType.desactivateAccount});
 
         return payload;
       } catch (error) {
@@ -146,8 +132,7 @@ export const useUser = () => {
 
         dispatch({
           payload,
-          type: userActionType.setNotifications,
-        });
+          type: userActionType.setNotifications});
 
         return payload;
       } catch (error) {
@@ -160,8 +145,7 @@ export const useUser = () => {
 
         dispatch({
           payload,
-          type: userActionType.setBadge,
-        });
+          type: userActionType.setBadge});
 
         return payload;
       } catch (error) {
@@ -173,8 +157,7 @@ export const useUser = () => {
         const payload = await setBooleanValue(value);
         dispatch({
           payload,
-          type: userActionType.setHasMyCV,
-        });
+          type: userActionType.setHasMyCV});
         return payload;
       } catch (error) {
         return Promise.reject(error);
@@ -186,12 +169,10 @@ export const useUser = () => {
         const payload = await setBooleanValue(value);
         dispatch({
           payload,
-          type: userActionType.setHasMyVideo,
-        });
+          type: userActionType.setHasMyVideo});
         return payload;
       } catch (error) {
         return Promise.reject(error);
       }
-    },
-  };
+    }};
 };

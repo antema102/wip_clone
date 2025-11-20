@@ -8,8 +8,7 @@ export const FormationSA = () => {
     findAllByCompanyId,
     deleteFormation,
     getFormationsByCategoryName,
-    getAllFormationsAvailable,
-  } = FormationBDL();
+    getAllFormationsAvailable} = FormationBDL();
 
   return {
     createFormation,
@@ -17,6 +16,5 @@ export const FormationSA = () => {
     findAllByCompanyId,
     deleteFormation,
     getFormationsByCategoryName,
-    getAllFormationsAvailable,
-  };
+    getAllFormationsAvailable};
 };

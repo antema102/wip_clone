@@ -16,18 +16,13 @@ export const data = {
     point: [
       {
         id: 1,
-        value: 'Nisi dignissimos suscipit et tempore numquam.',
-      },
+        value: 'Nisi dignissimos suscipit et tempore numquam.'},
       {
         id: 2,
         value:
-          'Perferendis veritatis tempore quasi et dignissimos odit quidem. Dolorem a enim ab ut ipsa hic.',
-      },
+          'Perferendis veritatis tempore quasi et dignissimos odit quidem. Dolorem a enim ab ut ipsa hic.'},
       {
         id: 3,
         value:
-          'Repellendus dicta consequatur placeat dolores rerum officia. Cumque rerum et quia provident sed dolores consequatur consequuntur quia.',
-      },
-    ],
-  },
-};
+          'Repellendus dicta consequatur placeat dolores rerum officia. Cumque rerum et quia provident sed dolores consequatur consequuntur quia.'},
+    ]}};

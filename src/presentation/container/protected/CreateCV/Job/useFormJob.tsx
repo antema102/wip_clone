@@ -1,11 +1,10 @@
 import {useEffect, useState} from 'react';
-import {Platform} from 'react-native';
+;
 import {
   defaultValues,
   IError,
   showErrorValuesDefault,
-  showErrorValuesSubmit,
-} from './dtoJob';
+  showErrorValuesSubmit} from './dtoJob';
 
 export const useForm = (
   dataJob: any,
@@ -27,8 +26,7 @@ export const useForm = (
         _value = {
           uri: value.uri,
           type: value.type,
-          name: value.fileName,
-        };
+          name: value.fileName};
       }
       setData('job', {...dataJob, [name]: _value});
     }
@@ -73,6 +71,5 @@ export const useForm = (
     errors,
     showErrors,
     dto,
-    salaryError,
-  };
+    salaryError};
 };

@@ -6,12 +6,10 @@ export type TenderState = {
 };
 
 export const enum TenderActionType {
-  setTenderCategory = '[Tender] Set register status',
-}
+  setTenderCategory = '[Tender] Set register status'}
 
 export const initialTenderState: TenderState = {
-  dataCategory: [],
-};
+  dataCategory: []};
 
 export const tenderReducer = (state = initialTenderState, action) => {
   const {type, payload} = action;
@@ -19,8 +17,7 @@ export const tenderReducer = (state = initialTenderState, action) => {
     case TenderActionType.setTenderCategory:
       return {
         ...state,
-        dataCategory: payload.data,
-      };
+        dataCategory: payload.data};
     default:
       return state;
   }
@@ -35,12 +32,10 @@ export const useTender = () => {
         const payload = await getAllTendersCategory(data, token);
         dispatch({
           payload,
-          type: TenderActionType.setTenderCategory,
-        });
+          type: TenderActionType.setTenderCategory});
         return payload;
       } catch (error) {
         return Promise.reject(error);
       }
-    },
-  };
+    }};
 };

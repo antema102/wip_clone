@@ -2,8 +2,7 @@ import {io, Socket} from 'socket.io-client';
 import url from '../../data/constants/config';
 const socketEvents = {
   connect: 'connect',
-  connectError: 'connect_error',
-};
+  connectError: 'connect_error'};
 
 class SocketST {
   private static socket: Socket;

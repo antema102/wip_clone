@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, FlatList, Text} from 'react-native';
+;
 import {Subscription} from '../../components/Subscription';
 import {Packages} from '../../components/Packages';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -9,26 +9,26 @@ import {styles} from './styles';
 export const ListSubscription = (props: any) => {
   const {data, isCredit, isNotAvailable} = props;
   return (
-    <View style={globalStyle.containersPageWidth}>
-      <View style={{}}>
+    <div style={globalStyle.containersPageWidth}>
+      <div style={{}}>
         {isCredit ? (
-          <SafeAreaView>
+          <div>
             {isNotAvailable ? (
-              <Text style={styles.noEvents}>
+              <span style={styles.noEvents}>
                 {' '}
                 Ce mode de paiement n'est pas encore disponible dans votre pays
-              </Text>
+              </span>
             ) : (
-              <FlatList
+              <div
                 data={data}
                 renderItem={({item}) => <Packages item={item} />}
                 keyExtractor={item => item.id}
               />
             )}
-          </SafeAreaView>
+          </div>
         ) : (
-          <SafeAreaView>
-            <FlatList
+          <div>
+            <div
               data={data}
               renderItem={({item}) =>
                 isNotAvailable ? (
@@ -46,9 +46,9 @@ export const ListSubscription = (props: any) => {
               }
               keyExtractor={item => item.id}
             />
-          </SafeAreaView>
+          </div>
         )}
-      </View>
-    </View>
+      </div>
+    </div>
   );
 };

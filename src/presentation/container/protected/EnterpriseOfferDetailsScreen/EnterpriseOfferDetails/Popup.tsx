@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from 'react-redux';
-import { Alert, Modal, Text, Pressable, View, TouchableOpacity, Image } from "react-native";
+
 
 import { styles } from './style'
 import { useOfferr } from "../../../../../service/redux/ducks/offer";
@@ -99,7 +99,7 @@ const Popup = (props) => {
       try {
         const res = await offerDecline(user?.accessToken, idJob)
         if (!res.isError) {
-          Alert.alert(
+          window.alert(
             'Information : ',
             CONTACT_ENTERPRISE.MESSAGE_DECLINE,
             [
@@ -120,13 +120,13 @@ const Popup = (props) => {
     setIsLoading(false)
   }
   const ApplyButton = ({ action, title }) => (
-    <TouchableOpacity
+    <button
       activeOpacity={0.8}
-      onPress={() => action()}
+      onClick={() => action()}
       style={styles.ContactButtonContainer}
     >
-      <Text style={styles.ContactButtonText}>{title}</Text>
-    </TouchableOpacity>
+      <span style={styles.ContactButtonText}>{title}</span>
+    </button>
   );
 
   const getAccessTokenFirebase = async (token: string) => {
@@ -146,10 +146,8 @@ const Popup = (props) => {
         token: infoUser.googleToken,
         notification: {
           title: CONTACT_ENTERPRISE.MESSAGE_TITLE,
-          body: notificationBody,
-        }
-      },
-    });
+          body: notificationBody}
+      }});
 
     const notificationData = {
       data: {
@@ -189,7 +187,7 @@ const Popup = (props) => {
   };
 
   return (
-    <View>
+    <div>
       {isLoading && <Loader />}
       <PopupMessage
         message={message}
@@ -197,42 +195,42 @@ const Popup = (props) => {
         validation={setMessageVisible}
         btnTitle="OK"
       />
-      <Modal
+      <Dialog
         animationType="slide"
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => setModalVisible(!modalVisible)}
       >
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <View style={{ width: '100%', flexDirection: 'row', paddingVertical: 0, justifyContent: 'flex-end', marginTop: -10, marginRight: -10, }}>
+        <div style={styles.centeredView}>
+          <div style={styles.modalView}>
+            <div style={{ width: '100%', flexDirection: 'row', paddingVertical: 0, justifyContent: 'flex-end', marginTop: -10, marginRight: -10}}>
 
-              <Pressable onPress={() => setModalVisible(!modalVisible)}>
-                <View style={{ height: 20, paddingLeft: 10, paddingTop: 5, right: 0 }}>
-                  <Image source={{ uri: icons.Close }} />
-                </View>
-              </Pressable>
-            </View>
-            <View style={styles.buttonContainer}>
+              <button onClick={() => setModalVisible(!modalVisible)}>
+                <div style={{ height: 20, paddingLeft: 10, paddingTop: 5, right: 0 }}>
+                  <img src={{ uri: icons.Close }} />
+                </div>
+              </button>
+            </div>
+            <div style={styles.buttonContainer}>
               <Button
                 title="Confirmer"
                 _style={[styles.buttonBlue, globalStyle.elevationBlue]}
                 styleBtnTxt={styles.btnTxt}
-                onPress={applyPost}
+                onClick={applyPost}
               />
-              <Pressable
+              <button
                 style={[styles.buttonAnnuler]}
-                onPress={() => setModalVisible(!modalVisible)}
+                onClick={() => setModalVisible(!modalVisible)}
               >
-                <Text style={styles.textBtnSecondary}>{CONTACT_ENTERPRISE.UNDO}</Text>
-              </Pressable>
-            </View>
-          </View>
-        </View>
-      </Modal>
-      <View >
+                <span style={styles.textBtnSecondary}>{CONTACT_ENTERPRISE.UNDO}</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </Dialog>
+      <div >
         <ApplyButton title={textToDisplay} size="sm" backgroundColor={COLORS.secondary} action={shouldIapply} />
-      </View>
+      </div>
 
     </View >
   );

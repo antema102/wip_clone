@@ -66,6 +66,5 @@ export function useOffre(props: any) {
     allJob,
     isLoading,
     init,
-    f1,
-  };
+    f1};
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+;
 
 import { globalStyle } from '../../globalStyle/globalStyle';
 
@@ -10,11 +10,11 @@ interface Props {
 
 export const HeaderScreen = ({ title, description }: Props) => {
   return (
-    <View style={globalStyle.smallHeaderContainer}>
-      <Text style={globalStyle.headerScreenTitle}>{title}</Text>
+    <div style={globalStyle.smallHeaderContainer}>
+      <span style={globalStyle.headerScreenTitle}>{title}</span>
       {description && description !== '' && (
-        <Text style={globalStyle.headerScreenDescription}>{description}</Text>
+        <span style={globalStyle.headerScreenDescription}>{description}</span>
       )}
-    </View>
+    </div>
   );
 };

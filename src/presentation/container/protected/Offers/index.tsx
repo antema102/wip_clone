@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+;
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
@@ -19,7 +19,6 @@ export const companySectors = [
   'BPO',
   'Tourisme',
   'Hôtellerie',
-  ,
 ];
 
 const Offers = (props: any) => {
@@ -69,25 +68,22 @@ const Offers = (props: any) => {
       allJobParams: listJobs,
       isOffer: true,
       isClicked: index,
-      initial: item,
-    }
+      initial: item}
   });
 
 
   const navigateItemByCategory = () => navigate('/ItemByCategoryScreen', {
     state: {
       list: listFormations,
-      isFormation: true,
-    }
+      isFormation: true}
   });
 
   return (
-    <View
+    <div
       style={{
         marginTop: 20,
         justifyContent: 'space-between',
-        backgroundColor: 'white',
-      }}>
+        backgroundColor: 'white'}}>
       {isRefreshing ? (
         <Loader />
       ) : (
@@ -95,7 +91,7 @@ const Offers = (props: any) => {
           <DynamicBox listJobs={listJobs} countFormations={countFormations} navigateItemByCategory={navigateItemByCategory} navigateCombinaisonCandidat={navigateCombinaisonCandidat}/>
         </>
       )}
-    </View>
+    </div>
   );
 };
 

@@ -1,14 +1,13 @@
-import { StyleSheet } from 'react-native';
+;
 import { COLORS } from '../../../resources/constants';
 
-export default StyleSheet.create({
+export default ({
   centeredView: {
     flex: 1,
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.3)',
-  },
+    backgroundColor: 'rgba(0, 0, 0, 0.3)'},
   iconClose: {
     width: '100%',
     flexDirection: 'row',
@@ -18,24 +17,20 @@ export default StyleSheet.create({
     paddingBottom: 5,
     marginRight: 5,
     position: 'absolute',
-    zIndex: 2,
-  },
+    zIndex: 2},
   container: {
     marginTop: '5%',
-    backgroundColor: 'black',
-  },
+    backgroundColor: 'black'},
   name: {
     fontSize: 16,
     color: COLORS.white,
-    fontWeight: 'bold',
-  },
+    fontWeight: 'bold'},
   descriptionText: {
     fontSize: 12,
     color: COLORS.white,
     fontWeight: 'normal',
     letterSpacing: 0.2,
-    textAlignVertical: 'center',
-  },
+    textAlignVertical: 'center'},
   modalView: {
     backgroundColor: 'black',
     borderRadius: 20,
@@ -46,37 +41,28 @@ export default StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 2,
-    },
+      height: 2},
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
-    maxWidth: 500,
-  },
+    maxWidth: 500},
   buttonContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
+    justifyContent: 'space-between'},
   buttonStyles: {
     paddingVertical: 10,
     paddingHorizontal: 20,
     marginLeft: 5,
-    borderRadius: 10,
-  },
+    borderRadius: 10},
   buttonOpen: {
-    backgroundColor: '#F194FF',
-  },
+    backgroundColor: '#F194FF'},
   buttonClose: {
-    backgroundColor: '#2196F3',
-  },
+    backgroundColor: '#2196F3'},
   textStyle: {
     color: 'white',
     fontWeight: 'bold',
-    textAlign: 'center',
-  },
+    textAlign: 'center'},
   modalText: {
     marginBottom: 15,
     textAlign: 'center',
-    color: COLORS.black,
-  },
-});
+    color: COLORS.black}});

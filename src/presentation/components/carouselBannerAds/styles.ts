@@ -1,14 +1,13 @@
 
 
 import React from 'react';
-import { StyleSheet, Dimensions } from 'react-native';
+;
 import { COLORS } from '../../../resources/constants';
 
-const screenHeight = Dimensions.get('window').height;
+const screenHeight = window.innerHeight;
 
-export const styles = StyleSheet.create({
+export const styles = {
     carouselBanner: {
         backgroundColor: 'black',
-        borderRadius: 10,
-      }
+        borderRadius: 10}
 });

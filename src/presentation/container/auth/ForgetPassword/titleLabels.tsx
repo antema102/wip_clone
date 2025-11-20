@@ -7,7 +7,4 @@ export const TitleLabels = {
 
   ForgotPwd : {
     email : 'Insérez votre email'
-  },
-  
-  
-};
+  }};

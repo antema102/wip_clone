@@ -1,7 +1,7 @@
-import { StyleSheet, Dimensions } from 'react-native';
+;
 import { COLORS, icons, images, SIZES } from '../../../resources/constants';
-const winWidth = Dimensions.get('window').width;
-export const styles = StyleSheet.create({
+const winWidth = window.innerWidth;
+export const styles = {
   ButtonTabs: {
     color: COLORS.black,
     fontSize: winWidth > 991 ? 16 : 14,
@@ -14,8 +14,7 @@ export const styles = StyleSheet.create({
   contenair: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: -50,
-  },
+    marginTop: -50},
   content: {
     padding: 16,
     borderRadius: 50,
@@ -38,18 +37,14 @@ export const styles = StyleSheet.create({
   lines: {
     height: 4,
     backgroundColor: COLORS.secondary,
-    marginTop: 10,
-  },
+    marginTop: 10},
   activebtn: {
-    backgroundColor: COLORS.blueInput,
-  },
+    backgroundColor: COLORS.blueInput},
   noBtn: {
-    backgroundColor:'#D9CAD5',
-  },
+    backgroundColor:'#D9CAD5'},
   images:{
     height:20,
-    width:20,
-  },
+    width:20},
   activeImages:{
     tintColor:'white'
   },

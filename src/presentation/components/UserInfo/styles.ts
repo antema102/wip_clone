@@ -1,7 +1,7 @@
-import { StyleSheet, Dimensions } from 'react-native';
+;
 import { COLORS } from '../../../resources/constants';
 
-export default StyleSheet.create({
+export default ({
   
   header: {
     flexDirection: 'column',
@@ -11,8 +11,7 @@ export default StyleSheet.create({
     gap:10
 },
   avatarContainer: {
-    position: 'relative',
-  },
+    position: 'relative'},
   iconEdit: {
     width: 20,
     height: 20,
@@ -33,8 +32,7 @@ export default StyleSheet.create({
     borderRadius: 16,
     padding: 4,
     alignItems: 'center',
-    justifyContent: 'center',
-  },
+    justifyContent: 'center'},
   info: {
     marginLeft: 20,
     flex: 1
@@ -49,7 +47,4 @@ name: {
 username: {
   color: 'rgba(0, 0, 0, 0.6)',
   fontSize: 12,
-  textAlign: 'center',
-
-},
-});
+  textAlign: 'center'}});

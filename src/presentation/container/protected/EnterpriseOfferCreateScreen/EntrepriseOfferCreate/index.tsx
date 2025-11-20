@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, ScrollView } from 'react-native';
+;
 import { defaultValues } from './dto';
 import { Form } from './FormWeb';
 import { FormAdvertisement } from './FormAdvertisement';
@@ -18,8 +18,7 @@ import { useLang } from '../../../../../data/translation';
 import HeaderTitle from '../../HeaderTitle';
 import TitleRefont from '../../../../components/TitleRefont';
 const dataws = {
-    ...defaultValues,
-};
+    ...defaultValues};
 
 const EntrepriseOfferCreate = (props: any) => {
     const [dataDto, setDataDto] = useState(dataws);
@@ -63,10 +62,10 @@ const EntrepriseOfferCreate = (props: any) => {
 
     return (
 
-        <View style={[styles.containers, { backgroundColor: COLORS.white, marginTop: 42, borderRadius: 10 }]}>
+        <div style={[styles.containers, { backgroundColor: COLORS.white, marginTop: 42, borderRadius: 10 }]}>
             <TitleRefont title={returnTitle()} />
-            <View style={formsStyles.formLogInscr}>
-                <View style={{}}>
+            <div style={formsStyles.formLogInscr}>
+                <div style={{}}>
                     {advertisement === undefined && !postSucces && !IsLoading ? (
                         <Form
                             data={detailOffer}
@@ -77,7 +76,7 @@ const EntrepriseOfferCreate = (props: any) => {
                             navigation={navigate}
                         />
                     ) : (
-                        <View />
+                        <div />
                     )}
                     {advertisement === 0 && !postSucces && !IsLoading ? (
                         <FormAdvertisement
@@ -91,7 +90,7 @@ const EntrepriseOfferCreate = (props: any) => {
                             navigation={navigate}
                         />
                     ) : (
-                        <View />
+                        <div />
                     )}
                     {advertisement === 2 && !postSucces && !IsLoading ? (
                         <FormTender
@@ -105,7 +104,7 @@ const EntrepriseOfferCreate = (props: any) => {
                             navigation={navigate}
                         />
                     ) : (
-                        <View />
+                        <div />
                     )}
 
                     {advertisement === 1 && !postSucces && !IsLoading ? (
@@ -120,12 +119,12 @@ const EntrepriseOfferCreate = (props: any) => {
                             navigation={navigate}
                         />
                     ) : (
-                        <View />
+                        <div />
                     )}
 
-                </View>
-            </View>
-        </View>
+                </div>
+            </div>
+        </div>
     );
 };
 export default EntrepriseOfferCreate;

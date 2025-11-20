@@ -1,16 +1,15 @@
-import { StyleSheet, Dimensions } from 'react-native';
+;
 import { COLORS, SIZES } from '../../../../../resources/constants';
 
-let windowWidth = Dimensions.get('window').width;
-let windowHeight = Dimensions.get('window').height;
+let windowWidth = window.innerWidth;
+let windowHeight = window.innerHeight;
 
-export const styles = StyleSheet.create({
+export const styles = {
   containerForm: {
     // width: windowWidth - 48,
     flex: 1,
     bottom: 50,
-    top: 0,
-  },
+    top: 0},
   containers: {
     width: '100%',
     padding: SIZES.padding,
@@ -18,20 +17,16 @@ export const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 4,
-    },
+      height: 4},
     shadowOpacity: 0.1,
     shadowRadius: 5,
     elevation: 5,
-    fontFamily: 'Oxygen-Regular',
-  },
+    fontFamily: 'Oxygen-Regular'},
   containt: {},
   vtitle: {
-    width: windowWidth,
-  },
+    width: windowWidth},
   headerScreenDescription: {
-    color: 'white',
-  },
+    color: 'white'},
   candidateContainer: {},
   title: {},
   candidateImgContainer: {},
@@ -50,27 +45,23 @@ export const styles = StyleSheet.create({
   // ---------------------------------------------------------
   defaultCriterion: {},
   minusBtn: {
-    width: '100%',
-  },
+    width: '100%'},
   namedSwitchField: {},
 
   layerContainer: {
-    width: '100%',
-  },
+    width: '100%'},
   layerTitleContainer: {},
   fullWidth: {
     width: windowWidth - 48,
     flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
+    justifyContent: 'space-between'},
   footerForm: {
     backgroundColor: COLORS.blue_back,
     height: 84,
     flexDirection: 'column',
     justifyContent: 'center',
     // width: windowWidth,
-    marginLeft: -24,
-  },
+    marginLeft: -24},
   footerFormLarge: {
     backgroundColor: COLORS.blue_back,
     height: 84,
@@ -79,8 +70,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     // width: windowWidth,
     paddingHorizontal: SIZES.padding,
-    marginLeft: -24,
-  },
+    marginLeft: -24},
   submitJob: {
     height: 52,
     paddingHorizontal: 16,
@@ -89,8 +79,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     borderRadius: SIZES.radius,
-    flexDirection: 'row',
-  },
+    flexDirection: 'row'},
   submitJobSimple: {
     height: 52,
     paddingHorizontal: 16,
@@ -98,56 +87,45 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     marginRight: 24,
     justifyContent: 'space-between',
-    flexDirection: 'row',
-  },
+    flexDirection: 'row'},
   textButton: {
     fontSize: SIZES.h5,
     color: COLORS.white,
-    fontWeight: 'bold',
-  },
+    fontWeight: 'bold'},
   textButtonOrange: {
     color: COLORS.orange,
     fontWeight: 'bold',
-    fontSize: SIZES.h5,
-  },
+    fontSize: SIZES.h5},
   iconReload: {
     width: 16,
     height: 16,
-    marginLeft: 6,
-  },
+    marginLeft: 6},
   reinit: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingBottom: 1,
     borderBottomWidth: 1,
-    borderBottomColor: COLORS.orange,
-  },
+    borderBottomColor: COLORS.orange},
   footerFormLargeSec: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     width: '100%',
-    marginTop: 30,
-  },
+    marginTop: 30},
   footerFormLargeSecMobile: {
     height: 60,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: SIZES.padding,
-  },
+    paddingHorizontal: SIZES.padding},
   pageContainer: {
     // backgroundColor: 'red',
-    flex: 1,
-  },
+    flex: 1},
   contentForm: {
-    flex: 0.7,
-  },
+    flex: 0.7},
   search: {
     marginTop: 60,
     backgroundColor: COLORS.white,
     
     borderRadius: 10,
-    paddingTop: 42,
-  },
-});
+    paddingTop: 42}});

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Dimensions } from 'react-native';
+;
 import { Slider } from 'primereact/slider'; // Import PrimeReact Slider
 import { thousandSeparator } from '../../../data/factory';
 import { styles } from './styles';
@@ -12,7 +12,7 @@ interface Props {
   isPrice?: boolean;
 }
 
-const winWidth = Dimensions.get('window').width;
+const winWidth = window.innerWidth;
 
 const MultiSlider = ({ setMin, setMax, min, max, isPrice }: Props) => {
   const [multiSliderValue, setMultiSliderValue] = useState([min, max]);
@@ -29,14 +29,14 @@ const MultiSlider = ({ setMin, setMax, min, max, isPrice }: Props) => {
   useEffect(() => {}, [min, max]);
 
   return (
-    <View style={styles.viewContainer}>
-      <View style={styles.sliderWrapper}>
-        <View style={styles.labelWrapper}>
-          <Text style={styles.labelText}>
+    <div style={styles.viewContainer}>
+      <div style={styles.sliderWrapper}>
+        <div style={styles.labelWrapper}>
+          <span style={styles.labelText}>
             {thousandSeparator(parseInt(multiSliderValue[0]), ' ')}
-          </Text>
-          <Text style={styles.labelText}>{maxVlue}</Text>
-        </View>
+          </span>
+          <span style={styles.labelText}>{maxVlue}</span>
+        </div>
         <Slider
           style={{ width: winWidth / 2.5 }}
           value={multiSliderValue} // Use value instead of initial values
@@ -47,8 +47,8 @@ const MultiSlider = ({ setMin, setMax, min, max, isPrice }: Props) => {
           step={1}
           sliderStyle={{ borderColor: '#1792E8' }} // Adjust styles as needed
         />
-      </View>
-    </View>
+      </div>
+    </div>
   );
 };
 

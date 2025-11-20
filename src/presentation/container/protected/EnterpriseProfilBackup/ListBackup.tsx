@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { View, FlatList, StyleSheet, SafeAreaView } from 'react-native';
+;
 import { ProfilBackup } from '../../../components/CandidatProfilBackup/ProfilBackup/indexCV';
 import { Divider } from 'primereact/divider';
 import { DataView } from 'primereact/dataview';

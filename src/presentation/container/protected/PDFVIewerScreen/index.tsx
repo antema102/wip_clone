@@ -16,8 +16,7 @@ type PdfViewerProps = {
   draggable?: boolean,
   resizable?:boolean
   isDownloadAllowed?:boolean,
-  isBlob?:boolean,
-}
+  isBlob?:boolean}
 
 export const PDFViewerScreen = ({visible, setVisible, footerContent, title, data, maximizable=false, isDownloadAllowed=false, draggable=false, position="center", isBlob}: PdfViewerProps) => {
   const { state } = useLocation();
@@ -29,8 +28,7 @@ export const PDFViewerScreen = ({visible, setVisible, footerContent, title, data
       width: '100%',
       height: '100%',
       overflow: 'hidden',
-      position: 'relative',
-    }}>
+      position: 'relative'}}>
       <Popup
         message={TEXT_INFORMATIONS.FILE_SAVED}
         visible={popupVisible}
@@ -45,7 +43,7 @@ export const PDFViewerScreen = ({visible, setVisible, footerContent, title, data
         onHide={() => setVisible(false)}
         showHeader={false}
         dismissableMask={true}
-        contentStyle={{ overflow: 'hidden', padding: 0, border: 'none', }}
+        contentStyle={{ overflow: 'hidden', padding: 0, border: 'none'}}
         draggable={true}
       >
         <iframe
@@ -63,8 +61,7 @@ export const PDFViewerScreen = ({visible, setVisible, footerContent, title, data
             position: 'absolute',
             bottom: 56,
             justifyContent: 'center',
-            right: 0,
-          }}
+            right: 0}}
         >
           {/* Add download button or UI here */}
         </div>

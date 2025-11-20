@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text } from 'react-native';
+;
 import { useNavigate } from 'react-router-dom';
 
 import News from '../News/NewsDetails/index';
@@ -43,8 +43,7 @@ const CombinaisonCandidatScreen = (props: any) => {
   const { accessToken, user } = useSelector(({ auth }) => auth);
 
   const {
-    getUserText,
-  } = UserSA();
+    getUserText} = UserSA();
 
 
   const storeDynamicText = async (value: any) => {
@@ -73,27 +72,27 @@ const CombinaisonCandidatScreen = (props: any) => {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <View style={{ backgroundColor: COLORS.white, borderRadius: 10, overflow: 'hidden' }}>
+    <div style={styles.container}>
+      <div style={{ backgroundColor: COLORS.white, borderRadius: 10, overflow: 'hidden' }}>
 
         {isCV && !isVideo && (
-          <View style={{ margin: 24 }}>
-            <Text style={styles.textWarning}>{activeString.HOME.WARNING}</Text>
-          </View>
+          <div style={{ margin: 24 }}>
+            <span style={styles.textWarning}>{activeString.HOME.WARNING}</span>
+          </div>
         )}
 
         {(!isCV || !isVideo) && (
-          <View style={{ margin: 24 }}>
-            <Text style={styles.textWarning}>
+          <div style={{ margin: 24 }}>
+            <span style={styles.textWarning}>
               {activeString.HOME.BEGIN}
-            </Text>
-          </View>
+            </span>
+          </div>
         )}
 
         {!isCV && (
-          <View style={[globalStyle.btnContainer, { marginHorizontal: 100 }]}>
+          <div style={[globalStyle.btnContainer, { marginHorizontal: 100 }]}>
             <Button
-              onPress={() => navigate('/CreateCV', { state: { isCreate: true } })}
+              onClick={() => navigate('/CreateCV', { state: { isCreate: true } })}
               title={activeString.HOME.PARCOURS}
               _style={[
                 globalStyle.elevationBlue,
@@ -102,13 +101,13 @@ const CombinaisonCandidatScreen = (props: any) => {
               icon={icons.filetext}
               styleBtnTxt={styles.bigBtnTxt}
             />
-          </View>
+          </div>
         )}
 
         {!isVideo && (
-          <View style={[globalStyle.btnContainer, { marginHorizontal: 100, paddingBottom: 10 }]}>
+          <div style={[globalStyle.btnContainer, { marginHorizontal: 100, paddingBottom: 10 }]}>
             <Button
-              onPress={handleVideo}
+              onClick={handleVideo}
               title={activeString.HOME.PRESENTATION}
               _style={[
                 globalStyle.elevationOrange,
@@ -119,11 +118,11 @@ const CombinaisonCandidatScreen = (props: any) => {
               styleBtnTxt={styles.bigBtnTxt}
               isDisable={!isCV}
             />
-          </View>)
+          </div>)
         }
-      </View>
+      </div>
 
-      <View style={{ padding: 24, backgroundColor: 'white', borderRadius: 5, marginTop: 50 }}>
+      <div style={{ padding: 24, backgroundColor: 'white', borderRadius: 5, marginTop: 50 }}>
         <WipTabs
           News={() => <News {...props} />}
           Offers={() => <Offer {...props} showDetails={showDetails} initial={'Action sociale'} isClicked={0} />}
@@ -131,9 +130,9 @@ const CombinaisonCandidatScreen = (props: any) => {
           isOffer={isOffer}
           setIsOffer={setIsOffer}
         />
-      </View>
+      </div>
 
-    </View>
+    </div>
   );
 };
 

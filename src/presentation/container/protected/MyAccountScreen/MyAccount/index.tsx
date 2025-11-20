@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Pressable, Image, Text, TouchableOpacity } from 'react-native';
+;
 import { connect, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -15,8 +15,7 @@ import {
   ERROR,
   ROLEACCOUNT,
   STATUS,
-  TEXT_INFORMATIONS,
-} from '../../../../../data/constants/strings';
+  TEXT_INFORMATIONS} from '../../../../../data/constants/strings';
 import CustomButton from '../../../../components/Button/button';
 import { WhiteButtons } from '../../../../components/Inputs/WhiteButtons';
 import { styles } from './styles';
@@ -57,8 +56,7 @@ export const MyAccount = (props) => {
   const [values, setValues] = useState({
     email: user?.email || '',
     password: '',
-    lang: '',
-  });
+    lang: ''});
 
   const { lang: currentLang } = useLang();
   const activeString = currentLang === 'fr' ? stringsFr : stringsEn;
@@ -158,49 +156,49 @@ export const MyAccount = (props) => {
   }, []);
 
   return (
-    <View style={styles.containers}>
-      <View style={styles.mainContainer}>
+    <div style={styles.containers}>
+      <div style={styles.mainContainer}>
         <TitleRefont 
           title={activeString.DETAIL_PROFIL.MON_COMPTE} 
           _customStyle={isMobile ? styles.titleContainerMobile : styles.titleContainer} 
         />
         
-        <View style={styles.innerContainer}>
+        <div style={styles.innerContainer}>
           {!condition && (
-            <View style={styles.subscriptionContainer}>
-              <Text style={styles.subscriptionText}>
+            <div style={styles.subscriptionContainer}>
+              <span style={styles.subscriptionText}>
                 {activeString.ACCOUNT_CANDIDAT.CURRENT_SUBSCRIPTION}{' '}
-                <Text style={styles.subscriptionStatus}>: {abonnementStatus}</Text>
-              </Text>
-            </View>
+                <span style={styles.subscriptionStatus}>: {abonnementStatus}</span>
+              </span>
+            </div>
           )}
           
-          <View style={[styles.content, isMobile ? styles.contentMobile : styles.contentDesktop]}>
-            <View style={{ flex: 3 }}>
+          <div style={[styles.content, isMobile ? styles.contentMobile : styles.contentDesktop]}>
+            <div style={{ flex: 3 }}>
               {condition && (
-                <Text style={styles.warningText}>
+                <span style={styles.warningText}>
                   {activeString.ACCOUNT_CANDIDAT.ABONNEMENT}
-                </Text>
+                </span>
               )}
-              <Text style={styles.title}>
+              <span style={styles.title}>
                 {`${activeString.ACCOUNT_CANDIDAT.MES_SOLDES} : ${creditWIP}`}
-              </Text>
-            </View>
-            <TouchableOpacity
+              </span>
+            </div>
+            <button
               style={styles.buttonsStylesRefonteOrange}
-              onPress={() => setShowIcons(!showIcons)}
+              onClick={() => setShowIcons(!showIcons)}
             >
-              <Text style={styles.buttonTextOrange}>
+              <span style={styles.buttonTextOrange}>
                 {activeString.ACCOUNT_CANDIDAT.KREDIT}
-              </Text>
-            </TouchableOpacity>
-          </View>
+              </span>
+            </button>
+          </div>
 
-          <View style={[
+          <div style={[
             styles.formContainer, 
             isMobile ? styles.formContainerMobile : styles.formContainerDesktop
           ]}>
-            <View style={[styles.inputWrap, styles.inputWrapDisabled]}>
+            <div style={[styles.inputWrap, styles.inputWrapDisabled]}>
               <InputSelect
                 label={TitleLabels.profil.lang}
                 name="disponibility"
@@ -210,9 +208,9 @@ export const MyAccount = (props) => {
                 required
                 data={lang}
               />
-            </View>
+            </div>
 
-            <View style={[styles.inputWrap, styles.inputWrapDisabled]}>
+            <div style={[styles.inputWrap, styles.inputWrapDisabled]}>
               <InputField
                 label={TitleLabels.profil.email}
                 required
@@ -221,9 +219,9 @@ export const MyAccount = (props) => {
                 maxLength={100}
                 isEditable={false}
               />
-            </View>
+            </div>
 
-            <View style={styles.inputWrap}>
+            <div style={styles.inputWrap}>
               <InputField
                 label={TitleLabels.profil.password}
                 type="password"
@@ -235,65 +233,65 @@ export const MyAccount = (props) => {
                 changePassword={changePassword}
                 edit={isEdit}
               />
-            </View>
-            {errorPwd && <Text style={styles.errorText}>{txtErrorPwd}</Text>}
+            </div>
+            {errorPwd && <span style={styles.errorText}>{txtErrorPwd}</span>}
 
             {user.role === activeString.ROLEACCOUNT.company && (
-              <View style={styles.inputWrapButton}>
+              <div style={styles.inputWrapButton}>
                 <CustomButton
                   _style={styles.buttonStyles}
                   styleBtnTxt={styles.buttonTextSpecial}
                   color={COLORS.secondary}
-                  onPress={handleSubscription}
+                  onClick={handleSubscription}
                   iconStyles={styles.iconStyles}
                   title={'Paiement abonnement'}
                   icon={icons.action}
                 />
-              </View>
+              </div>
             )}
 
             {showIcons && (
-              <View style={styles.paymentContainer}>
-                <View style={styles.alignHorizontally}>
-                  <Pressable onPress={handleMvolaPayment}>
-                    <Image
+              <div style={styles.paymentContainer}>
+                <div style={styles.alignHorizontally}>
+                  <button onClick={handleMvolaPayment}>
+                    <img
                       style={styles.imgStyle}
-                      source={{ uri: images.mvola }}
+                      src={{ uri: images.mvola }}
                     />
-                  </Pressable>
-                  <View style={styles.intermediate} />
-                  <Pressable onPress={handleOrangePayment}>
-                    <Image
+                  </button>
+                  <div style={styles.intermediate} />
+                  <button onClick={handleOrangePayment}>
+                    <img
                       style={styles.imgStyle}
-                      source={{ uri: images.orangeMoney }}
+                      src={{ uri: images.orangeMoney }}
                     />
-                  </Pressable>
-                  <View style={styles.intermediate} />
-                  <Pressable onPress={handleVisaPayment}>
-                    <Image
+                  </button>
+                  <div style={styles.intermediate} />
+                  <button onClick={handleVisaPayment}>
+                    <img
                       style={styles.imgStyle}
-                      source={{ uri: images.visa }}
+                      src={{ uri: images.visa }}
                     />
-                  </Pressable>
-                </View>
-              </View>
+                  </button>
+                </div>
+              </div>
             )}
 
-            <View style={styles.actionButtonContainer}>
-              <View style={styles.actionButtonWrapper}>
-                <TouchableOpacity
+            <div style={styles.actionButtonContainer}>
+              <div style={styles.actionButtonWrapper}>
+                <button
                   style={styles.buttonsStylesRefonteBlue}
-                  onPress={handleButton}
+                  onClick={handleButton}
                 >
-                  <Text style={styles.buttonTextBlue}>
+                  <span style={styles.buttonTextBlue}>
                     {activeString.ACCOUNT_CANDIDAT.SUP}
-                  </Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-          </View>
-        </View>
-      </View>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <Popup
         message={message}
@@ -309,6 +307,6 @@ export const MyAccount = (props) => {
         btnTitle={'Continuer'}
         cancel={true}
       />
-    </View>
+    </div>
   );
 };

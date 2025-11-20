@@ -1,7 +1,7 @@
-import { StyleSheet, Dimensions } from 'react-native';
+;
 import { COLORS, icons, images, SIZES } from '../../../resources/constants';
-const winWidth = Dimensions.get('window').width;
-export const styles = StyleSheet.create({
+const winWidth = window.innerWidth;
+export const styles = {
   content: {
     position: 'absolute',
     backgroundColor: COLORS.blue_title,
@@ -10,12 +10,10 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     left: '50%',
     top: -25,
-    transform: [{ translateX: '-50%' }, { translateY: 0 }],
-  },
+    transform: [{ translateX: '-50%' }, { translateY: 0 }]},
   title: {
     fontWeight: '700',
     fontSize: 16,
     color: COLORS.black,
     textAlign:'center'
-  },
-});
+  }});

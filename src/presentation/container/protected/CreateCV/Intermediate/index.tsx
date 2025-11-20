@@ -1,5 +1,5 @@
 import React, {isValidElement, useEffect, useState} from 'react';
-import {View, BackHandler, Text} from 'react-native';
+
 import {Header} from '../../../components/Header';
 
 import CustomButton from '../../../components/Button/button';
@@ -22,33 +22,33 @@ const IntermediateCv = (props: any) => {
         BackHandler.exitApp();
         return true;
       };
-      BackHandler.addEventListener('hardwareBackPress', onBackPress);
+      // BackHandler removed (web)
 
       return () =>
-        BackHandler.removeEventListener('hardwareBackPress', onBackPress);
+        // BackHandler removed (web)
     }, []),
   );
 
   return (
-    <View style={{backgroundColor: '#fff'}}>
+    <div style={{backgroundColor: '#fff'}}>
       <Header {...props} noback={true} style={{elevation: 2}} />
-      <View style={styles.containerTitle}>
-        <Text style={styles.titleItem}>Mon CV</Text>
-      </View>
-      <View>
-        <Text style={globalStyle.titleHome}>{'Pour commencer, veuillez'}</Text>
-      </View>
-      <View style={globalStyle.btnContainer}>
+      <div style={styles.containerTitle}>
+        <span style={styles.titleItem}>Mon CV</span>
+      </div>
+      <div>
+        <span style={globalStyle.titleHome}>{'Pour commencer, veuillez'}</span>
+      </div>
+      <div style={globalStyle.btnContainer}>
         <CustomButton
-          onPress={() => navigation.navigate('CreateCV', {isCreate: true})}
+          onClick={() => navigation.navigate('CreateCV', {isCreate: true})}
           title={HOME.PARCOURS}
           _style={[globalStyle.elevationBlue, styles.buttonHomeActionsaisir]}
           color={'red'}
           icon={icons.filetext}
           styleBtnTxt={styles.bigBtnTxt}
         />
-      </View>
-    </View>
+      </div>
+    </div>
   );
 };
 export const IntermediateCvScreen: any = IntermediateCv;

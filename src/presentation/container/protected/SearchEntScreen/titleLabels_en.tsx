@@ -3,7 +3,4 @@ export const TitleLabels_en = {
         post: 'Desired position',
         secteur: "Activity area",
         availability: "Work availability",
-        pretension: "Gross salary expectation (Ariary)",
-        
-    },
-};
+        pretension: "Gross salary expectation (Ariary)"}};

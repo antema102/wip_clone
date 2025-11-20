@@ -169,8 +169,7 @@ const Container = ({ MainContent }: { MainContent: React.ReactNode }): JSX.Eleme
           transport: transport,
           pet: pet,
           withCV: true,
-          audience: user?.role === ROLEACCOUNT.candidate ? 0 : 1,
-        };
+          audience: user?.role === ROLEACCOUNT.candidate ? 0 : 1};
         if (type === 'video') {
           filtered.elementNumber = elementNumber;
         }
@@ -178,8 +177,7 @@ const Container = ({ MainContent }: { MainContent: React.ReactNode }): JSX.Eleme
         filtered = {
           category: type,
           withCV: false,
-          audience: user?.role === ROLEACCOUNT.candidate ? 0 : 1,
-        };
+          audience: user?.role === ROLEACCOUNT.candidate ? 0 : 1};
 
         if (type === 'video') {
           filtered.elementNumber = elementNumber;
@@ -207,8 +205,7 @@ const Container = ({ MainContent }: { MainContent: React.ReactNode }): JSX.Eleme
               img: item.image,
               title: item.name,
               alt: item.description,
-              link: item.link,
-            };
+              link: item.link};
           });
           const itemToPutFirst = await getRandomNumber(dataImage?.length - 1);
           countClickAdvertisement(responseImage[itemToPutFirst].id, accessToken);
@@ -221,8 +218,7 @@ const Container = ({ MainContent }: { MainContent: React.ReactNode }): JSX.Eleme
       filtered = {
         category: type,
         withCV: false,
-        audience: user?.role === ROLEACCOUNT.candidate ? 0 : 1,
-      };
+        audience: user?.role === ROLEACCOUNT.candidate ? 0 : 1};
       if (type === 'video') {
         filtered.elementNumber = elementNumber;
       }
@@ -246,8 +242,7 @@ const Container = ({ MainContent }: { MainContent: React.ReactNode }): JSX.Eleme
               img: item.image,
               title: item.name,
               alt: item.description,
-              link: item.link,
-            };
+              link: item.link};
           });
           const itemToPutFirst = await getRandomNumber(dataImage?.length - 1)
           countClickAdvertisement(responseImage[itemToPutFirst].id, accessToken);

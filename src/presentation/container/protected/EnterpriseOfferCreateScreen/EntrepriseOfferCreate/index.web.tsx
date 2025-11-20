@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import {View} from 'react-native';
+;
 
 const EntrepriseOfferCreate = (props: any) => {
   return (
-    <View>
-    </View>
+    <div>
+    </div>
   );
 };
 export const EntrepriseOfferCreateScreen: any = EntrepriseOfferCreate;

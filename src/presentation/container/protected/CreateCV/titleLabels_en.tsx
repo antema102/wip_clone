@@ -49,5 +49,4 @@ export const TitleLabels_en = {
     personalInformation: 'Personal information',
     job: 'Job',
     other: 'other'
-  },
-};
+  }};

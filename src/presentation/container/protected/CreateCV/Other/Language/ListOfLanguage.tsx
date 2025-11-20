@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text} from 'react-native';
+;
 
 import Buttons from '../../../../../components/Button/button';
 import {TitleLabels} from '../../titleLabels';
@@ -24,7 +24,7 @@ interface Props {
   type: string;
 }
 
-export const ListOfLanguage = ({
+export const ListOfLanguage = {
   index,
   item,
   values,
@@ -32,8 +32,7 @@ export const ListOfLanguage = ({
   onRemove,
   errors,
   showErrors,
-  type,
-}: Props) => {
+  type}: Props) => {
   
   const [language, setLanguage] = useState<any>();
 
@@ -57,13 +56,13 @@ export const ListOfLanguage = ({
   const activeString = lang === 'fr' ? TitleLabels : TitleLabels_en;
 
   return (
-    <View style={[formsStyles.inputWrapBlueCreate, {paddingTop: 20}]}>
-      <View style={styles.btnRemoveContainer}>
-        <Text style={styles.btnRemoveTitle}>{`Langue ${index + 1}`}</Text>
+    <div style={[formsStyles.inputWrapBlueCreate, {paddingTop: 20}]}>
+      <div style={styles.btnRemoveContainer}>
+        <span style={styles.btnRemoveTitle}>{`Langue ${index + 1}`}</span>
         {type !== 'read' && (
           <Buttons
             _style={[styles.btnRemove, globalStyle.elevationBlue]}
-            onPress={handleRemove}
+            onClick={handleRemove}
             title=""
             color=""
             styleBtnTxt={{color: COLORS.white}}
@@ -71,16 +70,15 @@ export const ListOfLanguage = ({
             iconStyles={{margin: 5}}
           />
         )}
-      </View>
+      </div>
 
-      <View key={`listOfLanguage-${item}`}>
-        <View
+      <div key={`listOfLanguage-${item}`}>
+        <div
           style={[
             styles.inputWrap,
             {
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white,
-            },
+                type === 'read' ? COLORS.disableGray : COLORS.white},
           ]}>
           <InputSelect
             label={activeString.CreationCV.language + (index + 1)}
@@ -93,15 +91,14 @@ export const ListOfLanguage = ({
             isEditable={type === 'read' ? false : true}
             data={language}
           />
-        </View>
+        </div>
 
-        <View
+        <div
           style={[
             styles.inputWrap,
             {
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white,
-            },
+                type === 'read' ? COLORS.disableGray : COLORS.white},
           ]}>
           <InputSelect
             label={activeString.CreationCV.level + (index + 1)}
@@ -114,8 +111,8 @@ export const ListOfLanguage = ({
             isEditable={type === 'read' ? false : true}
             data={level}
           />
-        </View>
-      </View>
-    </View>
+        </div>
+      </div>
+    </div>
   );
 };

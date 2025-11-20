@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text} from 'react-native';
+;
 import {useSelector} from 'react-redux';
 import CurrencyInput from 'react-native-currency-input';
 import { useFormation } from '../../../../../service/redux/ducks/formation';
@@ -67,8 +67,7 @@ export const Form = (props: any) => {
     duration: '',
     place: '',
     theme: '',
-    categorie: '',
-  });
+    categorie: ''});
 
   const handleCancel = () => {
     setValues({
@@ -80,8 +79,7 @@ export const Form = (props: any) => {
       duration: '',
       place: '',
       theme: '',
-      categorie: '',
-    });
+      categorie: ''});
     navigation('/home', {state:{isFormation: true}});
   };
 
@@ -228,8 +226,7 @@ export const Form = (props: any) => {
         const dataToPost = {
           ...values,
           isPayant,
-          proprietaire: user,
-        };
+          proprietaire: user};
 
         createFormation(dataToPost).then(res => {
           setIsLoading(false);
@@ -242,8 +239,7 @@ export const Form = (props: any) => {
             duration: '',
             place: '',
             theme: '',
-            categorie: '',
-          });
+            categorie: ''});
           setTitle('');
           setDescription('');
           setPhone('');
@@ -266,12 +262,11 @@ export const Form = (props: any) => {
   };
 
   return (
-    <View
+    <div
       style={{
         paddingHorizontal: SIZES.padding,
-        justifyContent: 'space-between',
-      }}>
-      <View style={styles.inputWrap}>
+        justifyContent: 'space-between'}}>
+      <div style={styles.inputWrap}>
         <InputField
           label="Titre"
           value={values.title}
@@ -280,11 +275,11 @@ export const Form = (props: any) => {
           required
           maxLength={150}
         />
-      </View>
+      </div>
       {titleError && (
-        <Text style={{color: COLORS.red_color}}>{titleTextError}</Text>
+        <span style={{color: COLORS.red_color}}>{titleTextError}</span>
       )}
-      <View style={styles.inputWrap}>
+      <div style={styles.inputWrap}>
         <InputField
           label="Thème"
           value={values.theme}
@@ -293,11 +288,11 @@ export const Form = (props: any) => {
           required
           maxLength={150}
         />
-      </View>
+      </div>
       {themeError && (
-        <Text style={{color: COLORS.red_color}}>{themeTextError}</Text>
+        <span style={{color: COLORS.red_color}}>{themeTextError}</span>
       )}
-      <View style={[{marginBottom: 20}, styles.inputWrap]}>
+      <div style={[{marginBottom: 20}, styles.inputWrap]}>
         <InputField
           label="Description"
           value={values.description}
@@ -306,11 +301,11 @@ export const Form = (props: any) => {
           type="textArea"
           required
         />
-      </View>
+      </div>
       {descriptionError && (
-        <Text style={{color: COLORS.red_color}}>{descriptionTextError}</Text>
+        <span style={{color: COLORS.red_color}}>{descriptionTextError}</span>
       )}
-      <View style={styles.inputWrap}>
+      <div style={styles.inputWrap}>
         <InputField
           label="Lieu"
           value={values.place}
@@ -319,11 +314,11 @@ export const Form = (props: any) => {
           required
           maxLength={150}
         />
-      </View>
+      </div>
       {placeError && (
-        <Text style={{color: COLORS.red_color}}>{placeTextError}</Text>
+        <span style={{color: COLORS.red_color}}>{placeTextError}</span>
       )}
-      <View style={styles.inputWrap}>
+      <div style={styles.inputWrap}>
         <InputField
           label="Durée"
           value={values.duration}
@@ -332,11 +327,11 @@ export const Form = (props: any) => {
           required
           maxLength={150}
         />
-      </View>
+      </div>
       {durationError && (
-        <Text style={{color: COLORS.red_color}}>{durationTextError}</Text>
+        <span style={{color: COLORS.red_color}}>{durationTextError}</span>
       )}
-      <View style={[{marginBottom: 20}, styles.inputWrap]}>
+      <div style={[{marginBottom: 20}, styles.inputWrap]}>
         <InputField
           label="email"
           required
@@ -346,11 +341,11 @@ export const Form = (props: any) => {
           typekeyboard="email-address"
           maxLength={50}
         />
-      </View>
+      </div>
       {emailError && (
-        <Text style={{color: COLORS.red_color}}>{emailTextError}</Text>
+        <span style={{color: COLORS.red_color}}>{emailTextError}</span>
       )}
-      <View style={styles.inputWrap}>
+      <div style={styles.inputWrap}>
         <InputField
           label="Numéro téléphone"
           value={values.phone}
@@ -361,13 +356,13 @@ export const Form = (props: any) => {
           required
           maxLength={10}
         />
-      </View>
+      </div>
       {phoneError && (
-        <Text style={{color: COLORS.red_color}}>{phoneTextError}</Text>
+        <span style={{color: COLORS.red_color}}>{phoneTextError}</span>
       )}
 
       {activityList && (
-        <View style={styles.inputWrap}>
+        <div style={styles.inputWrap}>
           <InputSelect
             label={'Catégorie'}
             name="categorie"
@@ -376,14 +371,14 @@ export const Form = (props: any) => {
             isEditable={true}
             data={activityList}
           />
-        </View>
+        </div>
       )}
 
       {categorieError && (
-        <Text style={{color: COLORS.red_color}}>{ERROR.EMPTY_PICK}</Text>
+        <span style={{color: COLORS.red_color}}>{ERROR.EMPTY_PICK}</span>
       )}
 
-      <View style={styles.checkBoxContaint}>
+      <div style={styles.checkBoxContaint}>
         <Checkbox
           checked={isPayant}
           onChange={() => setIsPayant(!isPayant)}
@@ -391,13 +386,13 @@ export const Form = (props: any) => {
           // tintColors={{true: COLORS.orange, false: COLORS.blue_border}}
         />
 
-        <Text style={[formsStyles.labelStyle]}>{'Payante'}</Text>
-      </View>
+        <span style={[formsStyles.labelStyle]}>{'Payante'}</span>
+      </div>
       {isPayant && (
-        <View style={styles.inputWrap}>
-          <View>
-            <Text style={[formsStyles.labelStyle]}>{'Prix'}</Text>
-          </View>
+        <div style={styles.inputWrap}>
+          <div>
+            <span style={[formsStyles.labelStyle]}>{'Prix'}</span>
+          </div>
           <CurrencyInput
             value={prix}
             onChangeValue={setPrix}
@@ -410,24 +405,23 @@ export const Form = (props: any) => {
             }}
             style={styles.textInput}
           />
-        </View>
+        </div>
       )}
       {isPayant && prixError && (
-        <Text style={{color: COLORS.red_color}}>{prixTextError}</Text>
+        <span style={{color: COLORS.red_color}}>{prixTextError}</span>
       )}
 
-      <View
+      <div
         style={{
           flex: 1,
-          height: 150,
-        }}>
+          height: 150}}>
         <SubmitButtons
           underlineType={true}
           submitAction={handleSubmit}
           cancelAction={handleCancel}
           submitTitle="Enregistrer"
         />
-      </View>
+      </div>
       <Popup
         message={message}
         visible={modalVisible}
@@ -438,6 +432,6 @@ export const Form = (props: any) => {
         isFormation={true}
       />
       {isLoading && <Loader />}
-    </View>
+    </div>
   );
 };

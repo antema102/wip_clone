@@ -1,11 +1,10 @@
 import {useEffect, useState} from 'react';
-import {Platform} from 'react-native';
+;
 import {
   defaultValues,
   IError,
   showErrorValuesDefault,
-  showErrorValuesSubmit,
-} from './dto';
+  showErrorValuesSubmit} from './dto';
 import {post} from '../../../services/technique/api';
 
 export const useForm = (
@@ -32,8 +31,7 @@ export const useForm = (
         _value = {
           uri: value.uri,
           type: value.type,
-          name: value.fileName,
-        };
+          name: value.fileName};
       }
       setValues({...valuesForm, [name]: _value});
     }
@@ -85,6 +83,5 @@ export const useForm = (
     showErrors,
     dto,
     showError,
-    cancel,
-  };
+    cancel};
 };

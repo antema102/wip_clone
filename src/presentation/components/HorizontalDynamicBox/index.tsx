@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+;
 import styles from './styles';
 
 interface Props {
@@ -11,26 +11,24 @@ interface Props {
   setIsAll?: any;
 }
 
-const HorizontalDynamicBox = ({
+const HorizontalDynamicBox = {
   click,
   list,
   setClick,
   setItem,
   isAll,
-  setIsAll,
-}: Props) => {
+  setIsAll}: Props) => {
   return (
-    <View
+    <div
       style={{
         flex: 1,
         flexDirection: 'row',
-        marginTop: 20,
-      }}>
+        marginTop: 20}}>
       <>
         {list
           ? list.map((item: string, index: number) => (
-            <TouchableOpacity
-              onPress={() => {
+            <button
+              onClick={() => {
                 setClick(index);
                 setIsAll(false);
                 setItem(item);
@@ -41,29 +39,29 @@ const HorizontalDynamicBox = ({
                   ? styles.activeBtn
                   : styles.simpleBtn
               }>
-              <Text
+              <span
                 style={
                   click === index && !isAll
                     ? styles.textMenuActive
                     : styles.textMenu
                 }>
                 {item}
-              </Text>
-            </TouchableOpacity>
+              </span>
+            </button>
           ))
           : null}
-        <TouchableOpacity
-          onPress={() => {
+        <button
+          onClick={() => {
             setIsAll(true);
             setItem('');
           }}
           style={isAll ? styles.activeBtn : styles.simpleBtn}>
-          <Text style={isAll ? styles.textMenuActive : styles.textMenu}>
+          <span style={isAll ? styles.textMenuActive : styles.textMenu}>
             {'Toutes'}
-          </Text>
-        </TouchableOpacity>
+          </span>
+        </button>
       </>
-    </View>
+    </div>
   );
 };
 

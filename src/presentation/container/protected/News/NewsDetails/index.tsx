@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, ScrollView, Image, TouchableOpacity } from 'react-native';
+;
 import { useNavigate } from 'react-router-dom';
 import { categories } from '../index';
 import { COLORS, SIZES, images } from '../../../../../resources/constants';
@@ -23,86 +23,84 @@ const List = ({ lists, category, changeCategory, details, isCliked, loading }: a
     };
 
     const renderItemTemplate = (list: any, index: number) => (
-        <TouchableOpacity
+        <button
             key={index}
             style={styles.container}
-            onPress={() => details(list)}>
-            <View style={styles.wrapperItem}>
-                <View style={styles.wrapperText}>
-                    <Text style={styles.category}>
+            onClick={() => details(list)}>
+            <div style={styles.wrapperItem}>
+                <div style={styles.wrapperText}>
+                    <span style={styles.category}>
                         {capitalizeFirstLetter(
                             getKeyByValue(categories, category),
                         )}
-                    </Text>
-                    <Text style={styles.title}>{list?.title}</Text>
-                    <View>
-                        <Text style={styles.date}>
+                    </span>
+                    <span style={styles.title}>{list?.title}</span>
+                    <div>
+                        <span style={styles.date}>
                             {dateToStringMoreAccurate(list?.publishedAt)}
-                        </Text>
-                        <Text style={styles.source}>{list?.author}</Text>
-                    </View>
-                </View>
-                <View style={styles.wrapperImg}>
-                    <Image
-                        source={list?.image ? { uri: list?.image } : images.home}
+                        </span>
+                        <span style={styles.source}>{list?.author}</span>
+                    </div>
+                </div>
+                <div style={styles.wrapperImg}>
+                    <img
+                        src={list?.image ? { uri: list?.image } : images.home}
                         style={styles.itemImg}
                     />
-                </View>
-            </View>
-        </TouchableOpacity>
+                </div>
+            </div>
+        </button>
     );
 
     return (
-        <View style={{ justifyContent: 'center' }}>
-            <ScrollView>
-                <View
+        <div style={{ justifyContent: 'center' }}>
+            <div style={{overflowY: "auto"}}>
+                <div
                     style={{
                         flexDirection: 'row',
                         flexWrap: 'wrap',
-                        justifyContent: 'flex-start',
-                    }}>
+                        justifyContent: 'flex-start'}}>
                     {Object.keys(categories).map((category, index) => (
-                        <TouchableOpacity
+                        <button
                             style={[
                                 styles.filter,
                                 click === index ? styles.itemActive : null,
                             ]}
-                            onPress={() => {
+                            onClick={() => {
                                 changeCategory(categories[category]), setClick(index);
                             }}
                             key={index}>
-                            <Text
+                            <span
                                 style={{
                                     marginHorizontal: 3,
                                     color: click === index ? COLORS.primary : COLORS.black,
-                                    fontWeight: 'bold',
-                                }}>
+                                    fontWeight: 'bold'}}>
                                 {category}
-                            </Text>
-                        </TouchableOpacity>
+                            </span>
+                        </button>
                     ))}
-                </View>
-                <View>
+                </div>
+                <div>
                     {
                         loading ?
-                            <View style={{minHeight:400}}>
+                            <div style={{minHeight:400}}>
                                 <MiniLoader/>
-                            </View>
+                            </div>
                             :
                             lists.length ? (isMobile ?
                                 <DataView value={lists} layout="list" itemTemplate={renderItemTemplate} />
                                 :
                                 <DataView value={lists} layout="list" itemTemplate={renderItemTemplate} paginatorTemplate={paginatorTemplateCustom} paginator rows={3} />)
                                 : (
-                                    <View style={styles.noResultFoundContainer}>
-                                        <Text style={styles.noResultFoundText}>
+                                    <div style={styles.noResultFoundContainer}>
+                                        <span style={styles.noResultFoundText}>
                                             {NEWS_DETAILS.NO_RESULT_FOUND}
-                                        </Text>
-                                    </View>
+                                        </span>
+                                    </div>
                                 )}
-                </View>
-            </ScrollView>
-        </View>
+                </div>
+            </div>
+        </div>
     );
 };
 
@@ -121,15 +119,14 @@ const NewsList = (props: any) => {
         navigate('/NewsInformationScreen', { state: { info: value } });
 
     return (
-        <View>
-            <View
+        <div>
+            <div
                 style={{
                     padding: SIZES.padding,
                     marginBottom: SIZES.padding,
                     paddingLeft: 0,
-                    paddingRight: 0,
-                }}>
-                <View style={{ marginTop: 10 }}>
+                    paddingRight: 0}}>
+                <div style={{ marginTop: 10 }}>
                     <List
                         lists={newsList}
                         category={category}
@@ -138,10 +135,10 @@ const NewsList = (props: any) => {
                         isCliked={props.isCliked}
                         loading={isLoading}
                     />
-                </View>
-            </View>
+                </div>
+            </div>
             {/* {isLoading ? <Loader /> : null} */}
-        </View>
+        </div>
     );
 };
 

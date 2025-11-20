@@ -1,7 +1,7 @@
-import {StyleSheet} from 'react-native';
+;
 import { COLORS } from '../../../resources/constants';
 
-export default StyleSheet.create({
+export default ({
   centeredView: {
     flex: 1,
     width: '100%',
@@ -18,30 +18,25 @@ export default StyleSheet.create({
     paddingBottom: 5,
     marginRight: 5,
     position: 'absolute',
-    zIndex: 2,
-  },
+    zIndex: 2},
   videoShape: {
     borderRadius: 15,
-    cursor: 'pointer',
-  },
+    cursor: 'pointer'},
   container: {
     height: '100%',
     width: '100%',
     padding: 40,
-    flex: 1,
-  },
+    flex: 1},
   name: {
     fontSize: 16,
     color: COLORS.white,
-    fontWeight: 'bold',
-  },
+    fontWeight: 'bold'},
   descriptionText: {
     fontSize: 12,
     color: COLORS.white,
     fontWeight: 'normal',
     letterSpacing: 0.2,
-    textAlignVertical: 'center',
-  },
+    textAlignVertical: 'center'},
   modalView: {
     marginVertical: '3%',
     backgroundColor: 'black',
@@ -51,36 +46,28 @@ export default StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 2,
-    },
+      height: 2},
     shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 5,
-  },
+    elevation: 5},
   buttonContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
+    justifyContent: 'space-between'},
   buttonStyles: {
     paddingVertical: 10,
     paddingHorizontal: 20,
     marginLeft: 5,
-    borderRadius: 10,
-  },
+    borderRadius: 10},
   buttonOpen: {
-    backgroundColor: '#F194FF',
-  },
+    backgroundColor: '#F194FF'},
   buttonClose: {
-    backgroundColor: '#2196F3',
-  },
+    backgroundColor: '#2196F3'},
   textStyle: {
     color: 'white',
     fontWeight: 'bold',
-    textAlign: 'center',
-  },
+    textAlign: 'center'},
   modalText: {
     marginBottom: 15,
     textAlign: 'center',
     color: COLORS.black
-  },
-});
+  }});

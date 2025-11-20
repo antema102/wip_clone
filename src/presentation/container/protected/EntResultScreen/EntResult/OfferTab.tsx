@@ -1,5 +1,5 @@
 import { Fragment, useEffect } from 'react';
-import { View } from 'react-native';
+;
 import { useState } from 'react';
 
 import FlatOffer from './FlatOffer';
@@ -23,8 +23,7 @@ export const OfferTab = props => {
       state: {
         id: ItemDetail.id,
         candidat: true,
-        typeId: ItemDetail?.type?.id,
-      }
+        typeId: ItemDetail?.type?.id}
     });
   };
   const { companyId, ItemDetail } = props?.route?.params || {};
@@ -60,26 +59,26 @@ export const OfferTab = props => {
 
   // const displayFlatOffer = () => {
   //   return (
-  //     <View>
+  //     <div>
   //       {offerList?.map(item => (
-  //         <View>
+  //         <div>
   //           <FlatOffer
   //             avatar={avatar}
   //             key={item.id}
   //             variable={item}
   //             displayDetail={displayDetail}
   //           />
-  //         </View>
+  //         </div>
   //       ))}
-  //     </View>
+  //     </div>
   //   );
   // };
 
 
   return (
-    <View style={styles.contenOffer}>
+    <div style={styles.contenOffer}>
       {isLoading ? <Loader /> : null}
-      <View style={{ padding: 20 }}>
+      <div style={{ padding: 20 }}>
         <DataView
           value={offerList}
           layout="list"
@@ -89,11 +88,10 @@ export const OfferTab = props => {
             ? {
               paginator: true,
               paginatorTemplate: paginatorTemplateCustom,
-              rows: 4,
-            }
+              rows: 4}
             : {})}
         />
-      </View>
-    </View>
+      </div>
+    </div>
   );
 };

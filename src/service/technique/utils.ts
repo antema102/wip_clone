@@ -44,8 +44,7 @@ dateFormat.i18n = {
     'November',
     'December',
   ],
-  timeNames: ['a', 'p', 'am', 'pm', 'A', 'P', 'AM', 'PM'],
-};
+  timeNames: ['a', 'p', 'am', 'pm', 'A', 'P', 'AM', 'PM']};
 
 export const checkTypes = (actionType: any, constants: any[]) =>
   constants
@@ -53,8 +52,7 @@ export const checkTypes = (actionType: any, constants: any[]) =>
       const values: any = Object.values(i);
       return {
         type: values[0]?.type,
-        reducers: values[0]?.reducers,
-      };
+        reducers: values[0]?.reducers};
     })
     .find(({ type }) => type === actionType);
 
@@ -112,8 +110,7 @@ export const options_date: any = {
   weekday: 'long',
   year: 'numeric',
   month: 'long',
-  day: 'numeric',
-};
+  day: 'numeric'};
 
 export const filterLocation = (data: Array<any>, location: any) => {
   const day = new Date().getDay() === 0 ? 6 : new Date().getDay() - 1;
@@ -142,9 +139,7 @@ export const filterLocation = (data: Array<any>, location: any) => {
         ...rest,
         distance: {
           unity,
-          value,
-        },
-      };
+          value}};
     })
     .sort((a, b) => {
       const a1 =

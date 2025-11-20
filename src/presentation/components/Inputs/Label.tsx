@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Platform } from 'react-native';
+;
 import  styles  from './style';
 
 interface Props {
@@ -9,43 +9,43 @@ interface Props {
 
 export default ({ title, type }: Props) => {
   return (
-    <View>
+    <div>
       {type && type === 'mainTitle' && (
-        <Text style={styles.mainTitle}>{title}</Text>
+        <span style={styles.mainTitle}>{title}</span>
       )}
       {type && type === 'secondTitle' && (
-        <Text style={styles.secondTitle}>{title}</Text>
+        <span style={styles.secondTitle}>{title}</span>
       )}
       {type && type === 'thirdTitle' && (
-        <Text style={styles.thirdTitle}>{title}</Text>
+        <span style={styles.thirdTitle}>{title}</span>
       )}
       {type && type === 'titleGreen' && (
-        <Text style={styles.titleGreen}>{title}</Text>
+        <span style={styles.titleGreen}>{title}</span>
       )}
       {type && type === 'titleGreenCenter' && (
-        <Text style={styles.titleGreenCenter}>{title}</Text>
+        <span style={styles.titleGreenCenter}>{title}</span>
       )}
       {type && type === 'titleGreen11' && (
-        <Text style={styles.titleGreen11}>{title}</Text>
+        <span style={styles.titleGreen11}>{title}</span>
       )}
       {type && type === 'titleGreen14' && (
-        <Text style={styles.titleGreen14}>{title}</Text>
+        <span style={styles.titleGreen14}>{title}</span>
       )}
       {type && type === 'paragraph' && (
-        <Text style={styles.paragraph}>{title}</Text>
+        <span style={styles.paragraph}>{title}</span>
       )}
       {type && type === 'password' && (
-        <Text style={styles.password}>{title}</Text>
+        <span style={styles.password}>{title}</span>
       )}
       {type && type === 'black_paragraph' && (
-        <Text style={styles.black_paragraph}>{title}</Text>
+        <span style={styles.black_paragraph}>{title}</span>
       )}
-      {type && type === 'link' && <Text style={styles.link}>{title}</Text>}
+      {type && type === 'link' && <span style={styles.link}>{title}</span>}
       {type && type === 'linkUnderline' && (
-        <Text style={styles.linkUnderline}>{title}</Text>
+        <span style={styles.linkUnderline}>{title}</span>
       )}
-      {type && type === 'error' && <Text style={styles.error}>{title}</Text>}
-      {!type && <Text style={styles.label}>{title}</Text>}
-    </View>
+      {type && type === 'error' && <span style={styles.error}>{title}</span>}
+      {!type && <span style={styles.label}>{title}</span>}
+    </div>
   );
 };

@@ -1,9 +1,9 @@
-import { Dimensions, StyleSheet, Platform } from 'react-native';
+;
 import { COLORS, SIZES } from '../../resources/constants';
-const winWidth = Dimensions.get('window').width;
-const winHeight = Dimensions.get('window').height;
+const winWidth = window.innerWidth;
+const winHeight = window.innerHeight;
 
-export const buttonsStyles = StyleSheet.create({
+export const buttonsStyles = {
   boutonValider: {
     borderRadius: 8,
     minWidth: 140,
@@ -15,8 +15,7 @@ export const buttonsStyles = StyleSheet.create({
     shadowColor: '#338554',
     shadowOpacity: 0.3,
     shadowRadius: 16,
-    elevation: 4,
-  },
+    elevation: 4},
   buttonLoginContainer: {
     maxHeight: Platform.OS === 'web' ? 150 : 100,
     display: 'flex',
@@ -28,8 +27,7 @@ export const buttonsStyles = StyleSheet.create({
     alignContent: 'center',
     alignSelf: 'center',
     justifyContent: 'space-around',
-    maxWidth: '100%',
-  },
+    maxWidth: '100%'},
   buttonLogin: {
     display: 'flex',
     flexDirection: 'row',
@@ -41,8 +39,7 @@ export const buttonsStyles = StyleSheet.create({
     maxWidth: 160,
     height: '100%',
     marginHorizontal: 10,
-    marginBottom: Platform.OS !== 'web' ? 30 : 0,
-  },
+    marginBottom: Platform.OS !== 'web' ? 30 : 0},
 
   displayCenterImageLogin: {
     height: 160,
@@ -51,8 +48,7 @@ export const buttonsStyles = StyleSheet.create({
     alignContent: 'center',
     flex: 1,
     marginTop: 10,
-    marginBottom: 10,
-  },
+    marginBottom: 10},
   displayCenter: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -62,8 +58,7 @@ export const buttonsStyles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
     height: 60,
-    width: '100%',
-  },
+    width: '100%'},
   displayCenterSubmit: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -73,8 +68,7 @@ export const buttonsStyles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 20,
     height: 60,
-    maxWidth: 300,
-  },
+    maxWidth: 300},
   displayCenterFlex: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -84,8 +78,7 @@ export const buttonsStyles = StyleSheet.create({
     marginBottom: 10,
     height: 120,
     flexDirection: 'row',
-    width: '200',
-  },
+    width: '200'},
   displayCenterForget: {
     height: 120,
     justifyContent: 'center',
@@ -93,8 +86,7 @@ export const buttonsStyles = StyleSheet.create({
     alignContent: 'center',
     marginTop: 10,
     marginBottom: 10,
-    flex: 1,
-  },
+    flex: 1},
   displayCenterInscriptionImage: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -102,8 +94,7 @@ export const buttonsStyles = StyleSheet.create({
     flex: 1,
     marginTop: 30,
     marginBottom: 10,
-    height: 60,
-  },
+    height: 60},
   displayCenterLoginBottom: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -111,8 +102,7 @@ export const buttonsStyles = StyleSheet.create({
     flex: 1,
     marginTop: 0,
     marginBottom: 0,
-    height: 40,
-  },
+    height: 40},
   displayHorizontal: {
     flex: 1,
     flexDirection: 'row',
@@ -120,22 +110,19 @@ export const buttonsStyles = StyleSheet.create({
     paddingBottom: 40,
     paddingTop: 20,
     alignContent: 'center',
-    height: winHeight * 0.1,
-  },
+    height: winHeight * 0.1},
   displayHorizontalNomarg: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    alignContent: 'center',
-  },
+    alignContent: 'center'},
   displaySpacedBtn: {
     width: 250,
     flex: 1,
     justifyContent: 'space-between',
     alignItems: 'center',
-    alignContent: 'center',
-  },
+    alignContent: 'center'},
   displaySpacedBtween: {
     flexDirection: 'row',
     width: winWidth - 240,
@@ -143,14 +130,12 @@ export const buttonsStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'center',
-    marginHorizontal: 'auto',
-  },
+    marginHorizontal: 'auto'},
 
   linkUnderline: {
     width: '100%',
     maxHeight: 80,
-    justifyContent: 'center',
-  },
+    justifyContent: 'center'},
   textUnderline: {
     alignSelf: 'center',
     fontSize: 14,
@@ -160,8 +145,7 @@ export const buttonsStyles = StyleSheet.create({
     marginVertical: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#0088CC',
-    width: 136,
-  },
+    width: 136},
   btnValiderOuterProfil: {
     width: 280,
     backgroundColor: '#0f579e',
@@ -171,13 +155,11 @@ export const buttonsStyles = StyleSheet.create({
     shadowColor: 'rgba(15, 87, 158, 0.9)',
     shadowOffset: {
       width: 1,
-      height: 2,
-    },
+      height: 2},
     shadowOpacity: 0.4,
     shadowRadius: 7,
     elevation: 5,
-    marginVertical: 4,
-  },
+    marginVertical: 4},
   btnAnnulerOuterProfil: {
     width: 250,
     backgroundColor: '#F9FCFF',
@@ -188,13 +170,11 @@ export const buttonsStyles = StyleSheet.create({
     shadowColor: '#fafafa',
     shadowOffset: {
       width: 0,
-      height: 0,
-    },
+      height: 0},
     shadowOpacity: 0.01,
     shadowRadius: 0,
     elevation: 0,
-    marginVertical: 4,
-  },
+    marginVertical: 4},
 
   btnAnnulerOuter: {
     minWidth: 130,
@@ -205,8 +185,7 @@ export const buttonsStyles = StyleSheet.create({
     borderColor: '#BDBDBD',
     margin: 12,
     flexGrow: 0,
-    flexShrink: 1,
-  },
+    flexShrink: 1},
   btnAnnuler: {
     color: '#BDBDBD',
     fontSize: 16,
@@ -230,8 +209,7 @@ export const buttonsStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'stretch',
     alignContent: 'stretch',
-    marginHorizontal: 0,
-  },
+    marginHorizontal: 0},
   btnTabOuter: {
     height: 50,
     borderRadius: 30,
@@ -240,8 +218,7 @@ export const buttonsStyles = StyleSheet.create({
     display: 'flex',
     paddingHorizontal: 5,
     width: '100%',
-    color: '#fff',
-  },
+    color: '#fff'},
   btnTabOuterActive: {
     height: 50,
     borderRadius: 30,
@@ -250,8 +227,7 @@ export const buttonsStyles = StyleSheet.create({
     margin: 0,
     display: 'flex',
     width: '100%',
-    paddingHorizontal: 5,
-  },
+    paddingHorizontal: 5},
   btnTabTxt: {
     fontSize: 14,
     color: '#828282',
@@ -280,28 +256,24 @@ export const buttonsStyles = StyleSheet.create({
     shadowColor: 'rgba(0, 0, 0, 0.06)',
     shadowOffset: {
       width: 0,
-      height: 5,
-    },
+      height: 5},
     shadowOpacity: 0.001,
     shadowRadius: 10,
     elevation: 5,
     marginVertical: 10,
-    flexDirection: 'row',
-  },
+    flexDirection: 'row'},
   ButtonGreenImg: {
     width: 24,
     height: 24,
-    resizeMode: 'contain',
-    marginHorizontal: 5,
-  },
+    objectFit: 'contain' as const,
+    marginHorizontal: 5},
   logoStyleLogin: {
     maxHeight: 120,
     maxWidth: 240,
     marginHorizontal: 0,
     marginVertical: 10,
     flex: 1,
-    resizeMode: 'contain',
-  },
+    objectFit: 'contain' as const},
 
   /* STYLE ADDED */
 
@@ -310,8 +282,7 @@ export const buttonsStyles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '700',
     textAlign: 'center',
-    paddingHorizontal: 4,
-  },
+    paddingHorizontal: 4},
   btnValiderWhite: {
     color: '#01129E',
     fontSize: 16,
@@ -319,8 +290,7 @@ export const buttonsStyles = StyleSheet.create({
     textAlign: 'center',
     fontStyle: 'normal',
     paddingHorizontal: 4,
-    lineHeight: 20,
-  },
+    lineHeight: 20},
   btnValiderOuter: {
     margin: 12,
     minWidth: 130,
@@ -331,8 +301,7 @@ export const buttonsStyles = StyleSheet.create({
     paddingHorizontal: 4,
     flexGrow: 1,
     flexShrink: 1,
-    width: '100%',
-  },
+    width: '100%'},
   btnDelete: {
     margin: 12,
     minWidth: 130,
@@ -357,8 +326,7 @@ export const buttonsStyles = StyleSheet.create({
     flexShrink: 1,
     borderColor: COLORS.secondary,
     borderWidth: 1,
-    width: winWidth - 50,
-  },
+    width: winWidth - 50},
   bkg_socio: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -367,11 +335,8 @@ export const buttonsStyles = StyleSheet.create({
     width: 56,
     height: 56,
     paddingVertical: 20,
-    marginHorizontal: 20,
-  },
+    marginHorizontal: 20},
   /* Bouton WIP */
   titleSwitch: {
     color: COLORS.black,
-    fontSize: SIZES.h3,
-  },
-});
+    fontSize: SIZES.h3}});

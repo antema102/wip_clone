@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text } from 'react-native';
+;
 
 import styles from '../../styles';
 import { useNavigate } from 'react-router-dom';
@@ -23,7 +23,7 @@ interface Props {
     type: string;
 }
 
-export const ListOfRecommandation = ({
+export const ListOfRecommandation = {
     item,
     index,
     values,
@@ -31,8 +31,7 @@ export const ListOfRecommandation = ({
     onRemove,
     errors,
     showErrors,
-    type,
-}: Props) => {
+    type}: Props) => {
     const [fileName, setFileName] = useState('Regarder le fichier');
     const [visible, setVisible] = useState(false);
     const [file, setFile] = useState(
@@ -76,14 +75,14 @@ export const ListOfRecommandation = ({
 
     return (<>
         <PDFViewerScreen visible={visible} setVisible={setVisible} data={file} isDownloadAllowed={false} />
-        <View style={[formsStyles.inputWrapBlueCreate, { paddingTop: 20 }]}>
-            <View style={styles.btnRemoveContainer}>
-                <Text style={styles.btnRemoveTitle}>{`Recommandation ${index}`}</Text>
+        <div style={[formsStyles.inputWrapBlueCreate, { paddingTop: 20 }]}>
+            <div style={styles.btnRemoveContainer}>
+                <span style={styles.btnRemoveTitle}>{`Recommandation ${index}`}</span>
 
                 {type !== 'read' && (
                     <Buttons
                         _style={[styles.btnRemove, globalStyle.elevationBlue]}
-                        onPress={handleRemove}
+                        onClick={handleRemove}
                         title=""
                         color=""
                         styleBtnTxt={{ color: COLORS.white }}
@@ -91,16 +90,15 @@ export const ListOfRecommandation = ({
                         iconStyles={{ margin: 5 }}
                     />
                 )}
-            </View>
+            </div>
 
-            <View key={`recommandation-${item}`}>
-                <View
+            <div key={`recommandation-${item}`}>
+                <div
                     style={[
                         styles.inputWrap,
                         {
                             backgroundColor:
-                                type === 'read' ? COLORS.disableGray : COLORS.white,
-                        },
+                                type === 'read' ? COLORS.disableGray : COLORS.white},
                     ]}>
                     <InputField
                         label={'Nom de la Recommandation'}
@@ -113,15 +111,14 @@ export const ListOfRecommandation = ({
                         isEditable={type !== 'read'}
                         maxLength={50}
                     />
-                </View>
+                </div>
 
-                <View
+                <div
                     style={[
                         styles.inputWrap,
                         {
                             backgroundColor:
-                                type === 'read' ? COLORS.disableGray : COLORS.white,
-                        },
+                                type === 'read' ? COLORS.disableGray : COLORS.white},
                     ]}>
                     <InputField
                         label={'Référence'}
@@ -134,11 +131,11 @@ export const ListOfRecommandation = ({
                         isEditable={type !== 'read'}
                         maxLength={50}
                     />
-                </View>
+                </div>
 
-                {/* <View style={{marginVertical: 20}}>
+                {/* <div style={{marginVertical: 20}}>
           <CustomButtons
-            onPress={async () => await pickAndEncodePDF(item)}
+            onClick={async () => await pickAndEncodePDF(item)}
             title={'Import PDF'}
             _style={[globalStyle.elevationBlue, globalStyle.buttonHomeDisplay]}
             color={'red'}
@@ -146,25 +143,25 @@ export const ListOfRecommandation = ({
             styleBtnTxt={globalStyle.bigBtnTxt}
             isDisable={type === 'read'}
           />
-        </View> */}
+        </div> */}
 
-                <View style={{ marginVertical: 20 }}>
+                <div style={{ marginVertical: 20 }}>
                     <FileUploader accept=".pdf" handleFileChange={pickAndEncodePDF} disable={type === 'read'} fileName={'Importer PDF'} icon={icons.filetext} color={COLORS.secondary}/>
-                </View>
+                </div>
                 {file ? (
-                    <View style={{ marginVertical: 20 }}>
+                    <div style={{ marginVertical: 20 }}>
                         <CustomButtons
-                            onPress={async () => await showPDFViewer()}
+                            onClick={async () => await showPDFViewer()}
                             title={fileName}
                             _style={[globalStyle.elevationBlue, globalStyle.buttonHomeExport]}
                             color={'red'}
                             icon={icons.filetext}
                             styleBtnTxt={globalStyle.bigBtnTxt}
                         />
-                    </View>
+                    </div>
                 ) : null}
-            </View>
-        </View>
+            </div>
+        </div>
     </>
     );
 };

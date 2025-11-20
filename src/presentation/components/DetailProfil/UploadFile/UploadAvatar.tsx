@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TouchableOpacity, Image, Text, View } from 'react-native';
+;
 
 import { DETAIL_PROFIL } from '../../../../data/constants/strings';
 import Popup from '../../CreateCV/Popup';
@@ -29,8 +29,7 @@ export default ({ value, onChange, style, isChangeable }: UploadProps) => {
 
   const [popupData, setPopupData] = useState({
     message: '',
-    isVisible: false,
-  });
+    isVisible: false});
   const setPopupVisible = (value: boolean) => {
     setTimeout(() => {
       setPopupData({ ...popupData, isVisible: value });
@@ -44,8 +43,7 @@ export default ({ value, onChange, style, isChangeable }: UploadProps) => {
       setTimeout(() => {
         setPopupData({
           message: activeString.DETAIL_PROFIL.SUCCESS_UPLOAD,
-          isVisible: true,
-        });
+          isVisible: true});
       }, 300);
     } else {
       setTimeout(() => {
@@ -58,8 +56,7 @@ export default ({ value, onChange, style, isChangeable }: UploadProps) => {
     const options = {
       mediaType: type,
       maxWidth: 1000,
-      maxHeight: 1000,
-    };
+      maxHeight: 1000};
     try {
       // const response: any = await launchImageLibrary(options);
       const response: any = null;
@@ -69,8 +66,7 @@ export default ({ value, onChange, style, isChangeable }: UploadProps) => {
         setTimeout(() => {
           setPopupData({
             message: activeString.DETAIL_PROFIL.CAMERA_UNAVAILABLE,
-            isVisible: true,
-          });
+            isVisible: true});
         }, 300);
         return;
       } else if (response.errorCode === ErrorCode.cameraPermission) {
@@ -95,21 +91,21 @@ export default ({ value, onChange, style, isChangeable }: UploadProps) => {
   return (
     <>
       {typeof onChange === 'function' ? (
-        <TouchableOpacity
+        <button
           activeOpacity={0.5}
           style={styles.buttonStyle}
-          onPress={() => chooseFile('photo')}>
-          <Image
-            source={value ? { uri: value } : { uri: images.avatar_6 }}
+          onClick={() => chooseFile('photo')}>
+          <img
+            src={value ? { uri: value } : { uri: images.avatar_6 }}
             style={[styles.imageStyle, style]}
           />
           {isChangeable && (
-            <View style={styles.badgeContainer}>
-              <Image
+            <div style={styles.badgeContainer}>
+              <img
                 style={styles.badgeIcon}
-                source={{ uri: icons.camera }}
+                src={{ uri: icons.camera }}
               />
-            </View>
+            </div>
           )}
           <Popup
             message={popupData.message}
@@ -117,14 +113,14 @@ export default ({ value, onChange, style, isChangeable }: UploadProps) => {
             validation={setPopupVisible}
             btnTitle="Ok"
           />
-        </TouchableOpacity>
+        </button>
       ) : (
-        <View>
-          <Image
-            source={value ? { uri: value } : { uri: images.avatar_6 }}
+        <div>
+          <img
+            src={value ? { uri: value } : { uri: images.avatar_6 }}
             style={[styles.imageStyle, style]}
           />
-        </View>
+        </div>
       )}
       {isLoading ? <Loader /> : null}
     </>

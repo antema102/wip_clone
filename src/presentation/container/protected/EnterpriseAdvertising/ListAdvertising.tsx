@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, FlatList, SafeAreaView } from 'react-native';
+;
 import { Advertising } from '../../../components/EnterpriseAdvertising/Advertising';
 import globalStyle from '../../../globalStyle/globalStyle';
 
@@ -7,11 +7,11 @@ import globalStyle from '../../../globalStyle/globalStyle';
 export const ListAdvertising = (props: any) => {
   const { displayOfferSheet, data, displayOfferSheetApply }= props
   return (
-    <View style={globalStyle.containersPageWidth}>
-      <View style={{}}>
+    <div style={globalStyle.containersPageWidth}>
+      <div style={{}}>
         {/** Listes des Publicités */}
-        <SafeAreaView>
-          <FlatList
+        <div>
+          <div
             data={data}
             renderItem={({ item }) => (
               <Advertising item={item}
@@ -20,9 +20,9 @@ export const ListAdvertising = (props: any) => {
             )}
             keyExtractor={item => item.id}
           />
-        </SafeAreaView>
-      </View>
-    </View>
+        </div>
+      </div>
+    </div>
   );
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, TouchableOpacity, View, Text } from 'react-native';
+;
 import { styles } from './styles'
 import { images } from '../../../../resources/constants';
 interface headerTitle {
@@ -10,10 +10,10 @@ interface headerTitle {
 
 const HeaderTitle = ({ title, _style,_styleText }: headerTitle) => {
   return (
-    <View style={[styles.headerCreateCv, _style]}>
-      <Text style={[styles.headerCreateCvText,_styleText]}>{title}</Text>
+    <div style={[styles.headerCreateCv, _style]}>
+      <span style={[styles.headerCreateCvText,_styleText]}>{title}</span>
       <img src={images.bannerImage} style={styles.headerCreateCvIcon} />
-    </View>
+    </div>
   );
 };
 

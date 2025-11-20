@@ -21,6 +21,5 @@ export const MatchingService = () => {
           success(result);
         }
       });
-    },
-  };
+    }};
 };

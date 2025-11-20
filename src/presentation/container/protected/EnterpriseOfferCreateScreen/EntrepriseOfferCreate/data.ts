@@ -1,39 +1,31 @@
 export const contratData = [
   {
     label: 'CDI',
-    value: 'CDI',
-  },
+    value: 'CDI'},
   {
     label: 'CDD',
-    value: 'CDD',
-  },
+    value: 'CDD'},
   {
     label: 'Télé travail',
-    value: 'Télétravail',
-  },
+    value: 'Télétravail'},
 
 ];
 export const profilData = [
   {
     label: 'Stagiaire',
-    value: 'Stagiaire',
-  },
+    value: 'Stagiaire'},
   {
     label: 'Junior',
-    value: 'Junior',
-  },
+    value: 'Junior'},
   {
     label: 'Intermédiaire',
-    value: 'Intermédiaire',
-  },
+    value: 'Intermédiaire'},
   {
     label: 'confirmé',
-    value: 'confirmé',
-  },
+    value: 'confirmé'},
   {
     label: 'Seniore',
-    value: 'Seniore',
-  },
+    value: 'Seniore'},
 
 ];
 export const availability = [

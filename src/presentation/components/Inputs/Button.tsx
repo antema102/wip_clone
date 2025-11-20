@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, Dimensions, Text } from 'react-native';
+;
 import styles  from './style';
 
 interface Props {
@@ -14,23 +14,22 @@ export default ({
   title,
   type,
   styleBtnTxt,
-  styleBtnOuter,
-}: Props) => { 
+  styleBtnOuter}: Props) => { 
   // Get the screen width using Dimensions
-  const screenWidth = Dimensions.get('window').width;
+  const screenWidth = window.innerWidth;
   return (
   <>
     {!type && (
-      <TouchableOpacity
-        onPress={(e: any) => onPress(type)}
+      <button
+        onClick={(e: any) => onPress(type)}
         style={[styles.appButtonContainerBtn, styleBtnOuter]}
       >
-        <Text style={styleBtnTxt}>{title}</Text>
-      </TouchableOpacity>
+        <span style={styleBtnTxt}>{title}</span>
+      </button>
     )}
     {type && (
-      <TouchableOpacity
-        onPress={(e: any) => onPress(type)}
+      <button
+        onClick={(e: any) => onPress(type)}
         style={[
           styles.appButtonContainer,
           type && type === 'valider' ? styles.validate : styles.inValidate,
@@ -39,13 +38,12 @@ export default ({
             ? {
               marginRight: 4,
               marginLeft: 4,
-              padding: 20,
-            }
+              padding: 20}
             : null,
         ]}
       >
-        <Text style={styleBtnTxt}>{title}</Text>
-      </TouchableOpacity>
+        <span style={styleBtnTxt}>{title}</span>
+      </button>
     )}
   </>
 )};

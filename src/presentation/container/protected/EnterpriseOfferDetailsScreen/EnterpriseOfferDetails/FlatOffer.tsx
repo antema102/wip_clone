@@ -1,12 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {
-  View,
-  Text,
-  Image,
-  ScrollView,
-  TouchableOpacity,
-  Platform,
-} from 'react-native';
+
 import {useSelector} from 'react-redux';
 import {styles} from './style';
 import { UploadFileService } from '../../../../../service/applicatif/UploadFile.sa';
@@ -66,34 +59,34 @@ const Item = props => {
   };
 
   return (
-    <TouchableOpacity
+    <button
       key={index}
       style={styles.card_templateItem}
-      onPress={() => showDetails(offer.id)}>
-      <Image
-        source={avatar ? {uri: avatar} : images.avatar_6}
+      onClick={() => showDetails(offer.id)}>
+      <img
+        src={avatar ? {uri: avatar} : images.avatar_6}
         style={styles.image}
       />
-      <View style={styles.wrapperTextItem}>
-        <Text style={styles.itemTitle}>{offer?.name}</Text>
-        <Text style={styles.jobPlaceItem}>{offer?.lieu}</Text>
+      <div style={styles.wrapperTextItem}>
+        <span style={styles.itemTitle}>{offer?.name}</span>
+        <span style={styles.jobPlaceItem}>{offer?.lieu}</span>
 
-        <Text style={styles.jobPlaceItem}>{offer?.type?.name}</Text>
-      </View>
-      <TouchableOpacity
+        <span style={styles.jobPlaceItem}>{offer?.type?.name}</span>
+      </div>
+      <button
         style={styles.footerFrame}
-        onPress={() => addOrRemove(offer)}>
-        <Text style={styles.candidatExp}>{resultDate(offer.createdAt)}</Text>
-        <View style={styles.favorisView}>
-          <Image
+        onClick={() => addOrRemove(offer)}>
+        <span style={styles.candidatExp}>{resultDate(offer.createdAt)}</span>
+        <div style={styles.favorisView}>
+          <img
             style={styles.favorisImage}
-            source={
+            src={
               selectedItems.includes(offer) ? icons.favoris : icons.deFavoris
             }
           />
-        </View>
-      </TouchableOpacity>
-    </TouchableOpacity>
+        </div>
+      </button>
+    </button>
   );
 };
 
@@ -101,12 +94,12 @@ const FlatOffer = props => {
   const {offerList, showDetails} = props;
 
   return (
-    <ScrollView style={styles.listItemOffer}>
+    <div style={{overflowY: "auto"}} style={styles.listItemOffer}>
       {offerList?.map((offer, index) => (
         <Item offer={offer} index={index} showDetails={showDetails} />
       ))}
-      <View style={{height: 100}}></View>
-    </ScrollView>
+      <div style={{height: 100}}></div>
+    </div>
   );
 };
 export default FlatOffer;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Pressable, Image } from 'react-native';
+;
 import { styles } from './styles';
 import { COLORS } from '../../../resources/constants';
 import CustomButton from '../Button/button';
@@ -36,62 +36,62 @@ export const Offer = props => {
 
   return (
     <>
-      <View style={styles.offerContainer}>
-        <Pressable onPress={onPress}>
-          <View style={styles.candidateDetailsContainer}>
-            <View style={{ flexDirection: 'row', gap: 24, alignItems: 'center' }}>
-              <Image source={icons.userCompany} style={styles.images} />
-              <View style={{ gap: 6 }}>
-                <Text style={styles.candidatName} numberOfLines={2}>
+      <div style={styles.offerContainer}>
+        <button onClick={onPress}>
+          <div style={styles.candidateDetailsContainer}>
+            <div style={{ flexDirection: 'row', gap: 24, alignItems: 'center' }}>
+              <img src={icons.userCompany} style={styles.images} />
+              <div style={{ gap: 6 }}>
+                <span style={styles.candidatName} numberOfLines={2}>
                   {isFormation ? item.title : name}
-                </Text>
-                <View style={styles.btnDetailtxtPostule}>
+                </span>
+                <div style={styles.btnDetailtxtPostule}>
                   {isFormation ? (
-                    <Text style={styles.candidatPost}>
+                    <span style={styles.candidatPost}>
                       {item.isPayant ? 'Payante ' : 'Gratuite'}
-                    </Text>
+                    </span>
                   ) : (
-                    <Text style={styles.candidatPost}>
+                    <span style={styles.candidatPost}>
                       {disponibility} {disponibility && type?.name ? ' - ' : ''}{' '}
                       {type?.name}
-                    </Text>
+                    </span>
                   )}
-                </View>
-              </View>
-            </View>
+                </div>
+              </div>
+            </div>
 
-            <View style={styles.offerBtnContainer}>
+            <div style={styles.offerBtnContainer}>
               {users?.length ? (
-                <View style={styles.btnDetailPostule}>
+                <div style={styles.btnDetailPostule}>
                   <CustomButton
                     color={COLORS.orange}
                     title={title}
-                    onPress={onPressApply}
+                    onClick={onPressApply}
                     _style={styles.smallButtonContainer}
                     styleBtnTxt={styles.smallBtnTxt}
                   />
-                </View>
+                </div>
               ) : (
-                <View />
+                <div />
               )}
               {isFormation ? (
-                <View style={styles.btnDetailPostule}>
+                <div style={styles.btnDetailPostule}>
                   <CustomButton
                     color={COLORS.orange}
                     title="Détails"
-                    onPress={onPress}
+                    onClick={onPress}
                     _style={styles.smallButtonContainer}
                     styleBtnTxt={styles.smallBtnTxt}
                   />
-                </View>
+                </div>
               ) : (
-                <View />
+                <div />
               )}
-            </View>
+            </div>
 
-          </View>
-        </Pressable>
-      </View>
+          </div>
+        </button>
+      </div>
     </>
   );
 

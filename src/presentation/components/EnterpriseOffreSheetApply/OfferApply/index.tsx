@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+;
 import { styles } from './styles';
 import { dateToString } from '../../../../data/factory/dateFactory';
 import { getAcronym } from '../../../../data/factory/index';
@@ -19,8 +19,7 @@ interface OfferApplyType {
     firstName: string,
     lastName: string
   },
-  displayOfferApply: (id: string) => void,
-}
+  displayOfferApply: (id: string) => void}
 
 export const OfferApply = (props: OfferApplyType) => {
   const { item, displayOfferApply } = props;
@@ -46,29 +45,29 @@ export const OfferApply = (props: OfferApplyType) => {
   }, []);
 
   return (
-    <TouchableOpacity
+    <button
       style={styles.candidateContainer}
-      onPress={() => displayOfferApply(_id)}>
-      <View style={styles.candidateImgContainer}>
-        <Image
+      onClick={() => displayOfferApply(_id)}>
+      <div style={styles.candidateImgContainer}>
+        <img
           style={styles.candidatImg}
-          source={image ? { uri: avatar } : { uri: images.avatar_1 }}
+          src={image ? { uri: avatar } : { uri: images.avatar_1 }}
         />
-      </View>
+      </div>
 
-      <View style={styles.candidateDetailsContainer}>
+      <div style={styles.candidateDetailsContainer}>
         {/** A propos du candidat */}
-        <Text style={styles.candidatName}>
+        <span style={styles.candidatName}>
           {condition
             ? getAcronym(`${firstName} ${lastName}`)
             : `${firstName} ${lastName}`}
-        </Text>
-        <Text style={styles.candidatPost}>
+        </span>
+        <span style={styles.candidatPost}>
           {' '}
           {active ? 'Actif' : 'Non Actif'}
-        </Text>
-        <Text style={styles.jobDate}>{date}</Text>
-      </View>
-    </TouchableOpacity>
+        </span>
+        <span style={styles.jobDate}>{date}</span>
+      </div>
+    </button>
   );
 };

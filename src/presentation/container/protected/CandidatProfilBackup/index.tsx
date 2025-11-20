@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, RefreshControl } from 'react-native';
+;
 import { styles } from './styles';
 
 import { ListBackup } from './ListBackup';
@@ -21,8 +21,7 @@ export const CandidatProfilBackupScreen = props => {
     navigate('/EnterpriseOfferDetailsScreen', {
       state: {
         id: idOffer,
-        candidat: true,
-      }
+        candidat: true}
     });
   };
 
@@ -39,13 +38,13 @@ export const CandidatProfilBackupScreen = props => {
   const activeString = lang === 'fr' ? stringsFr : stringsEn;
 
   return (
-    <View style={[styles.container, isMobile ? {} : {
+    <div style={[styles.container, isMobile ? {} : {
     }]}>
-      <View style={[styles.containers, { minHeight: 250 }]}>
+      <div style={[styles.containers, { minHeight: 250 }]}>
         <TitleRefont title={activeString.DETAIL_PROFIL.MES_SAUVEGARDES} _customStyle={{ paddingHorizontal: 75 }} />
         <ListBackup isFavorite={true} detailsFavorites={detailsFavorites} />
-      </View>
-    </View>
+      </div>
+    </div>
   );
 };
 

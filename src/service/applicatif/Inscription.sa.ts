@@ -27,6 +27,5 @@ export const InscriptionService = () => {
       });
     },
     postSendEmail,
-    resendEmail,
-  };
+    resendEmail};
 };

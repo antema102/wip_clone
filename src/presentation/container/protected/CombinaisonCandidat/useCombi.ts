@@ -16,6 +16,5 @@ export function useCombi(props: any) {
   return {
     refreshing,
     init,
-    f1,
-  };
+    f1};
 }

@@ -11,8 +11,7 @@ export const showErrorValuesDefault = {
   activitySector_level: false,
   jobWish_level: false,
   disponibility_level: false,
-  salaryExpectation_level: false,
-};
+  salaryExpectation_level: false};
 
 export const showErrorValuesSubmit = {
   activitySector: true,
@@ -22,15 +21,12 @@ export const showErrorValuesSubmit = {
   activitySector_level: true,
   jobWish_level: true,
   disponibility_level: true,
-  salaryExpectation_level: true,
-};
+  salaryExpectation_level: true};
 
 export const defaultValues: IError = {
   jobWish: '',
-  jobWish_level: '5',
-};
+  jobWish_level: '5'};
 
 export const defaultErrorValues: IError = {
   jobWish: '',
-  jobWish_level: '',
-};
+  jobWish_level: ''};

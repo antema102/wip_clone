@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Image, TouchableOpacity, Platform } from 'react-native';
+;
 import { useSelector } from 'react-redux';
 
 import { styles } from './styles';
@@ -58,60 +58,60 @@ export const Company = ({ item, displayCandidateDetail }) => {
 
     return (
         <>
-            <ScoreDetails onPress={onPress} data={item.data} score={score} visible={modalVisible} validation={setModalVisible} btnTitle="ok" />
-            <TouchableOpacity style={[styles.candidateContainer, isMobile ? { flexDirection: 'row' } : { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 10, marginHorizontal: 16, }]} onPress={onPress}>
+            <ScoreDetails onClick={onPress} data={item.data} score={score} visible={modalVisible} validation={setModalVisible} btnTitle="ok" />
+            <button style={[styles.candidateContainer, isMobile ? { flexDirection: 'row' } : { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 10, marginHorizontal: 16}]} onClick={onPress}>
 
-                <View style={styles.candidateImgContainer}>
-                    <Image style={styles.candidatImg} source={avatar ? { uri: avatar } : images.avatar_6} />
-                </View>
+                <div style={styles.candidateImgContainer}>
+                    <img style={styles.candidatImg} src={avatar ? { uri: avatar } : images.avatar_6} />
+                </div>
 
                 {isMobile ?
-                    <View style={{ flex: 1 }}>
-                        <View>
+                    <div style={{ flex: 1 }}>
+                        <div>
                             {/** A propos du candidat */}
-                            <Text style={styles.candidatName}>{name}</Text>
-                            <Text style={styles.candidatPost}>{isMobile ? truncateDescription(description) : description}</Text>
-                        </View>
+                            <span style={styles.candidatName}>{name}</span>
+                            <span style={styles.candidatPost}>{isMobile ? truncateDescription(description) : description}</span>
+                        </div>
 
-                        <View style={{ marginTop: 16 }}>
-                            <TouchableOpacity onPress={displayDetailsScore}>
+                        <div style={{ marginTop: 16 }}>
+                            <button onClick={displayDetailsScore}>
                                 <CustomButton
                                     color={getCompatibilityColor(score)}
                                     title={`Compatibilité: ${score.toString().includes('.') ? score.toFixed(2) : score}%`}
-                                    onPress={displayDetailsScore}
+                                    onClick={displayDetailsScore}
                                     _style={styles.smallButtonContainer}
                                     styleBtnTxt={styles.smallBtnTxt}
                                     iconRight={true}
                                 />
-                            </TouchableOpacity>
-                        </View>
-                    </View>
+                            </button>
+                        </div>
+                    </div>
                     :
                     <>
-                        <View style={styles.detailsContainer}>
-                            <View style={styles.candidateDetailsContainer}>
+                        <div style={styles.detailsContainer}>
+                            <div style={styles.candidateDetailsContainer}>
                                 {/** A propos du candidat */}
-                                <Text style={styles.candidatName}>{name}</Text>
-                                <Text style={styles.candidatPost}>{isMobile ? truncateDescription(description) : description}</Text>
-                            </View>
-                        </View>
+                                <span style={styles.candidatName}>{name}</span>
+                                <span style={styles.candidatPost}>{isMobile ? truncateDescription(description) : description}</span>
+                            </div>
+                        </div>
 
-                        <View>
-                            <TouchableOpacity onPress={displayDetailsScore}>
+                        <div>
+                            <button onClick={displayDetailsScore}>
                                 <CustomButton
                                     color={getCompatibilityColor(score)}
                                     title={`Compatibilité: ${score.toString().includes('.') ? score.toFixed(2) : score}%`}
-                                    onPress={displayDetailsScore}
+                                    onClick={displayDetailsScore}
                                     _style={styles.smallButtonContainer}
                                     styleBtnTxt={styles.smallBtnTxt}
                                     iconRight={true}
                                 />
-                            </TouchableOpacity>
-                        </View>
+                            </button>
+                        </div>
                     </>
                 }
 
-            </TouchableOpacity>
+            </button>
         </>
     );
 };

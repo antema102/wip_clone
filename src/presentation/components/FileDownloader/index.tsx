@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Image, Linking, TouchableOpacity } from 'react-native';
+
 
 import style from '../Inputs/style';
 import { removeProtocolFromString } from '../../../data/factory';
@@ -20,7 +20,7 @@ const FileDownloader = (props: FileDownloader) => {
   const [visible, setVisible] = useState(false);
   const showPDFViewer = () => {
     if (isPortfolio) {
-      Linking.openURL(`https://${removeProtocolFromString(data)}`);
+      window.open(`https://${removeProtocolFromString(data)}`);
     } else {
       setVisible(true);
     }
@@ -32,20 +32,20 @@ const FileDownloader = (props: FileDownloader) => {
   return (
     <>
       <PDFViewerScreen visible={visible} setVisible={setVisible} data={data.file} isDownloadAllowed={false} />
-      <TouchableOpacity onPress={() => showPDFViewer()}>
-        <View style={globalStyle.fileDownloaderContainer}>
-          <Image
-            source={isPortfolio ? { uri: icons.globe } : { uri: icons.filetext }}
+      <button onClick={() => showPDFViewer()}>
+        <div style={globalStyle.fileDownloaderContainer}>
+          <img
+            src={isPortfolio ? { uri: icons.globe } : { uri: icons.filetext }}
             style={style.fileImage}
           />
-          <View style={globalStyle.displayLeftVerticalFile}>
-            <Text style={style.txtBlue}>
+          <div style={globalStyle.displayLeftVerticalFile}>
+            <span style={style.txtBlue}>
               {isPortfolio ? activeString.DETAIL_PROFIL.PORTFOLIO : data.name}
-            </Text>
-            {!isPortfolio && <Text style={style.txtBlue}>{data.reference}</Text>}
-          </View>
-        </View>
-      </TouchableOpacity>
+            </span>
+            {!isPortfolio && <span style={style.txtBlue}>{data.reference}</span>}
+          </div>
+        </div>
+      </button>
     </>
   );
 };

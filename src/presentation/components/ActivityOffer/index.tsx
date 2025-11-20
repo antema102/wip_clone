@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Image, TouchableOpacity, Pressable } from 'react-native';
+;
 import { DataView } from 'primereact/dataview';
 import { useHomeCompany } from './useHomeCompany';
 import styles from './styles';
@@ -28,30 +28,30 @@ const ActivityOffer = () => {
 		}, [item?.users]);
 
 		return (
-			<TouchableOpacity>
-				<View style={[styles.card, { backgroundColor: 'white' }]}>
-					<Text style={[styles.cardTitle, { color: item.titleColor }]}>{item.name}</Text>
-					<View style={styles.cardDates}>
-						<Text style={styles.cardDate}>{item?.disponibility}</Text>
-						<Text style={styles.cardDate}> - {item?.profil}</Text>
-					</View>
-					<View style={styles.cardContent}>
-						<View style={styles.buttonsContainer}>
-							<TouchableOpacity style={styles.actionButton}>
-								<Text style={styles.buttonText}>{title}</Text>
-							</TouchableOpacity>
-						</View>
-					</View>
-				</View>
-			</TouchableOpacity>
+			<button>
+				<div style={[styles.card, { backgroundColor: 'white' }]}>
+					<span style={[styles.cardTitle, { color: item.titleColor }]}>{item.name}</span>
+					<div style={styles.cardDates}>
+						<span style={styles.cardDate}>{item?.disponibility}</span>
+						<span style={styles.cardDate}> - {item?.profil}</span>
+					</div>
+					<div style={styles.cardContent}>
+						<div style={styles.buttonsContainer}>
+							<button style={styles.actionButton}>
+								<span style={styles.buttonText}>{title}</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</button>
 		);
 	};
 
 	return (
-		<View style={styles.container}>
-		<Text style={styles.title}>Activités sur vos offres</Text>
+		<div style={styles.container}>
+		<span style={styles.title}>Activités sur vos offres</span>
 			<DataView value={allJob} itemTemplate={itemTemplate} paginator rows={4} />
-		</View>
+		</div>
 	);
 };
 

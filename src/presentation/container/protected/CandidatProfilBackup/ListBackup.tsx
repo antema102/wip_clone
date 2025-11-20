@@ -1,6 +1,6 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import { useSelector } from 'react-redux';
-import { View, FlatList, StyleSheet, Text } from 'react-native';
+;
 import { useFavorites } from '../../../../service/redux/ducks/favorites';
 import { ProfilBackup } from '../../../components/CandidatProfilBackup/ProfilBackup';
 import Loader from '../../../components/CreateCV/Loader';
@@ -68,7 +68,7 @@ export const ListBackup = (props) => {
 
 
   return (
-    <View >
+    <div >
       {/** Listes des candidtas */}
       {loadingGlobal ? <Loader /> :
         listFavorite.length ? (
@@ -87,6 +87,6 @@ export const ListBackup = (props) => {
         ) : (
           <NotFounds label='Aucun poste n’a été enregistré' />
         )}
-    </View>
+    </div>
   );
 };

@@ -1,12 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useSelector} from 'react-redux';
-import {
-  View,
-  Image,
-  TouchableHighlight,
-  TouchableOpacity,
-  Text,
-} from 'react-native';
+
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {Badge} from 'react-native-elements';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -27,7 +21,7 @@ import {ROLEACCOUNT} from '../../../data/constants/strings';
 const LOCAL_DATA = 'localEvents';
 export const Header = (props: any) => {
   const {navigation, route, typeApp, noback = false, special, payment} = props;
-  const [showModal, setShowModal] = useState(false);
+  const [showsetShowModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const {notificationsDeleteToken} = Notifications();
   const {notificationCounter} = useUser();
@@ -41,8 +35,7 @@ export const Header = (props: any) => {
       setIsLoading(false);
       navigation.reset({
         index: 0,
-        routes: [{name: 'LoginScreen'}],
-      });
+        routes: [{name: 'LoginScreen'}]});
     }
   }, [accessToken]);
 
@@ -98,23 +91,23 @@ export const Header = (props: any) => {
 
   return (
     <>
-      <View style={[{elevation: 2}, styles.containerHeader]}>
-        <View style={styles.backWrap}>
+      <div style={[{elevation: 2}, styles.containerHeader]}>
+        <div style={styles.backWrap}>
           {!noback ? (
-            <TouchableOpacity onPress={() => handleBack()}>
-              <Image source={icons.back} style={styles.back} />
-            </TouchableOpacity>
+            <button onClick={() => handleBack()}>
+              <img src={icons.back} style={styles.back} />
+            </button>
           ) : (
-            <View />
+            <div />
           )}
-        </View>
-        <View style={styles.logoWrap}>
-          <Image source={images.logo} style={styles.logo} />
-        </View>
+        </div>
+        <div style={styles.logoWrap}>
+          <img src={images.logo} style={styles.logo} />
+        </div>
         {typeApp === 'Enterprise ?' && (
-          <View style={styles.bellingWrap}>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('Home2Screen')}>
+          <div style={styles.bellingWrap}>
+            <button
+              onClick={() => navigation.navigate('Home2Screen')}>
               {badge === 0 ? null : (
                 <Badge
                   value={badge}
@@ -122,47 +115,47 @@ export const Header = (props: any) => {
                   containerStyle={styles.badgeStyle}
                 />
               )}
-              <Image source={icons.bellring} style={styles.bellRing} />
-            </TouchableOpacity>
-          </View>
+              <img src={icons.bellring} style={styles.bellRing} />
+            </button>
+          </div>
         )}
-        <View style={styles.vmoreWrap}>
-          <TouchableOpacity onPress={handleShowModal}>
-            <Image source={icons.vmore} style={styles.vmore} />
-          </TouchableOpacity>
-        </View>
-        {isLoading ? <Loader /> : <View />}
+        <div style={styles.vmoreWrap}>
+          <button onClick={handleShowModal}>
+            <img src={icons.vmore} style={styles.vmore} />
+          </button>
+        </div>
+        {isLoading ? <Loader /> : <div />}
         {showModal && (
-          <TouchableOpacity
+          <button
             style={styles.modalContainer}
-            onPress={() => {
+            onClick={() => {
               setShowModal(false);
             }}>
-            <View style={styles.modal}>
-              <TouchableOpacity
-                onPress={() => {
+            <div style={styles.modal}>
+              <button
+                onClick={() => {
                   navigation.navigate('OnBoardingScreen'), setShowModal(false);
                 }}
                 style={{}}>
-                <View style={styles.ValignFlex}>
-                  <Image source={icons.infosWhite} style={styles.iconsMenuH} />
-                  <Text style={{alignSelf: 'center', ...FONTS.inputText}}>
+                <div style={styles.ValignFlex}>
+                  <img src={icons.infosWhite} style={styles.iconsMenuH} />
+                  <span style={{alignSelf: 'center', ...FONTS.inputText}}>
                     {HEADER.INFO_APP}
-                  </Text>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={handleLogOut} style={{}}>
-                <View style={styles.ValignFlex}>
-                  <Image source={icons.deconnect} style={styles.iconsMenu} />
-                  <Text style={{alignSelf: 'center', ...FONTS.inputText}}>
+                  </span>
+                </div>
+              </button>
+              <button onClick={handleLogOut} style={{}}>
+                <div style={styles.ValignFlex}>
+                  <img src={icons.deconnect} style={styles.iconsMenu} />
+                  <span style={{alignSelf: 'center', ...FONTS.inputText}}>
                     {HEADER.LOGOUT}
-                  </Text>
-                </View>
-              </TouchableOpacity>
-            </View>
-          </TouchableOpacity>
+                  </span>
+                </div>
+              </button>
+            </div>
+          </button>
         )}
-      </View>
+      </div>
     </>
   );
 };

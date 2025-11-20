@@ -1,10 +1,9 @@
-import { StyleSheet, Dimensions } from 'react-native';
+;
 import { COLORS, SIZES } from '../../../../../resources/constants';
 
-let windowWidth = Dimensions.get('window').width;
+let windowWidth = window.innerWidth;
 
-export const styles = StyleSheet.create({
-  
+export const styles = {
   containers: {
     width: '100%',
     height: '100%',
@@ -12,8 +11,7 @@ export const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 4,
-    },
+      height: 4},
     shadowOpacity: 0.1,
     shadowRadius: 5,
     elevation: 5,
@@ -24,25 +22,20 @@ export const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'space-between',
     flexDirection: 'row',
-    backgroundColor: COLORS.secondary,
-  },
+    backgroundColor: COLORS.secondary},
   vtitle: {
-    marginBottom: 16,
-  },
+    marginBottom: 16},
   headerContainer: {
     padding: 24,
     backgroundColor: '#2ca5ff',
     height: windowWidth * 0.25,
-    maxHeight: 112,
-  },
+    maxHeight: 112},
   headerScreenTitle: {
     color: 'white',
     fontSize: 20,
-    fontWeight: 'bold',
-  },
+    fontWeight: 'bold'},
   headerScreenDescription: {
-    color: 'white',
-  },
+    color: 'white'},
   candidateAboutContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -50,12 +43,10 @@ export const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderStyle: 'dashed',
     marginHorizontal: 24,
-    paddingTop: 24,
-  },
+    paddingTop: 24},
   candidateAboutItem: {
     width: '50%',
-    //paddingHorizontal: 20,
-  },
+    //paddingHorizontal: 20},
   candidateContainer: {
     borderBottomColor: COLORS.blue_border,
     borderBottomWidth: 1,
@@ -64,44 +55,35 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 10,
     marginTop: 16,
     marginHorizontal: 16,
-    flexDirection: 'row',
-  },
+    flexDirection: 'row'},
   title: {
-    fontSize: 32,
-  },
+    fontSize: 32},
   candidateImgContainer: {
-    flex: 1,
-  },
+    flex: 1},
   candidateDetailsContainer: {
-    flex: 2,
-  },
+    flex: 2},
   candidateBtnContainer: {
     flex: 2,
-    maxWidth: 128,
-  },
+    maxWidth: 128},
   candidatImg: {
     width: 50,
     height: 50,
-    borderRadius: SIZES.radiusTwo,
-  },
+    borderRadius: SIZES.radiusTwo},
   candidatName: {
     fontSize: 16,
     color: COLORS.black,
     fontWeight: 'bold',
-    height: windowWidth * 0.07,
-  },
+    height: windowWidth * 0.07},
   candidatPost: {
     fontSize: 12,
     color: COLORS.black,
     letterSpacing: 0.2,
-    height: windowWidth * 0.04,
-  },
+    height: windowWidth * 0.04},
   candidatExp: {
     fontSize: 12,
     color: COLORS.primary,
     letterSpacing: 0.2,
-    marginTop: 20,
-  },
+    marginTop: 20},
   footerContainer: {
     backgroundColor: COLORS.blue_back,
     height: 84,
@@ -110,50 +92,41 @@ export const styles = StyleSheet.create({
     paddingVertical: 0,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
-  },
+    alignItems: 'center'},
   footerScreenLabel: {
     alignSelf: 'center',
     fontSize: SIZES.body3,
-    color: COLORS.secondary,
-  },
+    color: COLORS.secondary},
   footerScreenBtn: {},
   smallBtnTxt: {
     fontSize: SIZES.body5,
     color: COLORS.white,
-    fontWeight: 'bold',
-  },
+    fontWeight: 'bold'},
   titleOfferList: {
-    fontSize: 16,
-  },
+    fontSize: 16},
   smallButtonContainer: {
     height: 32,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: SIZES.radiusTwo,
-  },
+    borderRadius: SIZES.radiusTwo},
 
   // ---------------------------------------------------------
   // Refine Candidats
   // ----------------
   refineContainer: {
-    flex: 1,
-  },
+    flex: 1},
   layerContainer: {},
   layerTitleContainer: {},
   containerFormList: {
-    width: windowWidth - 48,
-  },
+    width: windowWidth - 48},
   shadowButton: {
     shadowColor: COLORS.secondary,
     shadowOffset: {
       width: 0,
-      height: 8,
-    },
+      height: 8},
     shadowOpacity: 0.8,
     shadowRadius: 8,
-    elevation: 6,
-  },
+    elevation: 6},
   noEvents: {
     fontSize: 20,
     color: '#01129E',
@@ -162,8 +135,7 @@ export const styles = StyleSheet.create({
     letterSpacing: 0.15,
     textAlign: 'center',
     paddingBottom: '25%',
-    paddingTop: '25%',
-  },
+    paddingTop: '25%'},
   contentImage:{
     flexDirection:'row',
     gap:8,

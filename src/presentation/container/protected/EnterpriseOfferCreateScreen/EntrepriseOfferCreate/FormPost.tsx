@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Pressable, Dimensions, BackHandler } from 'react-native';
+
 import { useSelector } from 'react-redux';
 
 import { TitleLabels } from './titleLabels';
@@ -34,7 +34,7 @@ export const FormPost = (props: any) => {
   const activeString = lang === 'fr' ? stringsFr : stringsEn;
   const activeStr = lang === 'fr' ? TitleLabels : TitleLabels_en;
 
-  const winWidth = Dimensions.get('window').width;
+  const winWidth = window.innerWidth;
   const { data, navigation, modiferData, costsPrice } = props;
   const [isUpdate, setIsUpdate] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -71,8 +71,7 @@ export const FormPost = (props: any) => {
         price: 0,
         thumbnail: '',
         contact: modiferData?.contact,
-        activityArea: modiferData?.activityArea,
-      }
+        activityArea: modiferData?.activityArea}
       : {
         title: '',
         description: '',
@@ -82,8 +81,7 @@ export const FormPost = (props: any) => {
         price: 0,
         thumbnail: '',
         contact: '',
-        activityArea: '',
-      },
+        activityArea: ''},
   );
   const [dataCost, setDataCost] = useState();
   const [priceDay, setPriceDay] = useState();
@@ -151,8 +149,7 @@ export const FormPost = (props: any) => {
       datePublication: '',
       thumbnail: '',
       contact: '',
-      activityArea: '',
-    });
+      activityArea: ''});
     navigate('/EnterpriseAdvertisingScreen');
   };
 
@@ -169,8 +166,7 @@ export const FormPost = (props: any) => {
         price: 0,
         thumbnail: '',
         contact: '',
-        activityArea: '',
-      });
+        activityArea: ''});
     }
   }, []);
 
@@ -306,13 +302,12 @@ export const FormPost = (props: any) => {
 
 
   return (
-    <View
+    <div
       style={{
         paddingHorizontal: SIZES.padding,
-        justifyContent: 'space-between',
-      }}>
+        justifyContent: 'space-between'}}>
       <CustomModal title={"Moyen de paiement"} visible={showPayment} setVisible={setShowPayment} content={<PaymentWays />} />
-      <View style={[styles.inputWrap, modiferData ? { backgroundColor: COLORS.disableGray } : {}]}>
+      <div style={[styles.inputWrap, modiferData ? { backgroundColor: COLORS.disableGray } : {}]}>
         <InputField
           label={activeStr.advertisement.name}
           value={values.title}
@@ -322,11 +317,11 @@ export const FormPost = (props: any) => {
           maxLength={150}
           isEditable={!modiferData}
         />
-      </View>
+      </div>
       {nameError && (
-        <Text style={{ color: COLORS.red_color }}>{nameTxtError}</Text>
+        <span style={{ color: COLORS.red_color }}>{nameTxtError}</span>
       )}
-      <View style={[{ marginBottom: 20 }, styles.inputWrap, modiferData ? { backgroundColor: COLORS.disableGray } : {}]}>
+      <div style={[{ marginBottom: 20 }, styles.inputWrap, modiferData ? { backgroundColor: COLORS.disableGray } : {}]}>
         <InputField
           label={activeStr.advertisement.description}
           value={values.description}
@@ -337,12 +332,12 @@ export const FormPost = (props: any) => {
           maxLength={100}
           isEditable={!modiferData}
         />
-      </View>
+      </div>
       {descriptionError && (
-        <Text style={{ color: COLORS.red_color }}>{descriptionTxtError}</Text>
+        <span style={{ color: COLORS.red_color }}>{descriptionTxtError}</span>
       )}
 
-      <View style={[styles.inputWrap, modiferData ? { backgroundColor: COLORS.disableGray } : {}]}>
+      <div style={[styles.inputWrap, modiferData ? { backgroundColor: COLORS.disableGray } : {}]}>
         <InputField
           label={activeStr.advertisement.contact}
           value={values.contact}
@@ -353,14 +348,14 @@ export const FormPost = (props: any) => {
           maxLength={10}
           isEditable={!modiferData}
         />
-      </View>
+      </div>
 
       {contactError && (
-        <Text style={{ color: COLORS.red_color }}>{activeString.ERROR.EMPTY_FIELD}</Text>
+        <span style={{ color: COLORS.red_color }}>{activeString.ERROR.EMPTY_FIELD}</span>
       )}
 
       {!modiferData && activityList && (
-        <View style={styles.inputWrap}>
+        <div style={styles.inputWrap}>
           <InputSelect
             label={activeStr.advertisement.categoriePost}
             name="activityArea"
@@ -369,15 +364,15 @@ export const FormPost = (props: any) => {
             isEditable={true}
             data={activityList}
           />
-        </View>
+        </div>
       )}
 
       {activityError && (
-        <Text style={{ color: COLORS.red_color }}>{activeString.ERROR.EMPTY_PICK}</Text>
+        <span style={{ color: COLORS.red_color }}>{activeString.ERROR.EMPTY_PICK}</span>
       )}
 
       {!modiferData && dataCost && (
-        <View style={styles.inputWrap}>
+        <div style={styles.inputWrap}>
           <InputSelect
             label={activeStr.advertisement.tarif}
             name="duration"
@@ -386,15 +381,15 @@ export const FormPost = (props: any) => {
             isEditable={true}
             data={dataCost}
           />
-        </View>
+        </div>
       )}
 
       {abonmentDurationError && (
-        <Text style={{ color: COLORS.red_color }}>{activeString.ERROR.EMPTY_PICK}</Text>
+        <span style={{ color: COLORS.red_color }}>{activeString.ERROR.EMPTY_PICK}</span>
       )}
 
       {!modiferData && (
-        <View style={styles.inputWrap}>
+        <div style={styles.inputWrap}>
           <CustomInputDatePicker
             value={values.datePublication}
             required
@@ -418,17 +413,17 @@ export const FormPost = (props: any) => {
               ).toISOString()
             }
           />
-        </View>
+        </div>
       )}
 
       {datePublicationError && (
-        <Text style={{ color: COLORS.red_color }}>{activeString.ERROR.EMPTY_PICK}</Text>
+        <span style={{ color: COLORS.red_color }}>{activeString.ERROR.EMPTY_PICK}</span>
       )}
 
       {/* {!modiferData && (
-        <View style={{ paddingVertical: 20 }}>
+        <div style={{ paddingVertical: 20 }}>
           <CustomButtons
-            onPress={() => selectImage(false)}
+            onClick={() => selectImage(false)}
             title={'import'}
             _style={[globalStyle.elevationOrange, globalStyle.buttonHomeExport]}
             color={'red'}
@@ -436,7 +431,7 @@ export const FormPost = (props: any) => {
             styleBtnTxt={globalStyle.bigBtnTxt}
           />
           <FileUploader handleFileChange={selectImage} fileName={imgName ? imgName : 'Importer une image'} accept='image/*' />
-        </View>
+        </div>
       )} */}
 
       {
@@ -452,29 +447,28 @@ export const FormPost = (props: any) => {
       }
 
       {imageError && (
-        <Text style={{ color: COLORS.red_color }}>{activeString.ERROR.EMPTY_IMAGE}</Text>
+        <span style={{ color: COLORS.red_color }}>{activeString.ERROR.EMPTY_IMAGE}</span>
       )}
 
-      <View
+      <div
         style={{
           flex: 1,
-          height: 260,
-        }}>
+          height: 260}}>
         {!modiferData && (
-          <View>
-            <View style={styles.screenContainer2}>
-              <Pressable
+          <div>
+            <div style={styles.screenContainer2}>
+              <button
                 style={[styles.buttonAnnuler]}
-                onPress={(e: any) => handleCancel()}>
-                <Text style={styles.textBtnSecondary}>Annuler</Text>
-              </Pressable>
-              <Pressable style={[styles.buttonAnnuler2]} onPress={handleSubmit}>
-                <Text style={styles.textBtnSecondary2}>
+                onClick={(e: any) => handleCancel()}>
+                <span style={styles.textBtnSecondary}>Annuler</span>
+              </button>
+              <button style={[styles.buttonAnnuler2]} onClick={handleSubmit}>
+                <span style={styles.textBtnSecondary2}>
                   {activeString.ENTERPRISE_INFORMATIONS.VALIDATE}
-                </Text>
-              </Pressable>
-            </View>
-          </View>
+                </span>
+              </button>
+            </div>
+          </div>
         )}
         {modiferData && (
           <SubmitButtons
@@ -484,7 +478,7 @@ export const FormPost = (props: any) => {
             submitTitle="Supprimer"
           />
         )}
-      </View>
+      </div>
       <Popup
         message={activeString.TENDER.CONFIRMATION_POST}
         visible={confirmation}
@@ -510,6 +504,6 @@ export const FormPost = (props: any) => {
         advertisementOK={true}
       />
       {isLoading && <Loader />}
-    </View>
+    </div>
   );
 };

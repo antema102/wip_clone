@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, ScrollView,Image } from 'react-native';
+;
 
 import { styles } from './styles';
 import { ListCandidat } from './ListCandidat';
@@ -33,11 +33,11 @@ export const FindTalentList = props => {
   // <HeaderTitle title={activeString.FIND_TALENT_C.TITLE_C} />
 
   return (
-    <View style={styles.container}>
-      <View style={[styles.containers, { backgroundColor: COLORS.white, marginTop: 24, borderRadius: 10 }]}>
-        <View style={{ height: 50, padding: 20, }}>
-          <Text style={globalStyle.titleHome}>Profils Trouvés {resultMatching.length} :</Text>
-        </View>
+    <div style={styles.container}>
+      <div style={[styles.containers, { backgroundColor: COLORS.white, marginTop: 24, borderRadius: 10 }]}>
+        <div style={{ height: 50, padding: 20}}>
+          <span style={globalStyle.titleHome}>Profils Trouvés {resultMatching.length} :</span>
+        </div>
         {isLoading ? (
           <Loader />
         ) : (
@@ -49,29 +49,28 @@ export const FindTalentList = props => {
               />
             ) : (
 
-              <View style={{ alignItems: 'center', gap: 24, paddingTop: 34 }}>
-                <View style={{ paddingVertical: 18, paddingHorizontal: 32, backgroundColor: COLORS.blue_title, minWidth: 300, borderRadius: 20 }}>
-                  <Text style={styles.contentResult}>Aucun profil trouvé</Text>
-                </View>
+              <div style={{ alignItems: 'center', gap: 24, paddingTop: 34 }}>
+                <div style={{ paddingVertical: 18, paddingHorizontal: 32, backgroundColor: COLORS.blue_title, minWidth: 300, borderRadius: 20 }}>
+                  <span style={styles.contentResult}>Aucun profil trouvé</span>
+                </div>
 
-                <View style={{ alignItems: 'center', }}>
+                <div style={{ alignItems: 'center'}}>
                   <Divider type='solid' align='center' style={{ width: 100 }} />
-                  <Image source={{ uri: images.hands }} style={styles.image} />
-                </View>
-              </View>
+                  <img src={{ uri: images.hands }} style={styles.image} />
+                </div>
+              </div>
             )}
           </>
         )}
-      </View>
-      {/* <View
+      </div>
+      {/* <div
         style={{
           position: 'absolute',
           width: '100%',
-          bottom: 0,
-        }}>
+          bottom: 0}}>
         <FooterCandidat totalCandidate={resultMatching.length} />
-      </View> */}
-    </View>
+      </div> */}
+    </div>
   );
 };
 

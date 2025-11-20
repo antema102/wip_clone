@@ -1,9 +1,9 @@
-import { StyleSheet, Dimensions } from 'react-native';
+;
 import { COLORS, FONTS, SIZES } from '../../../resources/constants';
 
-const winWidth = Dimensions.get('window').width;
-const winHeight = Dimensions.get('window').height;
-export const styles = StyleSheet.create({
+const winWidth = window.innerWidth;
+const winHeight = window.innerHeight;
+export const styles = {
   containers: {
     width: '100%',
     padding: SIZES.padding,
@@ -11,8 +11,7 @@ export const styles = StyleSheet.create({
       position:'relative',
     shadowOffset: {
       width: 0,
-      height: 4,
-    },
+      height: 4},
     shadowOpacity: 0.1,
     shadowRadius: 5,
     elevation: 5,
@@ -23,8 +22,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 15,
     backgroundColor: COLORS.white,
     marginBottom: 16,
-    borderRadius: 10,
-  },
+    borderRadius: 10},
   pageContainer: {
     height: winHeight * 1,
     width: '100%',
@@ -46,17 +44,15 @@ export const styles = StyleSheet.create({
     borderTopRightRadius: 20,
     overflow: 'visible',
     padding: 20,
-    // top: 60,
-  },
+    // top: 60},
   imgBanner: {
-    resizeMode: 'contain',
+    objectFit: 'contain' as const,
     position: 'absolute',
     marginLeft: 450,
     zIndex: 2,
     top: winWidth * 0.01,
     height: winHeight * 0.16 - 2,
-    width: winWidth * 0.3,
-  },
+    width: winWidth * 0.3},
   textBienvenue: {
     fontSize: SIZES.h3,
     color: COLORS.white,
@@ -64,37 +60,31 @@ export const styles = StyleSheet.create({
     height: '100%',
     paddingHorizontal: 0,
     paddingVertical: winWidth * 0.08,
-    marginLeft: 20,
-  },
+    marginLeft: 20},
   displayCenterVertical: {
     left: '20%',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
-  },
+    justifyContent: 'center'},
   displayCenterHorizontal: {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-  },
+    justifyContent: 'center'},
   displayLeftHorizontal: {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'flex-start',
-  },
+    justifyContent: 'flex-start'},
   childFlexCenterHorizontal: {
     flex: 1,
-    alignSelf: 'center',
-  },
+    alignSelf: 'center'},
 
   content: {
     width: '100%',
     justifyContent: 'space-between',
-    flexDirection: 'row',
-  },
+    flexDirection: 'row'},
 
   button: {
     height: 56,
@@ -102,8 +92,7 @@ export const styles = StyleSheet.create({
     left: 24,
     top: 312,
     borderRadius: 16,
-    padding: 16,
-  },
+    padding: 16},
   buttonHome: {
     paddingHorizontal: 8,
     height: 56,
@@ -111,8 +100,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: COLORS.secondary,
     justifyContent: 'center',
-    alignItems: 'center',
-  },
+    alignItems: 'center'},
   buttonActions: {
     paddingRight: SIZES.padding2,
     height: 56,
@@ -120,8 +108,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row-reverse',
     backgroundColor: COLORS.secondary,
     justifyContent: 'space-between',
-    alignItems: 'center',
-  },
+    alignItems: 'center'},
   buttonHomeActionsaisir: {
     paddingHorizontal: 8,
     height: 56,
@@ -129,8 +116,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: COLORS.secondary,
     justifyContent: 'center',
-    alignItems: 'center',
-  },
+    alignItems: 'center'},
   buttonHomeExport: {
     paddingHorizontal: 8,
     height: 56,
@@ -138,14 +124,12 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: COLORS.orange,
     justifyContent: 'center',
-    alignItems: 'center',
-  },
+    alignItems: 'center'},
   bigBtnTxt: {
     fontSize: SIZES.body3,
     color: COLORS.white,
     fontWeight: '700',
-    paddingLeft: 20,
-  },
+    paddingLeft: 20},
   tagNavContainer: {
     width: winWidth / 2.4,
     height: 50,
@@ -157,52 +141,44 @@ export const styles = StyleSheet.create({
     marginBottom: SIZES.padding2,
     // marginRight: 10,
     // marginHorizontal: 10,
-    paddingHorizontal: 10,
-  },
+    paddingHorizontal: 10},
   tagNav: {
     color: COLORS.black,
     fontSize: SIZES.h5,
-    fontFamily: 'Oxygen-Regularial',
-  },
+    fontFamily: 'Oxygen-Regularial'},
   wrapPost: {
     // padding: SIZES.padding2,
     padding: 12,
     borderRadius: SIZES.radius,
     marginBottom: SIZES.padding2,
     borderWidth: 1,
-    borderColor: COLORS.gray_border,
-  },
+    borderColor: COLORS.gray_border},
   customDate: {
     fontSize: SIZES.body5,
     fontFamily: 'Oxygen-Regular',
-    color: COLORS.secondary,
-  },
+    color: COLORS.secondary},
   customPost: {
     fontSize: SIZES.body4,
     fontFamily: 'Oxygen-Regular',
     color: COLORS.black,
     letterSpacing: 0.2,
-    lineHeight: SIZES.padding2,
-  },
+    lineHeight: SIZES.padding2},
   wrapItem: {
     paddingVertical: SIZES.padding,
     // backgroundColor: 'green',
     borderTopWidth: 1,
     borderStyle: 'dashed',
-    borderTopColor: COLORS.gray_border,
-  },
+    borderTopColor: COLORS.gray_border},
   titleItem: {
     color: COLORS.black,
     fontSize: SIZES.body3,
-    fontFamily: 'Oxygen-Regular',
-  },
+    fontFamily: 'Oxygen-Regular'},
   descrItem: {
     color: COLORS.black,
     fontSize: SIZES.body5,
     fontFamily: 'Oxygen-Regular',
     minHeight: 40,
-    lineHeight: 40,
-  },
+    lineHeight: 40},
   libreButtom: {
     height: 32,
     lineHeight: 28,
@@ -210,21 +186,15 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
     color: COLORS.white,
     fontSize: SIZES.body5,
-    marginRight: SIZES.padding2,
-  },
+    marginRight: SIZES.padding2},
   bkgBlue: {
-    backgroundColor: COLORS.primary,
-  },
+    backgroundColor: COLORS.primary},
   bkgOrange: {
-    backgroundColor: COLORS.orange,
-  },
+    backgroundColor: COLORS.orange},
   oxygenBold: {
-    fontFamily: 'Oxygen-Regular',
-  },
+    fontFamily: 'Oxygen-Regular'},
   text: {
     fontFamily: 'Oxygen-Regular',
     color: COLORS.black,
     fontSize: SIZES.h5,
-    textAlign: 'center',
-  },
-});
+    textAlign: 'center'}});

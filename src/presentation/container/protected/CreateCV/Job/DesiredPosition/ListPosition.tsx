@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text} from 'react-native';
+;
 import {useSelector} from 'react-redux';
 
 import styles from '../../styles';
@@ -26,7 +26,7 @@ interface Props {
   type: string;
 }
 
-export const ListPosition = ({
+export const ListPosition = {
   item,
   index,
   values,
@@ -36,8 +36,7 @@ export const ListPosition = ({
   showErrors,
   formatSelectData,
   country,
-  type,
-}: Props) => {
+  type}: Props) => {
   const {user} = useSelector(({auth}: any) => auth);
 
   const handleRemove = () => {
@@ -81,17 +80,17 @@ export const ListPosition = ({
   // ----------------------------------------------------------------------
 
   return (
-    <View style={[formsStyles.inputWrapBlueCreate, {paddingTop: 20}]}>
-      <View style={styles.btnRemoveContainer}>
-        <Text
+    <div style={[formsStyles.inputWrapBlueCreate, {paddingTop: 20}]}>
+      <div style={styles.btnRemoveContainer}>
+        <span
           style={
             styles.btnRemoveTitle
-          }>{`Localisation souhaitée ${index}`}</Text>
+          }>{`Localisation souhaitée ${index}`}</span>
 
         {type !== 'read' && (
           <Buttons
             _style={[styles.btnRemove, globalStyle.elevationBlue]}
-            onPress={handleRemove}
+            onClick={handleRemove}
             title=""
             color=""
             styleBtnTxt={{color: COLORS.white}}
@@ -99,17 +98,16 @@ export const ListPosition = ({
             iconStyles={{margin: 5}}
           />
         )}
-      </View>
+      </div>
 
-      <View key={`desiredPosition-${item}`}>
+      <div key={`desiredPosition-${item}`}>
         {/** Country */}
-        <View
+        <div
           style={[
             styles.inputWrap,
             {
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white,
-            },
+                type === 'read' ? COLORS.disableGray : COLORS.white},
           ]}>
           <InputSelect
             label={TitleLabels.CreationCV.country}
@@ -122,10 +120,10 @@ export const ListPosition = ({
             isEditable={type !== 'read'}
             data={country}
           />
-        </View>
+        </div>
 
         {/** Province */}
-        <View
+        <div
           style={[
             styles.inputWrap,
             {
@@ -134,8 +132,7 @@ export const ListPosition = ({
                   ? COLORS.disableGray
                   : values[`country_${item}`] !== ''
                   ? COLORS.white
-                  : COLORS.disableGray,
-            },
+                  : COLORS.disableGray},
           ]}>
           <InputSelect
             label={TitleLabels.CreationCV.province}
@@ -148,10 +145,10 @@ export const ListPosition = ({
             isEditable={type !== 'read' && values[`country_${item}`] !== ''}
             data={province}
           />
-        </View>
+        </div>
 
         {/** Zone */}
-        <View
+        <div
           style={[
             styles.inputWrap,
             {
@@ -160,8 +157,7 @@ export const ListPosition = ({
                   ? COLORS.disableGray
                   : values[`province_${item}`] !== ''
                   ? COLORS.white
-                  : COLORS.disableGray,
-            },
+                  : COLORS.disableGray},
           ]}>
           <InputField
             label={TitleLabels.CreationCV.zone}
@@ -174,9 +170,9 @@ export const ListPosition = ({
             isEditable={type !== 'read' && values[`province_${item}`] !== ''}
             maxLength={50}
           />
-        </View>
-      </View>
-      {isLoading ? <Loader /> : <View />}
-    </View>
+        </div>
+      </div>
+      {isLoading ? <Loader /> : <div />}
+    </div>
   );
 };

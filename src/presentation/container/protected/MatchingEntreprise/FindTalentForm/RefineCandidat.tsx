@@ -1,10 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import {
-  View,
-  TouchableOpacity,
-  Text,
-  Image
-} from 'react-native';
+;
 import { useSelector } from 'react-redux';
 import { ZonnageService } from '../../../../../service/applicatif/Zonnage.sa';
 import { getDynamicListByKey } from '../../../../../service/technique/dynamicService';
@@ -99,8 +94,7 @@ export const RefineCandidat = (props: any) => {
       data.map(element => {
         dataList.push({
           label: element[label],
-          value: element[value],
-        });
+          value: element[value]});
       });
     }
     return dataList;
@@ -144,133 +138,111 @@ export const RefineCandidat = (props: any) => {
         label: activeString.FindCriteria.post,
         name: 'desiredPost',
         necessary: true,
-        noSwitch: true,
-      },
+        noSwitch: true},
       {
         type: 'select',
         label: activeString.FindCriteria.secteur,
         name: 'activitySector',
-        data: activityList || [],
-      },
+        data: activityList || []},
       {
         type: 'select',
         label: activeString.FindCriteria.level,
         name: 'level',
-        data: gradeList || [],
-      },
+        data: gradeList || []},
       {
         type: 'select',
         label: activeString.FindCriteria.availability,
         name: 'disponibility',
-        data: availabilityList || [],
-      },
+        data: availabilityList || []},
       {
         type: 'select',
         label: activeString.FindCriteria.transport,
         name: 'transport',
-        data: transportList || [],
-      },
+        data: transportList || []},
       {
         type: 'select',
         label: activeString.FindCriteria.Accommodated,
         name: 'loger',
-        data: logerOrNot,
-      },
+        data: logerOrNot},
       {
         type: 'select',
         label: activeString.FindCriteria.recommend,
         name: 'recommandation',
-        data: logerOrNot,
-      },
+        data: logerOrNot},
       ...(candidat ? [] : [{
         type: 'select',
         label: activeString.FindCriteria.candidate_search,
         name: 'candidat',
-        data: candidate,
-      }])
+        data: candidate}])
     ],
     infoPerso: [
       {
         type: 'select',
         label: activeString.FindCriteria.contrat,
         name: 'statut',
-        data: statusList || [],
-      },
+        data: statusList || []},
       {
         type: 'select',
         label: activeString.FindCriteria.country,
         name: 'adrsCountry',
-        data: country,
-      },
+        data: country},
       {
         type: 'select',
         label: activeString.FindCriteria.province,
         name: 'adrsProvince',
-        data: adrsProvince,
-      },
+        data: adrsProvince},
       {
         type: 'text',
         label: activeString.FindCriteria.common,
-        name: 'AdrsZone',
-      },
+        name: 'AdrsZone'},
     ],
     experiencePro: [
       {
         type: 'select',
         label: activeString.FindCriteria.experience,
         name: 'yearOfExp',
-        data: experienceList || [],
-      },
+        data: experienceList || []},
       {
         type: 'text',
         label: activeString.FindCriteria.old_job,
-        name: 'lastjobType',
-      },
+        name: 'lastjobType'},
       {
         type: 'text',
         label: activeString.FindCriteria.old_business,
-        name: 'lastjobPlace',
-      },
+        name: 'lastjobPlace'},
     ],
     destination: [
       {
         type: 'select',
         label: activeString.FindCriteria.country_wish,
         name: 'jobCountry',
-        data: country,
-      },
+        data: country},
       {
         type: 'select',
         label: activeString.FindCriteria.province_wish,
         name: 'jobProvince',
-        data: jobProvince,
-      },
+        data: jobProvince},
       {
         type: 'text',
         label: activeString.FindCriteria.common_wish,
-        name: 'jobZone',
-      },
+        name: 'jobZone'},
     ],
     others: [
       {
         type: 'select',
         label: activeString.FindCriteria.langue,
         name: 'language',
-        data: languageList,
-      },
+        data: languageList},
       {
         type: 'select',
         label: activeString.FindCriteria.sport,
         name: 'sport',
-        data: sportList || [],
-      },
+        data: sportList || []},
       {
         type: 'text',
         label: activeString.FindCriteria.center_interest,
-        name: 'interest',
-      },
-    ],
-  };
+        name: 'interest'},
+    ]};
 
   // ----------------------------------------------------------------------------
   // Managing Switch Field
@@ -282,31 +254,28 @@ export const RefineCandidat = (props: any) => {
     jobSought: false,
     yearExp: false,
     disponibility: false,
-    transport: false,
-  });
+    transport: false});
 
   const onChangeEditable = (layerName: string) => {
     setIsLayerEditable({
       ...isLayerEditable,
-      [layerName]: !isLayerEditable[layerName],
-    });
+      [layerName]: !isLayerEditable[layerName]});
   };
 
   // ----------------------------------------------------------------------------
   // Managing the Hide/Show Form field
 
-  const [layerSwitch, setLayerSwitch] = useState({
+  const [layersetLayerSwitch] = useState({
     more: false,
     activitySector: false,
     studyArea: false,
     infoPerso: false,
     destination: false,
     experiencePro: false,
-    others: false,
-  });
+    others: false});
 
   const handleChangeLayerSwitch = (name: string) =>
-    setLayerSwitch({ ...layerSwitch, [name]: !layerSwitch[name] });
+    setLayerSwitch({ ...layer[name]: !layerSwitch[name] });
 
   // -----------------------------------------------------------------------------
 
@@ -321,8 +290,7 @@ export const RefineCandidat = (props: any) => {
             setLayerSwitch(previousState => ({
               ...previousState,
               more: true,
-              [element]: true,
-            }));
+              [element]: true}));
           }
         }),
       );
@@ -344,8 +312,7 @@ export const RefineCandidat = (props: any) => {
     setVisiblePopup,
     setIsLoading,
     errorSalary,
-    errorAge,
-  } = useForm(
+    errorAge} = useForm(
     data,
     Validation,
     navigate,
@@ -385,15 +352,15 @@ export const RefineCandidat = (props: any) => {
 
   return (
     <Fragment>
-      <View>
+      <div>
         {!candidat &&
-          <View style={{ borderRadius: 20, borderWidth: 1, borderColor: COLORS.blue_title }}>
-            <Text style={{ fontWeight: 700, fontSize: 15, padding: 16, color: COLORS.border_blue }}>{activeStringEN.FIND_TALENT_C.TEXT_C}</Text>
-          </View>
+          <div style={{ borderRadius: 20, borderWidth: 1, borderColor: COLORS.blue_title }}>
+            <span style={{ fontWeight: 700, fontSize: 15, padding: 16, color: COLORS.border_blue }}>{activeStringEN.FIND_TALENT_C.TEXT_C}</span>
+          </div>
         }
-        <View style={{ paddingTop: 24 }}>
+        <div style={{ paddingTop: 24 }}>
           {fieldData.default.map((element, index) => (
-            <View key={`default-${index}`} style={formsStyles.inputWrapBlue}>
+            <div key={`default-${index}`} style={formsStyles.inputWrapBlue}>
               <CriterionField
                 type={element.type}
                 label={element.label}
@@ -411,29 +378,29 @@ export const RefineCandidat = (props: any) => {
                 necessary={element?.necessary || false}
                 noSwitch={element?.noSwitch || false}
               />
-            </View>
+            </div>
           ))}
-        </View>
-        <View style={[globalStyle.roundedBlue]}>
+        </div>
+        <div style={[globalStyle.roundedBlue]}>
           <LayerSwitch
             title={activeString.FindCriteria.more}
-            onPress={handleChangeLayerSwitch}
+            onClick={handleChangeLayerSwitch}
             btnLabel={layerSwitch.more}
             name="more"
           />
 
           {layerSwitch.more ? (
-            <View style={[globalStyle.roundedBlue]}>
+            <div style={[globalStyle.roundedBlue]}>
               <LayerSwitch
                 title={activeString.FindCriteria.info}
-                onPress={handleChangeLayerSwitch}
+                onClick={handleChangeLayerSwitch}
                 btnLabel={layerSwitch.infoPerso}
                 name="infoPerso"
               />
 
               {layerSwitch.infoPerso ? (
-                <View>
-                  <View style={formsStyles.inputWrapBlue}>
+                <div>
+                  <div style={formsStyles.inputWrapBlue}>
                     <CriterionField
                       type="select"
                       label={activeString.FindCriteria.contrat}
@@ -447,8 +414,8 @@ export const RefineCandidat = (props: any) => {
                       required
                       data={statusList}
                     />
-                  </View>
-                  <View style={formsStyles.inputWrapBlue}>
+                  </div>
+                  <div style={formsStyles.inputWrapBlue}>
                     <CriterionField
                       type={'select'}
                       label={activeString.FindCriteria.country}
@@ -463,25 +430,25 @@ export const RefineCandidat = (props: any) => {
                       data={country}
                       reset
                     />
-                  </View>
+                  </div>
 
                   {values.adrsCountry === '' ||
                     values.adrsCountry === undefined ? (
-                    <View style={[styles.defaultCriterion, {}]}>
-                      <View style={formsStyles.inputWrapBlue}>
-                        <View style={styles.alignSwitch}>
-                          <Text style={styles.titleGroup}>{activeString.FindCriteria.province}</Text>
+                    <div style={[styles.defaultCriterion, {}]}>
+                      <div style={formsStyles.inputWrapBlue}>
+                        <div style={styles.alignSwitch}>
+                          <span style={styles.titleGroup}>{activeString.FindCriteria.province}</span>
                           {typeof onChangeEditable === 'function' ? (
                             <SwitchComponent
                               onChangeValue={() => delete values.adrsProvince}
                               value={false}
                             />
                           ) : null}
-                        </View>
-                      </View>
-                    </View>
+                        </div>
+                      </div>
+                    </div>
                   ) : (
-                    <View style={formsStyles.inputWrapBlue}>
+                    <div style={formsStyles.inputWrapBlue}>
                       <CriterionField
                         type={'select'}
                         label={activeString.FindCriteria.province}
@@ -495,30 +462,30 @@ export const RefineCandidat = (props: any) => {
                         required
                         data={adrsProvince}
                       />
-                    </View>
+                    </div>
                   )}
 
                   {values.adrsProvince === '' ||
                     values.adrsProvince === undefined ||
                     values.adrsCountry === '' ||
                     values.adrsCountry === undefined ? (
-                    <View style={[styles.defaultCriterion, {}]}>
-                      <View style={formsStyles.inputWrapBlue}>
-                        <View style={styles.alignSwitch}>
-                          <Text style={styles.titleGroup}>
+                    <div style={[styles.defaultCriterion, {}]}>
+                      <div style={formsStyles.inputWrapBlue}>
+                        <div style={styles.alignSwitch}>
+                          <span style={styles.titleGroup}>
                             {activeString.FindCriteria.common}
-                          </Text>
+                          </span>
                           {typeof onChangeEditable === 'function' ? (
                             <SwitchComponent
                               onChangeValue={() => null}
                               value={false}
                             />
                           ) : null}
-                        </View>
-                      </View>
-                    </View>
+                        </div>
+                      </div>
+                    </div>
                   ) : (
-                    <View style={formsStyles.inputWrapBlue}>
+                    <div style={formsStyles.inputWrapBlue}>
                       <CriterionField
                         type={'text'}
                         label={activeString.FindCriteria.common}
@@ -532,9 +499,9 @@ export const RefineCandidat = (props: any) => {
                         required
                         data={null}
                       />
-                    </View>
+                    </div>
                   )}
-                  <View style={formsStyles.inputWrapBlue}>
+                  <div style={formsStyles.inputWrapBlue}>
                     <CriterionField
                       type="salary"
                       label={activeString.FindCriteria.pretension}
@@ -549,8 +516,8 @@ export const RefineCandidat = (props: any) => {
                       onChangeEditable={onChangeEditable}
                       required
                     />
-                  </View>
-                  <View style={formsStyles.inputWrapBlue}>
+                  </div>
+                  <div style={formsStyles.inputWrapBlue}>
                     <CriterionField
                       type="salary"
                       label="Age"
@@ -565,20 +532,20 @@ export const RefineCandidat = (props: any) => {
                       onChangeEditable={onChangeEditable}
                       required
                     />
-                  </View>
-                </View>
+                  </div>
+                </div>
               ) : null}
 
               <LayerSwitch
                 title="Experiences pro"
-                onPress={handleChangeLayerSwitch}
+                onClick={handleChangeLayerSwitch}
                 btnLabel={layerSwitch.experiencePro}
                 name="experiencePro"
               />
 
               {layerSwitch.experiencePro
                 ? fieldData.experiencePro.map((element, index) => (
-                  <View
+                  <div
                     key={`experiencePro-${index}`}
                     style={formsStyles.inputWrapBlue}>
                     <CriterionField
@@ -598,19 +565,19 @@ export const RefineCandidat = (props: any) => {
                       required={element?.required || true}
                       data={element?.data || null}
                     />
-                  </View>
+                  </div>
                 ))
                 : null}
 
               <LayerSwitch
                 title="Destination"
-                onPress={handleChangeLayerSwitch}
+                onClick={handleChangeLayerSwitch}
                 btnLabel={layerSwitch.destination}
                 name="destination"
               />
               {layerSwitch.destination ? (
-                <View>
-                  <View style={formsStyles.inputWrapBlue}>
+                <div>
+                  <div style={formsStyles.inputWrapBlue}>
                     <CriterionField
                       type={'select'}
                       label={activeString.FindCriteria.country_wish}
@@ -625,27 +592,27 @@ export const RefineCandidat = (props: any) => {
                       data={country}
                       resetProvince
                     />
-                  </View>
+                  </div>
 
                   {values.jobCountry === '' ||
                     values.jobCountry === undefined ? (
-                    <View style={[styles.defaultCriterion, {}]}>
-                      <View style={formsStyles.inputWrapBlue}>
-                        <View style={styles.alignSwitch}>
-                          <Text style={styles.titleGroup}>
+                    <div style={[styles.defaultCriterion, {}]}>
+                      <div style={formsStyles.inputWrapBlue}>
+                        <div style={styles.alignSwitch}>
+                          <span style={styles.titleGroup}>
                             {activeString.FindCriteria.province_wish}
-                          </Text>
+                          </span>
                           {typeof onChangeEditable === 'function' ? (
                             <SwitchComponent
                               onChangeValue={() => null}
                               value={false}
                             />
                           ) : null}
-                        </View>
-                      </View>
-                    </View>
+                        </div>
+                      </div>
+                    </div>
                   ) : (
-                    <View style={formsStyles.inputWrapBlue}>
+                    <div style={formsStyles.inputWrapBlue}>
                       <CriterionField
                         type={'select'}
                         label={activeString.FindCriteria.province_wish}
@@ -659,30 +626,30 @@ export const RefineCandidat = (props: any) => {
                         required
                         data={jobProvince}
                       />
-                    </View>
+                    </div>
                   )}
 
                   {values.jobProvince === '' ||
                     values.jobProvince === undefined ||
                     values.jobCountry === '' ||
                     values.jobCountry === undefined ? (
-                    <View style={[styles.defaultCriterion, {}]}>
-                      <View style={formsStyles.inputWrapBlue}>
-                        <View style={styles.alignSwitch}>
-                          <Text style={styles.titleGroup}>
+                    <div style={[styles.defaultCriterion, {}]}>
+                      <div style={formsStyles.inputWrapBlue}>
+                        <div style={styles.alignSwitch}>
+                          <span style={styles.titleGroup}>
                             {activeString.FindCriteria.common_wish}
-                          </Text>
+                          </span>
                           {typeof onChangeEditable === 'function' ? (
                             <SwitchComponent
                               onChangeValue={() => null}
                               value={false}
                             />
                           ) : null}
-                        </View>
-                      </View>
-                    </View>
+                        </div>
+                      </div>
+                    </div>
                   ) : (
-                    <View style={formsStyles.inputWrapBlue}>
+                    <div style={formsStyles.inputWrapBlue}>
                       <CriterionField
                         type={'text'}
                         label={activeString.FindCriteria.common_wish}
@@ -696,20 +663,20 @@ export const RefineCandidat = (props: any) => {
                         required
                         data={null}
                       />
-                    </View>
+                    </div>
                   )}
-                </View>
+                </div>
               ) : null}
               <LayerSwitch
                 title={activeString.FindCriteria.other}
-                onPress={handleChangeLayerSwitch}
+                onClick={handleChangeLayerSwitch}
                 btnLabel={layerSwitch.others}
                 name="others"
               />
 
               {layerSwitch.others
                 ? fieldData.others.map((element, index) => (
-                  <View
+                  <div
                     key={`others-${index}`}
                     style={formsStyles.inputWrapBlue}>
                     <CriterionField
@@ -729,39 +696,39 @@ export const RefineCandidat = (props: any) => {
                       required={element?.required || true}
                       data={element?.data || null}
                     />
-                  </View>
+                  </div>
                 ))
                 : null}
-            </View>
+            </div>
           ) : null}
           {isLoading ? <Loader /> : null}
-        </View>
+        </div>
         <Popup
           visible={popupData.visibility}
           onClose={setVisiblePopup}
           cancel
           closeTitle="OK">
-          <Text style={{ color: COLORS.black }}>{popupData.message}</Text>
+          <span style={{ color: COLORS.black }}>{popupData.message}</span>
         </Popup>
-      </View>
-      <View style={styles.footerFormLargeSec}>
-        <TouchableOpacity onPress={handleInit} style={styles.reinit}>
-          <Text style={styles.textButtonOrange}>{'Reinitialiser'}</Text>
-          <Image source={icons.reload} style={styles.iconReload} />
-        </TouchableOpacity>
+      </div>
+      <div style={styles.footerFormLargeSec}>
+        <button onClick={handleInit} style={styles.reinit}>
+          <span style={styles.textButtonOrange}>{'Reinitialiser'}</span>
+          <img src={icons.reload} style={styles.iconReload} />
+        </button>
 
-        <TouchableOpacity
-          onPress={handleSubmit}
+        <button
+          onClick={handleSubmit}
           style={[{ alignSelf: 'center' }, styles.submitJob]}>
-          <Text style={styles.textButton}>
+          <span style={styles.textButton}>
             {noMatching
               ? 'Aucun profil trouvé'
               : dataMatching.length
                 ? `Profils trouvés (${dataMatching?.length})`
                 : 'Rechercher'}
-          </Text>
-        </TouchableOpacity>
-      </View>
+          </span>
+        </button>
+      </div>
     </Fragment>
   );
 };

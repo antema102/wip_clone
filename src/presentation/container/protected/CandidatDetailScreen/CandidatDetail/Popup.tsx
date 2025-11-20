@@ -1,13 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import {
-  Modal,
-  Text,
-  Pressable,
-  View,
-  Linking,
-  Alert,
-  Image,
-} from 'react-native';
+import { Dialog } from 'primereact/dialog';
+
 import { useSelector } from 'react-redux';
 import { styles } from './styles';
 import { useNavigate } from 'react-router-dom';
@@ -46,9 +39,9 @@ const Popup = (props: PopupType) => {
 
   const handlingPhoneNumber = async () => {
     if (phone) {
-      Linking.openURL(`tel:${phone}`);
+      window.open(`tel:${phone}`);
     } else {
-      Alert.alert(
+      window.alert(
         'Information : ',
         CONTACT_CANDIDAT.NO_PHONE_PHONENUMBER,
         [{ text: ENTERPRISE_INFORMATIONS.UNDO }, { text: 'OK' }],
@@ -106,13 +99,10 @@ const Popup = (props: PopupType) => {
         token: receiver.googleToken,
         notification: {
           body: `L'entreprise : ${transmitter.name} est intéressée par votre profil pour le poste de : ${jobTitle}, veuillez cliquer pour voir plus d'informations`,
-          title: CONTACT_CANDIDAT.MESSAGE_TITLE,
-        },
+          title: CONTACT_CANDIDAT.MESSAGE_TITLE},
         data: {
           senderId: senderId,
-          offerId: offerId,
-        },
-      }
+          offerId: offerId}}
     });
 
     const getAccessTokenFirebase = async (token: string) => {
@@ -186,35 +176,34 @@ const Popup = (props: PopupType) => {
         validation={setShowVisible}
         btnTitle="OK"
       />
-      <View>
-        <Modal
+      <div>
+        <Dialog
           animationType="slide"
           transparent={true}
           visible={modalVisible}
           onRequestClose={() => {
             setModalVisible(!modalVisible);
           }}>
-          <View style={styles.centeredView}>
-            <View style={styles.modalView}>
-              <View
+          <div style={styles.centeredView}>
+            <div style={styles.modalView}>
+              <div
                 style={{
                   width: '100%',
                   flexDirection: 'row',
                   paddingVertical: 0,
                   justifyContent: 'center'
                 }}>
-                <Pressable onPress={() => setModalVisible(!modalVisible)}>
-                  <View
+                <button onClick={() => setModalVisible(!modalVisible)}>
+                  <div
                     style={{
                       height: 20,
-                      paddingTop: 5,
-                    }}>
-                    <Image source={{ uri: icons.Close }} />
-                  </View>
-                </Pressable>
-              </View>
-              <View style={{ height: 15 }} />
-              <View style={styles.buttonContainer}>
+                      paddingTop: 5}}>
+                    <img src={{ uri: icons.Close }} />
+                  </div>
+                </button>
+              </div>
+              <div style={{ height: 15 }} />
+              <div style={styles.buttonContainer}>
                 <Buttons
                   title={`Tel : ${phone ? phone : CONTACT_CANDIDAT.NO_PHONE_PHONENUMBER}`}
                   _style={[
@@ -222,7 +211,7 @@ const Popup = (props: PopupType) => {
                   ]}
                   styleBtnTxt={styles.btnTxt}
                   isDisable={true}
-                // onPress={handlingPhoneNumber}
+                // onClick={handlingPhoneNumber}
                 />
                 <Button
                   title={DETAIL_PROFIL.MAIL_TITLE}
@@ -231,7 +220,7 @@ const Popup = (props: PopupType) => {
                     globalStyle.elevationBlue,
                   ]}
                   styleBtnTxt={styles.btnTxt}
-                  onPress={() => Linking.openURL(`mailto:${receiver.email}`)}
+                  onClick={() => window.open(`mailto:${receiver.email}`)}
                 />
                 {didApply ? (
                   <Button
@@ -241,20 +230,20 @@ const Popup = (props: PopupType) => {
                       globalStyle.elevationBlue,
                     ]}
                     styleBtnTxt={styles.btnTxt}
-                    onPress={async () => toContactTheCandidate()}
+                    onClick={async () => toContactTheCandidate()}
                   />
                 ) : null}
-                <Pressable
+                <button
                   style={[styles.buttonAnnuler]}
-                  onPress={() => setModalVisible(!modalVisible)}>
-                  <Text style={styles.textBtnSecondary}>Annuler</Text>
-                </Pressable>
-              </View>
-            </View>
-          </View>
-        </Modal>
+                  onClick={() => setModalVisible(!modalVisible)}>
+                  <span style={styles.textBtnSecondary}>Annuler</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </Dialog>
         <Button
-          onPress={() =>
+          onClick={() =>
             condition ? checkContactLimit() : setModalVisible(true)
           }
           title="Contacter ce profil"
@@ -263,7 +252,7 @@ const Popup = (props: PopupType) => {
           styleBtnTxt={styles.txtBtn}
         />
         {isLoading && <Loader />}
-      </View>
+      </div>
     </>
   );
 };

@@ -2,7 +2,6 @@ import './styles.scss';
 import { Link } from 'react-router-dom';
 import React, { useState, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
-import { ActivityIndicator } from 'react-native';
 import { useNavigate } from 'react-router-dom';
 import { COLORS, images, icons } from '../../../../resources/constants';
 import Footer from '../../../components/Footer';
@@ -23,8 +22,7 @@ interface User {
   email: string,
   soldeWip: Number,
   lastName: string,
-  isSubscribed: Boolean,
-}
+  isSubscribed: Boolean}
 interface data {
   message: string,
   data: {
@@ -65,8 +63,7 @@ export const Login = (): any => {
   const [values, setValues] = useState<ValuesProps>({
     email: '',
     password: '',
-    role: 'candidate',
-  });
+    role: 'candidate'});
 
   const navigate = useNavigate();
   const handleNavigation = () => {
@@ -78,13 +75,10 @@ export const Login = (): any => {
   const TitleLabels: TitleLabels = {
     Login: {
       email: 'Entrez votre email',
-      password: 'Entrez votre mot de passe',
-    },
+      password: 'Entrez votre mot de passe'},
 
     ForgotPwd: {
-      email: 'Insérez votre email',
-    },
-  };
+      email: 'Insérez votre email'}};
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -265,16 +259,16 @@ export const Login = (): any => {
                   </div>
                 </div>
                 <div className='login__btn'>
-                  <button onClick={handleSubmit}>
+                  <button onClick={handleSubmit} disabled={isLoading}>
                     {
-                      isLoading ? <ActivityIndicator color={COLORS.white} /> : 'Connexion'
+                      isLoading ? <span className="spinner"></span> : 'Connexion'
                     }
                   </button>
                 </div>
                 <div className='login__ligne'>
                 </div>
                 <Footer
-                  onPress={handleNavigation}
+                  onClick={handleNavigation}
                   infoText={HOME.INFORMATIONS}
                   linkText={HOME.REDIRECT}
                 />

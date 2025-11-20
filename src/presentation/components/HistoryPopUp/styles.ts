@@ -1,13 +1,12 @@
-import { StyleSheet, Dimensions } from 'react-native';
+;
 import { COLORS, SIZES } from '../../../resources/constants';
-let windowWidth = Dimensions.get('window').width;
+let windowWidth = window.innerWidth;
 
-export default StyleSheet.create({
+export default ({
   centeredView: {
     height: '100%',
     width: '100%',
-    backgroundColor: 'black',
-  },
+    backgroundColor: 'black'},
   modalView: {
     width: '90%',
     margin: 20,
@@ -20,15 +19,12 @@ export default StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 2,
-    },
+      height: 2},
     shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 5,
-  },
+    elevation: 5},
   buttonClose: {
-    backgroundColor: '#2196F3',
-  },
+    backgroundColor: '#2196F3'},
   textStyle: {
     fontStyle: "normal",
     fontWeight: "400",
@@ -54,36 +50,30 @@ export default StyleSheet.create({
   imgLogo: {
     width: "100%",
     height: 400,
-    resizeMode: "stretch"
+    objectFit: 'fill' as const
   },
   containers: {
     height: '100%',
-    width: '100%',
-  },
+    width: '100%'},
   containt: {
     width: '100%',
     justifyContent: 'space-between',
     flexDirection: 'row',
-    backgroundColor: COLORS.secondary,
-  },
+    backgroundColor: COLORS.secondary},
   vtitle: {
-    marginBottom: 16,
-  },
+    marginBottom: 16},
   headerContainer: {
     padding: 24,
     backgroundColor: '#2ca5ff',
     height: windowWidth * 0.25,
-    maxHeight: 112,
-  },
+    maxHeight: 112},
   headerScreenTitle: {
     color: 'white',
     fontSize: 20,
     fontWeight: 'bold',
-    fontFamily: 'oxygen',
-  },
+    fontFamily: 'oxygen'},
   headerScreenDescription: {
-    color: 'white',
-  },
+    color: 'white'},
   candidateContainer: {
     borderBottomColor: COLORS.blue_border,
     borderBottomWidth: 1,
@@ -92,49 +82,40 @@ export default StyleSheet.create({
     paddingHorizontal: 10,
     marginTop: 16,
     marginHorizontal: 16,
-    flexDirection: 'row',
-  },
+    flexDirection: 'row'},
   title: {
-    fontSize: 32,
-  },
+    fontSize: 32},
   candidateImgContainer: {
-    flex: 1,
-  },
+    flex: 1},
   candidateDetailsContainer: {
-    flex: 2,
-  },
+    flex: 2},
   candidateBtnContainer: {
     flex: 2,
-    maxWidth: 128,
-  },
+    maxWidth: 128},
   candidatImg: {
     width: 50,
     height: 50,
-    borderRadius: SIZES.radiusTwo,
-  },
+    borderRadius: SIZES.radiusTwo},
   candidatName: {
     fontSize: 16,
     color: COLORS.black,
     fontWeight: 'bold',
     fontFamily: 'Oxygen',
-    height: windowWidth * 0.07,
-  },
+    height: windowWidth * 0.07},
   candidatPost: {
     fontSize: 12,
     color: COLORS.black,
     fontWeight: 'normal',
     fontFamily: 'Oxygen',
     letterSpacing: 0.2,
-    height: windowWidth * 0.04,
-  },
+    height: windowWidth * 0.04},
   candidatExp: {
     fontSize: 12,
     color: COLORS.primary,
     fontWeight: 'normal',
     fontFamily: 'Oxygen',
     letterSpacing: 0.2,
-    marginTop: 20,
-  },
+    marginTop: 20},
   footerContainer: {
     backgroundColor: COLORS.blue_back,
     height: 84,
@@ -143,39 +124,33 @@ export default StyleSheet.create({
     paddingVertical: 0,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
-  },
+    alignItems: 'center'},
   footerScreenLabel: {
     alignSelf: 'center',
     fontSize: SIZES.body3,
     fontFamily: 'IBMPlexSans-SemiBold',
-    color: COLORS.secondary,
-  },
+    color: COLORS.secondary},
   footerScreenBtn: {},
   smallBtnTxt: {
     fontSize: SIZES.body5,
     color: COLORS.white,
     fontFamily: 'Oxygen',
-    fontWeight: '700',
-  },
+    fontWeight: '700'},
   smallButtonContainer: {
     height: 32,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: SIZES.radiusTwo,
-  },
+    borderRadius: SIZES.radiusTwo},
 
   // ---------------------------------------------------------
   // Refine Candidats
   // ----------------
   refineContainer: {
-    flex: 1,
-  },
+    flex: 1},
   layerContainer: {},
   layerTitleContainer: {},
   containerFormList: {
-    width: windowWidth,
-  },
+    width: windowWidth},
   item: {
     padding: 5,
     borderColor: COLORS.blue_border,
@@ -197,8 +172,7 @@ export default StyleSheet.create({
     marginVertical: 5,
 
     width: 80,
-    fontFamily: 'Arial',
-  },
+    fontFamily: 'Arial'},
   textValue: {
     alignSelf: 'center',
     fontSize: 14,
@@ -206,6 +180,4 @@ export default StyleSheet.create({
     color:  COLORS.black,
     marginVertical: 5,
     paddingRight: 10,
-    fontFamily: 'Arial',
-  },
-});
+    fontFamily: 'Arial'}});

@@ -7,8 +7,7 @@ export const enum formationActionType {
   allFormations = '[Formations] get all',
   createFormation = '[Formation] create',
   allFormationsByCompany = '[Formation] get all by id company',
-  deleteFormation = '[Formation] delete',
-}
+  deleteFormation = '[Formation] delete'}
 
 export const initialFormationState: FormationState = {};
 
@@ -18,23 +17,19 @@ export const formationReducer = (state = initialFormationState, action) => {
     case formationActionType.allFormations:
       return {
         ...state,
-        allFormation: payload,
-      };
+        allFormation: payload};
     case formationActionType.allFormationsByCompany:
       return {
         ...state,
-        allFormation: payload,
-      };
+        allFormation: payload};
     case formationActionType.createFormation:
       return {
         ...state,
-        CreateFormation: payload,
-      };
+        CreateFormation: payload};
     case formationActionType.deleteFormation:
       return {
         ...state,
-        deleteFormation: payload,
-      };
+        deleteFormation: payload};
     default:
       return state;
   }
@@ -52,8 +47,7 @@ export const useFormation = () => {
         const payload = res?.data;
         dispatch({
           payload,
-          type: formationActionType.createFormation,
-        });
+          type: formationActionType.createFormation});
 
         return payload;
       } catch (error) {
@@ -66,8 +60,7 @@ export const useFormation = () => {
         const payload = res?.data;
         dispatch({
           payload,
-          type: formationActionType.allFormations,
-        });
+          type: formationActionType.allFormations});
 
         return payload;
       } catch (error) {
@@ -80,8 +73,7 @@ export const useFormation = () => {
         const payload = res?.data;
         dispatch({
           payload,
-          type: formationActionType.allFormationsByCompany,
-        });
+          type: formationActionType.allFormationsByCompany});
 
         return payload;
       } catch (error) {
@@ -95,13 +87,11 @@ export const useFormation = () => {
         const payload = res?.data;
         dispatch({
           payload,
-          type: formationActionType.deleteFormation,
-        });
+          type: formationActionType.deleteFormation});
 
         return payload;
       } catch (error) {
         return Promise.reject(error);
       }
-    },
-  };
+    }};
 };

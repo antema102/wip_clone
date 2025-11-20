@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+;
 import { DataView } from 'primereact/dataview';
 import { useNavigate, useLocation } from 'react-router';
 import globalStyle from '../../globalStyle/globalStyle';
@@ -21,8 +21,7 @@ interface itemType {
     createdAt: Date,
     sessionId: string,
     title: string,
-    [key: string]: any,
-}
+    [key: string]: any}
 
 type ActiveCompanyType = "default" | "mixte" | "company" | "flag";
 
@@ -99,17 +98,17 @@ const HistorySearchChat = () => {
     const itemTemplateChat = (item: itemType) => {
         const date = dateToString(item.createdAt);
         return (
-            <View style={[styles.card, { backgroundColor: 'white', marginBottom: 8 }]}>
-                <TouchableOpacity onPress={() => handleNavigateSessionId(item.sessionId)}>
-                    <View style={{ marginBottom: 8 }} >
-                        <Text style={{ fontWeight: "700", fontSize: 16 }}>{date}</Text>
-                    </View>
-                    <Text>
+            <div style={[styles.card, { backgroundColor: 'white', marginBottom: 8 }]}>
+                <button onClick={() => handleNavigateSessionId(item.sessionId)}>
+                    <div style={{ marginBottom: 8 }} >
+                        <span style={{ fontWeight: "700", fontSize: 16 }}>{date}</span>
+                    </div>
+                    <span>
                         {item.title.length > 50 ? item.title.slice(0, 50) + '…' : item.title}
-                        <Text style={{ color: COLORS.primary }}>{item.country ? ` - ${getCountryNameFromISO3(item.country)}` : ''}</Text>
-                    </Text>
-                </TouchableOpacity>
-            </View>
+                        <span style={{ color: COLORS.primary }}>{item.country ? ` - ${getCountryNameFromISO3(item.country)}` : ''}</span>
+                    </span>
+                </button>
+            </div>
         );
     };
 
@@ -133,12 +132,12 @@ const HistorySearchChat = () => {
     }, [isCompany, url]);
 
     return (
-        <View style={styles.containers}>
-            <Text style={[globalStyle.title3, { fontWeight: 'bold', marginBottom: 16 }]}>{activeString.HOME_COMPANY.HISTORY_CHAT}</Text>
+        <div style={styles.containers}>
+            <span style={[globalStyle.title3, { fontWeight: 'bold', marginBottom: 16 }]}>{activeString.HOME_COMPANY.HISTORY_CHAT}</span>
             {isLoading ? (
-                <View>
+                <div>
                     <SkeletonCards />
-                </View>
+                </div>
             ) : sessionId?.length ? (
                 <DataView
                     value={sessionId}
@@ -148,10 +147,10 @@ const HistorySearchChat = () => {
                     rows={3}
                 />
             ) : null}
-            <View style={{ marginTop: 24 }}>
-                <Text style={[globalStyle.title3, { fontWeight: 'bold', marginBottom: 16 }]}>
+            <div style={{ marginTop: 24 }}>
+                <span style={[globalStyle.title3, { fontWeight: 'bold', marginBottom: 16 }]}>
                     Recherche avancée
-                </Text>
+                </span>
                 <button
                     className={`company-btn ${activeCompany === "default" ? "active" : ""}`}
                     onClick={handleNavigateNewChat}
@@ -175,8 +174,8 @@ const HistorySearchChat = () => {
                     <img src={icons.flag} alt="flag" className="icon" />
                     <span style={{ color: activeCompany === "flag" ? COLORS.white : COLORS.black }}>Recherche par pays</span>
                 </button>
-            </View>
-        </View>
+            </div>
+        </div>
     );
 };
 

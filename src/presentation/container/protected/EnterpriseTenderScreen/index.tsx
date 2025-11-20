@@ -1,8 +1,5 @@
 import React, { Fragment, useEffect, useRef, useState } from 'react';
-import {
-    View,
-    Text,
-} from 'react-native';
+
 import { useSelector } from 'react-redux';
 
 
@@ -60,8 +57,7 @@ export const EnterpriseTender = (props: any) => {
             state: {
                 offerDetail: {},
                 advertisement: 2,
-                costsPrice,
-            }
+                costsPrice}
         });
 
     const activatePopupDeletion = async (itemId: string) => {
@@ -73,8 +69,7 @@ export const EnterpriseTender = (props: any) => {
         setRefreshing(true);
         try {
             const data = {
-                audience: user?.role === ROLEACCOUNT.candidate ? 0 : 1,
-            };
+                audience: user?.role === ROLEACCOUNT.candidate ? 0 : 1};
             const response = await deleteTenderById(itemID, accessToken);
             await getTenderCategory(data, accessToken);
             if (response && response.data.isError) {
@@ -165,15 +160,15 @@ export const EnterpriseTender = (props: any) => {
     {/* {refreshing && <Loader />} */ }
     return (
         <>
-            <View style={styles.container}>
+            <div style={styles.container}>
                 <Toast ref={toast} />
                 <ConfirmDialog />
                 <PDFViewerScreen visible={visible} setVisible={setVisible} data={dataUri} isDownloadAllowed={false} />
                 {refreshing ? <MiniLoader CustomStyle={{ position: 'fixed' }} /> :
                     (<>
-                        <View style={{ backgroundColor: COLORS.white, borderRadius: 10, marginTop: 52 }}>
+                        <div style={{ backgroundColor: COLORS.white, borderRadius: 10, marginTop: 52 }}>
                             <TitleRefont title={activeString.DETAIL_PROFIL.HEADER_TENDER_TITLE} />
-                            <View style={styles.containers}>
+                            <div style={styles.containers}>
 
                                 {data?.length ?
                                     <DataView
@@ -196,10 +191,9 @@ export const EnterpriseTender = (props: any) => {
                                         position: 'fixed',
                                         bottom: 56,
                                         justifyContent: 'center',
-                                        right: 500,
-                                    }} />
-                            </View>
-                        </View>
+                                        right: 500}} />
+                            </div>
+                        </div>
                     </>)
                 }
                 <Popup
@@ -210,7 +204,7 @@ export const EnterpriseTender = (props: any) => {
                     action={() => deleteTender(itemToDelete)}
                     cancel={true}
                 />
-            </View>
+            </div>
         </>
     );
 };

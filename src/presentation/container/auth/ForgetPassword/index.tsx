@@ -1,6 +1,6 @@
 
 import './styles.scss'
-import { ActivityIndicator } from 'react-native';
+;
 import React, { useState, useRef } from 'react';
 import { RESET_PASSWORD } from '../../../../data/constants/strings';
 import { MAIL_VALIDATION } from '../../../../common/utils/validation';
@@ -83,14 +83,14 @@ export const ForgetPassword = (props: any) => {
                                 <div className='forgetPassword__btn'>
                                     <button onClick={sendingEmail}>
                                         {
-                                            isLoading ? <ActivityIndicator color={COLORS.white} /> : 'Envoyer email de récuperations'
+                                            isLoading ? <span className="spinner" color={COLORS.white} /> : 'Envoyer email de récuperations'
                                         }
                                     </button>
                                 </div>
                                 <div className='forgetPassword__ligne'>
                                 </div>
                                 <Footer
-                                    onPress={handleNavigation}
+                                    onClick={handleNavigation}
                                     infoText={'Pas encore inscrit ? '}
                                     linkText={'Crée votre compte'}
                                 />
