@@ -158,7 +158,7 @@ export const EntResult = (props: any) => {
                         </div>
                     </div>
 
-                    <div style={[styles.containers, { backgroundColor: COLORS.white, marginTop: 60, borderRadius: 10 }, isMobile ? {} : { paddingVertical: 24, paddingHorizontal: 70 }]}>
+                    <div style={{...styles.containers, backgroundColor: COLORS.white, marginTop: 60, borderRadius: 10, ...(isMobile ? {} : { paddingVertical: 24, paddingHorizontal: 70 })}}>
                         <TitleRefont title={activeString.TAB.OFFERS} />
                         <div style={{ padding: 10 }}>
                             {

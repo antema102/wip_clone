@@ -29,7 +29,7 @@ const Tabs = (props: any) => {
               style={styles.container}
               onClick={() => handleShow('Offers')}
             >
-              <span style={[styles.text, !isActive ? { fontWeight: '700' } : {}]}>
+              <span style={{...styles.text, ...(!isActive ? { fontWeight: '700' } : {})}}>
                 {props.title1}
               </span>
               {!isActive && <div style={styles.linesSearch} />}
@@ -41,7 +41,7 @@ const Tabs = (props: any) => {
               style={styles.container}
               onClick={() => handleShow('Formations')}
             >
-              <span style={[styles.text, isActive ? { fontWeight: '700' } : {}]}>
+              <span style={{...styles.text, ...(isActive ? { fontWeight: '700' } : {})}}>
                 {props.title2}
               </span>
               {isActive && <div style={styles.linesSearch} />}

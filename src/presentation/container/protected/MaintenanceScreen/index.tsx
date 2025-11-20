@@ -12,9 +12,7 @@ const MaintenanceScreen = () => {
       />
       <span style={styles.title}>WipWork en maintenance</span>
       <img
-        src={{
-          uri:
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLkEUUEXMjlpZNgCggb86TWss1L8ZNdmhE1hF32Jy1E4nIKMol7-XsFqkhdp5dKOFgfjc&usqp=CAU'}}
+        src={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLkEUUEXMjlpZNgCggb86TWss1L8ZNdmhE1hF32Jy1E4nIKMol7-XsFqkhdp5dKOFgfjc&usqp=CAU'}
         style={styles.image}
       />
       <span style={styles.text}>

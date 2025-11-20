@@ -11,7 +11,7 @@ const FlatOffer = props => {
         <div style={styles.itemOffer}>
           <img
             style={[styles.logoSte,imageStyle]}
-            src={avatar ? {uri: avatar} : images.avatar_6}
+            src={avatar  ? avatar : images.avatar_6}
           />
           <div style={styles.textAlign}>
             <div>

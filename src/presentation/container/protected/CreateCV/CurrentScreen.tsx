@@ -31,44 +31,35 @@ export const CurrentScreen = ({ screen, onChange, dataStore, setDataStore, data 
       {/** Affichage tout Screen */}
       <div style={{ flexDirection: 'row', alignItems: 'center' }}>
         <button
-          style={[styles.CurrentScreenStyle, screen.current === 'info' || (screen.info && screen.type !== 'read' && screen.type !== 'update') ? styles.currentActive : '']}
+          style={{...styles.CurrentScreenStyle, ...(screen.current === 'info' || (screen.info && screen.type !== 'read' && screen.type !== 'update') ? styles.currentActive : '')}}
           onClick={() => handleChange('info')}>
           <span
-            style={[
-              styles.textSousMenu,
-              screen.current === 'info' || (screen.info && screen.type !== 'read' && screen.type !== 'update')
+            style={{...styles.textSousMenu, ...(screen.current === 'info' || (screen.info && screen.type !== 'read' && screen.type !== 'update')
                 ? { color: COLORS.white }
-                : { color: COLORS.black },
-            ]}>
+                : { color: COLORS.black }), ...}}>
             {activeString.CreationCV.personalInformation}
           </span>
         </button>
         
 
         <button
-          style={[styles.CurrentScreenStyle, screen.current === 'job' || (screen.info && screen.type !== 'read' && screen.type !== 'update') ? styles.currentActive : '']}
+          style={{...styles.CurrentScreenStyle, ...(screen.current === 'job' || (screen.info && screen.type !== 'read' && screen.type !== 'update') ? styles.currentActive : '')}}
           onClick={() => handleChange('job')}>
           <span
-            style={[
-              styles.textSousMenu,
-              screen.current === 'job' || (screen.job && screen.type !== 'read'  && screen.type !== 'update')
+            style={{...styles.textSousMenu, ...(screen.current === 'job' || (screen.job && screen.type !== 'read'  && screen.type !== 'update')
                 ? { color: COLORS.white }
-                : { color: COLORS.black },
-            ]}>
+                : { color: COLORS.black }), ...}}>
             {activeString.CreationCV.job}
           </span>
         </button>
 
         <button
-          style={[styles.CurrentScreenStyle, screen.current === 'other' || (screen.info && screen.type !== 'read' && screen.type !== 'update') ? styles.currentActive : '']}
+          style={{...styles.CurrentScreenStyle, ...(screen.current === 'other' || (screen.info && screen.type !== 'read' && screen.type !== 'update') ? styles.currentActive : '')}}
           onClick={() => handleChange('other')}>
           <span
-            style={[
-              styles.textSousMenu,
-              screen.current === 'other' || (screen.other && screen.type !== 'read' && screen.type !== 'update')
+            style={{...styles.textSousMenu, ...(screen.current === 'other' || (screen.other && screen.type !== 'read' && screen.type !== 'update')
                 ? { color: COLORS.white }
-                : { color: COLORS.black },
-            ]}>
+                : { color: COLORS.black }), ...}}>
             {activeString.CreationCV.other}
           </span>
         </button>

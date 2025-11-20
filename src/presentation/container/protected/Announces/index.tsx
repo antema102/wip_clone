@@ -70,7 +70,7 @@ const Announces = (props: AnnouncesType) => {
                                         width: 110,
                                         height: 110,
                                         borderRadius: 8}}
-                                    src={{ uri: item.file }}
+                                    src={item.file }
                                 />
                             </div>
                             <div

@@ -56,7 +56,7 @@ export const EnterpriseOfferSheetApply = props => {
                 <Loader />
             ) : (
                 <>
-                    <div style={{overflowY: "auto"}} style={{ backgroundColor: COLORS.white, borderRadius: 10 }}>
+                    <div style={{overflowY: "auto", ...{ backgroundColor: COLORS.white, borderRadius: 10 }}}>
                         {/* <MainPageHeader title={data?.name || ''} /> */}
                         {data?.users?.length ?
                             (<>

@@ -9,7 +9,7 @@ interface typeBanner {
 const BannerRefonte = ({ _customStyle }: typeBanner) => {
     return (
         <div style={styles.containerImage}>
-            <img src={{ uri: images.header_gif }} style={[styles.image, _customStyle]} />
+            <img src={images.header_gif } style={[styles.image, _customStyle]} />
         </div>
     )
 }

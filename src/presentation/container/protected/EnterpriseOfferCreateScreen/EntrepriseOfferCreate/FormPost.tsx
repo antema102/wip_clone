@@ -307,7 +307,7 @@ export const FormPost = (props: any) => {
         paddingHorizontal: SIZES.padding,
         justifyContent: 'space-between'}}>
       <CustomModal title={"Moyen de paiement"} visible={showPayment} setVisible={setShowPayment} content={<PaymentWays />} />
-      <div style={[styles.inputWrap, modiferData ? { backgroundColor: COLORS.disableGray } : {}]}>
+      <div style={{...styles.inputWrap, ...(modiferData ? { backgroundColor: COLORS.disableGray } : {})}}>
         <InputField
           label={activeStr.advertisement.name}
           value={values.title}
@@ -321,7 +321,7 @@ export const FormPost = (props: any) => {
       {nameError && (
         <span style={{ color: COLORS.red_color }}>{nameTxtError}</span>
       )}
-      <div style={[{ marginBottom: 20 }, styles.inputWrap, modiferData ? { backgroundColor: COLORS.disableGray } : {}]}>
+      <div style={{...{ marginBottom: 20 }, ...styles.inputWrap, ...(modiferData ? { backgroundColor: COLORS.disableGray } : {})}}>
         <InputField
           label={activeStr.advertisement.description}
           value={values.description}
@@ -337,7 +337,7 @@ export const FormPost = (props: any) => {
         <span style={{ color: COLORS.red_color }}>{descriptionTxtError}</span>
       )}
 
-      <div style={[styles.inputWrap, modiferData ? { backgroundColor: COLORS.disableGray } : {}]}>
+      <div style={{...styles.inputWrap, ...(modiferData ? { backgroundColor: COLORS.disableGray } : {})}}>
         <InputField
           label={activeStr.advertisement.contact}
           value={values.contact}

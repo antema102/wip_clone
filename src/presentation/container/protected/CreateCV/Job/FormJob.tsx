@@ -197,12 +197,9 @@ export const FormJob = (props: any) => {
         {/** Level of Study field */}
         {gradeList && (
           <div
-            style={[
-              styles.inputWrap,
-              {
+            style={{...styles.inputWrap, ...({
                 backgroundColor:
-                  type === 'read' ? COLORS.disableGray : COLORS.white},
-            ]}>
+                  type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
             <InputSelect
               label={activeString.CreationCV.levelOfStudy}
               required
@@ -220,17 +217,14 @@ export const FormJob = (props: any) => {
         {/** Faculty field */}
         {subjectList && (
           <div
-            style={[
-              styles.inputWrap,
-              {
+            style={{...styles.inputWrap, ...({
                 backgroundColor:
                   type === 'read'
                     ? COLORS.disableGray
                     : dataJob.levelOfStudy !== studyLevel.cepe &&
                       dataJob.levelOfStudy !== studyLevel.bepc
                       ? COLORS.white
-                      : COLORS.disableGray},
-            ]}>
+                      : COLORS.disableGray}), ...}}>
             <InputSelect
               label={TitleLabels.CreationCV.faculty}
               required
@@ -248,12 +242,9 @@ export const FormJob = (props: any) => {
         {/** Level of Activity Area field */}
         {activityList && (
           <div
-            style={[
-              styles.inputWrap,
-              {
+            style={{...styles.inputWrap, ...({
                 backgroundColor:
-                  type === 'read' ? COLORS.disableGray : COLORS.white},
-            ]}>
+                  type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
             <InputSelect
               label={activeString.CreationCV.activityArea}
               required
@@ -270,12 +261,9 @@ export const FormJob = (props: any) => {
 
         {/** University field */}
         <div
-          style={[
-            styles.inputWrap,
-            {
+          style={{...styles.inputWrap, ...({
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white},
-          ]}>
+                type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
           <InputField
             label={activeString.CreationCV.university}
             required
@@ -291,12 +279,9 @@ export const FormJob = (props: any) => {
 
         {/** Desired Posiiton field */}
         <div
-          style={[
-            styles.inputWrap,
-            {
+          style={{...styles.inputWrap, ...({
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white},
-          ]}>
+                type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
           <InputField
             label={activeString.CreationCV.desiredPosition}
             required
@@ -311,12 +296,9 @@ export const FormJob = (props: any) => {
         </div>
 
         <div
-          style={[
-            styles.inputWrap,
-            {
+          style={{...styles.inputWrap, ...({
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white},
-          ]}>
+                type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
           <InputField
             label={activeString.CreationCV.portfolio}
             value={dataJob.portfolio}
@@ -329,12 +311,9 @@ export const FormJob = (props: any) => {
 
         {/**Profil facebook */}
         <div
-          style={[
-            styles.inputWrap,
-            {
+          style={{...styles.inputWrap, ...({
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white},
-          ]}>
+                type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
           <InputField
             label={TitleLabels.CreationCV.facebook}
             value={dataJob.socioLink}
@@ -424,12 +403,9 @@ export const FormJob = (props: any) => {
         {/** Year of Experience field */}
         {experienceList && (
           <div
-            style={[
-              styles.inputWrap,
-              {
+            style={{...styles.inputWrap, ...({
                 backgroundColor:
-                  type === 'read' ? COLORS.disableGray : COLORS.white},
-            ]}>
+                  type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
             <InputSelect
               label={activeString.CreationCV.yearOfExp}
               required
@@ -475,12 +451,9 @@ export const FormJob = (props: any) => {
         {/** Availablity */}
         {availabilityList && (
           <div
-            style={[
-              styles.inputWrap,
-              {
+            style={{...styles.inputWrap, ...({
                 backgroundColor:
-                  type === 'read' ? COLORS.disableGray : COLORS.white},
-            ]}>
+                  type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
             <InputSelect
               label={activeString.CreationCV.availability}
               required
@@ -498,12 +471,9 @@ export const FormJob = (props: any) => {
         {/** Status */}
         {statusList && (
           <div
-            style={[
-              styles.inputWrap,
-              {
+            style={{...styles.inputWrap, ...({
                 backgroundColor:
-                  type === 'read' ? COLORS.disableGray : COLORS.white},
-            ]}>
+                  type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
             <InputSelect
               label={activeString.CreationCV.status}
               required
@@ -520,12 +490,9 @@ export const FormJob = (props: any) => {
 
         {/** Expected Salary */}
         <div
-          style={[
-            styles.inputWrap,
-            {
+          style={{...styles.inputWrap, ...({
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white},
-          ]}>
+                type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
           {type === 'read' ? (
             <InputField
               label={activeString.CreationCV.minimumWage}

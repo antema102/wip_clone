@@ -59,10 +59,10 @@ export const Company = ({ item, displayCandidateDetail }) => {
     return (
         <>
             <ScoreDetails onClick={onPress} data={item.data} score={score} visible={modalVisible} validation={setModalVisible} btnTitle="ok" />
-            <button style={[styles.candidateContainer, isMobile ? { flexDirection: 'row' } : { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 10, marginHorizontal: 16}]} onClick={onPress}>
+            <button style={{...styles.candidateContainer, ...(isMobile ? { flexDirection: 'row' } : { flexDirection: 'row'), ...alignItems: 'center', ...paddingHorizontal: 10, ...marginHorizontal: 16}}} onClick={onPress}>
 
                 <div style={styles.candidateImgContainer}>
-                    <img style={styles.candidatImg} src={avatar ? { uri: avatar } : images.avatar_6} />
+                    <img style={styles.candidatImg} src={avatar  ? avatar  : images.avatar_6} />
                 </div>
 
                 {isMobile ?

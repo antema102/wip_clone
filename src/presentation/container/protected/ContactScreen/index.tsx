@@ -10,7 +10,7 @@ export const ContactScreen = (props:any) => {
     <div style={styles.container}>
       <div style={styles.centeredContent}>
         <div style={styles.titleContainer}>
-          <span style={[styles.title ,isMobile ? { fontSize: 34 } : { fontSize: 54 }]}>NOUS CONTACTER</span>
+          <span style={{...styles.title, ...(isMobile ? { fontSize: 34 } : { fontSize: 54 })}}>NOUS CONTACTER</span>
         </div>
         <div style={styles.titleLine}></div>
         <div style={styles.homeTitle}>

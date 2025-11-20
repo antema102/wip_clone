@@ -8,7 +8,7 @@ interface Props {
   goBack?: any;
 }
 
-const VideoProgressBar = {
+const VideoProgressBar = ({
   progressBar,
   waitingText,
   goBack}: Props) => {
@@ -20,13 +20,13 @@ const VideoProgressBar = {
       </div>
       <div style={{ height: 10 }}></div>
       <div style={styles.progressContainer}>
-        <Animated.View style={[styles.inner, { width: `${progressBar}%` }]} />
-        <Animated.Text style={styles.label}>{progressBar}%</Animated.Text>
+        <div style={{...styles.inner, width: `${progressBar}%` }} />
+        <span style={styles.label}>{progressBar}%</span>
       </div>
       <div style={{ height: 10 }}></div>
       <div style={{ paddingVertical: 7 }}>
         <button
-          style={[styles.button, styles.buttonClose]}
+          style={{...styles.button, ...styles.buttonClose}}
           onClick={goBack}>
           <span style={styles.textStyle}>Annuler</span>
         </button>

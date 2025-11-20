@@ -126,10 +126,7 @@ export default ({
                 <div style={styles.contentChamp}>
                     {/** Study Level */}
                     <div
-                        style={[
-                            formsStyles.inputWrap,
-                            { backgroundColor: status ? COLORS.white : COLORS.disableGray },
-                        ]}>
+                        style={{...formsStyles.inputWrap, ...({ backgroundColor: status ? COLORS.white : COLORS.disableGray }), ...}}>
                         {type === 'select' ? (
                             <InputSelect
                                 label={label}
@@ -214,12 +211,8 @@ export default ({
                         label == activeString.FindCriteria.candidate_search
                         ? null : (
                             <div
-                                style={[
-                                    formsStyles.inputWrap,
-                                    {
-                                        backgroundColor: status ? COLORS.white : COLORS.disableGray,
-                                        marginTop: SIZES.padding4},
-                                ]}>
+                                style={{...formsStyles.inputWrap, ...({
+                                        backgroundColor: status ? COLORS.white : COLORS.disableGray), ...marginTop: SIZES.padding4}, ...}}>
                                 <InputSelect
                                     label={activeString.FindOffer.levelLab}
                                     required={required}

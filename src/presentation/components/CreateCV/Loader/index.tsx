@@ -10,7 +10,7 @@ export const Loader = () => {
       <Dialog transparent={true} visible={true}>
         <div style={styles.centeredView}>
           <div style={styles.modalView}>
-            <span className="spinner" size="large" color={COLORS.primary} />
+            <span className="spinner"></span>
           </div>
         </div>
       </Dialog>

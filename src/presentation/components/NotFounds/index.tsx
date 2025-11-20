@@ -21,7 +21,7 @@ const NotFounds = ({ label, text, image, customImage }: TypeNotFounds) => {
         }
         {label &&
           <div style={styles.textNoEvents}>
-            <span style={[{ fontWeight: '700' }, isMobile ? { fontSize: 18 } : { fontSize: 26 }]}>{label}</span>
+            <span style={{...{ fontWeight: '700' }, ...(isMobile ? { fontSize: 18 } : { fontSize: 26 })}}>{label}</span>
             <span>  {text} </span>
           </div>
         }

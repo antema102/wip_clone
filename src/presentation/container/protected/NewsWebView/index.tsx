@@ -9,7 +9,7 @@ const NewsWebViewScreen = (props: any) => {
   const [isLoading, setIsLoading] = useState(false);
 
   return (
-    <div style={{overflowY: "auto"}} style={styles.container}>
+    <div style={{overflowY: "auto", ...styles.container}}>
       {/* <Header
         {...props}
         style={{ elevation: 2}}

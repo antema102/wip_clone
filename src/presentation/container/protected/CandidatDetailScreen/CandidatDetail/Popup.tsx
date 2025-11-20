@@ -198,7 +198,7 @@ const Popup = (props: PopupType) => {
                     style={{
                       height: 20,
                       paddingTop: 5}}>
-                    <img src={{ uri: icons.Close }} />
+                    <img src={icons.Close } />
                   </div>
                 </button>
               </div>

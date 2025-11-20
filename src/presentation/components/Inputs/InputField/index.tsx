@@ -82,25 +82,14 @@ export const InputField = (props: any) => {
     <div style={styles.container}>
       <TitleLabel label={label} required={required} />
       <div
-        style={[
-          type === 'textArea'
+        style={{...(type === 'textArea'
             ? formsStyles.itemInputStyleTextArea
-            : formsStyles.itemInputStyle,
-          required && showError && error !== '' && formsStyles.inputError,
-          {
-            backgroundColor: isEditable ? COLORS.white : COLORS.disableGray},
-        ]}
+            : formsStyles.itemInputStyle), ...required && showError && error !== '' && formsStyles.inputError, ...({
+            backgroundColor: isEditable ? COLORS.white : COLORS.disableGray}), ...}}
       >
         <input
-          style={[
-            localStyle.textIput,
-            {
-              textAlignVertical: 'top',
-              width: '90%',
-              height: type === 'textArea' ? 120 : 38,
-              borderColor: 'transparent',
-              outline: 'none'},
-          ]}
+          style={{...localStyle.textIput, ...{
+              textAlignVertical: 'top', ...width: '90%', ...(height: type === 'textArea' ? 120 : 38), ...borderColor: 'transparent', ...outline: 'none'}, ...}}
           value={value}
           multiline={type === 'textArea'}
           numberOfLines={9}
@@ -129,7 +118,7 @@ export const InputField = (props: any) => {
             >
               {editIcon && (
                 <img
-                  style={[formsStyles.iconEdit, { opacity: edit ? 1 : 0.1 }]}
+                  style={{...formsStyles.iconEdit, ...({ opacity: edit ? 1 : 0.1 })}}
                   src={icons.editOr}
                 />
               )}
@@ -157,7 +146,7 @@ export const InputField = (props: any) => {
                 height: 30}}
             >
               <img
-                style={[formsStyles.iconEdit, { opacity: edit ? 1 : 0.1 }]}
+                style={{...formsStyles.iconEdit, ...({ opacity: edit ? 1 : 0.1 })}}
                 src={icons.editOr}
               />
             </div>

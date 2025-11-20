@@ -76,7 +76,7 @@ export const Notification = (props: any) => {
           <TitleRefont title={activeString.CONTACT_CANDIDAT.NOTIFICATION_TITLE} />
           <div style={styles.contentImage}>
             <img
-              src={{uri:images.noNotification}}
+              src={images.noNotification}
               style={styles.imagesDimension}
             />
             <div>

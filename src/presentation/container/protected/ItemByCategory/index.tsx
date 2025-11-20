@@ -20,7 +20,7 @@ const ItemByCategoryScreen = (props: any) => {
   const [isAll, setIsAll] = useState(isFormation ? true : false);
   return (
     <div style={styles.container}>
-      <div style={{overflowY: "auto"}} style={{ backgroundColor: COLORS.white, borderTopLeftRadius: 20, borderTopRightRadius: 20 }}>
+      <div style={{ overflowY: "auto", backgroundColor: COLORS.white, borderTopLeftRadius: 20, borderTopRightRadius: 20 }}>
         <div style={styles.containers}>
           <HorizontalDynamicBox
             click={click}

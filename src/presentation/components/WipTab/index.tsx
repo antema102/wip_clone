@@ -41,8 +41,8 @@ const WipTabs = (props: any) => {
             onClick={() => handleShow('News', 0)}
             style={styles.contenair}>
             <div style={styles.item} >
-              <div style={[styles.content, index === 0 ? styles.activebtn : styles.noBtn]}>
-                <img src={{ uri: icons.news_candidate }} style={[styles.images, index === 0 ? styles.activeImages : styles.noActiveImages]} />
+              <div style={{...styles.content, ...(index === 0 ? styles.activebtn : styles.noBtn)}}>
+                <img src={icons.news_candidate } style={{...styles.images, ...(index === 0 ? styles.activeImages : styles.noActiveImages)}} />
               </div>
               <span style={index === 0 ? styles.active : styles.ButtonTabs}>
                 {activeString.TAB.NEWS}
@@ -56,8 +56,8 @@ const WipTabs = (props: any) => {
             onClick={() => handleShow('Offers', 1)}
             style={styles.contenair}>
             <div style={styles.item} >
-              <div style={[styles.content, index === 1 ? styles.activebtn : styles.noBtn]}>
-                <img src={{ uri: icons.job_candidate }} style={[styles.images, index === 1 ? styles.activeImages : styles.noActiveImages]} />
+              <div style={{...styles.content, ...(index === 1 ? styles.activebtn : styles.noBtn)}}>
+                <img src={icons.job_candidate } style={{...styles.images, ...(index === 1 ? styles.activeImages : styles.noActiveImages)}} />
               </div>
               <span style={index === 1 ? styles.active : styles.ButtonTabs}>
                 {activeString.TAB.OFFERS}
@@ -71,8 +71,8 @@ const WipTabs = (props: any) => {
             onClick={() => handleShow('Announces', 2)}
             style={styles.contenair}>
             <div style={styles.item} >
-              <div style={[styles.content, index === 2 ? styles.activebtn : styles.noBtn]}>
-                <img src={{ uri: icons.ads_candidate }} style={[styles.images, index === 2 ? styles.activeImages : styles.noActiveImages]} />
+              <div style={{...styles.content, ...(index === 2 ? styles.activebtn : styles.noBtn)}}>
+                <img src={icons.ads_candidate } style={{...styles.images, ...(index === 2 ? styles.activeImages : styles.noActiveImages)}} />
               </div>
               <span style={index === 2 ? styles.active : styles.ButtonTabs}>
                 {activeString.TAB.ANNOUNCES}

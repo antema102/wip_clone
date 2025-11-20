@@ -53,12 +53,9 @@ export const ListOfExperience = {
 
       <div key={`listOfExp-${item}`}>
         <div
-          style={[
-            styles.inputWrap,
-            {
+          style={{...styles.inputWrap, ...({
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white},
-          ]}>
+                type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
           <InputField
             label={'Année'}
             required
@@ -73,12 +70,9 @@ export const ListOfExperience = {
           />
         </div>
         <div
-          style={[
-            styles.inputWrap,
-            {
+          style={{...styles.inputWrap, ...({
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white},
-          ]}>
+                type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
           <InputField
             label={'Poste'}
             required
@@ -92,12 +86,9 @@ export const ListOfExperience = {
           />
         </div>
         <div
-          style={[
-            styles.inputWrap,
-            {
+          style={{...styles.inputWrap, ...({
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white},
-          ]}>
+                type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
           <InputField
             label={'Chez'}
             required
@@ -111,12 +102,9 @@ export const ListOfExperience = {
           />
         </div>
         <div
-          style={[
-            styles.inputWrap,
-            {
+          style={{...styles.inputWrap, ...({
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white},
-          ]}>
+                type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
           <InputField
             label={'Description'}
             required

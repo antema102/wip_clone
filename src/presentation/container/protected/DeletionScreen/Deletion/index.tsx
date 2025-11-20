@@ -97,7 +97,7 @@ export const Deletion = (props) => {
 
   return (
     <div
-      style={[styles.containers, condition ? styles.noSubscription : styles.withSubscription ]}>
+      style={{...styles.containers, ...(condition ? styles.noSubscription : styles.withSubscription)}}>
       <div style={[styles.inputWrapButton, { marginTop: 30 }]}>
         <span style={[globalStyle.title3, { fontWeight: 'bold' }]}>{DELETION.TITLE}</span>
       </div>

@@ -227,7 +227,7 @@ const LastOfferItem = ({ item, showDetails, resultDate }) => {
                 <img style={styles.avatar} src={avatar ? avatar : images.avatar_6} />
             </div>
 
-            <div style={[styles.informationContainer, isMobile ? { position: 'absolute', left: 100, top: 20 } : {}]}>
+            <div style={{...styles.informationContainer, ...(isMobile ? { position: 'absolute'), ...left: 100, ...top: 20 } : {}}}>
                 <span style={isMobile ? styles.nameMobile : styles.name}>{isMobile
                     ? (item?.name?.length > 30 ? item.name.substring(0, 30) + '...' : item.name)
                     : item?.name}</span>

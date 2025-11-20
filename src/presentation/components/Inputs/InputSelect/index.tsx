@@ -112,7 +112,7 @@ export const InputSelect = {
 
     const modalContent = (
         <div style={styles.modalView}>
-            <div style={{overflowY: "auto"}} style={{ width: '100%', flex: 1 }}>
+            <div style={{overflowY: "auto", ...{ width: '100%', flex: 1 }}}>
                 {dataList.length || !Array.isArray(data) ? (
                     dataList.map((item, index) => (
                         <ModalElement

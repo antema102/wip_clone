@@ -600,12 +600,9 @@ export const Form = (props: any) => {
                 <CustomButtons
                     onClick={() => setValues({ ...values, boost: !values.boost })}
                     title={values.boost ? activeString.ENTERPRISE_OFFER.BOOSTED_OFFER : activeString.ENTERPRISE_OFFER.BOOSTED_OFFER}
-                    _style={[
-                        globalStyle.buttonBoost,
-                        values.boost
+                    _style={{...globalStyle.buttonBoost, ...(values.boost
                             ? { backgroundColor: COLORS.twiter_color }
-                            : { backgroundColor: 'green' },
-                    ]}
+                            : { backgroundColor: 'green' }), ...}}
                     color={'red'}
                     icon={icons.boost}
                     styleBtnTxt={globalStyle.bigBtnTxt}

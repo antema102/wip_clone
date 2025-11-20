@@ -13,7 +13,7 @@ export const SpotVideo = props => {
         <div style={styles.candidateImgContainer}>
           <img
             style={styles.candidatImg}
-            src={{uri: advertisementImage}}
+            src={advertisementImage}
           />
         </div>
         <div style={styles.candidateDetailsContainer}>

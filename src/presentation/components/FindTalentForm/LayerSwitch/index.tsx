@@ -34,9 +34,9 @@ export const LayerSwitch = ({ title, btnLabel, onPress, name }: Props) => {
         style={[styles.imgContainer, globalStyle.elevationBlue]}
         onClick={handleChange}>
         {btnLabel ? (
-          <img src={{ uri: icons.arrowFldown }} style={styles.iconMoins} />
+          <img src={icons.arrowFldown } style={styles.iconMoins} />
         ) : (
-          <img src={{ uri: icons.arrowFlup }} style={styles.iconPlus} />
+          <img src={icons.arrowFlup } style={styles.iconPlus} />
         )}
       </button>
     </div>

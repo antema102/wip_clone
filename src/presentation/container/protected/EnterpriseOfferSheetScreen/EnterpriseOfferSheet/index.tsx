@@ -497,12 +497,9 @@ const EnterpriseOfferSheet = (props: any) => {
                                         title={
                                             boostStatus ? activeString.ENTERPRISE_OFFER.BOOSTED_OFFER : activeString.ENTERPRISE_OFFER.BOOST_THIS_OFFER
                                         }
-                                        _style={[
-                                            globalStyle.buttonBoost,
-                                            boostStatus
+                                        _style={{...globalStyle.buttonBoost, ...(boostStatus
                                                 ? { backgroundColor: COLORS.blueInput }
-                                                : { backgroundColor: 'green' },
-                                        ]}
+                                                : { backgroundColor: 'green' })}}
                                         color={'red'}
                                         icon={icons.boost}
                                         styleBtnTxt={globalStyle.bigBtnTxt}

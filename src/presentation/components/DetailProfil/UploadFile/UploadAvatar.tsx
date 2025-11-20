@@ -96,14 +96,14 @@ export default ({ value, onChange, style, isChangeable }: UploadProps) => {
           style={styles.buttonStyle}
           onClick={() => chooseFile('photo')}>
           <img
-            src={value ? { uri: value } : { uri: images.avatar_6 }}
+            src={value  ? value  : { uri: images.avatar_6 }}
             style={[styles.imageStyle, style]}
           />
           {isChangeable && (
             <div style={styles.badgeContainer}>
               <img
                 style={styles.badgeIcon}
-                src={{ uri: icons.camera }}
+                src={icons.camera }
               />
             </div>
           )}
@@ -117,7 +117,7 @@ export default ({ value, onChange, style, isChangeable }: UploadProps) => {
       ) : (
         <div>
           <img
-            src={value ? { uri: value } : { uri: images.avatar_6 }}
+            src={value  ? value  : { uri: images.avatar_6 }}
             style={[styles.imageStyle, style]}
           />
         </div>

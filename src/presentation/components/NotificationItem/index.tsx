@@ -50,12 +50,12 @@ const NotificationItem = props => {
             avatar ? (
               <img
                 style={styles.logoSte} 
-                src={{ uri: avatar }} 
+                src={avatar } 
               />
             ) : (
               <img
                 style={styles.logoSte}
-                src={{ uri: images.avatar_6 }}  
+                src={images.avatar_6 }  
               />
             )
           )}

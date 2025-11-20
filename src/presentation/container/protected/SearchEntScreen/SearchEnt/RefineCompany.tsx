@@ -88,7 +88,7 @@ export const RefineCompany = (props: any) => {
       <div style={{overflowY: "auto"}}>
         {candidat ? null : <MainPageHeader title={activeString.SEARCHENT_RESULT.FIND_COMPANY_THAT_ARE_HIRING} />}
         <div style={[styles.containers]}>
-          <div style={{overflowY: "auto"}} style={[styles.contentForm, styles.containerForm]}>
+          <div style={{overflowY: "auto", ...[styles.contentForm, styles.containerForm]}}>
             <div>
               {/** Layer Job Sought */}
               <div style={formsStyles.inputWrapBlue}>

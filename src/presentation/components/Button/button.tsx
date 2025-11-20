@@ -49,7 +49,7 @@ const Buttons = {
           <div style={{ flexDirection: 'row', flex: 1 }}>
             <span style={[styleBtnTxt, { marginRight: 'auto' }]}>{title}</span>
             <img
-              src={{ uri: icons.action }}
+              src={icons.action }
               style={buttonsStyles.iconStyle2}
             />
           </div>

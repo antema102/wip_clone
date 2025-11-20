@@ -56,7 +56,7 @@ export const FindTalentList = props => {
 
                 <div style={{ alignItems: 'center'}}>
                   <Divider type='solid' align='center' style={{ width: 100 }} />
-                  <img src={{ uri: images.hands }} style={styles.image} />
+                  <img src={images.hands } style={styles.image} />
                 </div>
               </div>
             )}

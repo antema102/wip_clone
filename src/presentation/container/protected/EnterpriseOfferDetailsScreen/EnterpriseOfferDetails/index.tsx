@@ -193,8 +193,8 @@ const EnterpriseOfferDetails = (props: any) => {
             <div style={styles.container}>
                 <div style={styles.containers}>
                     {/* <div style={styles.containeroffer} > */}
-                    <div style={[{ backgroundColor: COLORS.white }, styles.containeroffer, isMobile ? { padding: 24 } : {
-                        padding: 36}]}>
+                    <div style={{...{ backgroundColor: COLORS.white }, ...styles.containeroffer, ...(isMobile ? { padding: 24 } : {
+                        padding: 36})}}>
                         {!isMobile &&
                             <div style={{ height: 75 }} >
                                 <button onClick={handleGoBack}>
@@ -313,7 +313,7 @@ const EnterpriseOfferDetails = (props: any) => {
 
                     <div style={!isMobile ? { backgroundColor: COLORS.white, borderStartEndRadius: 20, borderStartStartRadius: 20, marginTop: 24, paddingHorizontal: 70, paddingVertical: 24 } : { padding: 24, marginTop: 24, backgroundColor: COLORS.white, borderRadius: 10 }}>
                         {/** Candidate Experiences */}
-                        <div style={[isMobile ? '' : styles.candidateExpContainer, isFormation && { marginBottom: 34 }]}>
+                        <div style={{...(isMobile ? '' : styles.candidateExpContainer), ...isFormation && { marginBottom: 34 }}}>
 
                             <div style={styles.candidateExpContent}>
                                 <span style={styles.candidateExpTitle}>{activeString.ENTERPRISE_OFFER.DESCRIPTION}</span>
@@ -362,16 +362,13 @@ const EnterpriseOfferDetails = (props: any) => {
                         </div>
                     ) : null}
 
-                    <div style={[{ paddingBottom: 100, backgroundColor: COLORS.white }, isMobile ? { paddingHorizontal: 24 } : { paddingHorizontal: 70}]}>
+                    <div style={{ paddingBottom: 100, backgroundColor: COLORS.white, ...(isMobile ? { paddingHorizontal: 24 } : { paddingHorizontal: 70})}}>
                         <span style={styles.titleh2}>{activeString.ENTERPRISE_OFFER.ABOUT_COMPANY}</span>
                     </div>
 
                     {!isLoading && infoUser &&
                         (
-                            <div style={[
-                                { backgroundColor: 'rgba(207, 231, 255, 0.8)' },
-                                isMobile ? { paddingHorizontal: 24 } : { paddingHorizontal: 70 }
-                            ]}>
+                            <div style={{...{ backgroundColor: 'rgba(207, ...231, ...255, ...0.8)' }, ...(isMobile ? { paddingHorizontal: 24 } : { paddingHorizontal: 70 })}}>
                                 <Frame
                                     isHeader={false}
                                     infoUser={infoUser}

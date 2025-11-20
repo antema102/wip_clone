@@ -71,7 +71,7 @@ const ScoreDetails = (props: PopupProps) => {
 
                 <div style={styles.centeredView}>
                     {data ?
-                        <div style={[styles.modalView, isMobile ? { width: '85%', padding: 30 } : { width: '40%', height: '80%', padding: 60 }]}>
+                        <div style={{...styles.modalView, ...(isMobile ? { width: '85%'), ...padding: 30 } : { width: '40%', ...height: '80%', ...padding: 60 }}}>
                             <div style={{ flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
                                 <span style={{ fontSize: 20, fontStyle: 'normal', color: "#1C1C1C" }} >Compatibilité : </span>
                                 <span style={{ fontSize: 20, fontStyle: 'normal', fontWeight: '500', color: "#1C1C1C" }} >{`${score?.toFixed(2)}%`}</span>

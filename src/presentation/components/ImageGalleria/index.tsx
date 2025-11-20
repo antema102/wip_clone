@@ -100,7 +100,7 @@ const ImageGalleria = {
                       marginTop: -10,
                       paddingRight: 20,
                       right: 0}}>
-                    <img src={{ uri: icons.Close }} style={{ tintColor: 'white', height: 20, width: 20 }} />
+                    <img src={icons.Close } style={{ tintColor: 'white', height: 20, width: 20 }} />
                   </div>
                 </button>
               </div>

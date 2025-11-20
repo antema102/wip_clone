@@ -27,8 +27,7 @@ const DynamicBox = ({ listJobs, navigateCombinaisonCandidat, navigateItemByCateg
           listJobs?.map((item, index) => (
             <button
               onClick={() => navigateCombinaisonCandidat(item, index)}
-              style={[styles.tagNavContainer, isMobile ? { width: '45%' } : { width: '30%' },
-              listJobs?.length === 2 && !isMobile ? { marginLeft: 20 } : { marginLeft: 10 }]}
+              style={{...styles.tagNavContainer, ...(isMobile ? { width: '45%' } : { width: '30%' }), ...(listJobs?.length === 2 && !isMobile ? { marginLeft: 20 } : { marginLeft: 10 })}}
               key={index}>
               <span style={styles.text}>{item}</span>
             </button>
@@ -36,7 +35,7 @@ const DynamicBox = ({ listJobs, navigateCombinaisonCandidat, navigateItemByCateg
         {countFormations && (
           <button
             onClick={navigateItemByCategory}
-            style={[styles.tagNavContainer, isMobile ? { width: '45%' } : { width: '30%' }]}
+            style={{...styles.tagNavContainer, ...(isMobile ? { width: '45%' } : { width: '30%' })}}
             key={listJobs && listJobs?.length + 1 || 1}>
             <span style={styles.text}>Formation, Stage, Alternance</span>
           </button>

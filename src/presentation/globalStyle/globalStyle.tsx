@@ -149,7 +149,8 @@ export const reloadStyles = (): any => {
       flexDirection: 'row',
       alignItems: 'center',
       gap:16
-      // width: windowDim - 60},
+      // width: windowDim - 60
+    },
     olListPuce: {
       backgroundColor: COLORS.primary,
       minWidth: 32,
@@ -397,7 +398,9 @@ export const reloadStyles = (): any => {
       width: 16,
       height: 15,
       objectFit: 'cover' as const,
-      marginLeft: 10}};
+      marginLeft: 10
+    },
+  };
   return gs;
 };
 

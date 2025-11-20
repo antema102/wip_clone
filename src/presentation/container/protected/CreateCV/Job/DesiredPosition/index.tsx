@@ -94,12 +94,9 @@ export const DesiredPosition = {
     <>
       {listPosition.length === 0 && type == 'read' ? (
         <div
-          style={[
-            styles.inputWrap,
-            {
+          style={{...styles.inputWrap, ...({
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white},
-          ]}>
+                type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
           <InputField
             label={TitleLabels.CreationCV.desiredLocalisation}
             isEditable={type !== 'read'}

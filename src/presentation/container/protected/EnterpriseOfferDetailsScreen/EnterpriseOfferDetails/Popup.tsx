@@ -207,7 +207,7 @@ const Popup = (props) => {
 
               <button onClick={() => setModalVisible(!modalVisible)}>
                 <div style={{ height: 20, paddingLeft: 10, paddingTop: 5, right: 0 }}>
-                  <img src={{ uri: icons.Close }} />
+                  <img src={icons.Close } />
                 </div>
               </button>
             </div>

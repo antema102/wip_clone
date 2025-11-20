@@ -267,7 +267,7 @@ const CandidatDetail = ({ stateValue }: any) => {
     return (
         <>
             <div style={styles.container}>
-                <div style={{overflowY: "auto"}} style={{ backgroundColor: 'transparent' }}>
+                <div style={{overflowY: "auto", ...{ backgroundColor: 'transparent' }}}>
 
                     <Dialog
                         animationType="slide"
@@ -296,7 +296,7 @@ const CandidatDetail = ({ stateValue }: any) => {
                             <div style={styles.candidatIdentity}>
                                 <img
                                     style={styles.imageStyle}
-                                    src={avatar ? { uri: avatar } : { uri: images.avatar_6 }}
+                                    src={avatar  ? avatar  : { uri: images.avatar_6 }}
                                 />
                                 <span style={styles.candidatIdentityName}>
                                     {condition
@@ -331,7 +331,7 @@ const CandidatDetail = ({ stateValue }: any) => {
                                         onClick={toggleFavorites}
                                         style={styles.compatibilityItem}>
                                         <img
-                                            src={isFavorite ? { uri: icons.favoris } : { uri: icons.deFavoris }}
+                                            src={isFavorite  ? icons.favoris  : { uri: icons.deFavoris }}
                                             style={{ width: 28, height: 26, objectFit: 'cover' as const }}
                                         />
                                         <span style={styles.labelInfos}>
@@ -346,7 +346,7 @@ const CandidatDetail = ({ stateValue }: any) => {
                                             onClick={() => displayVideoCandidat()}
                                             style={styles.compatibilityItem}>
                                             <img
-                                                src={{ uri: icons.youtube }}
+                                                src={icons.youtube }
                                                 style={{ width: 28, height: 26, objectFit: 'cover' as const }}
                                             />
                                             <span style={styles.labelInfos}>Présentation</span>
@@ -426,7 +426,7 @@ const CandidatDetail = ({ stateValue }: any) => {
                             {datas?.recommandation && datas?.recommandation.length !== 0 && (
                                 <div style={styles.badgeContainer}>
                                     <img
-                                        src={{ uri: icons.badge }}
+                                        src={icons.badge }
                                         style={{ width: 24, height: 24, objectFit: 'contain' as const }}
                                     />
                                     <span style={{ marginLeft: 5, color: '#BF9500' }}>

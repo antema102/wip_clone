@@ -35,7 +35,7 @@ const FileDownloader = (props: FileDownloader) => {
       <button onClick={() => showPDFViewer()}>
         <div style={globalStyle.fileDownloaderContainer}>
           <img
-            src={isPortfolio ? { uri: icons.globe } : { uri: icons.filetext }}
+            src={isPortfolio  ? icons.globe  : { uri: icons.filetext }}
             style={style.fileImage}
           />
           <div style={globalStyle.displayLeftVerticalFile}>

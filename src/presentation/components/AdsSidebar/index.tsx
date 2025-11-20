@@ -5,7 +5,7 @@ import { styles } from './style'
 const AdsSideBar = () => {
     return (
         <div style={styles.content}>
-            <img src={{ uri: images.recrute_gif }} style={styles.imagesSideBar} />
+            <img src={images.recrute_gif } style={styles.imagesSideBar} />
         </div>
     )
 }

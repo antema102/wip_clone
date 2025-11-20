@@ -47,9 +47,9 @@ const NewsInformationScreen = (props: any) => {
   }, []);
 
   return (
-    <div style={{overflowY: "auto"}} style={{ backgroundColor: COLORS.white, flex: 1, borderTopLeftRadius: 20, borderTopRightRadius: 20 }}>
+    <div style={{ overflowY: "auto", backgroundColor: COLORS.white, flex: 1, borderTopLeftRadius: 20, borderTopRightRadius: 20 }}>
       <CustomModal title={list?.category?.toUpperCase()} visible={visible} setVisible={setVisible} content={<NewsWebViewScreen data={list} />} />
-      <div style={[isMobile ? { padding: 14 } : {}, styles.wrapperImg]}>
+      <div style={{...(isMobile ? { padding: 14 } : {}), ...styles.wrapperImg}}>
         <img
           src={list?.image ? { uri: list?.image } : images.home}
           style={isMobile ? { width: '100%', height: 250, borderRadius: 10 } : styles.itemImg}

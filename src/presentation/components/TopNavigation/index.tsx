@@ -354,7 +354,7 @@ const TopNavigation = (): any => {
                     </div>
                 )
             }
-            <div style={[isMobile ? navbarStyle.footerMobile : navbarStyle.header, { flex: 1, zIndex: 2 }]} forceInset={{ bottom: 'never' }}>
+            <div style={{...(isMobile ? navbarStyle.footerMobile : navbarStyle.header), ...{ flex: 1, ...zIndex: 2 }}} forceInset={{ bottom: 'never' }}>
 
                 {pdfFile && <PDFViewerScreen visible={showPDF} setVisible={setShowPDF} data={pdfFile} isDownloadAllowed={true} isBlob={true} />}
                 {
@@ -370,61 +370,49 @@ const TopNavigation = (): any => {
                 <div style={isMobile ? styles.navigationContainerMobile : styles.navigationContainer}>
                     {condition ? <>
                         <button
-                            style={[
-                                isMobile ? { marginTop: 20 } :
-                                    styles.container,
-                                active1 ? styles.underline : styles.nonActive,
-                            ]}
+                            style={{...(isMobile ? { marginTop: 20 } :
+                                    styles.container), ...(active1 ? styles.underline : styles.nonActive), ...}}
                             onClick={handleSetActive1}
                         >
                             <img
                                 src={icons.home}
-                                style={[isMobile ? styles.logoMobile : styles.logo, active1 ? styles.active : styles.nonActive]}
+                                style={{...(isMobile ? styles.logoMobile : styles.logo), ...(active1 ? styles.active : styles.nonActive)}}
                             />
                         </button>
 
                         <button
-                            style={[
-                                isMobile ? { marginTop: 20 } :
-                                    styles.container,
-                                active2 ? styles.underline : styles.nonActive,
-                            ]}
+                            style={{...(isMobile ? { marginTop: 20 } :
+                                    styles.container), ...(active2 ? styles.underline : styles.nonActive), ...}}
                             onClick={handleSetActive2}
                         >
                             <div style={styles.bellContainer}>
-                                <img src={icons.bellring} style={[isMobile ? styles.logoMobile : styles.logo, active2 ? styles.active : styles.nonActive]} />
+                                <img src={icons.bellring} style={{...(isMobile ? styles.logoMobile : styles.logo), ...(active2 ? styles.active : styles.nonActive)}} />
                                 {badge !== 0 && <div style={styles.badge}><Badge value={`${badge}`} /></div>}
                             </div>
                         </button>
                         {/* 
                         {user?.role !== "company" &&
                             <button
-                                style={[
-                                    isMobile ? { marginTop: 20 } :
-                                        styles.container,
-                                    activeAppelOffer ? styles.underline : styles.nonActive,
-                                ]}
+                                style={{...(isMobile ? { marginTop: 20 } :
+                                        styles.container), ...(activeAppelOffer ? styles.underline : styles.nonActive), ...}}
                                 onClick={handleSetActiveAppel}
                             >
                                 <img
                                     src={icons.appelOffersIcon}
-                                    style={[isMobile ? styles.logoMobile : styles.logo, activeAppelOffer ? styles.active : styles.nonActive]}
+                                    style={{...(isMobile ? styles.logoMobile : styles.logo), ...(activeAppelOffer ? styles.active : styles.nonActive)}}
                                 />
                             </button>
 
                         } */}
 
                         <button
-                            style={[
-                                isMobile ? { marginTop: 20 } :
-                                    styles.container,
-                                active4 ? styles.underline : styles.nonActive,
-                            ]}
+                            style={{...(isMobile ? { marginTop: 20 } :
+                                    styles.container), ...(active4 ? styles.underline : styles.nonActive), ...}}
                             onClick={handleSetActive4}
                         >
                             <img
                                 src={icons.search}
-                                style={[isMobile ? styles.logoMobile : styles.logo, active4 ? styles.active : styles.nonActive]}
+                                style={{...(isMobile ? styles.logoMobile : styles.logo), ...(active4 ? styles.active : styles.nonActive)}}
                             />
                         </button>
 
@@ -433,16 +421,13 @@ const TopNavigation = (): any => {
                         {
                             isMobile && (
                                 <button
-                                    style={[
-                                        isMobile ? { marginTop: 20 } :
-                                            styles.container,
-                                        active7 ? styles.underline : styles.nonActive,
-                                    ]}
+                                    style={{...(isMobile ? { marginTop: 20 } :
+                                            styles.container), ...(active7 ? styles.underline : styles.nonActive), ...}}
                                     onClick={handleSetActive7}
                                 >
                                     <img
                                         src={icons.user}
-                                        style={[isMobile ? styles.logoMobile : styles.logo, active7 ? styles.active : styles.nonActive]}
+                                        style={{...(isMobile ? styles.logoMobile : styles.logo), ...(active7 ? styles.active : styles.nonActive)}}
                                     />
                                 </button>
                             )}

@@ -138,12 +138,7 @@ export const FormInfo = (props: any) => {
       <div>
         {/** Name field */}
         <div
-          style={[
-            styles.inputWrap,
-            {
-              backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white},
-          ]}>
+          style={{...styles.inputWrap, backgroundColor: type === 'read' ? COLORS.disableGray : COLORS.white}}>
           <InputField
             label={activeString.CreationCV.name}
             required
@@ -159,12 +154,9 @@ export const FormInfo = (props: any) => {
 
         {/** Firstname field */}
         <div
-          style={[
-            styles.inputWrap,
-            {
+          style={{...styles.inputWrap, ...({
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white},
-          ]}>
+                type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
           <InputField
             label={activeString.CreationCV.firstname}
             required
@@ -180,12 +172,9 @@ export const FormInfo = (props: any) => {
 
               {/** Type Date here */}
               <div
-                  style={[
-                      styles.inputWrap,
-                      {
+                  style={{...styles.inputWrap, ...({
                           backgroundColor:
-                              type === 'read' ? COLORS.disableGray : COLORS.white},
-                  ]}>
+                              type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
                   <CustomInputDatePicker
                       value={dataInfo.birthdate}
                       required
@@ -209,12 +198,9 @@ export const FormInfo = (props: any) => {
         {/** Type Select Civil Status */}
         {situationList && (
           <div
-            style={[
-              styles.inputWrap,
-              {
+            style={{...styles.inputWrap, ...({
                 backgroundColor:
-                  type === 'read' ? COLORS.disableGray : COLORS.white},
-            ]}>
+                  type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
             <InputSelect
               label={activeString.CreationCV.civilstatus}
               required
@@ -231,12 +217,9 @@ export const FormInfo = (props: any) => {
 
         {/** Number of child */}
         <div
-          style={[
-            styles.inputWrap,
-            {
+          style={{...styles.inputWrap, ...({
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white},
-          ]}>
+                type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
           <InputField
             label={activeString.CreationCV.child}
             required
@@ -253,12 +236,9 @@ export const FormInfo = (props: any) => {
 
         {/** Phone number */}
         <div
-          style={[
-            styles.inputWrap,
-            {
+          style={{...styles.inputWrap, ...({
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white},
-          ]}>
+                type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
           <InputField
             label={activeString.CreationCV.phone}
             required
@@ -276,12 +256,9 @@ export const FormInfo = (props: any) => {
         {/** Means of transport */}
         {transportList && (
           <div
-            style={[
-              styles.inputWrap,
-              {
+            style={{...styles.inputWrap, ...({
                 backgroundColor:
-                  type === 'read' ? COLORS.disableGray : COLORS.white},
-            ]}>
+                  type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
             <InputSelect
               label={activeString.CreationCV.transport}
               required
@@ -299,12 +276,9 @@ export const FormInfo = (props: any) => {
         {/** List of pets */}
         {petList && (
           <div
-            style={[
-              styles.inputWrap,
-              {
+            style={{...styles.inputWrap, ...({
                 backgroundColor:
-                  type === 'read' ? COLORS.disableGray : COLORS.white},
-            ]}>
+                  type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
             <InputSelect
               label={activeString.CreationCV.pet}
               required
@@ -343,12 +317,9 @@ export const FormInfo = (props: any) => {
           <span style={{...FONTS.h3Black}}>Résidence Actuelle</span>
           {/** Users Province */}
           <div
-            style={[
-              styles.inputWrap,
-              {
+            style={{...styles.inputWrap, ...({
                 backgroundColor:
-                  type === 'read' ? COLORS.disableGray : COLORS.white},
-            ]}>
+                  type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
             <InputSelect
               label={activeString.CreationCV.country}
               required
@@ -364,14 +335,11 @@ export const FormInfo = (props: any) => {
 
           {/** Users Region */}
           <div
-            style={[
-              styles.inputWrap,
-              {
+            style={{...styles.inputWrap, ...({
                 backgroundColor:
                   type === 'read' || !dataInfo?.country?.length
                     ? COLORS.disableGray
-                    : COLORS.white},
-            ]}>
+                    : COLORS.white}), ...}}>
             <InputSelect
               label={activeString.CreationCV.province}
               required={dataInfo?.country !== ''}
@@ -387,14 +355,11 @@ export const FormInfo = (props: any) => {
 
           {/** Users Zone */}
           <div
-            style={[
-              styles.inputWrap,
-              {
+            style={{...styles.inputWrap, ...({
                 backgroundColor:
                   type === 'read' || !dataInfo?.province?.length
                     ? COLORS.disableGray
-                    : COLORS.white},
-            ]}>
+                    : COLORS.white}), ...}}>
             <InputField
               label={activeString.CreationCV.zone}
               required={dataInfo?.region !== ''}

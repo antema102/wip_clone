@@ -64,7 +64,7 @@ const Item = props => {
       style={styles.card_templateItem}
       onClick={() => showDetails(offer.id)}>
       <img
-        src={avatar ? {uri: avatar} : images.avatar_6}
+        src={avatar  ? avatar : images.avatar_6}
         style={styles.image}
       />
       <div style={styles.wrapperTextItem}>
@@ -94,7 +94,7 @@ const FlatOffer = props => {
   const {offerList, showDetails} = props;
 
   return (
-    <div style={{overflowY: "auto"}} style={styles.listItemOffer}>
+    <div style={{overflowY: "auto", ...styles.listItemOffer}}>
       {offerList?.map((offer, index) => (
         <Item offer={offer} index={index} showDetails={showDetails} />
       ))}

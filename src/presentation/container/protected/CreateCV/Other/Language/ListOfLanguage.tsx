@@ -74,12 +74,9 @@ export const ListOfLanguage = {
 
       <div key={`listOfLanguage-${item}`}>
         <div
-          style={[
-            styles.inputWrap,
-            {
+          style={{...styles.inputWrap, ...({
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white},
-          ]}>
+                type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
           <InputSelect
             label={activeString.CreationCV.language + (index + 1)}
             required
@@ -94,12 +91,9 @@ export const ListOfLanguage = {
         </div>
 
         <div
-          style={[
-            styles.inputWrap,
-            {
+          style={{...styles.inputWrap, ...({
               backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white},
-          ]}>
+                type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
           <InputSelect
             label={activeString.CreationCV.level + (index + 1)}
             required

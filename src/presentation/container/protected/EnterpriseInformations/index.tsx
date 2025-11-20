@@ -265,7 +265,7 @@ export const EnterpriseInformations = (props: any) => {
                 <div style={styles.main_container}>
                     <div style={styles.stHeader}>
                         <img
-                            src={avatar ? { uri: avatar } : images.avatar_6}
+                            src={avatar  ? avatar  : images.avatar_6}
                             style={styles.image}
                         />
                         <div style={styles.textContainer}>

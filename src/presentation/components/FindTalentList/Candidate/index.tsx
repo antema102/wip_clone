@@ -104,7 +104,7 @@ export default ({
         <div style={styles.candidateImgContainer}>
           <img
             style={styles.candidatImg}
-            src={avatar ? { uri: avatar } : { uri: images.avatar_6 }}
+            src={avatar  ? avatar  : { uri: images.avatar_6 }}
           />
         </div>
         <div style={styles.candidateDetailsContainer}>
@@ -120,7 +120,7 @@ export default ({
           </span>
           {recommandation && (
             <div style={styles.badgeContainer}>
-              <img src={{ uri: icons.badge }} style={styles.recommmandationBadge} />
+              <img src={icons.badge } style={styles.recommmandationBadge} />
               <span style={{ color: '#BF9500', marginTop: 5 }}> Recommandé</span>
             </div>
           )}

@@ -34,7 +34,7 @@ export const Advertising = (props: AdvertisingType) => {
       <div style={styles.candidateImgContainer}>
         <img
           style={styles.candidatImg}
-          src={data.isVideo ? { uri: images.thumbnail } : { uri: advertisementImage }}
+          src={data.isVideo  ? images.thumbnail  : { uri: advertisementImage }}
         />
       </div>
       <div style={styles.candidateDetailsContainer}>

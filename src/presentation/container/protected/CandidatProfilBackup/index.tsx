@@ -38,8 +38,8 @@ export const CandidatProfilBackupScreen = props => {
   const activeString = lang === 'fr' ? stringsFr : stringsEn;
 
   return (
-    <div style={[styles.container, isMobile ? {} : {
-    }]}>
+    <div style={{...styles.container, ...(isMobile ? {} : {
+    })}}>
       <div style={[styles.containers, { minHeight: 250 }]}>
         <TitleRefont title={activeString.DETAIL_PROFIL.MES_SAUVEGARDES} _customStyle={{ paddingHorizontal: 75 }} />
         <ListBackup isFavorite={true} detailsFavorites={detailsFavorites} />

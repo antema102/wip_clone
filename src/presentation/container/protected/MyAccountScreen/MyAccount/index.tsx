@@ -173,7 +173,7 @@ export const MyAccount = (props) => {
             </div>
           )}
           
-          <div style={[styles.content, isMobile ? styles.contentMobile : styles.contentDesktop]}>
+          <div style={{...styles.content, ...(isMobile ? styles.contentMobile : styles.contentDesktop)}}>
             <div style={{ flex: 3 }}>
               {condition && (
                 <span style={styles.warningText}>
@@ -194,10 +194,7 @@ export const MyAccount = (props) => {
             </button>
           </div>
 
-          <div style={[
-            styles.formContainer, 
-            isMobile ? styles.formContainerMobile : styles.formContainerDesktop
-          ]}>
+          <div style={{...styles.formContainer, ...(isMobile ? styles.formContainerMobile : styles.formContainerDesktop)}}>
             <div style={[styles.inputWrap, styles.inputWrapDisabled]}>
               <InputSelect
                 label={TitleLabels.profil.lang}
@@ -256,21 +253,21 @@ export const MyAccount = (props) => {
                   <button onClick={handleMvolaPayment}>
                     <img
                       style={styles.imgStyle}
-                      src={{ uri: images.mvola }}
+                      src={images.mvola }
                     />
                   </button>
                   <div style={styles.intermediate} />
                   <button onClick={handleOrangePayment}>
                     <img
                       style={styles.imgStyle}
-                      src={{ uri: images.orangeMoney }}
+                      src={images.orangeMoney }
                     />
                   </button>
                   <div style={styles.intermediate} />
                   <button onClick={handleVisaPayment}>
                     <img
                       style={styles.imgStyle}
-                      src={{ uri: images.visa }}
+                      src={images.visa }
                     />
                   </button>
                 </div>

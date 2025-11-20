@@ -51,7 +51,7 @@ export const OfferApply = (props: OfferApplyType) => {
       <div style={styles.candidateImgContainer}>
         <img
           style={styles.candidatImg}
-          src={image ? { uri: avatar } : { uri: images.avatar_1 }}
+          src={image  ? avatar  : { uri: images.avatar_1 }}
         />
       </div>
 

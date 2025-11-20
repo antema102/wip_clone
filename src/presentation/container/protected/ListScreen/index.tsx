@@ -88,7 +88,7 @@ const ListScreen = props => {
                     }
                 </div>
 
-            </View >
+            </div >
         </>
     );
 };

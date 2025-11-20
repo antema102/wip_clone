@@ -20,11 +20,11 @@ export const CancelScreen = () => {
       <div style={styles.formContainer}>
         <div style={styles.logoForm}>
           <img
-            src={{ uri: icons.cancel }}
+            src={icons.cancel }
             style={{ width: '100%', height: 200, objectFit: 'contain' as const }}
           />
           <img
-            src={{ uri: images.logo }}
+            src={images.logo }
             style={{ width: '100%', height: 200, objectFit: 'contain' as const }}
           />
           <div style={{ width: '100%', height: 200, marginTop: 30 }}>

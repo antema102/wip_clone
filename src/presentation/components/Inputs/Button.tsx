@@ -30,17 +30,10 @@ export default ({
     {type && (
       <button
         onClick={(e: any) => onPress(type)}
-        style={[
-          styles.appButtonContainer,
-          type && type === 'valider' ? styles.validate : styles.inValidate,
-          styleBtnOuter,
-          type && type === 'valider'
+        style={{...styles.appButtonContainer, ...(type && type === 'valider' ? styles.validate : styles.inValidate), ...styleBtnOuter, ...(type && type === 'valider'
             ? {
-              marginRight: 4,
-              marginLeft: 4,
-              padding: 20}
-            : null,
-        ]}
+              marginRight: 4), ...marginLeft: 4, ...padding: 20}
+            : null, ...}}
       >
         <span style={styleBtnTxt}>{title}</span>
       </button>

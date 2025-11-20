@@ -68,7 +68,7 @@ const UserInfo = ({ userAvatar, setUserAvatar, style, isChangeable, userName, us
 				<div style={styles.avatarContainer}>
 					<img
 						style={styles.avatar}
-					 src={userAvatar ? { uri: userAvatar } : images.avatar_6 as import('react-native').ImageSourcePropType}
+					 src={userAvatar  ? userAvatar  : images.avatar_6 as import('react-native').ImageSourcePropType}
 					/>
 					{isChangeable && (
 						<Fragment>

@@ -83,7 +83,7 @@ export const ForgetPassword = (props: any) => {
                                 <div className='forgetPassword__btn'>
                                     <button onClick={sendingEmail}>
                                         {
-                                            isLoading ? <span className="spinner" color={COLORS.white} /> : 'Envoyer email de récuperations'
+                                            isLoading ? <span className="spinner"></span> : 'Envoyer email de récuperations'
                                         }
                                     </button>
                                 </div>

@@ -31,17 +31,11 @@ export default ({
           e.preventDefault();
           onPress(type);
         }}
-        style={[
-          formsStyles.itemInputStyle,
-          showError && error !== '' && formsStyles.inputError,
-          {
-            justifyContent: 'flex-start',
-            alignItems: 'center'},
-          {
+        style={{...formsStyles.itemInputStyle, ...showError && error !== '' && formsStyles.inputError, ...{
+            justifyContent: 'flex-start', ...alignItems: 'center'}, ...({
             backgroundColor: !isEditable
               ? '#ffffff'
-              : 'rgba(240, 244, 248, 0.87)'},
-        ]}>
+              : 'rgba(240), ...244, ...248, ...0.87)'}, ...}}>
         <span style={{ color: COLORS.black}}>{title}</span>
         {/* <img
           style={[formsStyles.dateIcon, { position: 'absolute', right: 20}]}
@@ -57,17 +51,11 @@ export default ({
           e.preventDefault();
           onPress(type);
         }}
-        style={[
-          formsStyles.itemInputStyle,
-          {
-            justifyContent: 'flex-start',
-            alignItems: 'center',
-            paddingHorizontal: 16},
-          {
+        style={{...formsStyles.itemInputStyle, ...{
+            justifyContent: 'flex-start', ...alignItems: 'center', ...paddingHorizontal: 16}, ...({
             backgroundColor: !isEditable
               ? '#ffffff'
-              : 'rgba(240, 244, 248, 0.87)'},
-        ]}>
+              : 'rgba(240), ...244, ...248, ...0.87)'}, ...}}>
         <span>{title}</span>
       </button>
     </div>

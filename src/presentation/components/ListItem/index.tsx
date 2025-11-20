@@ -65,7 +65,7 @@ const ListItem = (props: any) => {
   );
 
   return (
-    <div style={{overflowY: "auto"}} style={styles.listItemOffer}>
+    <div style={{overflowY: "auto", ...styles.listItemOffer}}>
       {isLoading && <Loader />}
       {ListFormation && <DataView value={ListFormation} layout="list" itemTemplate={renderItemTemplate} paginator rowsPerPageOptions={[4, 10, 50, 100]} rows={4} />}
     </div>

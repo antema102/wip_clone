@@ -71,7 +71,7 @@ export const ProfilBackup = (props: ProfilBackupProps) => {
         style={{ flexDirection: 'row', alignItems: 'center' }}
         onClick={() => detailsFavorites(id)}>
         <div style={styles.candidateImgContainer}>
-          <img style={styles.candidatImg} src={avatar ? { uri: avatar } : { uri: images.avatar_6 }} />
+          <img style={styles.candidatImg} src={avatar  ? avatar  : { uri: images.avatar_6 }} />
         </div>
         <div style={styles.candidateDetailsContainer}>
           <span style={styles.candidatName}>
@@ -98,7 +98,7 @@ export const ProfilBackup = (props: ProfilBackupProps) => {
 
       </button>
       <button onClick={() => removeFavoris(id)}>
-        <img style={styles.favorisImage} src={{ uri: icons.favoris }} />
+        <img style={styles.favorisImage} src={icons.favoris } />
       </button>
     </div>
   );
