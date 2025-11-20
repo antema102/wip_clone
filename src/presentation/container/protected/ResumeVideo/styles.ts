@@ -140,4 +140,4 @@ export const styles = {
     fontSize: 16,
     color:COLORS.black 
   }
-});
+};

@@ -12,7 +12,8 @@ export const reloadStyles = (): any => {
       position: 'relative',
       zIndex: 6,
       height: 40,
-      lineHeight: 40},
+      lineHeight: 40
+    },
 
     row: {
       flex: 1,
@@ -30,11 +31,13 @@ export const reloadStyles = (): any => {
       flex: 2,
       maxWidth: windowDim - 30,
       marginBottom: 16,
-      borderRadius: SIZES.radius},
+      borderRadius: SIZES.radius
+    },
     btnContainerMobile:{
       marginBottom: 24,
       backgroundColor: COLORS.secondary,
-      borderRadius: SIZES.radius},
+      borderRadius: SIZES.radius
+    },
     btnContainerWhite: {
       flex: 2,
       maxWidth: windowDim - 32,
@@ -45,26 +48,31 @@ export const reloadStyles = (): any => {
       maxWidth: windowDim - 32,
       marginBottom: 24,
       backgroundColor: COLORS.orange,
-      borderRadius: SIZES.radius},
+      borderRadius: SIZES.radius
+    },
     shadowBlue: {
       shadowColor: COLORS.secondary,
       shadowOffset: {
         width: 0,
-        height: 6},
+        height: 6
+    },
       shadowRadius: 20,
       elevation: 6,
-      zIndex: 10},
+      zIndex: 10
+    },
     title3: {
       fontSize: windowDim <= 991 ? 16 : SIZES.h4,
       lineHeight: 25,
       color: COLORS.black,
-      letterSpacing: 0.15},
+      letterSpacing: 0.15
+    },
     titleHome: {
       ...FONTS.titleHomeBlack,
       fontWeight: 'bold'
     },
     titleOffer: {
-      ...FONTS.titleBlack},
+      ...FONTS.titleBlack
+    },
     fullFlex: {
       display: 'flex',
       flex: 1,
@@ -73,35 +81,41 @@ export const reloadStyles = (): any => {
       justifyContent: 'space-between',
       alignItems: 'center'},
     heightBanner: {
-      height: windowDim * 0.2},
+      height: windowDim * 0.2
+    },
     labelWhite: {
       color: COLORS.white,
       lineHeight: 48,
       fontFamily: 'Oxygen-Regular',
-      fontSize: 14},
+      fontSize: 14
+    },
     iconButton: {},
     shadowOrange: {
       shadowColor: '#FE6D02',
       shadowOffset: {
         width: 1,
-        height: 2},
+        height: 2
+    },
       shadowOpacity: 0.4,
       shadowRadius: 7,
-      elevation: 5},
+      elevation: 5
+    },
     displayLeftVertical: {
       flexDirection: 'column',
       justifyContent: 'space-around',
       height: 50,
       marginTop: -18,
       marginLeft: 16,
-      paddingRight: 20},
+      paddingRight: 20
+    },
     displayLeftVerticalFile: {
       flexDirection: 'column',
       justifyContent: 'space-around',
       height: 50,
       marginTop: -8,
       marginLeft: 16,
-      paddingRight: 20},
+      paddingRight: 20
+    },
     grayHeaderContainer: {
       paddingVertical: SIZES.padding,
       paddingHorizontal: SIZES.padding2,
@@ -124,7 +138,8 @@ export const reloadStyles = (): any => {
       backgroundColor: COLORS.primary,
       height: windowDim * 0.05,
       justifyContent: 'center',
-      // width: windowDim * 1},
+      // width: windowDim * 1
+    },
     smallHeaderContainer: {
       paddingHorizontal: SIZES.padding,
       paddingTop: 0,
@@ -132,12 +147,14 @@ export const reloadStyles = (): any => {
       height: windowDim * 0.26,
       justifyContent: 'center',
 
-      width: windowDim},
+      width: windowDim
+    },
     headerScreenTitle: {
       color: 'white',
       fontSize: SIZES.body2,
       lineHeight: 24,
-      marginTop: -6},
+      marginTop: -6
+    },
     headerScreenDescription: {
       color: 'white',
       fontSize: SIZES.body5,
@@ -158,17 +175,21 @@ export const reloadStyles = (): any => {
       borderRadius: 18,
       paddingVertical: 6,
       textAlign: 'center',
-      ...FONTS.oxyTitleWhite},
+      ...FONTS.oxyTitleWhite
+    },
     olList: {
-      ...FONTS.oxygenListeBlack},
+      ...FONTS.oxygenListeBlack
+    },
     ContainerLinkVideo: {
       height: 80,
       justifyContent: 'center',
-      paddingLeft: SIZES.padding},
+      paddingLeft: SIZES.padding
+    },
     linkVideo: {
       color: COLORS.secondary,
       fontSize: SIZES.body3,
-      marginRight: 6},
+      marginRight: 6
+    },
     pageContainer: {
       height: '100%',
       width: windowDim,
@@ -176,14 +197,16 @@ export const reloadStyles = (): any => {
       paddingTop: 10,
       paddingBottom: 40,
       overflow: 'scroll',
-      backgroundColor: COLORS.white},
+      backgroundColor: COLORS.white
+    },
     pageContainerPresentation: {
       height: '100%',
       // width: windowDim,
       paddingHorizontal: SIZES.padding2,
       paddingBottom: 40,
       // overflow: 'scroll',
-      backgroundColor: COLORS.white},
+      backgroundColor: COLORS.white
+    },
     buttonHomeActionsaisir: {
       height: 56,
       borderRadius: SIZES.radius,
@@ -195,11 +218,13 @@ export const reloadStyles = (): any => {
       shadowColor: COLORS.secondary,
       shadowOffset: {
         width: 0,
-        height: 6},
+        height: 6
+    },
       shadowRadius: 8,
       shadowOpacity: 1,
       elevation: 9,
-      zIndex: 999},
+      zIndex: 999
+    },
     bigBtnTxt: {
       fontSize: SIZES.body3,
       color: COLORS.white
@@ -243,7 +268,8 @@ export const reloadStyles = (): any => {
       flexDirection: 'row',
       alignItems: 'center',
       height: 60,
-      paddingVertical: 10},
+      paddingVertical: 10
+    },
     dotIcon: {
       width: windowDim * 0.04,
       height: windowDim * 0.04,
@@ -251,7 +277,8 @@ export const reloadStyles = (): any => {
       borderColor: COLORS.secondary,
       borderRadius: windowDim * 0.02,
       marginHorizontal: windowDim * 0.03,
-      padding: 2},
+      padding: 2
+    },
     customVideo: {
       width: windowDim - 48,
       height: windowDim * 0.6,
@@ -273,7 +300,8 @@ export const reloadStyles = (): any => {
       backgroundColor: COLORS.orange,
       justifyContent: 'space-between',
       alignItems: 'center',
-      marginBottom: SIZES.padding},
+      marginBottom: SIZES.padding
+    },
     buttonActionsBlue: {
       paddingRight: SIZES.padding2,
       marginHorizontal: SIZES.padding,
@@ -283,7 +311,8 @@ export const reloadStyles = (): any => {
       backgroundColor: COLORS.secondary,
       justifyContent: 'space-between',
       alignItems: 'center',
-      marginBottom: SIZES.padding},
+      marginBottom: SIZES.padding
+    },
     btnBottomContainer: {
       width: windowDim,
       height: 80,
@@ -293,10 +322,12 @@ export const reloadStyles = (): any => {
       shadowColor: COLORS.secondary,
       shadowOffset: {
         width: 0,
-        height: 8},
+        height: 8
+    },
       shadowOpacity: 0.8,
       shadowRadius: 8,
-      elevation: 6},
+      elevation: 6
+    },
     imgBannerNotcrop: {
       resizeMode: 'contain',
       position: 'absolute',
@@ -304,7 +335,8 @@ export const reloadStyles = (): any => {
       zIndex: 4,
       top: windowDim * 0.06,
       height: windowDim * 0.24 - 2,
-      width: windowDim * 0.3},
+      width: windowDim * 0.3
+    },
     imgBanner: {
       resizeMode: 'contain',
       position: 'absolute',
@@ -312,7 +344,8 @@ export const reloadStyles = (): any => {
       zIndex: 2,
       top: windowDim * 0.03,
       height: windowDim * 0.16 - 2,
-      width: windowDim * 0.3},
+      width: windowDim * 0.3
+    },
     blueBanner: {
       paddingHorizontal: SIZES.padding,
       width: '100%',
@@ -320,7 +353,8 @@ export const reloadStyles = (): any => {
       position: 'relative',
       height: windowDim * 0.16,
       overflow: 'visible',
-      zIndex: 1},
+      zIndex: 1
+    },
     displayCenterVertical: {
       display: 'flex',
       flexDirection: 'row',
@@ -331,21 +365,24 @@ export const reloadStyles = (): any => {
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'flex-start',
-      width: windowDim},
+      width: windowDim
+    },
     textBienvenue: {
       fontSize: SIZES.h3,
       color: COLORS.white,
       width: '70%',
       height: '100%',
       paddingHorizontal: 0,
-      paddingVertical: windowDim * 0.08},
+      paddingVertical: windowDim * 0.08
+    },
     alignTxtHeader: {},
     formContain: {
       justifyContent: 'space-between',
       alignContent: 'center',
       alignItems: 'center',
       width: windowDim,
-      flex: 1},
+      flex: 1
+    },
     elevationBlue: {
       marginHorizontal: 5,
       elevation: 10,
@@ -353,9 +390,11 @@ export const reloadStyles = (): any => {
       opacity: 1,
       shadowOffset: {
         width: 0,
-        height: 8},
+        height: 8
+    },
       shadowOpacity: 0.6,
-      shadowRadius: 12},
+      shadowRadius: 12
+    },
     elevationOrange: {
       elevation: 8,
       shadowColor: COLORS.orange,

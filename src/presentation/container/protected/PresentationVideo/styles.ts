@@ -1,4 +1,3 @@
-;
 import { COLORS, SIZES } from '../../../../resources/constants';
 
 export const styles = {
@@ -9,7 +8,8 @@ export const styles = {
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 4},
+      height: 4
+    },
     shadowOpacity: 0.1,
     shadowRadius: 5,
     elevation: 5,
@@ -18,13 +18,15 @@ export const styles = {
   contentAdvice: {
     backgroundColor: COLORS.blue_back,
     marginTop: SIZES.padding,
-    borderRadius: SIZES.radius},
+    borderRadius: SIZES.radius
+  },
   resumeTitle: {
     padding: SIZES.padding,
     fontSize: SIZES.h5,
     color: COLORS.black,
     fontWeight: 'bold',
-    lineHeight: 24},
+    lineHeight: 24
+  },
   container: {
     width: '100%',
     backgroundColor: 'transparent'
@@ -33,24 +35,28 @@ export const styles = {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
-    fontWeight: 'bold'},
+    fontWeight: 'bold'
+  },
   takingVideoCircleShape: {
     width: 60,
     height: 60,
     backgroundColor: 'white',
     borderRadius: 150 / 2,
-    // marginLeft: screenWidth / 2 - 30},
+    // marginLeft: screenWidth / 2 - 30
+  },
   switchingCircleShape: {
     width: 60,
     height: 60,
     backgroundColor: 'white',
     borderRadius: 150 / 2,
-    // marginLeft: screenWidth / 4 - 40},
+    // marginLeft: screenWidth / 4 - 40
+  },
   centeredView: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 22},
+    marginTop: 22
+  },
   modalView: {
     margin: 20,
     backgroundColor: 'white',
@@ -60,10 +66,12 @@ export const styles = {
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 2},
+      height: 2
+  },
     shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 5},
+    elevation: 5
+  },
   containerModal: {
     justifyContent: 'center',
     backgroundColor: 'white',
@@ -75,29 +83,37 @@ export const styles = {
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 2},
+      height: 2
+  },
     shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 5},
+    elevation: 5
+  },
   button: {
     borderRadius: 20,
     padding: 10,
-    elevation: 2},
+    elevation: 2
+  },
   buttonOpen: {
     backgroundColor: '#F194FF'},
+  },
   buttonClose: {
     backgroundColor: '#2196F3'},
+  },
   textStyle: {
     color: 'white',
     fontWeight: 'bold',
-    textAlign: 'center'},
+    textAlign: 'center'
+  },
   waitingText: {
     color: 'black',
     fontWeight: 'bold',
-    textAlign: 'center'},
+    textAlign: 'center'
+  },
   modalText: {
     marginBottom: 15,
-    textAlign: 'center'},
+    textAlign: 'center'
+  },
   progressContainer: {
     width: '100%',
     height: 40,
@@ -106,15 +122,19 @@ export const styles = {
     borderWidth: 3,
     borderRadius: 30,
     justifyContent: 'center',
-    backgroundColor: 'white'},
+    backgroundColor: 'white'
+  },
   inner: {
     width: '100%',
     height: 30,
     borderRadius: 15,
     backgroundColor: '#44E2F3'},
+  },
   label: {
     fontSize: 23,
     color: 'black',
     position: 'absolute',
     zIndex: 1,
-    alignSelf: 'center'}});
+    alignSelf: 'center'
+  }
+};
