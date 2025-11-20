@@ -14,25 +14,32 @@ export const data = {
     {
       Time: 'Actuel',
       Sct: 'Goodall Corporation',
-      job: 'Expert Comptable'},
+      job: 'Expert Comptable',
+    },
     {
       Time: '2012 - 2018',
       Sct: 'Agence Goodsight',
-      job: 'Expert Comptable'},
+      job: 'Expert Comptable',
+    },
   ],
   formations: [
     {
       level: 'Master',
-      sector: 'Comptabilité'},
+      sector: 'Comptabilité',
+    },
   ],
   languages: [
     {
       langName: 'Malagasy',
-      langLvl: 95},
+      langLvl: 95,
+    },
     {
       langName: 'Français',
-      langLvl: 85},
+      langLvl: 85,
+    },
     {
       langName: 'Anglais',
-      langLvl: 75},
-  ]};
+      langLvl: 75,
+    },
+  ],
+};

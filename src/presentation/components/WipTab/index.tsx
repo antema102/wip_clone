@@ -1,5 +1,4 @@
 import React, { useState, useEffect, Fragment } from 'react';
-;
 
 import { TAB } from '../../../data/constants/strings';
 import { styles } from './styles';
@@ -8,9 +7,8 @@ import * as stringsEn from '../../../data/constants/strings_en';
 import { useLang } from '../../../data/translation';
 import { useMobile } from '../../../service/hooks/useMobile';
 import { icons } from '../../../resources/constants';
-
 const WipTabs = (props: any) => {
-  const { isOffer, setIsOffer } = props
+  const { isOffer, setIsOffer } = props;
   const [show, setShow] = useState('News');
   const [index, setIndex] = useState(0);
   const { isMobile } = useMobile();
@@ -23,7 +21,7 @@ const WipTabs = (props: any) => {
       handleShow('Offers', 1);
       setIsOffer(false);
     }
-  }, [])
+  }, []);
 
   const { lang } = useLang();
   const activeString = lang === 'fr' ? stringsFr : stringsEn;
@@ -33,16 +31,32 @@ const WipTabs = (props: any) => {
         style={{
           display: 'flex',
           flexDirection: 'row',
-          justifyContent: isMobile ? 'space-between' : 'center'}}
+          justifyContent: isMobile ? 'space-between' : 'center',
+        }}
       >
-
         <div style={isMobile ? { width: '20%' } : { width: '32%' }}>
           <button
-            onClick={() => handleShow('News', 0)}
-            style={styles.contenair}>
-            <div style={styles.item} >
-              <div style={{...styles.content, ...(index === 0 ? styles.activebtn : styles.noBtn)}}>
-                <img src={icons.news_candidate } style={{...styles.images, ...(index === 0 ? styles.activeImages : styles.noActiveImages)}} />
+            onClick={() => {
+              handleShow('News', 0);
+            }}
+            style={styles.contenair}
+          >
+            <div style={styles.item}>
+              <div
+                style={{
+                  ...styles.content,
+                  ...(index === 0 ? styles.activebtn : styles.noBtn),
+                }}
+              >
+                <img
+                  src={icons.news_candidate}
+                  style={{
+                    ...styles.images,
+                    ...(index === 0
+                      ? styles.activeImages
+                      : styles.noActiveImages),
+                  }}
+                />
               </div>
               <span style={index === 0 ? styles.active : styles.ButtonTabs}>
                 {activeString.TAB.NEWS}
@@ -53,11 +67,27 @@ const WipTabs = (props: any) => {
 
         <div style={isMobile ? { width: '20%' } : { width: '32%' }}>
           <button
-            onClick={() => handleShow('Offers', 1)}
-            style={styles.contenair}>
-            <div style={styles.item} >
-              <div style={{...styles.content, ...(index === 1 ? styles.activebtn : styles.noBtn)}}>
-                <img src={icons.job_candidate } style={{...styles.images, ...(index === 1 ? styles.activeImages : styles.noActiveImages)}} />
+            onClick={() => {
+              handleShow('Offers', 1);
+            }}
+            style={styles.contenair}
+          >
+            <div style={styles.item}>
+              <div
+                style={{
+                  ...styles.content,
+                  ...(index === 1 ? styles.activebtn : styles.noBtn),
+                }}
+              >
+                <img
+                  src={icons.job_candidate}
+                  style={{
+                    ...styles.images,
+                    ...(index === 1
+                      ? styles.activeImages
+                      : styles.noActiveImages),
+                  }}
+                />
               </div>
               <span style={index === 1 ? styles.active : styles.ButtonTabs}>
                 {activeString.TAB.OFFERS}
@@ -68,11 +98,27 @@ const WipTabs = (props: any) => {
 
         <div style={isMobile ? { width: '20%' } : { width: '32%' }}>
           <button
-            onClick={() => handleShow('Announces', 2)}
-            style={styles.contenair}>
-            <div style={styles.item} >
-              <div style={{...styles.content, ...(index === 2 ? styles.activebtn : styles.noBtn)}}>
-                <img src={icons.ads_candidate } style={{...styles.images, ...(index === 2 ? styles.activeImages : styles.noActiveImages)}} />
+            onClick={() => {
+              handleShow('Announces', 2);
+            }}
+            style={styles.contenair}
+          >
+            <div style={styles.item}>
+              <div
+                style={{
+                  ...styles.content,
+                  ...(index === 2 ? styles.activebtn : styles.noBtn),
+                }}
+              >
+                <img
+                  src={icons.ads_candidate}
+                  style={{
+                    ...styles.images,
+                    ...(index === 2
+                      ? styles.activeImages
+                      : styles.noActiveImages),
+                  }}
+                />
               </div>
               <span style={index === 2 ? styles.active : styles.ButtonTabs}>
                 {activeString.TAB.ANNOUNCES}
@@ -80,9 +126,14 @@ const WipTabs = (props: any) => {
             </div>
           </button>
         </div>
-
       </div>
-      <div style={{ marginBottom: 16 }}>{index === 0 ? props.News() : (index === 1) ? props.Offers() : props.Announces()}</div>
+      <div style={{ marginBottom: 16 }}>
+        {index === 0
+          ? props.News()
+          : index === 1
+          ? props.Offers()
+          : props.Announces()}
+      </div>
     </Fragment>
   );
 };

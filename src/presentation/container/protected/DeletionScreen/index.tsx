@@ -1,9 +1,7 @@
 import React from 'react';
-;
 import Container from '../../../components/Container';
 import { useLocation } from 'react-router-dom';
 import { Deletion } from './Deletion';
-
 const MyAccountScreen = (): any => {
   const { state } = useLocation();
   return <Deletion stateValue={state} />;

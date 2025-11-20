@@ -3,7 +3,9 @@ import myFile from './terms';
 import './styles.css';
 
 const Terms = () => {
-  const MyComponent = () => <div dangerouslySetInnerHTML={{ __html: myFile }} />;
+  const MyComponent = () => (
+    <div dangerouslySetInnerHTML={{ __html: myFile }} />
+  );
   return (
     <div>
       <MyComponent />

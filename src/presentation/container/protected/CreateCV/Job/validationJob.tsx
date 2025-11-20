@@ -1,14 +1,14 @@
-import {defaultValues, IError} from './dtoJob';
+import { defaultValues, type IError } from './dtoJob';
 
 export const Validation = (values: IError) => {
-  let errors: IError = {...defaultValues};
+  let errors: IError = { ...defaultValues };
 
   {
     /** minimumWageRequired cheking */
   }
   if (
     !/^[0-9 ]{1}(([aA]{1}r(iary)?)|([fF]{1}mg))?$/.test(
-      values.minimumWageRequired,
+      values.minimumWageRequired
     )
   ) {
     errors.minimumWageRequired = 'Saisir un salaire brut (Ariary) valide';
@@ -17,7 +17,7 @@ export const Validation = (values: IError) => {
   {
     /** checking all values */
   }
-  Object.entries(values).forEach(element => {
+  Object.entries(values).forEach((element) => {
     if (
       element[0] !== 'faculty' ||
       (values.levelOfStudy !== 'cepe' && values.levelOfStudy !== 'bepc')
@@ -27,7 +27,7 @@ export const Validation = (values: IError) => {
         element[1] === null ||
         element[1] === 'INVALID INPUT'
       ) {
-        errors = {...errors, [element[0]]: 'Ce champ est obligatoire'};
+        errors = { ...errors, [element[0]]: 'Ce champ est obligatoire' };
       }
     }
   });

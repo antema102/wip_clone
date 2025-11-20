@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 
 export function useCombi(props: any) {
   const [refreshing, setRefreshing] = useState(false);
@@ -16,5 +16,6 @@ export function useCombi(props: any) {
   return {
     refreshing,
     init,
-    f1};
+    f1,
+  };
 }

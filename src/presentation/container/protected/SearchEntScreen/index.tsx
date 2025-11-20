@@ -1,5 +1,5 @@
-import React from 'react'
-import SearchEnt from './SearchEnt'
+import React from 'react';
+import SearchEnt from './SearchEnt';
 
 const SearchEntScreen = () => <SearchEnt />;
 

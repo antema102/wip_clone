@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-;
 import { ProfilBackup } from '../../../components/CandidatProfilBackup/ProfilBackup/indexCV';
 import { Divider } from 'primereact/divider';
 import { DataView } from 'primereact/dataview';
@@ -11,9 +10,9 @@ import * as stringsFr from '../../../../data/constants/strings';
 import * as stringsEn from '../../../../data/constants/strings_en';
 import MiniLoader from '../../../components/MiniLoader';
 export const ListBackup = (props) => {
-
-  const { favoritesList, removeFavoris, dateFav, detailsFavorites, loading } = props
-  const { lang } = useLang()
+  const { favoritesList, removeFavoris, dateFav, detailsFavorites, loading } =
+    props;
+  const { lang } = useLang();
   const activeString = lang === 'fr' ? stringsFr : stringsEn;
 
   const renderItemTemplate = (item) => (
@@ -22,26 +21,29 @@ export const ListBackup = (props) => {
         item={item}
         dateFav={dateFav}
         detailsFavorites={detailsFavorites}
-        removeFavoris={removeFavoris} />
-    </Fragment>);
+        removeFavoris={removeFavoris}
+      />
+    </Fragment>
+  );
 
-  return (
-    loading ?
-      <MiniLoader CustomStyle={{ backgroundColor: 'white', zIndex: -1, borderRadius: 10 }} /> :
-      favoritesList.length ?
-        <DataView
-          value={favoritesList}
-          layout="list"
-          itemTemplate={renderItemTemplate}
-          paginatorTemplate={paginatorTemplateCustom}
-          paginator
-          rows={3} />
-        :
-        <NotFounds
-          label={activeString.ENTERPRISE_INFORMATIONS.EMPTY}
-          image={images.cardProfil}
-          customImage={{ height: 100, width: 100 }}
-        />
-
+  return loading ? (
+    <MiniLoader
+      CustomStyle={{ backgroundColor: 'white', zIndex: -1, borderRadius: 10 }}
+    />
+  ) : favoritesList.length ? (
+    <DataView
+      value={favoritesList}
+      layout="list"
+      itemTemplate={renderItemTemplate}
+      paginatorTemplate={paginatorTemplateCustom}
+      paginator
+      rows={3}
+    />
+  ) : (
+    <NotFounds
+      label={activeString.ENTERPRISE_INFORMATIONS.EMPTY}
+      image={images.cardProfil}
+      customImage={{ height: 100, width: 100 }}
+    />
   );
 };

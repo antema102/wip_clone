@@ -1,13 +1,11 @@
 import React from 'react';
-;
-import {Subscription} from '../../components/Subscription';
-import {Packages} from '../../components/Packages';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import { Subscription } from '../../components/Subscription';
+import { Packages } from '../../components/Packages';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import globalStyle from '../../globalStyle';
-import {styles} from './styles';
-
+import { styles } from './styles';
 export const ListSubscription = (props: any) => {
-  const {data, isCredit, isNotAvailable} = props;
+  const { data, isCredit, isNotAvailable } = props;
   return (
     <div style={globalStyle.containersPageWidth}>
       <div style={{}}>
@@ -21,8 +19,8 @@ export const ListSubscription = (props: any) => {
             ) : (
               <div
                 data={data}
-                renderItem={({item}) => <Packages item={item} />}
-                keyExtractor={item => item.id}
+                renderItem={({ item }) => <Packages item={item} />}
+                keyExtractor={(item) => item.id}
               />
             )}
           </div>
@@ -30,7 +28,7 @@ export const ListSubscription = (props: any) => {
           <div>
             <div
               data={data}
-              renderItem={({item}) =>
+              renderItem={({ item }) =>
                 isNotAvailable ? (
                   <Subscription item={item} />
                 ) : (
@@ -44,7 +42,7 @@ export const ListSubscription = (props: any) => {
                   />
                 )
               }
-              keyExtractor={item => item.id}
+              keyExtractor={(item) => item.id}
             />
           </div>
         )}

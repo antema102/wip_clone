@@ -10,9 +10,10 @@ export interface IError {
   status: string;
   minimumWageRequired: string;
   portfolio: string;
-  recommandation: any,
-  fileCv: string,
-  socioLink: string}
+  recommandation: any;
+  fileCv: string;
+  socioLink: string;
+}
 
 export const showErrorValuesDefault = {
   // job
@@ -27,8 +28,8 @@ export const showErrorValuesDefault = {
   minimumWageRequired: false,
   portfolio: false,
   recommandation: false,
-  fileCv:false,
-  socioLink:false
+  fileCv: false,
+  socioLink: false,
 };
 
 export const showErrorValuesSubmit = {
@@ -44,8 +45,9 @@ export const showErrorValuesSubmit = {
   minimumWageRequired: true,
   portfolio: true,
   recommandation: false,
-  fileCv : true,
-  socioLink :true};
+  fileCv: true,
+  socioLink: true,
+};
 
 export const defaultValues: IError = {
   // job
@@ -60,5 +62,6 @@ export const defaultValues: IError = {
   minimumWageRequired: '',
   portfolio: '',
   recommandation: '',
-  fileCv:'',
-  socioLink:''};
+  fileCv: '',
+  socioLink: '',
+};

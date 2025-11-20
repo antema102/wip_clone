@@ -1,8 +1,9 @@
-import { SubscriptionBDL } from "../bdl/Subscription.bdl";
+import { SubscriptionBDL } from '../bdl/Subscription.bdl';
 
 export const SubscriptionSA = () => {
-  const {getAllSubscriptionByRole} = SubscriptionBDL();
+  const { getAllSubscriptionByRole } = SubscriptionBDL();
   return {
-    getAllSubscriptionByRole: (token: string) =>
-      getAllSubscriptionByRole(token)};
+    getAllSubscriptionByRole: async (token: string) =>
+      await getAllSubscriptionByRole(token),
+  };
 };

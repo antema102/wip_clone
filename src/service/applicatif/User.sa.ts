@@ -68,48 +68,53 @@ export const UserSA = () => {
     postCreateUuid,
     getCountryBySessionId,
     getExternalUSer,
-    updateCv} = UserBDL();
+    updateCv,
+  } = UserBDL();
 
   return {
-    getUserById: (id: string, token: string) => getUserById(id, token),
-    getExternalUSer: (token: string, enterpriseId: string) =>
-      getExternalUSer(token, enterpriseId),
-    postAuthentication: (data: any) => postAuthentication(data),
-    postCreateUuid: (token: string) => postCreateUuid(token),
-    postUser: (type: string, token: string) => postUser(type, token),
-    getCostsUser: (token: string) => getCostsUser(token),
-    getCountryBySessionId: (token: string, sessionId: string) =>
-      getCountryBySessionId(token, sessionId),
-    getCostsUserByName: (token: string, name: string) =>
-      getCostsUserByName(token, name),
-    getSpotVideo: (token: string) => getSpotVideo(token),
-    getSpotVideoById: (token: string, id: string) =>
-      getSpotVideoById(token, id),
-    getUserText: (token: string) => getUserText(token),
-    getUserEchelle: (token: string) => getUserEchelle(token),
-    updateUser: (token: string, idUser: string, data: any) =>
-      updateUser(token, idUser, data),
-    updatePassword: (token: string, password: string) =>
-      updatePassword(token, password),
-    buySubscription: (token: string, data: any, id: string) =>
-      buySubscription(token, data, id),
-    desactivateAccount: (token: string) => desactivateAccount(token),
-    updateUserMessage: (data: any) => updateMesage(data),
-    readMessageCount: (id: string) => readMessageCount(id),
-    updateMessageCount: (id: string) => updateMessageCount(id),
-    getAccessToken: (token: string) => getAccessToken(token),
-    getUserMessage: (id: string, token: string) => getMessage(id, token),
-    sendingNotifications: (data: any, token: string) =>
-      sendingNotificationsViaGoogle(data, token),
-    sendSessionId: (
+    getUserById: async (id: string, token: string) =>
+      await getUserById(id, token),
+    getExternalUSer: async (token: string, enterpriseId: string) =>
+      await getExternalUSer(token, enterpriseId),
+    postAuthentication: async (data: any) => await postAuthentication(data),
+    postCreateUuid: async (token: string) => await postCreateUuid(token),
+    postUser: async (type: string, token: string) =>
+      await postUser(type, token),
+    getCostsUser: async (token: string) => await getCostsUser(token),
+    getCountryBySessionId: async (token: string, sessionId: string) =>
+      await getCountryBySessionId(token, sessionId),
+    getCostsUserByName: async (token: string, name: string) =>
+      await getCostsUserByName(token, name),
+    getSpotVideo: async (token: string) => await getSpotVideo(token),
+    getSpotVideoById: async (token: string, id: string) =>
+      await getSpotVideoById(token, id),
+    getUserText: async (token: string) => await getUserText(token),
+    getUserEchelle: async (token: string) => await getUserEchelle(token),
+    updateUser: async (token: string, idUser: string, data: any) =>
+      await updateUser(token, idUser, data),
+    updatePassword: async (token: string, password: string) =>
+      await updatePassword(token, password),
+    buySubscription: async (token: string, data: any, id: string) =>
+      await buySubscription(token, data, id),
+    desactivateAccount: async (token: string) =>
+      await desactivateAccount(token),
+    updateUserMessage: async (data: any) => await updateMesage(data),
+    readMessageCount: async (id: string) => await readMessageCount(id),
+    updateMessageCount: async (id: string) => await updateMessageCount(id),
+    getAccessToken: async (token: string) => await getAccessToken(token),
+    getUserMessage: async (id: string, token: string) =>
+      await getMessage(id, token),
+    sendingNotifications: async (data: any, token: string) =>
+      await sendingNotificationsViaGoogle(data, token),
+    sendSessionId: async (
       token: string,
       title: string,
       type: string | null,
       flag?: string
-    ) => createSessionID(token, title, type, flag),
-    getsSessionId: (token: string, isCompany?: string | null) =>
-      getSessionID(token, isCompany),
-    createIA: (
+    ) => await createSessionID(token, title, type, flag),
+    getsSessionId: async (token: string, isCompany?: string | null) =>
+      await getSessionID(token, isCompany),
+    createIA: async (
       token: string,
       session_id: string,
       file?: File,
@@ -117,8 +122,8 @@ export const UserSA = () => {
       enterprise_ids?: string[],
       country_ids?: string,
       onMessage?: (message: string) => void
-    ) =>
-      createIA(
+    ) => {
+      await createIA(
         token,
         session_id,
         file,
@@ -126,56 +131,74 @@ export const UserSA = () => {
         enterprise_ids,
         country_ids,
         onMessage
-      ),
-    getJobSlot: (token: string, type: string) => getJobSlot(token, type),
-    getIA: (token: string, session_id: string) => getIA(token, session_id),
-    getPdf: (token: string, id: string) => getPdf(token, id),
-    updateCv: (token: string, pointId: string, data: { country_ids?: string[]; enterprise_ids?: string[]; is_active?: boolean }) =>
-      updateCv(token, pointId, data),
-    postPdfs: (
+      );
+    },
+    getJobSlot: async (token: string, type: string) =>
+      await getJobSlot(token, type),
+    getIA: async (token: string, session_id: string) =>
+      await getIA(token, session_id),
+    getPdf: async (token: string, id: string) => await getPdf(token, id),
+    updateCv: async (
+      token: string,
+      pointId: string,
+      data: {
+        country_ids?: string[];
+        enterprise_ids?: string[];
+        is_active?: boolean;
+      }
+    ) => await updateCv(token, pointId, data),
+    postPdfs: async (
       token: string,
       file: any,
       id?: string | null,
       country_ids?: string | null,
       enterprise_ids?: string,
       active?: boolean
-    ) => postPdf(token, file, id, country_ids, enterprise_ids, active),
-    displayUserVideoPresentation: (
+    ) => await postPdf(token, file, id, country_ids, enterprise_ids, active),
+    displayUserVideoPresentation: async (
       id: string,
       token: string,
       setDownloadProgressBar: any,
       type: string
-    ) => displayVideoPresentation(id, token, setDownloadProgressBar, type),
-    resetUserPassword: (email: string) => resetPassword(email),
-    createAdvertisement: (data: any) => createAdvertisement(data),
-    filterAdvertisement: (data: any, token: string) =>
-      filterAdvertisement(data, token),
-    countClickAdvertisement: (id: string, token: string) =>
-      countClickAdvertisement(id, token),
-    createPost: (data: any, token: string) => createPost(data, token),
-    payContact: (data: any, token: string) => payContact(data, token),
-    checkContact: (token: string) => checkContact(token),
-    payMvola: (data: any, token: string) => payMvola(data, token),
-    payOrange: (data: any, token: string) => payOrange(data, token),
-    payAirtel: (data: any, token: string) => payAirtel(data, token),
-    payCb: (data: any, token: string) => payCb(data, token),
-    getAdvertisementsByCategory: (data: any, token: string) =>
-      getAdvertisementsByCategory(data, token),
-    getTransactionMvola: (token: string, transactionId: string) =>
-      getTransactionMvola(token, transactionId),
-    getAirtelTransaction: (token: string, transactionId: string) =>
-      getAirtelTransaction(token, transactionId),
-    editAdvertisement: (id: string, data: any, token: string) =>
-      editAdvertisement(id, data, token),
-    removeAdvertisement: (id: string, token: string) =>
-      RemoveAdvertisement(id, token),
-    removePost: (id: string, token: string) => RemovePost(id, token),
-    getAllAdverstisements: (token: any) => getAllAdverstisements(token),
-    getAdverstisementsByOwnerId: (id: string, token: string, page: number) =>
-      getAdverstisementsByOwnerId(id, token, page),
-    getPostsByOwnerId: (id: string, token: string, page: number) =>
-      getPostsByOwnerId(id, token, page),
-    uploadVideoToServer: (
+    ) =>
+      await displayVideoPresentation(id, token, setDownloadProgressBar, type),
+    resetUserPassword: async (email: string) => await resetPassword(email),
+    createAdvertisement: async (data: any) => await createAdvertisement(data),
+    filterAdvertisement: async (data: any, token: string) =>
+      await filterAdvertisement(data, token),
+    countClickAdvertisement: async (id: string, token: string) =>
+      await countClickAdvertisement(id, token),
+    createPost: async (data: any, token: string) =>
+      await createPost(data, token),
+    payContact: async (data: any, token: string) =>
+      await payContact(data, token),
+    checkContact: async (token: string) => await checkContact(token),
+    payMvola: async (data: any, token: string) => await payMvola(data, token),
+    payOrange: async (data: any, token: string) => await payOrange(data, token),
+    payAirtel: async (data: any, token: string) => await payAirtel(data, token),
+    payCb: async (data: any, token: string) => await payCb(data, token),
+    getAdvertisementsByCategory: async (data: any, token: string) =>
+      await getAdvertisementsByCategory(data, token),
+    getTransactionMvola: async (token: string, transactionId: string) =>
+      await getTransactionMvola(token, transactionId),
+    getAirtelTransaction: async (token: string, transactionId: string) =>
+      await getAirtelTransaction(token, transactionId),
+    editAdvertisement: async (id: string, data: any, token: string) =>
+      await editAdvertisement(id, data, token),
+    removeAdvertisement: async (id: string, token: string) =>
+      await RemoveAdvertisement(id, token),
+    removePost: async (id: string, token: string) =>
+      await RemovePost(id, token),
+    getAllAdverstisements: async (token: any) =>
+      await getAllAdverstisements(token),
+    getAdverstisementsByOwnerId: async (
+      id: string,
+      token: string,
+      page: number
+    ) => await getAdverstisementsByOwnerId(id, token, page),
+    getPostsByOwnerId: async (id: string, token: string, page: number) =>
+      await getPostsByOwnerId(id, token, page),
+    uploadVideoToServer: async (
       token: string,
       fileName: string,
       fileType: string,
@@ -183,7 +206,14 @@ export const UserSA = () => {
       setProgressBar: any,
       type: string
     ) =>
-      uploadVideoFile(token, fileName, fileType, dataUri, setProgressBar, type),
+      await uploadVideoFile(
+        token,
+        fileName,
+        fileType,
+        dataUri,
+        setProgressBar,
+        type
+      ),
     deletionAccount,
     displayVideoExample,
     payInPurchase,
@@ -196,8 +226,9 @@ export const UserSA = () => {
     getTenderPDF,
     getTendersByName,
     deleteTenderById,
-    getMyCVideo: (token: string, setDownloadProgressBar: any) =>
-      getMyCVPresentationVideo(token, setDownloadProgressBar),
+    getMyCVideo: async (token: string, setDownloadProgressBar: any) =>
+      await getMyCVPresentationVideo(token, setDownloadProgressBar),
     getAdvertisementForWeb,
-    displayGuideline};
+    displayGuideline,
+  };
 };

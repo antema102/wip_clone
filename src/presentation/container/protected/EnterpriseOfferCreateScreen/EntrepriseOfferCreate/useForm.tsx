@@ -1,47 +1,47 @@
-import {useEffect, useState} from 'react';
-;
+import { useEffect, useState } from 'react';
 import {
   defaultValues,
-  IError,
+  type IError,
   showErrorValuesDefault,
-  showErrorValuesSubmit} from './dto';
-import {post} from '../../../services/technique/api';
-
+  showErrorValuesSubmit,
+} from './dto';
+import { post } from '../../../services/technique/api';
 export const useForm = (
   data: any,
   Validate: any,
   handleCancel: any,
   handleSave: any,
-  props,
+  props
 ) => {
   const [valuesForm, setValues] = useState(data);
-  const [dto, setDto] = useState({error: true, data});
+  const [dto, setDto] = useState({ error: true, data });
   const [showErrors, setShowErrors] = useState(showErrorValuesDefault);
   const [showError, setShowError] = useState(true);
   const [errors, setErrors] = useState<IError>(defaultValues);
-  const {navigation} = props;
+  const { navigation } = props;
 
   const handleChangeForm = (name: string, value: any, fired: boolean) => {
     setShowError(false);
     let _value = value;
     if (value === 'INVALID INPUT') {
-      setValues({...valuesForm, [name]: 'INVALID INPUT'});
+      setValues({ ...valuesForm, [name]: 'INVALID INPUT' });
     } else {
       if (Platform.OS !== 'web' && name === 'image') {
         _value = {
           uri: value.uri,
           type: value.type,
-          name: value.fileName};
+          name: value.fileName,
+        };
       }
-      setValues({...valuesForm, [name]: _value});
+      setValues({ ...valuesForm, [name]: _value });
     }
 
-    setShowErrors({...showErrors, [name]: value !== fired});
+    setShowErrors({ ...showErrors, [name]: value !== fired });
   };
 
   const noError = () => {
     let bNoError = true;
-    Object.values(errors).forEach(element => {
+    Object.values(errors).forEach((element) => {
       if (element !== '') {
         bNoError = false;
       }
@@ -53,12 +53,12 @@ export const useForm = (
     setShowErrors(showErrorValuesSubmit);
     setErrors(Validate(valuesForm));
     if (noError()) {
-      setDto({error: false, data: valuesForm});
+      setDto({ error: false, data: valuesForm });
       post('/api/inscription', valuesForm).then(
-        res => res && navigation.navigate('/Login'),
+        (res) => res && navigation.navigate('/Login')
       );
     } else {
-      setDto({error: true, data: {}});
+      setDto({ error: true, data: {} });
     }
   };
   const cancel = () => {};
@@ -83,5 +83,6 @@ export const useForm = (
     showErrors,
     dto,
     showError,
-    cancel};
+    cancel,
+  };
 };

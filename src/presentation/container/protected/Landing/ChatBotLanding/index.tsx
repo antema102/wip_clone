@@ -15,29 +15,29 @@ const ChatBotLanding = () => {
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       if (
-        content.current &&
+        content.current != null &&
         !content.current.contains(e.target as Node) &&
-        message.current &&
+        message.current != null &&
         !message.current.contains(e.target as Node)
       ) {
         setOpenChatBot(false);
       }
     };
 
-    document.addEventListener("mousedown", handler);
+    document.addEventListener('mousedown', handler);
     return () => {
-      document.removeEventListener("mousedown", handler);
+      document.removeEventListener('mousedown', handler);
     };
   }, []);
 
   const toggleChatBot = () => {
-    setOpenChatBot(prev => !prev);
+    setOpenChatBot((prev) => !prev);
   };
 
   return (
-    <div className='chatBot'>
+    <div className="chatBot">
       {openChatBot && (
-        <div className='chatBot__content' ref={content}>
+        <div className="chatBot__content" ref={content}>
           <Chatbot
             config={config}
             messageParser={MessageParser}
@@ -51,8 +51,13 @@ const ChatBotLanding = () => {
           />
         </div>
       )}
-      <div className='chatBot__message' ref={message} onClick={toggleChatBot}>
-        <img src={openChatBot ? `${icons.closeWhite}` : `${icons.message}`} alt='' width={30} height={25} />
+      <div className="chatBot__message" ref={message} onClick={toggleChatBot}>
+        <img
+          src={openChatBot ? `${icons.closeWhite}` : `${icons.message}`}
+          alt=""
+          width={30}
+          height={25}
+        />
       </div>
     </div>
   );

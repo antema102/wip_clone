@@ -1,52 +1,60 @@
-import {useEffect, useState} from 'react';
-;
+import { useEffect, useState } from 'react';
 import {
   defaultValues,
   defaultErrorValues,
-  IError,
+  type IError,
   showErrorValuesDefault,
-  showErrorValuesSubmit} from './dto';
-import {transformData} from './format';
+  showErrorValuesSubmit,
+} from './dto';
+import { transformData } from './format';
 import { MatchingService } from '../../../../../service/applicatif/Matching.sa';
 import { MATCHING } from '../../../../../data/constants/strings';
-import {useNavigate} from 'react-router'
+import { useNavigate } from 'react-router';
 
 export const useForm = (
   data: any,
   Validate: any,
   setIsLoading: any,
   navigation: any,
-  setIsLayerEditable: any,
+  setIsLayerEditable: any
 ) => {
-  const {filterMatchingJob} = MatchingService();
+  const { filterMatchingJob } = MatchingService();
   const [values, setValues] = useState<any>(defaultValues);
   const [showErrors, setShowErrors] = useState(showErrorValuesDefault);
   const [error, setError] = useState(true);
   const [errors, setErrors] = useState<IError>(defaultErrorValues);
-  const [popupData, setPopupData] = useState({visibility: false, message: ''});
+  const [popupData, setPopupData] = useState({
+    visibility: false,
+    message: '',
+  });
   const navigate = useNavigate();
 
   const setVisiblePopup = (newState: boolean) => {
-    setPopupData(previousState => ({...previousState, visibility: newState}));
+    setPopupData((previousState) => ({
+      ...previousState,
+      visibility: newState,
+    }));
   };
 
   const handleChange = (name: string, value: any, fired: boolean) => {
     let _value = value;
     if (value === 'INVALID INPUT') {
-      setValues(previousValues => ({
+      setValues((previousValues) => ({
         ...previousValues,
-        [name]: 'INVALID INPUT'}));
+        [name]: 'INVALID INPUT',
+      }));
     } else {
       if (Platform.OS !== 'web' && name === 'image') {
         _value = {
           uri: value.uri,
           type: value.type,
-          name: value.fileName};
+          name: value.fileName,
+        };
       }
-      setValues(previousValues => ({...previousValues, [name]: value}));
+      setValues((previousValues) => ({ ...previousValues, [name]: value }));
     }
 
-    setShowErrors({...showErrors, [name]: value !== fired});
+    setShowErrors({ ...showErrors, [name]: value !== fired });
   };
 
   const handleInit = () => {
@@ -65,7 +73,8 @@ export const useForm = (
     }
   };
 
-  const noError = (errors: any) => Object.values(errors).every(error => !error);
+  const noError = (errors: any) =>
+    Object.values(errors).every((error) => !error);
 
   const getListMatchedJob = async (filtered: any) => {
     let res: any = null;
@@ -85,18 +94,23 @@ export const useForm = (
       const activity = filtered?.activitySector?.value;
       const salary = filtered?.salaryExpectation?.value;
       const disponibility = filtered?.disponibility?.value;
-      
-      const variables = res.data.map(item => {
-        let matching = {
+
+      const variables = res.data.map((item) => {
+        const matching = {
           'Poste souhaité': point0,
           "Secteur d'activité": checkOrNot(activity, item?.type, point1),
           'Disponibilité de travail': checkOrNot(
             disponibility,
             item?.disponibility,
-            point2,
+            point2
           ),
-          'Prétention salariale (Ariary)': checkOrNot(salary, item?.salaire, point3)};
-        let keys = Object.keys(matching);
+          'Prétention salariale (Ariary)': checkOrNot(
+            salary,
+            item?.salaire,
+            point3
+          ),
+        };
+        const keys = Object.keys(matching);
         for (let i = 0; i < keys.length; i++) {
           if (matching[keys[i]] === 'vide') {
             delete matching[keys[i]];
@@ -104,17 +118,21 @@ export const useForm = (
         }
         return {
           ...item,
-          data: matching};
+          data: matching,
+        };
       });
 
       if (res?.data?.length) {
-        navigate('/SearchEntResultScreen', {state: {
-          data: variables.filter(item => item.score > 20)}});
+        navigate('/SearchEntResultScreen', {
+          state: {
+            data: variables.filter((item) => item.score > 20),
+          },
+        });
       } else {
-        navigate('/SearchEntResultScreen', {state: {data: []}});
+        navigate('/SearchEntResultScreen', { state: { data: [] } });
       }
     } catch (error) {
-      navigate('/SearchEntResultScreen', {state: {data: []}});
+      navigate('/SearchEntResultScreen', { state: { data: [] } });
     } finally {
       setIsLoading(false);
     }
@@ -122,12 +140,15 @@ export const useForm = (
 
   const handleSubmit = () => {
     const layerEditable = {};
-    Object.entries(Validate(values)).forEach(element => {
+    Object.entries(Validate(values)).forEach((element) => {
       if (element[1]) {
         layerEditable[element[0]] = true;
       }
     });
-    setIsLayerEditable(previousState => ({...previousState, ...layerEditable}));
+    setIsLayerEditable((previousState) => ({
+      ...previousState,
+      ...layerEditable,
+    }));
 
     setShowErrors(showErrorValuesSubmit);
     setErrors(Validate(values));
@@ -135,7 +156,7 @@ export const useForm = (
     if (noError(Validate(values))) {
       setError(false);
 
-      if (Object.keys(values).length) {
+      if (Object.keys(values).length > 0) {
         setIsLoading(true);
 
         const data = transformData(values);
@@ -149,10 +170,10 @@ export const useForm = (
 
         getListMatchedJob(filtered);
       } else {
-        setPopupData({visibility: true, message: MATCHING.FILL_AT_LEAST_ONE});
+        setPopupData({ visibility: true, message: MATCHING.FILL_AT_LEAST_ONE });
       }
     } else {
-      setPopupData({visibility: true, message: MATCHING.FILL_THE_FIELD});
+      setPopupData({ visibility: true, message: MATCHING.FILL_THE_FIELD });
     }
   };
 
@@ -169,5 +190,6 @@ export const useForm = (
     errors,
     showErrors,
     handleInit,
-    error};
+    error,
+  };
 };

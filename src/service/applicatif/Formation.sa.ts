@@ -1,5 +1,4 @@
-import { FormationBDL } from "../bdl/Formation.bdl";
-
+import { FormationBDL } from '../bdl/Formation.bdl';
 
 export const FormationSA = () => {
   const {
@@ -8,7 +7,8 @@ export const FormationSA = () => {
     findAllByCompanyId,
     deleteFormation,
     getFormationsByCategoryName,
-    getAllFormationsAvailable} = FormationBDL();
+    getAllFormationsAvailable,
+  } = FormationBDL();
 
   return {
     createFormation,
@@ -16,5 +16,6 @@ export const FormationSA = () => {
     findAllByCompanyId,
     deleteFormation,
     getFormationsByCategoryName,
-    getAllFormationsAvailable};
+    getAllFormationsAvailable,
+  };
 };

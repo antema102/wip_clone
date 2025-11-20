@@ -26,7 +26,8 @@ const Buttons = ({
   styleBtnTxt,
   iconRight,
   isDisable = false,
-  iconNext}: Props): any => {
+  iconNext,
+}: Props): any => {
   return (
     <div style={{}}>
       <button
@@ -35,22 +36,26 @@ const Buttons = ({
         style={[{ backgroundColor: color }, _style]}
       >
         {icon && !iconNext && (
-          <img src={icon} style={[buttonsStyles.iconStyle, iconStyles, { marginRight: 8 }]} />
+          <img
+            src={icon}
+            style={[buttonsStyles.iconStyle, iconStyles, { marginRight: 8 }]}
+          />
         )}
         {iconNext && (
           <img
             src={icon}
-            style={[buttonsStyles.nextIconStyle, iconStyles, { marginRight: 8 }]}
+            style={[
+              buttonsStyles.nextIconStyle,
+              iconStyles,
+              { marginRight: 8 },
+            ]}
           />
         )}
         {!iconRight && <span style={styleBtnTxt}>{title}</span>}
         {iconRight && (
           <div style={{ flexDirection: 'row', flex: 1 }}>
             <span style={[styleBtnTxt, { marginRight: 'auto' }]}>{title}</span>
-            <img
-              src={icons.action }
-              style={buttonsStyles.iconStyle2}
-            />
+            <img src={icons.action} style={buttonsStyles.iconStyle2} />
           </div>
         )}
       </button>

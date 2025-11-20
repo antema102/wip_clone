@@ -1,10 +1,5 @@
-import React, {useState} from 'react';
-;
-
+import React, { useState } from 'react';
 const EntrepriseOfferCreate = (props: any) => {
-  return (
-    <div>
-    </div>
-  );
+  return <div></div>;
 };
 export const EntrepriseOfferCreateScreen: any = EntrepriseOfferCreate;

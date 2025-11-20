@@ -1,317 +1,396 @@
-const yearExp = [{label: "Choisir Année d'expérience", value: ''}];
+const yearExp = [{ label: "Choisir Année d'expérience", value: '' }];
 for (let i = 0; i <= 10; i++) {
   yearExp.push({
     label: i > 9 ? '10+' : (i + 1).toString(),
-    value: i > 9 ? '10+' : (i + 1).toString()});
+    value: i > 9 ? '10+' : (i + 1).toString(),
+  });
 }
 
 export default {
   studyLevel: [
     {
       label: 'Master II',
-      value: 'master2'},
+      value: 'master2',
+    },
     {
       label: 'Master',
-      value: 'master'},
+      value: 'master',
+    },
     {
       label: 'Licence',
-      value: 'bachelor'},
+      value: 'bachelor',
+    },
     {
       label: 'Technicien Superieur',
-      value: 'hightech'},
+      value: 'hightech',
+    },
     {
       label: 'Baccalauréat',
-      value: 'baccalaureat'},
+      value: 'baccalaureat',
+    },
     {
       label: 'BEPC',
-      value: 'bepc'},
+      value: 'bepc',
+    },
     {
       label: 'CEPE',
-      value: 'cepe'},
+      value: 'cepe',
+    },
   ],
 
   career: [
     {
       label: 'Informatique',
-      value: 'it'},
+      value: 'it',
+    },
     {
       label: 'RH & Gestion',
-      value: 'management'},
+      value: 'management',
+    },
     {
       label: 'Marketing & Communication',
-      value: 'communication'},
+      value: 'communication',
+    },
     {
       label: 'Pédagogie',
-      value: 'education'},
+      value: 'education',
+    },
   ],
 
   activitySector: [
     {
       label: 'Agroalimentaire',
-      value: 'agrifood'},
+      value: 'agrifood',
+    },
     {
       label: 'Chimie / Parachimie',
-      value: 'chemistry'},
+      value: 'chemistry',
+    },
     {
       label: 'Édition / Communication / Multimédia',
-      value: 'communication'},
+      value: 'communication',
+    },
     {
       label: 'Machines et équipements / Automobile',
-      value: 'machinery'},
+      value: 'machinery',
+    },
     {
       label: 'Textile / Habillement / Chaussure',
-      value: 'clothing'},
+      value: 'clothing',
+    },
     {
       label: 'BTP / Matériaux de construction',
-      value: 'construction'},
+      value: 'construction',
+    },
     {
       label: 'Commerce / Négoce',
-      value: 'trade'},
+      value: 'trade',
+    },
     {
       label: 'Électronique / Électricité',
-      value: 'electronics'},
+      value: 'electronics',
+    },
     {
       label: 'Informatique / Télécoms',
-      value: 'it'},
+      value: 'it',
+    },
   ],
 
   // Job Sought
   jobSought: [
     {
       label: 'Ux Design',
-      value: 'uxDesign'},
+      value: 'uxDesign',
+    },
     {
       label: 'Developpeur JavaScript',
-      value: 'devReact'},
+      value: 'devReact',
+    },
     {
       label: 'Développeur PHP/Symfony',
-      value: 'devPhp'},
+      value: 'devPhp',
+    },
     {
       label: 'Data Analyst',
-      value: 'dataAnalyst'},
+      value: 'dataAnalyst',
+    },
     {
       label: 'Entrepreneur',
-      value: 'entrepreneur'},
+      value: 'entrepreneur',
+    },
   ],
 
   // Localisation
   country: [
     {
       label: 'Madagascar',
-      value: 'madagascar'},
+      value: 'madagascar',
+    },
     {
       label: 'Afrique du Sud',
-      value: 'afriqueSud'},
+      value: 'afriqueSud',
+    },
     {
       label: 'Algérie',
-      value: 'algerie'},
+      value: 'algerie',
+    },
   ],
 
   region: [
     {
       label: '-- -- -- -- -- -- --',
-      value: ''},
+      value: '',
+    },
     {
       country: 'madagascar',
       label: 'Analamanga',
-      value: 'analamanga'},
+      value: 'analamanga',
+    },
     {
       country: 'madagascar',
       label: 'Itasy',
-      value: 'itasy'},
+      value: 'itasy',
+    },
     {
       country: 'afriqueSud',
       label: 'Afrique Sud Region 1',
-      value: 'afriqueSudRegion1'},
+      value: 'afriqueSudRegion1',
+    },
     {
       country: 'afriqueSud',
       label: 'Afrique Sud Region 2',
-      value: 'afriqueSudRegion2'},
+      value: 'afriqueSudRegion2',
+    },
     {
       country: 'algerie',
       label: 'Region Algerie 1',
-      value: 'regionAlg1'},
+      value: 'regionAlg1',
+    },
     {
       country: 'algerie',
       label: 'Region Algerie 2',
-      value: 'regionAlg2'},
+      value: 'regionAlg2',
+    },
   ],
 
   town: [
     {
       label: '-- -- -- -- -- -- --',
-      value: ''},
+      value: '',
+    },
     {
       region: 'analamanga',
       label: 'Antananarivo Renivohitra',
-      value: 'tanaCentre'},
+      value: 'tanaCentre',
+    },
     {
       region: 'analamanga',
       label: 'Antananarivo Avaradrano',
-      value: 'tanaNord'},
+      value: 'tanaNord',
+    },
     {
       region: 'analamanga',
       label: 'Antananarivo Atsimondrano',
-      value: 'tanaSud'},
+      value: 'tanaSud',
+    },
     {
       region: 'itasy',
       label: 'Arivonimamo',
-      value: 'arivonimamo'},
+      value: 'arivonimamo',
+    },
     {
       region: 'itasy',
       label: 'Miarinarivo',
-      value: 'miarinarivo'},
+      value: 'miarinarivo',
+    },
   ],
   arrondissement: [
     {
       label: '-- -- -- -- -- -- --',
-      value: ''},
+      value: '',
+    },
     {
       town: 'tanaCentre',
       label: '1',
-      value: '1'},
+      value: '1',
+    },
     {
       town: 'tanaCentre',
       label: '2',
-      value: '2'},
+      value: '2',
+    },
     {
       town: 'tanaCentre',
       label: '3',
-      value: '3'},
+      value: '3',
+    },
     {
       town: 'tanaCentre',
       label: '4',
-      value: '4'},
+      value: '4',
+    },
   ],
 
   province: [
     {
       label: 'Antananarivo',
-      value: 'tana'},
+      value: 'tana',
+    },
     {
       label: 'Antsiranana',
-      value: 'diego'},
+      value: 'diego',
+    },
     {
       label: 'Fianarantsoa',
-      value: 'fianarantsoa'},
+      value: 'fianarantsoa',
+    },
     {
       label: 'Mahajanga',
-      value: 'majunga'},
+      value: 'majunga',
+    },
     {
       label: 'Toamasina',
-      value: 'tamatave'},
+      value: 'tamatave',
+    },
     {
       label: 'Toliara',
-      value: 'tulear'},
+      value: 'tulear',
+    },
   ],
 
   zone: [
     {
       country: 'madagascar',
       label: 'Analamanga',
-      value: 'analamanga'},
+      value: 'analamanga',
+    },
     {
       country: 'madagascar',
       label: 'Itasy',
-      value: 'itasy'},
+      value: 'itasy',
+    },
     {
       country: 'afriqueSud',
       label: 'Afrique Sud Region 1',
-      value: 'afriqueSudRegion1'},
+      value: 'afriqueSudRegion1',
+    },
     {
       country: 'afriqueSud',
       label: 'Afrique Sud Region 2',
-      value: 'afriqueSudRegion2'},
+      value: 'afriqueSudRegion2',
+    },
     {
       country: 'algerie',
       label: 'Region Algerie 1',
-      value: 'regionAlg1'},
+      value: 'regionAlg1',
+    },
     {
       country: 'algerie',
       label: 'Region Algerie 2',
-      value: 'regionAlg2'},
+      value: 'regionAlg2',
+    },
   ],
 
   // Disponibility
   disponibility: [
     {
       label: 'Plein-temps - Jour',
-      value: 'fulltime'},
+      value: 'fulltime',
+    },
     {
       label: 'Demi-journée - Jour',
-      value: 'halftime'},
+      value: 'halftime',
+    },
   ],
 
   // Statut
   statut: [
     {
       label: 'Sous-contrat',
-      value: 'underContract'},
+      value: 'underContract',
+    },
     {
       label: 'Disponible',
-      value: 'available'},
+      value: 'available',
+    },
   ],
 
   // Transport
   transport: [
     {
       label: '----------',
-      value: ''},
+      value: '',
+    },
     {
       label: 'Voiture Personnelle',
-      value: 'car'},
+      value: 'car',
+    },
     {
       label: 'A pied',
-      value: 'foot'},
+      value: 'foot',
+    },
     {
       label: 'Bicyclette',
-      value: 'bike'},
+      value: 'bike',
+    },
     {
       label: 'Moto',
-      value: 'motorbike'},
+      value: 'motorbike',
+    },
   ],
 
   // Years Of experience
-  yearExp: yearExp,
+  yearExp,
 
   // Civil Status
   civilstatus: [
     {
       label: 'Célibataire',
-      value: 'single'},
+      value: 'single',
+    },
     {
       label: 'Marié(e)',
-      value: 'married'},
+      value: 'married',
+    },
     {
       label: 'Divorcé(e)',
-      value: 'divorced'},
+      value: 'divorced',
+    },
     {
       label: 'Veuf(ve)',
-      value: 'widowed'},
+      value: 'widowed',
+    },
   ],
 
   // Language
   language: [
     {
       label: 'Malagasy',
-      value: 'mg'},
+      value: 'mg',
+    },
     {
       label: 'Français',
-      value: 'fr'},
+      value: 'fr',
+    },
     {
       label: 'Anglais',
-      value: 'en'},
+      value: 'en',
+    },
   ],
 
   // Sports
   sport: [
     {
       label: 'Natation',
-      value: 'swim'},
+      value: 'swim',
+    },
     {
       label: 'BasketBall',
-      value: 'basket'},
+      value: 'basket',
+    },
     {
       label: 'FootBall',
-      value: 'foot'},
-  ]};
+      value: 'foot',
+    },
+  ],
+};

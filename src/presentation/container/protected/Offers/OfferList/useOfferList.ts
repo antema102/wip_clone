@@ -1,8 +1,8 @@
-import React,{useEffect, useState} from 'react';
-import {useSelector} from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useOfferr } from '../../../../../service/redux/ducks/offer';
 
-export const useOfferList = idType => {
+export const useOfferList = (idType) => {
   const [allJob, setAllJob] = useState([]);
   const [lastJobs, setLastJobs] = useState([]);
   const [id, setId] = useState(idType);
@@ -11,34 +11,32 @@ export const useOfferList = idType => {
   const [jobList, setJobList] = useState([]);
   const [totalValue, setTotalValue] = useState(0);
 
-  const {allOfferJobByType, allOfferJob} = useOfferr();
-
-  
-    useEffect(() => {
-      getAllOfferJob(id);
-    }, [id]);
+  const { allOfferJobByType, allOfferJob } = useOfferr();
 
   useEffect(() => {
-      getToken();
-    }, []);
+    getAllOfferJob(id);
+  }, [id]);
+
+  useEffect(() => {
+    getToken();
+  }, []);
 
   const getToken = async () => {
     try {
       const token = localStorage.getItem('accessToken');
-      if(token) setToken(token)
-    } catch (error) {
-    }
+      if (token) setToken(token);
+    } catch (error) {}
   };
 
-  const getResult = res => {
-    const itemsType = res.map(x => {
-      return {id: x.type.id, name: x.type.name};
+  const getResult = (res) => {
+    const itemsType = res.map((x) => {
+      return { id: x.type.id, name: x.type.name };
     });
-    itemsType.push({id: 'final', name: 'Toutes'});
-    const itemsFiltered = itemsType.filter(x => x.id !== undefined);
+    itemsType.push({ id: 'final', name: 'Toutes' });
+    const itemsFiltered = itemsType.filter((x) => x.id !== undefined);
     const key = 'id';
     const arrayUniqueByKey = [
-      ...new Map(itemsFiltered.map(item => [item[key], item])).values(),
+      ...new Map(itemsFiltered.map((item) => [item[key], item])).values(),
     ];
     const lastOffer = res.length > 3 ? res.slice(0, 2) : res;
     setLastJobs(lastOffer);
@@ -50,12 +48,12 @@ export const useOfferList = idType => {
     setTotalValue(totalR);
   };
 
-  const getAllOfferJob = async id => {
+  const getAllOfferJob = async (id) => {
     setIsLoading(true);
     if (id !== 'final') {
       try {
         const res = await allOfferJobByType(token, id);
-        const {items} = res.data;
+        const { items } = res.data;
         getResult(items);
       } catch {
         setIsLoading(false);
@@ -63,7 +61,7 @@ export const useOfferList = idType => {
     } else {
       try {
         const res = await allOfferJob(token);
-        const {items} = res.data;
+        const { items } = res.data;
         getResult(items);
       } catch {
         setIsLoading(false);
@@ -77,5 +75,6 @@ export const useOfferList = idType => {
     getAllOfferJob,
     isLoading,
     jobList,
-    totalValue};
+    totalValue,
+  };
 };

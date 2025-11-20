@@ -13,5 +13,6 @@ export function useHome(props: any) {
 
   return {
     refreshing,
-    init}
+    init,
+  };
 }

@@ -1,5 +1,3 @@
-;
-
 export const adjustingImage = (percentage: number) => {
   const screenHeight = window.innerHeight;
   const imageHeightPercentage = percentage;

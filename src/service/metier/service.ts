@@ -5,8 +5,10 @@ export default {
       const oldList = services?.list || {};
       return {
         ...oldList,
-        [data?._id]: data};
+        [data?._id]: data,
+      };
     }
 
-    return {error: true};
-  }};
+    return { error: true };
+  },
+};

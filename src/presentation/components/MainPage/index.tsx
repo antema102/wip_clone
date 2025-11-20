@@ -10,9 +10,12 @@ const MainPage = (): any => {
   const { user } = useSelector(({ auth }: any) => auth);
   return (
     <Fragment>
-      {user?.role === 'candidate' ? <CombinaisonCandidatScreen /> : <HomeEntreprise />}
+      {user?.role === 'candidate' ? (
+        <CombinaisonCandidatScreen />
+      ) : (
+        <HomeEntreprise />
+      )}
     </Fragment>
-
   );
 };
 

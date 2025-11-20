@@ -1,11 +1,8 @@
 import React from 'react';
-;
 import { Advertising } from '../../../components/EnterpriseAdvertising/Advertising';
 import globalStyle from '../../../globalStyle/globalStyle';
-
-
 export const ListAdvertising = (props: any) => {
-  const { displayOfferSheet, data, displayOfferSheetApply }= props
+  const { displayOfferSheet, data, displayOfferSheetApply } = props;
   return (
     <div style={globalStyle.containersPageWidth}>
       <div style={{}}>
@@ -14,15 +11,16 @@ export const ListAdvertising = (props: any) => {
           <div
             data={data}
             renderItem={({ item }) => (
-              <Advertising item={item}
+              <Advertising
+                item={item}
                 displayOfferSheet={displayOfferSheet}
-                displayOfferSheetApply={displayOfferSheetApply} />
+                displayOfferSheetApply={displayOfferSheetApply}
+              />
             )}
-            keyExtractor={item => item.id}
+            keyExtractor={(item) => item.id}
           />
         </div>
       </div>
     </div>
   );
 };
-

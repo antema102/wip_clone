@@ -9,22 +9,22 @@ const NewsWebViewScreen = (props: any) => {
   const [isLoading, setIsLoading] = useState(false);
 
   return (
-    <div style={{overflowY: "auto", ...styles.container}}>
+    <div style={{ overflowY: 'auto', ...styles.container }}>
       {/* <Header
         {...props}
         style={{ elevation: 2}}
       /> */}
       <span style={styles.title}>{props?.data?.title}</span>
       <input
-        style={{ color: COLORS.black, fontSize: 14}}
+        style={{ color: COLORS.black, fontSize: 14 }}
         multiline={true}
         numberOfLines={20}
         value={props?.data?.body}
         editable={false}
         selectTextOnFocus={false}
-  />
+      />
 
-     {/*
+      {/*
      <WebView css={{ color: COLORS.black, fontSize: 14}} src={{ html: params?.data?.body}} 
         
         onLoadStart={({ nativeEvent }) => {
@@ -38,10 +38,8 @@ const NewsWebViewScreen = (props: any) => {
       */}
 
       {isLoading ? <Loader /> : null}
-
     </div>
   );
 };
 
-
-export default NewsWebViewScreen; 
+export default NewsWebViewScreen;

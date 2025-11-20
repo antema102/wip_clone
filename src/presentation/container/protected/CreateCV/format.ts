@@ -1,7 +1,7 @@
-export const format = (data: any, type: string = 'send', id: string = '') => {
+export const format = (data: any, type = 'send', id = '') => {
   // generation uuid
   function guidGenerator() {
-    let S4 = function () {
+    const S4 = function () {
       return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
     };
     return (
@@ -31,60 +31,73 @@ export const format = (data: any, type: string = 'send', id: string = '') => {
         birthDate: '',
         civility: '',
         childrenNumber: 0,
-        phone: ''},
+        phone: '',
+      },
       transport: '',
       pet: '',
       portfolio: '',
-      socioLink:'',
-      fileCv:'',
+      socioLink: '',
+      fileCv: '',
       studyArea: [
         {
           level: '',
-          university: ''},
+          university: '',
+        },
       ],
       adress: {
         country: {
           id: '',
-          name: ''},
+          name: '',
+        },
         province: {
           id: '',
-          name: ''},
-        zone: ''},
+          name: '',
+        },
+        zone: '',
+      },
       jobWish: {
         sector: '',
         name: '',
         yearOfExperience: 0,
-        salaryExpectation: 0},
+        salaryExpectation: 0,
+      },
       jobLocalisation: [
         {
           country: {
             id: '',
-            name: ''},
+            name: '',
+          },
           province: {
             id: '',
-            name: ''},
-          zone: ''},
+            name: '',
+          },
+          zone: '',
+        },
       ],
       lastExperience: [
         {
           year: 0,
           jobType: '',
-          jobPlace: ''},
+          jobPlace: '',
+        },
       ],
       recommandation: [
         {
           name: 0,
           reference: '',
-          file: ''},
+          file: '',
+        },
       ],
       disponibility: '',
       statut: '',
       languages: [
         {
           name: '',
-          level: ''},
+          level: '',
+        },
       ],
-      sport: ['']};
+      sport: [''],
+    };
 
     // personal information
     model.userId = id;
@@ -98,15 +111,16 @@ export const format = (data: any, type: string = 'send', id: string = '') => {
 
     model.adress.country = {
       id: data.info.country,
-      name: data.info.country};
+      name: data.info.country,
+    };
     model.adress.province = {
       id: data.info.province,
-      name: data.info.province};
+      name: data.info.province,
+    };
     model.adress.zone = data.info.zone;
 
     model.transport = data.info.transport;
     model.pet = data.info.pet;
-    
 
     model.loger = data.info.loger;
 
@@ -119,19 +133,20 @@ export const format = (data: any, type: string = 'send', id: string = '') => {
         ? {
             level: data.job.levelOfStudy,
             filiere: data.job.faculty,
-            university: data.job.university}
-        : {level: data.job.levelOfStudy},
+            university: data.job.university,
+          }
+        : { level: data.job.levelOfStudy }
     );
 
     model.jobWish.sector = data.job.activityArea;
     model.portfolio = data.job.portfolio;
-    model.socioLink= data.job.socioLink;
+    model.socioLink = data.job.socioLink;
     model.fileCv = data.job.fileCv;
     model.jobWish.name = data.job.desiredPosition;
     model.jobWish.yearOfExperience = data.job.yearOfExp;
     model.jobWish.salaryExpectation = parseInt(
       data.job.minimumWageRequired,
-      10,
+      10
     );
 
     model.disponibility = data.job.availability;
@@ -151,7 +166,8 @@ export const format = (data: any, type: string = 'send', id: string = '') => {
             name:
               data.job[
                 `country_${data.job.listsPositions[key]._id}`
-              ].toString() ?? ''},
+              ].toString() ?? '',
+          },
           province: {
             id:
               data.job[
@@ -160,10 +176,12 @@ export const format = (data: any, type: string = 'send', id: string = '') => {
             name:
               data.job[
                 `province_${data.job.listsPositions[key]._id}`
-              ].toString() ?? ''},
+              ].toString() ?? '',
+          },
           zone:
             data.job[`zone_${data.job.listsPositions[key]._id}`].toString() ??
-            ''});
+            '',
+        });
       }
     }
 
@@ -182,8 +200,9 @@ export const format = (data: any, type: string = 'send', id: string = '') => {
             ].toString() ?? '',
           year: parseInt(
             data.job[`year_${data.job.yearsOfExperience[key]._id}`],
-            10,
-          )});
+            10
+          ),
+        });
       }
     }
 
@@ -201,7 +220,8 @@ export const format = (data: any, type: string = 'send', id: string = '') => {
             ].toString() ?? '',
           file:
             data.job[`file_${data.job.recommandation[key]._id}`].toString() ??
-            ''});
+            '',
+        });
       }
     }
 
@@ -219,7 +239,8 @@ export const format = (data: any, type: string = 'send', id: string = '') => {
           level:
             data.other[
               `languageLevel_${data.other.listLanguages[key]._id}`
-            ].toString() ?? ''});
+            ].toString() ?? '',
+        });
       }
     }
 
@@ -237,7 +258,7 @@ export const format = (data: any, type: string = 'send', id: string = '') => {
 
     return model;
   } else {
-    const newData: any = {id: '', info: {}, job: {}, other: {}};
+    const newData: any = { id: '', info: {}, job: {}, other: {} };
 
     // personal information
     newData.id = data?.id || '';
@@ -267,7 +288,7 @@ export const format = (data: any, type: string = 'send', id: string = '') => {
     newData.job.university = data.studyArea[0].university;
     newData.job.activityArea = data.jobWish.sector;
     newData.job.portfolio = data.portfolio;
-    newData.job.socioLink=data.socioLink;
+    newData.job.socioLink = data.socioLink;
     newData.job.fileCv = data.fileCv;
     newData.job.desiredPosition = data.jobWish.name;
     newData.job.yearOfExp = data.jobWish.yearOfExperience.toString() ?? '';
@@ -282,14 +303,15 @@ export const format = (data: any, type: string = 'send', id: string = '') => {
     // Localisation
     newData.job.listsPositions = [];
     if (data.jobLocalisation && data.jobLocalisation.length) {
-      for (let i in data.jobLocalisation) {
+      for (const i in data.jobLocalisation) {
         if (data.jobLocalisation[i].country.id.constructor.name === 'String') {
           const id = guidGenerator();
           newData.job.listsPositions.push({
             _id: id,
             country: '',
             province: '',
-            zone: ''});
+            zone: '',
+          });
           newData.job[`country_${id}`] = data.jobLocalisation[i].country.id;
 
           if (
@@ -307,13 +329,14 @@ export const format = (data: any, type: string = 'send', id: string = '') => {
     // Last Experiences
     newData.job.yearsOfExperience = [];
     if (data.lastExperience && data.lastExperience.length) {
-      for (let i in data.lastExperience) {
+      for (const i in data.lastExperience) {
         const id = guidGenerator();
         newData.job.yearsOfExperience.push({
           _id: id,
           year: '',
           position: '',
-          at: ''});
+          at: '',
+        });
         newData.job[`year_${id}`] =
           data.lastExperience[i].year?.toString() ?? '';
         newData.job[`position_${id}`] = data.lastExperience[i]?.jobType;
@@ -323,13 +346,14 @@ export const format = (data: any, type: string = 'send', id: string = '') => {
 
     newData.job.recommandation = [];
     if (data.recommandation && data.recommandation.length) {
-      for (let i in data.recommandation) {
+      for (const i in data.recommandation) {
         const id = guidGenerator();
         newData.job.recommandation.push({
           _id: id,
           name: '',
           reference: '',
-          file: ''});
+          file: '',
+        });
         newData.job[`name_${id}`] = data.recommandation[i].name;
         newData.job[`reference_${id}`] = data.recommandation[i].reference;
         newData.job[`file_${id}`] = data.recommandation[i].file;
@@ -340,13 +364,14 @@ export const format = (data: any, type: string = 'send', id: string = '') => {
     // Other
     newData.other.listLanguages = [];
     if (data.languages && data.languages.length) {
-      for (let i in data.languages) {
+      for (const i in data.languages) {
         const id = guidGenerator();
         newData.other.listLanguages.push({
           _id: id,
           year: '',
           position: '',
-          at: ''});
+          at: '',
+        });
         newData.other[`language_${id}`] = data.languages[i].name;
         newData.other[`languageLevel_${id}`] = data.languages[i].level;
       }

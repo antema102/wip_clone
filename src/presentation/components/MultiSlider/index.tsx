@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
-;
 import { Slider } from 'primereact/slider'; // Import PrimeReact Slider
 import { thousandSeparator } from '../../../data/factory';
 import { styles } from './styles';
-
 interface Props {
   setMin: any;
   setMax: any;

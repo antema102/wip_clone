@@ -17,12 +17,16 @@ import { InputField } from '../../../../components/Inputs/InputField';
 import SidePageHeader from '../../../../components/SidePageHeader';
 import Popup from '../../../../components/CreateCV/Popup';
 import Loader from '../../../../components/Loader';
-import { MVOLA_VALIDATION, ORANGE_TELEPHONE_VALIDATION } from '../../../../../common/utils/validation';
+import {
+  MVOLA_VALIDATION,
+  ORANGE_TELEPHONE_VALIDATION,
+} from '../../../../../common/utils/validation';
 import TitleRefont from '../../../../components/TitleRefont';
 export const CB = (props: any) => {
   const { type } = props.stateValue;
   const navigate = useNavigate();
-  const { payCb, getUserById, payMvola, getTransactionMvola, payOrange } = UserSA();
+  const { payCb, getUserById, payMvola, getTransactionMvola, payOrange } =
+    UserSA();
   const { accessToken, user } = useSelector(({ auth }: any) => auth);
   const [amount, setAmount] = useState(0);
   const [reason, setReason] = useState('');
@@ -33,7 +37,10 @@ export const CB = (props: any) => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorNum, setErrorNum] = useState(false);
   const [errorText, setErrorText] = useState('');
-  const condition = type === 'visa' ? (!reason || !amount) : (errorNum || !reason || !amount || !numTel);
+  const condition =
+    type === 'visa'
+      ? !reason || !amount
+      : errorNum || !reason || !amount || !numTel;
 
   const getSoldeWip = async () => {
     const response = await getUserById(user.id, accessToken);
@@ -53,15 +60,19 @@ export const CB = (props: any) => {
   const returnRegex = () => {
     switch (type) {
       case 'mvola':
-        return MVOLA_VALIDATION
+        return MVOLA_VALIDATION;
       case 'orange':
-        return ORANGE_TELEPHONE_VALIDATION
+        return ORANGE_TELEPHONE_VALIDATION;
       default:
         break;
     }
   };
 
-  const postFormData = async (data: any, defaultUrl: string, defaultHeader: any) => {
+  const postFormData = async (
+    data: any,
+    defaultUrl: string,
+    defaultHeader: any
+  ) => {
     try {
       const axiosParams = {
         method: 'POST',
@@ -69,7 +80,8 @@ export const CB = (props: any) => {
         url: defaultUrl,
         data,
         timeout: 800000,
-        withCredentials: true};
+        withCredentials: true,
+      };
       const res = await axios({ ...axiosParams });
       return res;
     } catch (e) {
@@ -85,7 +97,7 @@ export const CB = (props: any) => {
     if (name === 'telephone') {
       setNumTel(value);
       if (value !== '') {
-        const regex = returnRegex() || MVOLA_VALIDATION;
+        const regex = returnRegex() != null || MVOLA_VALIDATION;
         if (!regex.test(value)) {
           setErrorNum(true);
           setErrorText('Veuillez insérer un numéro valide');
@@ -108,11 +120,11 @@ export const CB = (props: any) => {
   const returnTitle = () => {
     switch (type) {
       case 'mvola':
-        return "Mvola"
+        return 'Mvola';
       case 'orange':
-        return 'Orange money'
+        return 'Orange money';
       case 'visa':
-        return 'Carte banquaire'
+        return 'Carte banquaire';
       default:
         break;
     }
@@ -120,8 +132,8 @@ export const CB = (props: any) => {
 
   const handleCancel = () => {
     setAmount(0);
-    setNumTel('')
-    setReason('')
+    setNumTel('');
+    setReason('');
     setErrorNum(false);
     navigate(-1);
   };
@@ -131,11 +143,13 @@ export const CB = (props: any) => {
       const data = {
         montant: amount,
         motif: reason,
-        nationality: 'MD'};
+        nationality: 'MD',
+      };
       const response = await payCb(data, accessToken);
       const formData = toFormData(response?.data?.data);
       const res = await postFormData(formData, response?.data.paiementUrl, {
-        'Content-Type': 'multipart/form-data'});
+        'Content-Type': 'multipart/form-data',
+      });
       const newWindow = window.open(
         response?.data.paiementUrl,
         '_blank',
@@ -149,33 +163,34 @@ export const CB = (props: any) => {
       newWindow?.focus();
     } else if (type === 'mvola') {
       setMessage(
-        `Veuillez confirmer la transaction envoyée vers le numéro :${numTel}`,
+        `Veuillez confirmer la transaction envoyée vers le numéro :${numTel}`
       );
-      setIsLoading(true)
+      setIsLoading(true);
       setTimeout(() => {
-        setMessageVisible(true)
+        setMessageVisible(true);
       }, 5000);
       const data = {
         montant: amount,
         motif: reason,
         clientNumber: numTel,
         utilisateurId: user?.id,
-        nationality: 'MD'};
+        nationality: 'MD',
+      };
       const response = await payMvola(data, accessToken);
       setTimeout(async () => {
         const status = await getTransactionMvola(
           accessToken,
-          response?.data?.transactionId,
+          response?.data?.transactionId
         );
         setIsLoading(false);
         const telmaStatus = status?.data?.status;
         if (telmaStatus === 'completed') {
           setMessage(
-            `Paiement effectué avec succès. Voici la référence de votre transaction : ${status?.data?.reference}`,
+            `Paiement effectué avec succès. Voici la référence de votre transaction : ${status?.data?.reference}`
           );
         } else if (telmaStatus === 'failed') {
           setMessage(
-            'Échec de la transaction, vous avez inséré un mauvais code ou votre crédit est insuffisant',
+            'Échec de la transaction, vous avez inséré un mauvais code ou votre crédit est insuffisant'
           );
         } else {
           setMessage("Délai d'attente dépassé");
@@ -186,7 +201,8 @@ export const CB = (props: any) => {
         montant: amount,
         motif: reason,
         numero: numTel,
-        nationality: 'MD'};
+        nationality: 'MD',
+      };
       const response = await payOrange(data, accessToken);
       const newWindow = window.open(
         `${response.data.paiementUrl}`,
@@ -210,7 +226,7 @@ export const CB = (props: any) => {
           if (statut === 'Succès') {
             const messageToShow = `Paiement effectué avec succès. Voici votre numéro de transaction : ${reference}`;
             setMessage(messageToShow);
-            setCreditWIP(currentUser?.soldeWip)
+            setCreditWIP(currentUser?.soldeWip);
             setMessageVisible(true);
           }
           if (statut === 'Echec') {
@@ -220,8 +236,7 @@ export const CB = (props: any) => {
             setMessageVisible(true);
           }
         });
-      } catch (error) {
-      }
+      } catch (error) {}
     } else if (type === 'orange') {
       try {
         const socket = await socketST.connectToServer(accessToken);
@@ -229,23 +244,23 @@ export const CB = (props: any) => {
           const { statut, reference, currentUser } = data;
           if (statut === 'Succès') {
             setMessage(
-              `Paiement effectué avec succès. Voici votre numéro de transaction${reference}`,
+              `Paiement effectué avec succès. Voici votre numéro de transaction${reference}`
             );
             setMessageVisible(true);
           }
           if (statut === 'Echec') {
             setMessage(
-              "Il s'est produit une erreur pendant la transaction. Veuillez vérifier votre solde et votre code.",
+              "Il s'est produit une erreur pendant la transaction. Veuillez vérifier votre solde et votre code."
             );
             setMessageVisible(true);
           }
         });
-      } catch (error) { }
+      } catch (error) {}
     }
   };
 
   useEffect(() => {
-    getSoldeWip()
+    getSoldeWip();
   }, []);
 
   useEffect(() => {
@@ -253,19 +268,20 @@ export const CB = (props: any) => {
   }, []);
 
   return (
-    <div
-      style={styles.containers}>
+    <div style={styles.containers}>
       <TitleRefont title={`${returnTitle()}`} />
-      {type !== 'visa' ? <div style={styles.inputWrap}>
-        <InputField
-          label="Numéro de téléphone"
-          value={numTel}
-          name="telephone"
-          type="numeric"
-          onChange={handleChange}
-          isEditable={true}
-        />
-      </div> : null}
+      {type !== 'visa' ? (
+        <div style={styles.inputWrap}>
+          <InputField
+            label="Numéro de téléphone"
+            value={numTel}
+            name="telephone"
+            type="numeric"
+            onChange={handleChange}
+            isEditable={true}
+          />
+        </div>
+      ) : null}
       {errorNum && (
         <div style={styles.errorText}>
           <span style={{ color: COLORS.red_color }}>{errorText}</span>
@@ -308,7 +324,9 @@ export const CB = (props: any) => {
           _style={styles.buttonStyles}
           styleBtnTxt={{ color: COLORS.white, fontWeight: 'bold' }}
           color={COLORS.secondary}
-          onClick={() => handlePayment()}
+          onClick={async () => {
+            await handlePayment();
+          }}
           title="Acheter"
           isDisable={condition}
         />
@@ -317,7 +335,9 @@ export const CB = (props: any) => {
           _style={styles.buttonStyles}
           styleBtnTxt={{ color: COLORS.white, fontWeight: 'bold' }}
           color={COLORS.orange}
-          onClick={() => handleCancel()}
+          onClick={() => {
+            handleCancel();
+          }}
           title="Annuler"
         />
       </div>

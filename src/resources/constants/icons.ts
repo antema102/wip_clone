@@ -57,34 +57,34 @@ import contactMail from '../assets/icons/contact_mail.png';
 import english from '../assets/icons/english.png';
 import description from '../assets/icons/Description.png';
 import secteurdActivite from '../assets/icons/secteur_dactivite.png';
-import linkedinBlack from "../assets/icons/linkedinBlack.png";
-import facebookBlack from "../assets/icons/facebookBlack.png";
-import closeWhite from "../assets/icons/close--white.png";
-import message from "../assets/icons/message.svg";
-import email from "../assets/icons/email.png";
-import verrouillage from "../assets/icons/verrouillage.png";
-import immeuble from "../assets/icons/immeuble.png";
-import calendrier from "../assets/icons/calendrier.png";
-import discours from "../assets/icons/discours.png";
-import activites from "../assets/icons/activites.png";
-import url from "../assets/icons/www.png";
-import plusRound from "../assets/icons/plusRound.png";
-import quartier from "../assets/icons/quartier.png";
-import Lmore from "../assets/icons/Lmore.png"
-import arrowsBack from "../assets/icons/arrowBack.png"
-import profil from "../assets/icons/profil.png";
-import work from "../assets/icons/work.png";
-import ads from "../assets/icons/ads.png"
-import save from "../assets/icons/save.png"
-import video from "../assets/icons/video.png"
-import cv from "../assets/icons/cv.png"
-import logout from "../assets/icons/logout.png";
-import editV1 from "../assets/icons/editV1.png";
-import templateFiles from "../assets/icons/templateFiles.png";
-import arrowPrevious from "../assets/icons/arrow-previous.png"
-import pdf from "../assets/icons/pdf.png";
-import arrow from "../assets/icons/left.png";
-import statistique from "../assets/icons/tableau-statistique.png";
+import linkedinBlack from '../assets/icons/linkedinBlack.png';
+import facebookBlack from '../assets/icons/facebookBlack.png';
+import closeWhite from '../assets/icons/close--white.png';
+import message from '../assets/icons/message.svg';
+import email from '../assets/icons/email.png';
+import verrouillage from '../assets/icons/verrouillage.png';
+import immeuble from '../assets/icons/immeuble.png';
+import calendrier from '../assets/icons/calendrier.png';
+import discours from '../assets/icons/discours.png';
+import activites from '../assets/icons/activites.png';
+import url from '../assets/icons/www.png';
+import plusRound from '../assets/icons/plusRound.png';
+import quartier from '../assets/icons/quartier.png';
+import Lmore from '../assets/icons/Lmore.png';
+import arrowsBack from '../assets/icons/arrowBack.png';
+import profil from '../assets/icons/profil.png';
+import work from '../assets/icons/work.png';
+import ads from '../assets/icons/ads.png';
+import save from '../assets/icons/save.png';
+import video from '../assets/icons/video.png';
+import cv from '../assets/icons/cv.png';
+import logout from '../assets/icons/logout.png';
+import editV1 from '../assets/icons/editV1.png';
+import templateFiles from '../assets/icons/templateFiles.png';
+import arrowPrevious from '../assets/icons/arrow-previous.png';
+import pdf from '../assets/icons/pdf.png';
+import arrow from '../assets/icons/left.png';
+import statistique from '../assets/icons/tableau-statistique.png';
 import job_candidate from '../assets/icons/job_candidate.png';
 import news_candidate from '../assets/icons/news_candidate.png';
 import ads_candidate from '../assets/icons/ads_candidate.png';
@@ -96,7 +96,7 @@ import linkedinLogo from '../assets/icons/linkedinLogo.png';
 import instagram from '../assets/icons/instagram.png';
 import facebook_blue from '../assets/icons/facebook_blue.png';
 import userCompany from '../assets/icons/userCompany.png';
-import cardProfil from '../assets/icons/cardProfil.png'
+import cardProfil from '../assets/icons/cardProfil.png';
 import send from '../assets/icons/send.svg';
 import siri from '../assets/icons/siri.gif';
 import carre from '../assets/icons/carre.png';
@@ -104,8 +104,8 @@ import statut from '../assets/icons/statut.png';
 import folder_icons from '../assets/icons/folder_icons.png';
 import wip from '../assets/icons/wip.png';
 import serveur from '../assets/icons/serveur.png';
-import base_de_donnees from '../assets/icons/base-de-donnees.png'
-import flag from  '../assets/icons/monaco.png';
+import base_de_donnees from '../assets/icons/base-de-donnees.png';
+import flag from '../assets/icons/monaco.png';
 import eye from '../assets/icons/eye.png';
 import deletes from '../assets/icons/delete.png';
 export default {
@@ -218,4 +218,5 @@ export default {
   templateFiles,
   folder_icons,
   eye,
-  deletes};
+  deletes,
+};

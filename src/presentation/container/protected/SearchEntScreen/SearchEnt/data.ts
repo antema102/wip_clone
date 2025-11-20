@@ -1,176 +1,221 @@
 const yearExp = [{ label: '-- -- -- --', value: '' }];
 for (let i = 0; i <= 10; i++) {
   yearExp.push({
-    label: (i > 9)? '10+' : (i+ 1).toString(),
-    value: (i > 9)? '10+' : (i+ 1).toString()});
+    label: i > 9 ? '10+' : (i + 1).toString(),
+    value: i > 9 ? '10+' : (i + 1).toString(),
+  });
 }
-
 
 export default {
   studyLevel: [
     {
       label: '-- -- -- --',
-      value: ''},
+      value: '',
+    },
     {
       label: 'Master II',
-      value: 'master2'},
+      value: 'master2',
+    },
     {
       label: 'Master',
-      value: 'master'},
+      value: 'master',
+    },
     {
       label: 'Licence',
-      value: 'bachelor'},
+      value: 'bachelor',
+    },
     {
       label: 'Technicien Superieur',
-      value: 'hightech'},
+      value: 'hightech',
+    },
     {
       label: 'Baccalauréat',
-      value: 'baccalaureat'},
+      value: 'baccalaureat',
+    },
     {
       label: 'BEPC',
-      value: 'bepc'},
+      value: 'bepc',
+    },
     {
       label: 'CEPE',
-      value: 'cepe'},
+      value: 'cepe',
+    },
   ],
 
   career: [
     {
       label: '-- -- -- --',
-      value: ''},
+      value: '',
+    },
     {
       label: 'Informatique',
-      value: 'it'},
+      value: 'it',
+    },
     {
       label: 'RH & Gestion',
-      value: 'management'},
+      value: 'management',
+    },
     {
       label: 'Marketing & Communication',
-      value: 'communication'},
+      value: 'communication',
+    },
     {
       label: 'Pédagogie',
-      value: 'education'},
+      value: 'education',
+    },
   ],
 
   activitySector: [
     {
       label: '-- -- -- --',
-      value: ''},
+      value: '',
+    },
     {
       label: 'Agroalimentaire',
-      value: 'agrifood'},
+      value: 'agrifood',
+    },
     {
       label: 'Chimie / Parachimie',
-      value: 'chemistry'},
+      value: 'chemistry',
+    },
     {
       label: 'Édition / Communication / Multimédia',
-      value: 'communication'},
+      value: 'communication',
+    },
     {
       label: 'Machines et équipements / Automobile',
-      value: 'machinery'},
+      value: 'machinery',
+    },
     {
       label: 'Textile / Habillement / Chaussure',
-      value: 'clothing'},
+      value: 'clothing',
+    },
     {
       label: 'BTP / Matériaux de construction',
-      value: 'construction'},
+      value: 'construction',
+    },
     {
       label: 'Commerce / Négoce',
-      value: 'trade'},
+      value: 'trade',
+    },
     {
       label: 'Électronique / Électricité',
-      value: 'electronics'},
+      value: 'electronics',
+    },
     {
       label: 'Informatique / Télécoms',
-      value: 'it'},
+      value: 'it',
+    },
   ],
 
   // Job Sought
   jobSought: [
     {
       label: '-- -- -- --',
-      value: ''},
+      value: '',
+    },
     {
       label: 'Ux Design',
-      value: 'uxDesign'},
+      value: 'uxDesign',
+    },
     {
       label: 'Developpeur JavaScript',
-      value: 'devReact'},
+      value: 'devReact',
+    },
     {
       label: 'Développeur PHP/Symfony',
-      value: 'devPhp'},
+      value: 'devPhp',
+    },
     {
       label: 'Data Analyst',
-      value: 'dataAnalyst'},
+      value: 'dataAnalyst',
+    },
     {
       label: 'Entrepreneur',
-      value: 'entrepreneur'},
+      value: 'entrepreneur',
+    },
   ],
 
   // Disponibility
   disponibility: [
     {
       label: '-- -- -- --',
-      value: ''},
+      value: '',
+    },
     {
       label: 'Plein-temps - Jour',
-      value: 'fulltime'},
+      value: 'fulltime',
+    },
     {
       label: 'Demi-journée - Jour',
-      value: 'halftime'},
+      value: 'halftime',
+    },
   ],
 
   // Statut
   statut: [
     {
       label: '-- -- -- --',
-      value: ''},
+      value: '',
+    },
     {
       label: 'Sous-contrat',
-      value: 'underContract'},
+      value: 'underContract',
+    },
     {
       label: 'Disponible',
-      value: 'available'},
+      value: 'available',
+    },
   ],
 
   // Transport
   transport: [
     {
       label: '-- -- -- --',
-      value: ''},
+      value: '',
+    },
     {
       label: 'Voiture Personnelle',
-      value: 'car'},
+      value: 'car',
+    },
     {
       label: 'A pied',
-      value: 'foot'},
+      value: 'foot',
+    },
     {
       label: 'Bicyclette',
-      value: 'bike'},
+      value: 'bike',
+    },
     {
       label: 'Moto',
-      value: 'motorbike'},
+      value: 'motorbike',
+    },
   ],
 
-
   // Years Of experience
-  yearExp: yearExp,
+  yearExp,
 
   // Civil Status
   civilstatus: [
     {
       label: '-- -- -- --',
-      value: ''},
+      value: '',
+    },
     {
-      label: 'Célibataire', 
-      value: 'single'}, 
+      label: 'Célibataire',
+      value: 'single',
+    },
     {
-      label: 'Marié(e)', 
-      value: 'married'}, 
+      label: 'Marié(e)',
+      value: 'married',
+    },
     {
-      label: 'Divorcé(e)', 
-      value: 'divorced'}, 
+      label: 'Divorcé(e)',
+      value: 'divorced',
+    },
     {
-      label: 'Veuf(ve)', 
-      value: 'widowed'},
-  ]}
+      label: 'Veuf(ve)',
+      value: 'widowed',
+    },
+  ],
+};

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-;
 import { defaultValues } from './dto';
 import { RefineCandidat } from './RefineCandidat';
 import { Header } from '../../../../components/Header';
@@ -10,8 +9,7 @@ import * as stringsFr from '../../../../../data/constants/strings';
 import * as stringsEn from '../../../../../data/constants/strings_en';
 import { useLang } from '../../../../../data/translation';
 import Tabs from '../../../../components/Tab';
-export const FindTalentForm = props => {
-
+export const FindTalentForm = (props) => {
   const navigate = useNavigate();
   const { candidat } = props;
   const [isSuscribed, setIsSuscribed] = useState(false);
@@ -44,47 +42,66 @@ export const FindTalentForm = props => {
   const activeString = lang === 'fr' ? stringsFr : stringsEn;
   return (
     <>
-      {candidat ?
-        (
+      {candidat ? (
+        <div>
           <div>
-            <div>
-              <div style={{ borderRadius: 20, borderWidth: 1, borderColor: COLORS.blue_title }}>
-                <span style={{ fontWeight: 700, fontSize: 15, padding: 16, color: COLORS.border_blue }}>{activeString.FIND_TALENT_C.TEXT_C}</span>
-              </div>
+            <div
+              style={{
+                borderRadius: 20,
+                borderWidth: 1,
+                borderColor: COLORS.blue_title,
+              }}
+            >
+              <span
+                style={{
+                  fontWeight: 700,
+                  fontSize: 15,
+                  padding: 16,
+                  color: COLORS.border_blue,
+                }}
+              >
+                {activeString.FIND_TALENT_C.TEXT_C}
+              </span>
+            </div>
+            <RefineCandidat
+              data={dataDto}
+              onCancelForm={handleCancel}
+              navigate={navigate}
+              {...props}
+              candidat={candidat}
+            />
+          </div>
+        </div>
+      ) : (
+        <div
+          style={[
+            styles.containers,
+            {
+              borderRadius: 10,
+              marginTop: 75,
+              backgroundColor: COLORS.white,
+              paddingTop: 85,
+            },
+          ]}
+        >
+          <Tabs
+            title1={activeString.FIND_TALENT_C.TITLE_C}
+            title2={'Les meilleurs talents via l’IA'}
+            isFormation={isFormation}
+            setIsVisible={setIsVisible}
+            candidat
+            Offers={() => (
               <RefineCandidat
                 data={dataDto}
                 onCancelForm={handleCancel}
                 navigate={navigate}
                 {...props}
-                candidat={candidat}
               />
-            </div>
-          </div>
-        ) :
-        (
-          <div style={[styles.containers, { borderRadius: 10, marginTop: 75, backgroundColor: COLORS.white, paddingTop: 85 }]}>
-            <Tabs
-              title1={activeString.FIND_TALENT_C.TITLE_C}
-              title2={"Les meilleurs talents via l’IA"}
-              isFormation={isFormation}
-              setIsVisible={setIsVisible}
-              candidat
-              Offers={
-                () => (
-                  <RefineCandidat
-                    data={dataDto}
-                    onCancelForm={handleCancel}
-                    navigate={navigate}
-                    {...props}
-                  />
-                )}
-              Formations={
-                GoToChat
-              }
-            />
-          </div>
-        )
-      }
+            )}
+            Formations={GoToChat}
+          />
+        </div>
+      )}
     </>
   );
 };

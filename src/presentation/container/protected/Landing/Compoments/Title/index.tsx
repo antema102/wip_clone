@@ -1,8 +1,8 @@
 import React from 'react';
 import './style.scss';
 interface title {
-  name: string,
-  title: string
+  name: string;
+  title: string;
 }
 const TitleLanding: React.FC<title> = ({ name, title }) => {
   return (

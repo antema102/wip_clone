@@ -1,8 +1,10 @@
 export const lang = [
   {
     label: 'Francais',
-    value: 'fr'},
+    value: 'fr',
+  },
   {
     label: 'Anglais',
-    value: 'en'},
+    value: 'en',
+  },
 ];

@@ -1,109 +1,131 @@
-import {useState} from 'react';
+import { useState } from 'react';
 
 // --------------------------------------------------------
 // Data required by FormInfo
 export const civilstatus = [
   {
     label: 'Célibataire',
-    value: 'single'},
+    value: 'single',
+  },
   {
     label: 'Marié(e)',
-    value: 'married'},
+    value: 'married',
+  },
   {
     label: 'Divorcé(e)',
-    value: 'divorced'},
+    value: 'divorced',
+  },
   {
     label: 'Veuf(ve)',
-    value: 'widowed'},
+    value: 'widowed',
+  },
   {
     label: 'Autres',
-    value: 'others'}
+    value: 'others',
+  },
 ];
 
 export const logerOrNot = [
   {
     label: 'Oui',
-    value: true
+    value: true,
   },
   {
     label: 'Non',
-    value: false
-  }
-]
+    value: false,
+  },
+];
 
 export const audienceList = [
   {
     label: 'Candidats',
-    value: '0'
+    value: '0',
   },
   {
     label: 'Entreprises',
-    value: '1' 
+    value: '1',
   },
   {
     label: 'Candidats & Entreprises',
-    value: '2' 
-  }
-]
+    value: '2',
+  },
+];
 
 export const transport = [
   {
     label: 'A pied',
-    value: 'foot'},
+    value: 'foot',
+  },
   {
     label: 'Bicyclette',
-    value: 'bike'},
+    value: 'bike',
+  },
   {
     label: 'Moto',
-    value: 'motorbike'},
+    value: 'motorbike',
+  },
   {
     label: 'Voiture',
-    value: 'car'},
+    value: 'car',
+  },
   {
     label: 'Autres',
-    value: 'others'}
+    value: 'others',
+  },
 ];
 
 export const province = [
   {
     label: 'Antananarivo',
-    value: 'tana'},
+    value: 'tana',
+  },
   {
     label: 'Antsiranana',
-    value: 'diego'},
+    value: 'diego',
+  },
   {
     label: 'Fianarantsoa',
-    value: 'fianarantsoa'},
+    value: 'fianarantsoa',
+  },
   {
     label: 'Mahajanga',
-    value: 'majunga'},
+    value: 'majunga',
+  },
   {
     label: 'Toamasina',
-    value: 'tamatave'},
+    value: 'tamatave',
+  },
   {
     label: 'Toliara',
-    value: 'tulear'},
+    value: 'tulear',
+  },
 ];
 
 export const zonage = [
   {
     label: 'Analakely',
-    value: 'analakely'},
+    value: 'analakely',
+  },
   {
     label: 'Anosy',
-    value: 'anosy'},
+    value: 'anosy',
+  },
   {
     label: 'Mahamasina',
-    value: 'mahamasina'},
+    value: 'mahamasina',
+  },
   {
     label: 'Ampefiloha',
-    value: 'ampefiloha'},
+    value: 'ampefiloha',
+  },
   {
     label: 'Antanimena',
-    value: 'antanimena'},
+    value: 'antanimena',
+  },
   {
     label: 'Behoririka',
-    value: 'behoririka'},
+    value: 'behoririka',
+  },
 ];
 
 // --------------------------------------------------------
@@ -112,74 +134,92 @@ export const zonage = [
 export const levelOfStudy = [
   {
     label: 'Master II',
-    value: 'master2'},
+    value: 'master2',
+  },
   {
     label: 'Master',
-    value: 'master'},
+    value: 'master',
+  },
   {
     label: 'Licence',
-    value: 'bachelor'},
+    value: 'bachelor',
+  },
   {
     label: 'Technicien Superieur',
-    value: 'hightech'},
+    value: 'hightech',
+  },
   {
     label: 'Baccalauréat',
-    value: 'baccalaureat'},
+    value: 'baccalaureat',
+  },
   {
     label: 'BEPC',
-    value: 'bepc'},
+    value: 'bepc',
+  },
   {
     label: 'CEPE',
-    value: 'cepe'},
+    value: 'cepe',
+  },
   {
     label: 'Autres',
-    value: 'others'}
+    value: 'others',
+  },
 ];
 
 export const activityArea = [
   {
     label: 'Agroalimentaire',
-    value: 'agrifood'},
+    value: 'agrifood',
+  },
   {
     label: 'Chimie / Parachimie',
-    value: 'chemistry'},
+    value: 'chemistry',
+  },
   {
     label: 'Édition / Communication / Multimédia',
-    value: 'communication'},
+    value: 'communication',
+  },
   {
     label: 'Machines et équipements / Automobile',
-    value: 'machinery'},
+    value: 'machinery',
+  },
   {
     label: 'Textile / Habillement / Chaussure',
-    value: 'clothing'},
+    value: 'clothing',
+  },
   {
     label: 'BTP / Matériaux de construction',
-    value: 'construction'},
+    value: 'construction',
+  },
   {
     label: 'Commerce / Négoce',
-    value: 'trade'},
+    value: 'trade',
+  },
   {
     label: 'Électronique / Électricité',
-    value: 'electronics'},
+    value: 'electronics',
+  },
   {
     label: 'Informatique / Télécoms',
-    value: 'it'},
+    value: 'it',
+  },
   {
     label: 'Tourisme / Hôtellerie',
-    value: 'hotels'},
+    value: 'hotels',
+  },
   {
     label: 'Autres',
-    value: 'others'},
+    value: 'others',
+  },
 ];
 
 // Year of experience
-export const yearOfExp: any[] = [
-];
+export const yearOfExp: any[] = [];
 for (let i = 0; i <= 10; i++) {
   if (i < 10) {
-    yearOfExp.push({label: i.toString(), value: i.toString()});
+    yearOfExp.push({ label: i.toString(), value: i.toString() });
   } else {
-    yearOfExp.push({label: i.toString() + ' et plus', value: i.toString()});
+    yearOfExp.push({ label: i.toString() + ' et plus', value: i.toString() });
   }
 }
 // ----------------------
@@ -188,75 +228,96 @@ for (let i = 0; i <= 10; i++) {
 export const availability = [
   {
     label: 'Plein-temps - Jour',
-    value: 'fulltime'},
+    value: 'fulltime',
+  },
   {
     label: 'Plein-temps - Nuit',
-    value: 'fulltimeNight'},
+    value: 'fulltimeNight',
+  },
   {
     label: 'Demi-journée - Jour',
-    value: 'halftime'},
+    value: 'halftime',
+  },
   {
     label: 'Demi-journée - Nuit',
-    value: 'halfTimeNight'},
+    value: 'halfTimeNight',
+  },
   {
     label: 'Indifférent',
-    value: 'indifferent'},
+    value: 'indifferent',
+  },
   {
     label: 'A la demande',
-    value: 'onDemand'},
+    value: 'onDemand',
+  },
   {
     label: 'Autres',
-    value: 'other'},
+    value: 'other',
+  },
 ];
 
 // Status
 export const status = [
   {
     label: 'Sous-contrat',
-    value: 'underContract'},
+    value: 'underContract',
+  },
   {
     label: 'Disponible',
-    value: 'available'},
+    value: 'available',
+  },
   {
     label: 'Les deux',
-    value: 'both'},
+    value: 'both',
+  },
   {
     label: 'CDI',
-    value: 'cdi'},
+    value: 'cdi',
+  },
   {
     label: 'CDD',
-    value: 'cdd'},
+    value: 'cdd',
+  },
   {
     label: 'Stagiaire',
-    value: 'intern'},
+    value: 'intern',
+  },
   {
     label: 'Intérimaire',
-    value: 'interim'},
+    value: 'interim',
+  },
   {
     label: 'Travail à la journée',
-    value: 'byDay'},
+    value: 'byDay',
+  },
   {
-    label: 'Travail à l\'heure',
-    value: 'byHour'},
+    label: "Travail à l'heure",
+    value: 'byHour',
+  },
   {
     label: 'Télétravail',
-    value: 'teletravail'},
+    value: 'teletravail',
+  },
   {
     label: 'Autres',
-    value: 'others'},
+    value: 'others',
+  },
 ];
 
 // Country
 export const country = [
   {
     label: 'Madagascar',
-    value: 'madagascar'},
+    value: 'madagascar',
+  },
   {
     label: 'Afrique du Sud',
-    value: 'afriqueSud'},
+    value: 'afriqueSud',
+  },
   {
     label: 'Algérie',
-    value: 'algerie'},
+    value: 'algerie',
+  },
 ];
 
 export const localisation = {
@@ -264,74 +325,92 @@ export const localisation = {
     {
       country: 'madagascar',
       label: 'Analamanga',
-      value: 'analamanga'},
+      value: 'analamanga',
+    },
     {
       country: 'madagascar',
       label: 'Itasy',
-      value: 'itasy'},
+      value: 'itasy',
+    },
     {
       country: 'afriqueSud',
       label: 'Afrique Sud Region 1',
-      value: 'afriqueSudRegion1'},
+      value: 'afriqueSudRegion1',
+    },
     {
       country: 'afriqueSud',
       label: 'Afrique Sud Region 2',
-      value: 'afriqueSudRegion2'},
+      value: 'afriqueSudRegion2',
+    },
     {
       country: 'algerie',
       label: 'Region Algerie 1',
-      value: 'regionAlg1'},
+      value: 'regionAlg1',
+    },
     {
       country: 'algerie',
       label: 'Region Algerie 2',
-      value: 'regionAlg2'},
+      value: 'regionAlg2',
+    },
   ],
   town: [
     {
       label: '-- -- -- -- -- -- --',
-      value: ''},
+      value: '',
+    },
     {
       region: 'analamanga',
       label: 'Antananarivo Renivohitra',
-      value: 'tanaCentre'},
+      value: 'tanaCentre',
+    },
     {
       region: 'analamanga',
       label: 'Antananarivo Avaradrano',
-      value: 'tanaNord'},
+      value: 'tanaNord',
+    },
     {
       region: 'analamanga',
       label: 'Antananarivo Atsimondrano',
-      value: 'tanaSud'},
+      value: 'tanaSud',
+    },
     {
       region: 'itasy',
       label: 'Arivonimamo',
-      value: 'arivonimamo'},
+      value: 'arivonimamo',
+    },
     {
       region: 'itasy',
       label: 'Miarinarivo',
-      value: 'miarinarivo'},
+      value: 'miarinarivo',
+    },
   ],
   arrondissement: [
     {
       label: '-- -- -- -- -- -- --',
-      value: ''},
+      value: '',
+    },
     {
       town: 'tanaCentre',
       label: '1',
-      value: '1'},
+      value: '1',
+    },
     {
       town: 'tanaCentre',
       label: '2',
-      value: '2'},
+      value: '2',
+    },
     {
       town: 'tanaCentre',
       label: '3',
-      value: '3'},
+      value: '3',
+    },
     {
       town: 'tanaCentre',
       label: '4',
-      value: '4'},
-  ]};
+      value: '4',
+    },
+  ],
+};
 
 // --------------------------------------------------------
 // data required by Form Other
@@ -339,44 +418,56 @@ export const localisation = {
 export const language = [
   {
     label: '-- -- -- -- -- -- --',
-    value: ''},
+    value: '',
+  },
   {
     label: 'Malagasy',
-    value: 'mg'},
+    value: 'mg',
+  },
   {
     label: 'Français',
-    value: 'fr'},
+    value: 'fr',
+  },
   {
     label: 'Anglais',
-    value: 'en'},
+    value: 'en',
+  },
 ];
 
 export const level = [
   {
     label: 'Maternelle',
-    value: 'natif'},
+    value: 'natif',
+  },
   {
     label: 'Débutant',
-    value: 'beginner'},
+    value: 'beginner',
+  },
   {
     label: 'Intermediaire',
-    value: 'intermediate'},
+    value: 'intermediate',
+  },
   {
     label: 'Avancé',
-    value: 'advanced'},
+    value: 'advanced',
+  },
 ];
 
 export const sport = [
   {
     label: '-- -- -- -- -- -- --',
-    value: ''},
+    value: '',
+  },
   {
     label: 'Natation',
-    value: 'swim'},
+    value: 'swim',
+  },
   {
     label: 'BasketBall',
-    value: 'basket'},
+    value: 'basket',
+  },
   {
     label: 'FootBall',
-    value: 'foot'},
+    value: 'foot',
+  },
 ];

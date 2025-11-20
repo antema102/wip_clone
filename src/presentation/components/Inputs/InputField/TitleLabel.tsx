@@ -1,15 +1,14 @@
 import React from 'react';
-;
 import { formsStyles } from '../../../globalStyle/formStyles';
 import PropTypes from 'prop-types';
-import {COLORS} from '../../../../resources/constants';
+import { COLORS } from '../../../../resources/constants';
 export const TitleLabel = (props: any) => {
   const { label, required } = props;
   return (
     <div>
       {label && (
         <span style={[formsStyles.labelStyle]}>
-          {label} {required && <span style={{color:COLORS.orange}}>*</span>}
+          {label} {required && <span style={{ color: COLORS.orange }}>*</span>}
         </span>
       )}
     </div>
@@ -18,7 +17,9 @@ export const TitleLabel = (props: any) => {
 
 TitleLabel.prototype = {
   label: PropTypes.string,
-  required: PropTypes.bool};
+  required: PropTypes.bool,
+};
 TitleLabel.defaultProps = {
   label: '',
-  required: false};
+  required: false,
+};

@@ -1,12 +1,12 @@
-;
-import {SIZES, FONTS, COLORS} from '../../../resources/constants';
+import { SIZES, FONTS, COLORS } from '../../../resources/constants';
 
-export default ({
+export default {
   centeredView: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0,0,0,0)'},
+    backgroundColor: 'rgba(0,0,0,0)',
+  },
   modalView: {
     margin: 20,
     backgroundColor: 'white',
@@ -16,30 +16,38 @@ export default ({
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 2},
+      height: 2,
+    },
     shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 5},
+    elevation: 5,
+  },
   buttonContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between'},
+    justifyContent: 'space-between',
+  },
   buttonStyles: {
     paddingVertical: 10,
     paddingHorizontal: 20,
     marginLeft: 5,
-    borderRadius: 10},
+    borderRadius: 10,
+  },
   buttonOpen: {
-    backgroundColor: '#F194FF'},
+    backgroundColor: '#F194FF',
+  },
   buttonClose: {
-    backgroundColor: '#2196F3'},
+    backgroundColor: '#2196F3',
+  },
   textStyle: {
     color: 'white',
     fontWeight: 'bold',
     textAlign: 'center',
-    fontFamily: 'Oxygen-Regular'},
+    fontFamily: 'Oxygen-Regular',
+  },
   modalText: {
     marginBottom: 15,
     textAlign: 'center',
     fontFamily: 'Oxygen-Regular',
-    color: COLORS.black
-  }});
+    color: COLORS.black,
+  },
+};

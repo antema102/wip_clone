@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-;
 
 import { DETAIL_PROFIL } from '../../../../data/constants/strings';
 import Popup from '../../CreateCV/Popup';
@@ -12,13 +11,12 @@ import * as stringsEn from '../../../../data/constants/strings_en';
 import * as stringsFr from '../../../../data/constants/strings';
 import { useLang } from '../../../../data/translation';
 import { useSelector } from 'react-redux';
-
-type UploadProps = {
+interface UploadProps {
   value: string;
   onChange?: any;
   style?: Record<string, any>;
   isChangeable?: boolean;
-};
+}
 
 export default ({ value, onChange, style, isChangeable }: UploadProps) => {
   const { uploadImage } = UploadFileService();
@@ -29,7 +27,8 @@ export default ({ value, onChange, style, isChangeable }: UploadProps) => {
 
   const [popupData, setPopupData] = useState({
     message: '',
-    isVisible: false});
+    isVisible: false,
+  });
   const setPopupVisible = (value: boolean) => {
     setTimeout(() => {
       setPopupData({ ...popupData, isVisible: value });
@@ -43,11 +42,15 @@ export default ({ value, onChange, style, isChangeable }: UploadProps) => {
       setTimeout(() => {
         setPopupData({
           message: activeString.DETAIL_PROFIL.SUCCESS_UPLOAD,
-          isVisible: true});
+          isVisible: true,
+        });
       }, 300);
     } else {
       setTimeout(() => {
-        setPopupData({ message: activeString.DETAIL_PROFIL.CHOOSE_IMAGE, isVisible: true });
+        setPopupData({
+          message: activeString.DETAIL_PROFIL.CHOOSE_IMAGE,
+          isVisible: true,
+        });
       }, 300);
     }
   };
@@ -56,36 +59,37 @@ export default ({ value, onChange, style, isChangeable }: UploadProps) => {
     const options = {
       mediaType: type,
       maxWidth: 1000,
-      maxHeight: 1000};
+      maxHeight: 1000,
+    };
     try {
       // const response: any = await launchImageLibrary(options);
       const response: any = null;
       if (response.didCancel) {
-        return;
       } else if (response.errorCode === ErrorCode.cameraUnavailable) {
         setTimeout(() => {
           setPopupData({
             message: activeString.DETAIL_PROFIL.CAMERA_UNAVAILABLE,
-            isVisible: true});
+            isVisible: true,
+          });
         }, 300);
-        return;
       } else if (response.errorCode === ErrorCode.cameraPermission) {
         setTimeout(() => {
-          setPopupData({ message: activeString.DETAIL_PROFIL.PERMISSION, isVisible: true });
+          setPopupData({
+            message: activeString.DETAIL_PROFIL.PERMISSION,
+            isVisible: true,
+          });
         }, 300);
-        return;
       } else if (response.errorCode === ErrorCode.others) {
         setTimeout(() => {
           setPopupData({ message: response.errorMessage, isVisible: true });
         }, 300);
-        return;
       } else {
         const responseAvatar = response?.assets[0];
         setIsLoading(true);
         onChange(responseAvatar?.uri);
         handleChangeAvatar(responseAvatar);
       }
-    } catch (exception) { }
+    } catch (exception) {}
   };
 
   return (
@@ -94,17 +98,17 @@ export default ({ value, onChange, style, isChangeable }: UploadProps) => {
         <button
           activeOpacity={0.5}
           style={styles.buttonStyle}
-          onClick={() => chooseFile('photo')}>
+          onClick={async () => {
+            await chooseFile('photo');
+          }}
+        >
           <img
-            src={value  ? value  : { uri: images.avatar_6 }}
+            src={value || { uri: images.avatar_6 }}
             style={[styles.imageStyle, style]}
           />
           {isChangeable && (
             <div style={styles.badgeContainer}>
-              <img
-                style={styles.badgeIcon}
-                src={icons.camera }
-              />
+              <img style={styles.badgeIcon} src={icons.camera} />
             </div>
           )}
           <Popup
@@ -117,7 +121,7 @@ export default ({ value, onChange, style, isChangeable }: UploadProps) => {
       ) : (
         <div>
           <img
-            src={value  ? value  : { uri: images.avatar_6 }}
+            src={value || { uri: images.avatar_6 }}
             style={[styles.imageStyle, style]}
           />
         </div>

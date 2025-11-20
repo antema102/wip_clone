@@ -1,12 +1,12 @@
-;
 import { COLORS } from '../../../../resources/constants';
 
-export default ({
+export default {
   centeredView: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.1)'},
+    backgroundColor: 'rgba(0, 0, 0, 0.1)',
+  },
   modalView: {
     margin: 20,
     backgroundColor: 'white',
@@ -16,28 +16,36 @@ export default ({
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 2},
+      height: 2,
+    },
     shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 5},
+    elevation: 5,
+  },
   buttonContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between'},
+    justifyContent: 'space-between',
+  },
   buttonStyles: {
     paddingVertical: 10,
     paddingHorizontal: 20,
     marginLeft: 5,
-    borderRadius: 10},
+    borderRadius: 10,
+  },
   buttonOpen: {
-    backgroundColor: '#F194FF'},
+    backgroundColor: '#F194FF',
+  },
   buttonClose: {
-    backgroundColor: '#2196F3'},
+    backgroundColor: '#2196F3',
+  },
   textStyle: {
     color: 'white',
     fontWeight: 'bold',
-    textAlign: 'center'},
+    textAlign: 'center',
+  },
   modalText: {
     marginBottom: 15,
     textAlign: 'center',
-    color: COLORS.black
-  }});
+    color: COLORS.black,
+  },
+};

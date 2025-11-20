@@ -4,10 +4,10 @@ class Urls {
   BASEURL = JSON.stringify(ENV.baseUrl);
   BASE = this.BASEURL.slice(1, -1);
 
-  BASEURLIA = JSON.stringify(ENV.baseIA)
+  BASEURLIA = JSON.stringify(ENV.baseIA);
   BASE_IA = this.BASEURLIA.slice(1, -1);
 
-  //Login
+  // Login
   LOGIN = `${this.BASE}/authentication/login`;
   LOGIN_GOOGLE = `${this.BASE}/authentication/google`;
   REGISTER_EMAIL = `${this.BASE}/authentication/redirect`;
@@ -55,7 +55,7 @@ class Urls {
   FILTER_WITH_MATCHING_JOB = `${this.BASE}/matching/job`;
   ZONNAGE_COUNTRY = `${this.BASE}/countries`;
   ZONNAGE_PROVINCE = `${this.BASE}/provinces`;
-  //favorite
+  // favorite
   ADD_FAVORITE = `${this.BASE}/favorite/add`;
   REMOVE_FAVORITE = `${this.BASE}/favorite/remove`;
   ALL_FAVORITE = `${this.BASE}/favorite`;
@@ -153,34 +153,34 @@ class Urls {
   // GUIDELINE
   GUIDELINE = `${this.BASE}/user/download/guideline`;
 
-  //STREAM
+  // STREAM
   STREAM = `${this.BASE}/cv/download/streaming`;
 
-  //VUE
+  // VUE
   JOB_VIEW = `${this.BASE}/job/offer/views`;
 
-  //Create Uuid
+  // Create Uuid
   Uuid = `${this.BASE}/user/update-uuid`;
 
-  //IA
+  // IA
   IA = `${this.BASE_IA}/chat/v3`;
 
-  //GET IA
+  // GET IA
   GET_IA = `${this.BASE_IA}/chat/message_history`;
 
-  //GET PDF
+  // GET PDF
   GET_PDF = `${this.BASE_IA}/storage/objects/`;
 
-  //POST PDF
+  // POST PDF
   POST_PDF = `${this.BASE_IA}/parse/resume`;
 
-  //JOB SLOT
+  // JOB SLOT
   JOB_SLOT = `${this.BASE}/user/job-slot`;
 
-  //GET EXTERNAL USER
+  // GET EXTERNAL USER
   GET_EXTERNAL_USER = `${this.BASE}/user/by/enterprise`;
 
-  //UPDATE CV
+  // UPDATE CV
   UPDATE_CV = `${this.BASE_IA}/metadata/resume`;
 }
 export default new Urls();

@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-;
 import { useNavigate } from 'react-router-dom';
 
 import News from '../News/NewsDetails/index';
 import Announces from '../AnnounceBox';
 import Offer from '../Offers/OfferList/index';
 import { styles } from './styles';
-import { COLORS } from '../../../../resources/constants';
+import { COLORS, icons } from '../../../../resources/constants';
 import WipTabs from '../../../components/WipTab';
 import * as stringsEn from '../../../../data/constants/strings_en';
 import * as stringsFr from '../../../../data/constants/strings';
@@ -20,8 +19,6 @@ import { useUser } from '../../../../service/redux/ducks/user';
 import globalStyle from '../../../globalStyle/globalStyle';
 import Button from '../../../components/Button/button';
 
-import { icons } from '../../../../resources/constants';
-
 const CombinaisonCandidatScreen = (props: any) => {
   const navigate = useNavigate();
   const [isOffer, setIsOffer] = useState(true);
@@ -34,22 +31,22 @@ const CombinaisonCandidatScreen = (props: any) => {
     navigate('/ResumeVideoScreen', { state: { isShow: false } });
   };
 
-  const showDetails = id => {
-    navigate('/EnterpriseOfferDetailsScreen', { state: { id, candidat: true } });
+  const showDetails = (id) => {
+    navigate('/EnterpriseOfferDetailsScreen', {
+      state: { id, candidat: true },
+    });
   };
 
   const { lang } = useLang();
   const activeString = lang === 'fr' ? stringsFr : stringsEn;
   const { accessToken, user } = useSelector(({ auth }) => auth);
 
-  const {
-    getUserText} = UserSA();
-
+  const { getUserText } = UserSA();
 
   const storeDynamicText = async (value: any) => {
     try {
       await localStorage.setItem('dynamic', JSON.stringify(value));
-    } catch (error) { }
+    } catch (error) {}
   };
 
   const storeDynamic = async () => {
@@ -73,8 +70,13 @@ const CombinaisonCandidatScreen = (props: any) => {
 
   return (
     <div style={styles.container}>
-      <div style={{ backgroundColor: COLORS.white, borderRadius: 10, overflow: 'hidden' }}>
-
+      <div
+        style={{
+          backgroundColor: COLORS.white,
+          borderRadius: 10,
+          overflow: 'hidden',
+        }}
+      >
         {isCV && !isVideo && (
           <div style={{ margin: 24 }}>
             <span style={styles.textWarning}>{activeString.HOME.WARNING}</span>
@@ -83,16 +85,16 @@ const CombinaisonCandidatScreen = (props: any) => {
 
         {(!isCV || !isVideo) && (
           <div style={{ margin: 24 }}>
-            <span style={styles.textWarning}>
-              {activeString.HOME.BEGIN}
-            </span>
+            <span style={styles.textWarning}>{activeString.HOME.BEGIN}</span>
           </div>
         )}
 
         {!isCV && (
           <div style={[globalStyle.btnContainer, { marginHorizontal: 100 }]}>
             <Button
-              onClick={() => navigate('/CreateCV', { state: { isCreate: true } })}
+              onClick={() => {
+                navigate('/CreateCV', { state: { isCreate: true } });
+              }}
               title={activeString.HOME.PARCOURS}
               _style={[
                 globalStyle.elevationBlue,
@@ -105,33 +107,48 @@ const CombinaisonCandidatScreen = (props: any) => {
         )}
 
         {!isVideo && (
-          <div style={[globalStyle.btnContainer, { marginHorizontal: 100, paddingBottom: 10 }]}>
+          <div
+            style={[
+              globalStyle.btnContainer,
+              { marginHorizontal: 100, paddingBottom: 10 },
+            ]}
+          >
             <Button
               onClick={handleVideo}
               title={activeString.HOME.PRESENTATION}
-              _style={[
-                globalStyle.elevationOrange,
-                styles.buttonHomeExport,
-              ]}
+              _style={[globalStyle.elevationOrange, styles.buttonHomeExport]}
               color={COLORS.orange}
               icon={icons.camera}
               styleBtnTxt={styles.bigBtnTxt}
               isDisable={!isCV}
             />
-          </div>)
-        }
+          </div>
+        )}
       </div>
 
-      <div style={{ padding: 24, backgroundColor: 'white', borderRadius: 5, marginTop: 50 }}>
+      <div
+        style={{
+          padding: 24,
+          backgroundColor: 'white',
+          borderRadius: 5,
+          marginTop: 50,
+        }}
+      >
         <WipTabs
           News={() => <News {...props} />}
-          Offers={() => <Offer {...props} showDetails={showDetails} initial={'Action sociale'} isClicked={0} />}
+          Offers={() => (
+            <Offer
+              {...props}
+              showDetails={showDetails}
+              initial={'Action sociale'}
+              isClicked={0}
+            />
+          )}
           Announces={() => <Announces {...props} category={'post'} />}
           isOffer={isOffer}
           setIsOffer={setIsOffer}
         />
       </div>
-
     </div>
   );
 };

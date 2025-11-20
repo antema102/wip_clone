@@ -1,7 +1,5 @@
 import React from 'react';
-;
-import  styles  from './style';
-
+import styles from './style';
 interface Props {
   title: string;
   type?: string;

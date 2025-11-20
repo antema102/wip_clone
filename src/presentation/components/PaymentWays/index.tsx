@@ -7,7 +7,7 @@ import { images } from '../../../resources/constants';
 
 import { styles } from './styles';
 
-export const PaymentWays = props => {
+export const PaymentWays = (props) => {
   const navigate = useNavigate();
   const handleOrangePayment = () => {
     navigate('/CBScreen#top', { state: { type: 'orange' } });
@@ -32,17 +32,11 @@ export const PaymentWays = props => {
         </button> */}
         <div style={styles.intermediate} />
         <button onClick={handleOrangePayment}>
-          <img
-            style={styles.imgStyle}
-            src={images.orangeMoney}
-          />
+          <img style={styles.imgStyle} src={images.orangeMoney} />
         </button>
         <div style={styles.intermediate} />
         <button onClick={handleVisaPayment}>
-          <img
-            style={styles.imgStyle}
-            src={images.visa}
-          />
+          <img style={styles.imgStyle} src={images.visa} />
         </button>
       </div>
     </div>

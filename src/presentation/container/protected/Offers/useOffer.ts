@@ -58,13 +58,13 @@ export function useOffre(props: any) {
     setRefreshing(true);
   };
 
-  const f1 = () => {
-  };
+  const f1 = () => {};
 
   return {
     refreshing,
     allJob,
     isLoading,
     init,
-    f1};
+    f1,
+  };
 }

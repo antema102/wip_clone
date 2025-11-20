@@ -1,23 +1,25 @@
-import {useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { SubscriptionSA } from '../../applicatif/Subscription.sa';
 
-export type SubscriptionState = {};
+export interface SubscriptionState {}
 
 export const enum subscriptionActionType {
-  allSubscriptions = '[Subscriptions] get all'}
+  allSubscriptions = '[Subscriptions] get all',
+}
 
 export const initialSubscriptionState: SubscriptionState = {};
 
 export const subscriptionReducer = (
   state = initialSubscriptionState,
-  action,
+  action
 ) => {
-  const {type, payload} = action;
+  const { type, payload } = action;
   switch (type) {
     case subscriptionActionType.allSubscriptions:
       return {
         ...state,
-        allSubscription: payload};
+        allSubscription: payload,
+      };
     default:
       return state;
   }
@@ -25,7 +27,7 @@ export const subscriptionReducer = (
 
 export const useSubscription = () => {
   const dispatch = useDispatch();
-  const {getAllSubscriptionByRole} = SubscriptionSA();
+  const { getAllSubscriptionByRole } = SubscriptionSA();
 
   return {
     getAllSubscriptionByRole: async (token: string) => {
@@ -34,11 +36,13 @@ export const useSubscription = () => {
         const payload = res?.data?.items;
         dispatch({
           payload,
-          type: subscriptionActionType.allSubscriptions});
+          type: subscriptionActionType.allSubscriptions,
+        });
 
         return payload;
       } catch (error) {
-        return Promise.reject(error);
+        return await Promise.reject(error);
       }
-    }};
+    },
+  };
 };

@@ -1,16 +1,19 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
-;
-import { IError, defaultErrorsValues, defaultValues, showErrorValuesDefault, showErrorValuesSubmit } from './dto';
+import React, { useEffect, useState } from 'react';
+import {
+  type IError,
+  defaultErrorsValues,
+  defaultValues,
+  showErrorValuesDefault,
+  showErrorValuesSubmit,
+} from './dto';
 import { useMatching } from '../../../../../service/redux/ducks/matching';
 import { MATCHING } from '../../../../../data/constants/strings';
-
 export const useForm = (
   data: any,
   Validate: any,
   navigate: any,
   handleSave: any,
-  setIsLayerEditable: any,
+  setIsLayerEditable: any
 ) => {
   const [values, setValues] = useState<any>(defaultValues);
   const [isLoading, setIsLoading] = useState(false);
@@ -24,13 +27,20 @@ export const useForm = (
   const [dataMatching, setDataMatching] = useState([]);
   const [noMatching, setNoMatching] = useState(false);
   const { filterMatching } = useMatching();
-  const [popupData, setPopupData] = useState({ visibility: false, message: '' });
+  const [popupData, setPopupData] = useState({
+    visibility: false,
+    message: '',
+  });
 
   const setVisiblePopup = (newState: boolean) => {
-    setPopupData(previousState => ({ ...previousState, visibility: newState }));
+    setPopupData((previousState) => ({
+      ...previousState,
+      visibility: newState,
+    }));
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'});
+      behavior: 'smooth',
+    });
   };
 
   React.useEffect(() => {
@@ -48,9 +58,10 @@ export const useForm = (
         _value = {
           uri: value.uri,
           type: value.type,
-          name: value.fileName};
+          name: value.fileName,
+        };
       }
-      setValues(previousValue => ({ ...previousValue, [name]: _value }));
+      setValues((previousValue) => ({ ...previousValue, [name]: _value }));
     }
     setShowErrors({ ...showErrors, [name]: value !== fired });
   };
@@ -70,119 +81,149 @@ export const useForm = (
     setIsError(false);
   };
 
-  const transformData = obj => {
-    type DataType = {
-      [key: string]: {
+  const transformData = (obj) => {
+    type DataType = Record<
+      string,
+      {
         value?: string;
         valueMin?: number;
         valueMax?: number;
         score: number;
-      };
-    };
+      }
+    >;
 
     const data: DataType = {
       activitySector: {
         value: 'string',
-        score: 0},
+        score: 0,
+      },
       desiredPost: {
         value: 'string',
-        score: 0},
+        score: 0,
+      },
       salary: {
         valueMin: 0,
         valueMax: 0,
-        score: 0},
+        score: 0,
+      },
       dateofBirth: {
         valueMin: 0,
         valueMax: 0,
-        score: 0},
+        score: 0,
+      },
       language: {
         value: 'string',
-        score: 0},
+        score: 0,
+      },
       sport: {
         value: 'string',
-        score: 0},
+        score: 0,
+      },
       interest: {
         value: 'string',
-        score: 0},
+        score: 0,
+      },
       filiere: {
         value: 'string',
-        score: 0},
+        score: 0,
+      },
       level: {
         value: 'string',
-        score: 0},
+        score: 0,
+      },
       disponibility: {
         value: 'string',
-        score: 0},
+        score: 0,
+      },
       province: {
         value: 'string',
-        score: 0},
+        score: 0,
+      },
       transport: {
         value: 'string',
-        score: 0},
+        score: 0,
+      },
       zone: {
         value: 'string',
-        score: 0},
+        score: 0,
+      },
       statut: {
         value: 'string',
-        score: 0},
+        score: 0,
+      },
 
       adrsCountry: {
         value: 'string',
-        score: 0},
+        score: 0,
+      },
       adrsRegion: {
         value: 'string',
-        score: 0},
+        score: 0,
+      },
       adrsProvince: {
         value: 'string',
-        score: 0},
+        score: 0,
+      },
       adrsZone: {
         value: 'string',
-        score: 0},
+        score: 0,
+      },
       jobCountry: {
         value: 'string',
-        score: 0},
+        score: 0,
+      },
       jobRegion: {
         value: 'string',
-        score: 0},
+        score: 0,
+      },
       jobProvince: {
         value: 'string',
-        score: 0},
+        score: 0,
+      },
       jobZone: {
         value: 'string',
-        score: 0},
+        score: 0,
+      },
       yearOfExp: {
         value: 'string',
-        score: 0},
+        score: 0,
+      },
       jobType: {
         value: 'string',
-        score: 0},
+        score: 0,
+      },
       jobPlace: {
         value: 'string',
-        score: 0},
+        score: 0,
+      },
       lastjobType: {
         value: 'string',
-        score: 0},
+        score: 0,
+      },
       lastjobPlace: {
         value: 'string',
-        score: 0},
+        score: 0,
+      },
       loger: {
         value: 'string',
-        score: 0},
+        score: 0,
+      },
       recommandation: {
         value: 'string',
-        score: 0},
+        score: 0,
+      },
       candidat: {
         value: 'string',
-        score: 0
-      }};
+        score: 0,
+      },
+    };
     for (const property in obj) {
       if (!property.includes('_level')) {
         if (property.includes('min')) {
           data[property.slice(0, -3)].valueMin = parseInt(obj[property], 10);
         } else if (property.includes('max')) {
           data[property.slice(0, -3)].valueMax = parseInt(obj[property], 10);
-        }
-        else {
+        } else {
           data[property].value = obj[property];
         }
       } else {
@@ -193,14 +234,14 @@ export const useForm = (
     return data;
   };
 
-  const noError = errors => Object.values(errors).every(error => !error);
+  const noError = (errors) => Object.values(errors).every((error) => !error);
 
   const handleInit = () => {
-    setValues(previousState =>
+    setValues((previousState) =>
       Object.keys(previousState).reduce(
         (res, key) => ({ ...res, [key]: '' }),
-        {},
-      ),
+        {}
+      )
     );
   };
 
@@ -223,7 +264,7 @@ export const useForm = (
     if (!element) {
       return 'vide';
     }
-    const result = toCompare.find(obj => obj?.name === element);
+    const result = toCompare.find((obj) => obj?.name === element);
     if (result) {
       return score;
     } else {
@@ -247,27 +288,30 @@ export const useForm = (
   };
 
   function calculateAge(birthdate) {
-    var today = new Date();
-    var birthDate = new Date(birthdate);
-    var ageInMilliseconds = today - birthDate;
-    var ageInYears = ageInMilliseconds / 31557600000;
+    const today = new Date();
+    const birthDate = new Date(birthdate);
+    const ageInMilliseconds = today - birthDate;
+    const ageInYears = ageInMilliseconds / 31557600000;
     return Math.floor(ageInYears);
   }
 
   const handleSubmit = async () => {
     const layerEditable = {};
-    Object.entries(Validate(values)).forEach(element => {
+    Object.entries(Validate(values)).forEach((element) => {
       if (element[1]) {
         layerEditable[element[0]] = true;
       }
     });
-    setIsLayerEditable(previousState => ({ ...previousState, ...layerEditable }));
+    setIsLayerEditable((previousState) => ({
+      ...previousState,
+      ...layerEditable,
+    }));
 
     setShowErrors(showErrorValuesSubmit);
     setErrors(Validate(values));
 
     if (noError(Validate(values)) && !errorSalary && !errorAge) {
-      if (Object.keys(values).length) {
+      if (Object.keys(values).length > 0) {
         setIsLoading(true);
         if (values.loger === 'true') {
           values.loger = true;
@@ -294,7 +338,7 @@ export const useForm = (
         if (values.recommandation === false) {
           values.recommandation = 'false';
         }
-        let filtered = Object.keys(data).reduce((obj, key) => {
+        const filtered = Object.keys(data).reduce((obj, key) => {
           if (
             data[key].valueMin !== 0 &&
             data[key].valueMax !== 0 &&
@@ -307,16 +351,16 @@ export const useForm = (
           return obj;
         }, {});
         try {
-          let type = "";
+          let type = '';
           if (filtered.candidat) {
             type = filtered.candidat.value;
-            type=type.toLowerCase();
+            type = type.toLowerCase();
             delete filtered.candidat;
           } else {
-            type = "";
+            type = '';
           }
           filtered.desiredPost.value = filtered.desiredPost.value.trim();
-          const response: any = await filterMatching(type,filtered);
+          const response: any = await filterMatching(type, filtered);
           let total = 0;
           Object.values(filtered).forEach((item: any) => {
             total += item.score;
@@ -373,24 +417,24 @@ export const useForm = (
           if (!response.isError) {
             setIsError(true);
             setDto({ error: true, data: values });
-            const result = response.data.filter(x => x.score > 9);
-            const variables = result.map(item => {
-              let matching = {
+            const result = response.data.filter((x) => x.score > 9);
+            const variables = result.map((item) => {
+              const matching = {
                 'Poste recherché': point0,
                 "Secteur d'activité": checkOrNot(
                   activity,
                   item?.jobWish?.sector,
-                  point1,
+                  point1
                 ),
                 "Niveau d'étude": checkOrNot(
                   level,
                   item?.studyArea[0]?.level,
-                  point2,
+                  point2
                 ),
                 Disponibilité: checkOrNot(
                   disponibility,
                   item?.disponibility,
-                  point3,
+                  point3
                 ),
                 Transport: checkOrNot(transport, item?.transport, point4),
                 Contrat: checkOrNot(statut, item?.statut, point5),
@@ -399,73 +443,74 @@ export const useForm = (
                 Province: checkOrNot(
                   province,
                   item?.adress?.province?.id,
-                  point7,
+                  point7
                 ),
                 zone: checkOrNot(zone, item?.adress?.zone, point8),
                 'Salaire brut (Ariary)': isBetween(
                   item?.jobWish?.salaryExpectation,
                   salaryMin,
                   salaryMax,
-                  point9,
+                  point9
                 ),
                 Age: isBetween(
                   item?.user?.birthDate,
                   ageMin,
                   ageMax,
                   point10,
-                  true,
+                  true
                 ),
                 "Nombre d'année d'expérience": checkOrNot(
                   yearOfExp,
                   item?.jobWish?.yearOfExperience,
-                  point11,
+                  point11
                 ),
                 'Ancien Travail': checkOrNot(
                   lastjobType,
                   item?.lastExperience[0]?.jobType,
-                  point12,
+                  point12
                 ),
                 'Ancienne Entreprise': checkOrNot(
                   lastjobPlace,
                   item?.lastExperience[0]?.jobPlace,
-                  point13,
+                  point13
                 ),
                 'Description tâches': checkOrNot(
                   lastjobDescription,
-                  item?.lastExperience[0]?.jobDescription,
+                  item?.lastExperience[0]?.jobDescription
                 ),
                 'Pays souhaité': checkOrNot(
                   countryDEST,
                   item?.jobLocalisation[0]?.country?.id,
-                  point14,
+                  point14
                 ),
                 'Province souhaité': checkOrNot(
                   provinceDEST,
                   item?.jobLocalisation[0]?.province?.id,
-                  point15,
+                  point15
                 ),
                 'Quartier ou Commune souhaitée': checkOrNot(
                   zoneDEST,
                   item?.jobLocalisation[0]?.zone,
-                  point16,
+                  point16
                 ),
                 Langue: searchInAnArray(language, item?.languages, point17),
                 Sports: checkOrNot(
                   sport,
                   item?.sport ? item?.sport[0] : 'vide',
-                  point18,
+                  point18
                 ),
                 "Centre d'intérêt": checkOrNot(
                   interest,
                   item?.interest,
-                  point19,
+                  point19
                 ),
                 Recommandation: checkOrNot(
                   recommandation,
                   item?.isRecommandation,
-                  point21,
-                )};
-              let keys = Object.keys(matching);
+                  point21
+                ),
+              };
+              const keys = Object.keys(matching);
               for (let i = 0; i < keys.length; i++) {
                 if (matching[keys[i]] === 'vide') {
                   delete matching[keys[i]];
@@ -483,8 +528,8 @@ export const useForm = (
               state: {
                 dataList: variables,
                 matching: variables,
-                response: response
-              }
+                response,
+              },
             });
           }
         } catch (error) {
@@ -502,13 +547,15 @@ export const useForm = (
         message: errorSalary
           ? MATCHING.ERROR_SALARY
           : errorAge
-            ? MATCHING.ERROR_AGE
-            : MATCHING.FILL_THE_FIELD});
+          ? MATCHING.ERROR_AGE
+          : MATCHING.FILL_THE_FIELD,
+      });
       handleSave(errors);
     }
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'});
+      behavior: 'smooth',
+    });
   };
 
   useEffect(() => {
@@ -516,7 +563,7 @@ export const useForm = (
   }, [values]);
 
   useEffect(() => {
-    if (!dto.error && dataMatching.length) {
+    if (!dto.error && dataMatching.length > 0) {
       handleSave();
       setIsLoading(false);
     }
@@ -541,5 +588,6 @@ export const useForm = (
     popupData,
     setVisiblePopup,
     errorSalary,
-    errorAge};
+    errorAge,
+  };
 };

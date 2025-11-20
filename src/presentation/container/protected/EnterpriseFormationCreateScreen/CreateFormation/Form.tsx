@@ -1,9 +1,11 @@
-import React, {useState, useEffect} from 'react';
-;
-import {useSelector} from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import CurrencyInput from 'react-native-currency-input';
 import { useFormation } from '../../../../../service/redux/ducks/formation';
-import { MAIL_VALIDATION, TELEPHONE_VALIDATION } from '../../../../../common/utils/validation';
+import {
+  MAIL_VALIDATION,
+  TELEPHONE_VALIDATION,
+} from '../../../../../common/utils/validation';
 import { getDynamicListByKey } from '../../../../../service/technique/dynamicService';
 import { ERROR } from '../../../../../data/constants/strings';
 import { COLORS, SIZES } from '../../../../../resources/constants';
@@ -16,10 +18,9 @@ import Popup from '../../../../components/CreateCV/Popup';
 import Loader from '../../../../components/Loader';
 import Checkbox from '../../../../components/Checkbox';
 import { useNavigate } from 'react-router-dom';
-
 export const Form = (props: any) => {
   const navigation = useNavigate();
-  const {user} = useSelector(({auth}) => auth);
+  const { user } = useSelector(({ auth }) => auth);
 
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState('');
@@ -56,7 +57,7 @@ export const Form = (props: any) => {
 
   const [isPayant, setIsPayant] = useState(false);
 
-  const {createFormation} = useFormation();
+  const { createFormation } = useFormation();
 
   const [values, setValues] = useState({
     email: '',
@@ -67,7 +68,8 @@ export const Form = (props: any) => {
     duration: '',
     place: '',
     theme: '',
-    categorie: ''});
+    categorie: '',
+  });
 
   const handleCancel = () => {
     setValues({
@@ -79,12 +81,13 @@ export const Form = (props: any) => {
       duration: '',
       place: '',
       theme: '',
-      categorie: ''});
-    navigation('/home', {state:{isFormation: true}});
+      categorie: '',
+    });
+    navigation('/home', { state: { isFormation: true } });
   };
 
   const handleChange = (name: string, value: any) => {
-    setValues({...values, [name]: value});
+    setValues({ ...values, [name]: value });
 
     switch (name) {
       case 'title':
@@ -226,9 +229,10 @@ export const Form = (props: any) => {
         const dataToPost = {
           ...values,
           isPayant,
-          proprietaire: user};
+          proprietaire: user,
+        };
 
-        createFormation(dataToPost).then(res => {
+        createFormation(dataToPost).then((res) => {
           setIsLoading(false);
           setValues({
             email: '',
@@ -239,7 +243,8 @@ export const Form = (props: any) => {
             duration: '',
             place: '',
             theme: '',
-            categorie: ''});
+            categorie: '',
+          });
           setTitle('');
           setDescription('');
           setPhone('');
@@ -253,7 +258,7 @@ export const Form = (props: any) => {
     }
   };
 
-  const settingPrix = formattedValue => {
+  const settingPrix = (formattedValue) => {
     if (formattedValue) {
       values.prix = prix.toString();
     } else {
@@ -265,7 +270,9 @@ export const Form = (props: any) => {
     <div
       style={{
         paddingHorizontal: SIZES.padding,
-        justifyContent: 'space-between'}}>
+        justifyContent: 'space-between',
+      }}
+    >
       <div style={styles.inputWrap}>
         <InputField
           label="Titre"
@@ -277,7 +284,7 @@ export const Form = (props: any) => {
         />
       </div>
       {titleError && (
-        <span style={{color: COLORS.red_color}}>{titleTextError}</span>
+        <span style={{ color: COLORS.red_color }}>{titleTextError}</span>
       )}
       <div style={styles.inputWrap}>
         <InputField
@@ -290,9 +297,9 @@ export const Form = (props: any) => {
         />
       </div>
       {themeError && (
-        <span style={{color: COLORS.red_color}}>{themeTextError}</span>
+        <span style={{ color: COLORS.red_color }}>{themeTextError}</span>
       )}
-      <div style={[{marginBottom: 20}, styles.inputWrap]}>
+      <div style={[{ marginBottom: 20 }, styles.inputWrap]}>
         <InputField
           label="Description"
           value={values.description}
@@ -303,7 +310,7 @@ export const Form = (props: any) => {
         />
       </div>
       {descriptionError && (
-        <span style={{color: COLORS.red_color}}>{descriptionTextError}</span>
+        <span style={{ color: COLORS.red_color }}>{descriptionTextError}</span>
       )}
       <div style={styles.inputWrap}>
         <InputField
@@ -316,7 +323,7 @@ export const Form = (props: any) => {
         />
       </div>
       {placeError && (
-        <span style={{color: COLORS.red_color}}>{placeTextError}</span>
+        <span style={{ color: COLORS.red_color }}>{placeTextError}</span>
       )}
       <div style={styles.inputWrap}>
         <InputField
@@ -329,9 +336,9 @@ export const Form = (props: any) => {
         />
       </div>
       {durationError && (
-        <span style={{color: COLORS.red_color}}>{durationTextError}</span>
+        <span style={{ color: COLORS.red_color }}>{durationTextError}</span>
       )}
-      <div style={[{marginBottom: 20}, styles.inputWrap]}>
+      <div style={[{ marginBottom: 20 }, styles.inputWrap]}>
         <InputField
           label="email"
           required
@@ -343,7 +350,7 @@ export const Form = (props: any) => {
         />
       </div>
       {emailError && (
-        <span style={{color: COLORS.red_color}}>{emailTextError}</span>
+        <span style={{ color: COLORS.red_color }}>{emailTextError}</span>
       )}
       <div style={styles.inputWrap}>
         <InputField
@@ -358,7 +365,7 @@ export const Form = (props: any) => {
         />
       </div>
       {phoneError && (
-        <span style={{color: COLORS.red_color}}>{phoneTextError}</span>
+        <span style={{ color: COLORS.red_color }}>{phoneTextError}</span>
       )}
 
       {activityList && (
@@ -375,13 +382,15 @@ export const Form = (props: any) => {
       )}
 
       {categorieError && (
-        <span style={{color: COLORS.red_color}}>{ERROR.EMPTY_PICK}</span>
+        <span style={{ color: COLORS.red_color }}>{ERROR.EMPTY_PICK}</span>
       )}
 
       <div style={styles.checkBoxContaint}>
         <Checkbox
           checked={isPayant}
-          onChange={() => setIsPayant(!isPayant)}
+          onChange={() => {
+            setIsPayant(!isPayant);
+          }}
           styles={styles.checkBox}
           // tintColors={{true: COLORS.orange, false: COLORS.blue_border}}
         />
@@ -400,7 +409,7 @@ export const Form = (props: any) => {
             separator="."
             precision={0}
             name="prix"
-            onChangeText={formattedValue => {
+            onChangeText={(formattedValue) => {
               settingPrix(formattedValue);
             }}
             style={styles.textInput}
@@ -408,13 +417,15 @@ export const Form = (props: any) => {
         </div>
       )}
       {isPayant && prixError && (
-        <span style={{color: COLORS.red_color}}>{prixTextError}</span>
+        <span style={{ color: COLORS.red_color }}>{prixTextError}</span>
       )}
 
       <div
         style={{
           flex: 1,
-          height: 150}}>
+          height: 150,
+        }}
+      >
         <SubmitButtons
           underlineType={true}
           submitAction={handleSubmit}

@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 import EntrepriseOfferCreate from './EntrepriseOfferCreate';
 import { useLocation } from 'react-router-dom';
 
 const EnterpriseOfferCreateScreen = (): any => {
-    const {state} = useLocation();
-return <EntrepriseOfferCreate {...state} />;
+  const { state } = useLocation();
+  return <EntrepriseOfferCreate {...state} />;
 };
 
-export default EnterpriseOfferCreateScreen
+export default EnterpriseOfferCreateScreen;

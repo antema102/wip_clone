@@ -1,10 +1,10 @@
-;
+const { width } = Dimensions.get('window');
 
-const {width} = Dimensions.get('window');
-
-export default ({
+export default {
   listItemOffer: {
     marginVertical: 10,
     overflow: 'scroll',
     flex: 1,
-    marginHorizontal: 15}});
+    marginHorizontal: 15,
+  },
+};

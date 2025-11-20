@@ -10,15 +10,15 @@ import globalStyle from '../../globalStyle/globalStyle';
 import CustomButton from '../Button/button';
 import {
   ENTERPRISE_INFORMATIONS,
-  ERROR} from '../../../data/constants/strings';
+  ERROR,
+} from '../../../data/constants/strings';
 import { UserSA } from '../../../service/applicatif/User.sa';
 import { useAuth } from '../../../service/redux/ducks/auth';
 import Popup from '../CreateCV/Popup';
 import CustomModal from '../Modal';
 import { PaymentWays } from '../PaymentWays';
 
-
-export const SubscriptionComponent = props => {
+export const SubscriptionComponent = (props) => {
   const { item } = props;
   const navigate = useNavigate();
   const [isShowsetIsShowModal] = useState(false);
@@ -41,13 +41,14 @@ export const SubscriptionComponent = props => {
   const handlePayment = async (id: string, price: number) => {
     const data = {
       userId: user.id,
-      montant: price};
+      montant: price,
+    };
     const response = await buySubscription(accessToken, data, id);
     if (response && response.data.isError) {
       setMessage(response.data.message);
       setIsShowModal(false);
       if (response.data.message === ERROR.NOT_ENOUGH_MONEY) {
-        setNotEnoughMoney(true)
+        setNotEnoughMoney(true);
       } else {
         setResultVisible(true);
       }
@@ -73,7 +74,12 @@ export const SubscriptionComponent = props => {
 
   return (
     <div style={styles.subscriptionContainer}>
-      <CustomModal title={"Moyen de paiement"} visible={showPayment} setVisible={setShowPayment} content={<PaymentWays />} />
+      <CustomModal
+        title={'Moyen de paiement'}
+        visible={showPayment}
+        setVisible={setShowPayment}
+        content={<PaymentWays />}
+      />
       <Popup
         message={message}
         visible={messageVisible}
@@ -102,7 +108,8 @@ export const SubscriptionComponent = props => {
             </span>
             <div style={styles.description}>
               <span
-                style={styles.descriptionText}>{`${item.price} Ariary`}</span>
+                style={styles.descriptionText}
+              >{`${item.price} Ariary`}</span>
             </div>
           </div>
 
@@ -115,7 +122,6 @@ export const SubscriptionComponent = props => {
               styleBtnTxt={styles.smallBtnTxt}
             />
           </div>
-
         </div>
       </button>
 
@@ -123,7 +129,8 @@ export const SubscriptionComponent = props => {
         animationType="none"
         transparent={true}
         visible={isShowModal}
-        onRequestClose={onCloseDetail}>
+        onRequestClose={onCloseDetail}
+      >
         <div style={styles.centeredView}>
           <div style={styles.modalView}>
             <div
@@ -134,32 +141,44 @@ export const SubscriptionComponent = props => {
                 justifyContent: 'flex-end',
                 marginTop: -20,
                 paddingBottom: 5,
-                marginRight: -10}}>
+                marginRight: -10,
+              }}
+            >
               <button onClick={onCloseDetail}>
                 <div
                   style={{
                     height: 30,
                     paddingLeft: 10,
                     paddingTop: 5,
-                    right: 0
-                  }}>
+                    right: 0,
+                  }}
+                >
                   <img src={icons.Close} style={styles.icon} />
                 </div>
               </button>
             </div>
             <div style={{ paddingBottom: 10 }}>
-              <span style={[globalStyle.titleHome, { fontSize: 40, marginTop: 10, color: COLORS.vector_orange }]}>{item.name}</span>
+              <span
+                style={[
+                  globalStyle.titleHome,
+                  { fontSize: 40, marginTop: 10, color: COLORS.vector_orange },
+                ]}
+              >
+                {item.name}
+              </span>
             </div>
             <div style={styles.detailSub}>
               <div style={styles.detailItem}>
                 <span style={styles.titleDetails}>Durée: </span>
                 <span
-                  style={styles.detailValue}>{` ${item.duration} jours`}</span>
+                  style={styles.detailValue}
+                >{` ${item.duration} jours`}</span>
               </div>
               <div style={styles.detailItem}>
                 <span style={styles.titleDetails}>Prix: </span>
                 <span
-                  style={styles.detailValue}>{` ${item.price} Ariary`}</span>
+                  style={styles.detailValue}
+                >{` ${item.price} Ariary`}</span>
               </div>
               <div>
                 <span style={styles.titleDetails}>Détails: </span>
@@ -169,7 +188,10 @@ export const SubscriptionComponent = props => {
             <div style={{ width: '60%', marginTop: 10 }}>
               <button
                 style={[styles.buttonAcheter]}
-                onClick={() => handlePayment(item?.id, item?.price)}>
+                onClick={async () => {
+                  await handlePayment(item?.id, item?.price);
+                }}
+              >
                 <span style={styles.textBtnSecondary}>Acheter l'offre</span>
               </button>
             </div>

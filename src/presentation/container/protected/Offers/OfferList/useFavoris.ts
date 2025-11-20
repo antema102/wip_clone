@@ -1,5 +1,4 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useFavorites } from '../../../../../service/redux/ducks/favorites';
 
@@ -10,13 +9,11 @@ export const useFavoris = () => {
   const [allFavoris, setAllFavoris] = useState([]);
   const [dateFav, setDateFav] = useState('');
 
+  React.useEffect(() => {
+    getAllFavorites();
+  }, []);
 
-    React.useEffect(() => {
-      getAllFavorites()
-    }, []);
-
-  const {
-    user} = useSelector(({ auth }) => auth);
+  const { user } = useSelector(({ auth }) => auth);
 
   useEffect(() => {
     init();
@@ -28,45 +25,44 @@ export const useFavoris = () => {
   };
   const getAllFavorites = async () => {
     try {
-      const response = await allFavorites(user?.accessToken)
+      const response = await allFavorites(user?.accessToken);
       if (!response?.isError) {
-        const response = await allFavorites(user?.accessToken)
-        const { items } = response.data
-        setDateFav(items[0]["createdAt"] || '')
-        setAllFavoris(items[0]["job"] || [])
+        const response = await allFavorites(user?.accessToken);
+        const { items } = response.data;
+        setDateFav(items[0].createdAt || '');
+        setAllFavoris(items[0].job || []);
       }
       setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
-      setAllFavoris([])
+      setAllFavoris([]);
     }
-  }
-  
+  };
+
   const addFavoris = async (offerId) => {
     setIsLoading(false);
     try {
-      const response = await addFavorite(user?.accessToken, offerId)
+      const response = await addFavorite(user?.accessToken, offerId);
       if (!response?.isError) {
-        await getAllFavorites()
+        await getAllFavorites();
       }
     } catch (error) {
-      setAllFavoris([])
+      setAllFavoris([]);
     }
-  }
+  };
 
-  
   const removeFavoris = async (offerId) => {
     setIsLoading(false);
     try {
-      const response = await deleteFavoris(user?.accessToken, offerId)
+      const response = await deleteFavoris(user?.accessToken, offerId);
 
       if (!response?.isError) {
-        await getAllFavorites()
+        await getAllFavorites();
       }
     } catch (error) {
-      setAllFavoris([])
+      setAllFavoris([]);
     }
-  }
+  };
 
   return {
     refreshing,
@@ -75,6 +71,6 @@ export const useFavoris = () => {
     addFavoris,
     init,
     dateFav,
-    removeFavoris
+    removeFavoris,
   };
-}
+};

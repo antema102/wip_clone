@@ -1,10 +1,11 @@
-import { CvBDL } from "../bdl/Cv.bdl";
+import { CvBDL } from '../bdl/Cv.bdl';
 
 export const CvService = () => {
-  const {findUserCv, findCvVideo} = CvBDL();
+  const { findUserCv, findCvVideo } = CvBDL();
 
   return {
-    findUserCv: () => findUserCv(),
+    findUserCv: async () => await findUserCv(),
 
-    findCvVideo: () => findCvVideo()};
+    findCvVideo: async () => await findCvVideo(),
+  };
 };

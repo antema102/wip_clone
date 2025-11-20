@@ -13,12 +13,14 @@ export const DtoToLoginFactory = (data: dtoInterface): loginInterface => {
   return {
     identifiant: data.email,
     password: data.password,
-    token: data.token};
+    token: data.token,
+  };
 };
 
 export const LoginToDtoFactory = (data: loginInterface): dtoInterface => {
   return {
     email: data.identifiant,
     password: data.password,
-    token: data.token};
+    token: data.token,
+  };
 };

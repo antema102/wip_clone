@@ -1,8 +1,6 @@
 import React from 'react';
-;
 
 import { globalStyle } from '../../globalStyle/globalStyle';
-
 interface Props {
   title: string;
   description?: string;

@@ -46,15 +46,16 @@ const Popup = (props: PopupProps) => {
     handleCancelFormation,
     isBuyCredit,
     action,
-    advertisementOKAds} = props;
+    advertisementOKAds,
+  } = props;
 
   const handleExpiredToken = async () => {
     store.dispatch(setTokenStatus(false));
-    validation(false)
+    validation(false);
     try {
       await logOut();
       await setRegisterStatusInitiate();
-    } catch (error) { }
+    } catch (error) {}
   };
 
   const handleValidation = () => {
@@ -63,7 +64,9 @@ const Popup = (props: PopupProps) => {
       if (navigation && navigateTo) {
         if (advertisementOKAds) {
           navigation(navigateTo, { state: { newData: true } });
-          setTimeout(() => window.location.reload(), 50);
+          setTimeout(() => {
+            window.location.reload();
+          }, 50);
         } else if (advertisementOK) {
           navigation(navigateTo, { state: { newData: true } });
         } else if (isFormation) {
@@ -91,7 +94,8 @@ const Popup = (props: PopupProps) => {
         animationType="none"
         transparent={true}
         visible={visible}
-        onRequestClose={handleCancel}>
+        onRequestClose={handleCancel}
+      >
         <div style={styles.centeredView}>
           <div style={styles.modalView}>
             <span style={styles.modalText}>{message}</span>

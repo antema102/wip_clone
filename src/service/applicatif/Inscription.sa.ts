@@ -21,11 +21,12 @@ export const InscriptionService = () => {
               JSON.stringify(res.data.user)
             );
           }
-          const token = await localStorage.getItem('accessToken')
+          const token = await localStorage.getItem('accessToken');
         }
         success(res);
       });
     },
     postSendEmail,
-    resendEmail};
+    resendEmail,
+  };
 };

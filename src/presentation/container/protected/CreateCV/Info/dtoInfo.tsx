@@ -25,7 +25,8 @@ export const showErrorValuesDefault = {
   country: false,
   province: false,
   zone: false,
-  loger: false};
+  loger: false,
+};
 
 export const showErrorValuesSubmit = {
   name: true,
@@ -39,7 +40,8 @@ export const showErrorValuesSubmit = {
   country: true,
   province: true,
   zone: true,
-  loger: false};
+  loger: false,
+};
 
 export const defaultValues: IError = {
   name: '',
@@ -53,4 +55,5 @@ export const defaultValues: IError = {
   country: '',
   province: '',
   zone: '',
-  loger: false};
+  loger: false,
+};

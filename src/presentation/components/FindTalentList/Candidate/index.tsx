@@ -13,19 +13,18 @@ import { UploadFileService } from '../../../../service/applicatif/UploadFile.sa'
 import ScoreDetails from '../../ScoreDetails';
 import globalStyle from '../../../globalStyle/globalStyle';
 
-
 interface candidateType {
-  idCv: string,
-  idUser: string,
-  name: string,
-  data: string[],
-  lastExperience: { jobType: string }[],
-  disponibility: string,
-  yearOfExp: string,
-  score: number,
-  displayCandidateDetail: (arg: string, arg1: string | number) => void,
-  recommandation: boolean,
-  isAvailable: boolean
+  idCv: string;
+  idUser: string;
+  name: string;
+  data: string[];
+  lastExperience: Array<{ jobType: string }>;
+  disponibility: string;
+  yearOfExp: string;
+  score: number;
+  displayCandidateDetail: (arg: string, arg1: string | number) => void;
+  recommandation: boolean;
+  isAvailable: boolean;
 }
 
 export default ({
@@ -39,7 +38,7 @@ export default ({
   score,
   displayCandidateDetail,
   recommandation,
-  isAvailable
+  isAvailable,
 }: candidateType) => {
   const { accessToken, user } = useSelector(({ auth }: any) => auth);
 
@@ -54,7 +53,7 @@ export default ({
       if (responseGetAvatar) {
         setAvatar(URL.createObjectURL(responseGetAvatar));
       }
-    } catch (error) { }
+    } catch (error) {}
   };
 
   useEffect(() => {
@@ -68,7 +67,7 @@ export default ({
   const onPress = () => {
     displayCandidateDetail(
       idCv,
-      score.toString().includes('.') ? score.toFixed(2) : score,
+      score.toString().includes('.') ? score.toFixed(2) : score
     );
   };
 
@@ -83,8 +82,9 @@ export default ({
     }
   };
 
-  const description = `${lastExperience[0]?.jobType ?? ''}${lastExperience[0]?.jobType && disponibility ? ' - ' : ''
-    }${disponibility}`;
+  const description = `${lastExperience[0]?.jobType ?? ''}${
+    lastExperience[0]?.jobType && disponibility ? ' - ' : ''
+  }${disponibility}`;
 
   const condition =
     user?.abonnementId === '63d0ef142e1204452fd2f2bf' ||
@@ -104,37 +104,53 @@ export default ({
         <div style={styles.candidateImgContainer}>
           <img
             style={styles.candidatImg}
-            src={avatar  ? avatar  : { uri: images.avatar_6 }}
+            src={avatar || { uri: images.avatar_6 }}
           />
         </div>
         <div style={styles.candidateDetailsContainer}>
           <span style={styles.candidatName}>
             {condition ? getAcronym(name) : name}
           </span>
-          <span style={styles.candidatPost}>{description} {user?.role === ROLEACCOUNT.candidate ? '' : <span style={{ fontWeight: 'bold', color: isAvailable ? '#008000' : COLORS.red_color }} >{isAvailable ? ' En recherche actif' : ' En recherche passif'} </span>} </span>
+          <span style={styles.candidatPost}>
+            {description}{' '}
+            {user?.role === ROLEACCOUNT.candidate ? (
+              ''
+            ) : (
+              <span
+                style={{
+                  fontWeight: 'bold',
+                  color: isAvailable ? '#008000' : COLORS.red_color,
+                }}
+              >
+                {isAvailable ? ' En recherche actif' : ' En recherche passif'}{' '}
+              </span>
+            )}{' '}
+          </span>
           <span style={styles.candidatExp}>
             {yearOfExp
-              ? `EXP: ${yearOfExp} ${yearOfExp === '1' ? 'an - Travail' : 'années - Travail'
-              }`
+              ? `EXP: ${yearOfExp} ${
+                  yearOfExp === '1' ? 'an - Travail' : 'années - Travail'
+                }`
               : ''}
           </span>
           {recommandation && (
             <div style={styles.badgeContainer}>
-              <img src={icons.badge } style={styles.recommmandationBadge} />
-              <span style={{ color: '#BF9500', marginTop: 5 }}> Recommandé</span>
+              <img src={icons.badge} style={styles.recommmandationBadge} />
+              <span style={{ color: '#BF9500', marginTop: 5 }}>
+                {' '}
+                Recommandé
+              </span>
             </div>
           )}
         </div>
         <div style={styles.candidateBtnContainer}>
           <CustomButton
             color={getCompatibilityColor(score)}
-            title={`Compatibilité: ${score.toString().includes('.') ? score.toFixed(2) : score
-              }%`}
-
+            title={`Compatibilité: ${
+              score.toString().includes('.') ? score.toFixed(2) : score
+            }%`}
             onClick={displayDetailsScore}
-            _style={[
-              styles.smallButtonContainer,
-            ]}
+            _style={[styles.smallButtonContainer]}
             styleBtnTxt={styles.smallBtnTxt}
             iconRight={true}
           />

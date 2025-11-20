@@ -1,26 +1,26 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 
-import {useSelector} from 'react-redux';
-import {styles} from './style';
+import { useSelector } from 'react-redux';
+import { styles } from './style';
 import { UploadFileService } from '../../../../../service/applicatif/UploadFile.sa';
 import { HttpStatus } from '../../../../../data/constants/Http-status';
 import { useFavorites } from '../../../../../service/redux/ducks/favorites';
 import { icons, images } from '../../../../../resources/constants';
 import { resultDate } from '../../../../../data/factory/dateFactory';
 
-const Item = props => {
-  const {offer, showDetails, index} = props;
-  const {accessToken} = useSelector(({auth}: any) => auth);
+const Item = (props) => {
+  const { offer, showDetails, index } = props;
+  const { accessToken } = useSelector(({ auth }: any) => auth);
 
   const [avatar, setAvatar] = useState('');
-  const {downloadImageById} = UploadFileService();
+  const { downloadImageById } = UploadFileService();
 
   const getAvatar = async (id: string, accessToken) => {
     try {
       const responseGetAvatar: any = await downloadImageById(id, accessToken);
       if (responseGetAvatar) {
         setAvatar(URL.createObjectURL(responseGetAvatar));
-    }
+      }
     } catch (error) {}
   };
   useEffect(() => {
@@ -28,7 +28,7 @@ const Item = props => {
   }, []);
   const [selectedItems, setSelectedItems] = React.useState([]);
 
-  const {allFavoris, removeFavoris, addFavoris} = useFavorites();
+  const { allFavoris, removeFavoris, addFavoris } = useFavorites();
 
   useEffect(() => {
     const val =
@@ -40,17 +40,17 @@ const Item = props => {
     }
   }, [allFavoris]);
 
-  const handleSelection = item => {
+  const handleSelection = (item) => {
     if (selectedItems.includes(item?.ref)) {
-      setSelectedItems(selectedItems.filter(ln => ln != item));
+      setSelectedItems(selectedItems.filter((ln) => ln != item));
     } else {
       setSelectedItems([...selectedItems, item]);
     }
   };
 
-  const addOrRemove = item => {
+  const addOrRemove = (item) => {
     if (selectedItems.includes(item)) {
-      setSelectedItems(selectedItems.filter(ln => ln != item));
+      setSelectedItems(selectedItems.filter((ln) => ln != item));
       removeFavoris(item.id);
     } else {
       setSelectedItems([...selectedItems, item]);
@@ -62,11 +62,9 @@ const Item = props => {
     <button
       key={index}
       style={styles.card_templateItem}
-      onClick={() => showDetails(offer.id)}>
-      <img
-        src={avatar  ? avatar : images.avatar_6}
-        style={styles.image}
-      />
+      onClick={() => showDetails(offer.id)}
+    >
+      <img src={avatar || images.avatar_6} style={styles.image} />
       <div style={styles.wrapperTextItem}>
         <span style={styles.itemTitle}>{offer?.name}</span>
         <span style={styles.jobPlaceItem}>{offer?.lieu}</span>
@@ -75,7 +73,10 @@ const Item = props => {
       </div>
       <button
         style={styles.footerFrame}
-        onClick={() => addOrRemove(offer)}>
+        onClick={() => {
+          addOrRemove(offer);
+        }}
+      >
         <span style={styles.candidatExp}>{resultDate(offer.createdAt)}</span>
         <div style={styles.favorisView}>
           <img
@@ -90,15 +91,15 @@ const Item = props => {
   );
 };
 
-const FlatOffer = props => {
-  const {offerList, showDetails} = props;
+const FlatOffer = (props) => {
+  const { offerList, showDetails } = props;
 
   return (
-    <div style={{overflowY: "auto", ...styles.listItemOffer}}>
+    <div style={{ overflowY: 'auto', ...styles.listItemOffer }}>
       {offerList?.map((offer, index) => (
         <Item offer={offer} index={index} showDetails={showDetails} />
       ))}
-      <div style={{height: 100}}></div>
+      <div style={{ height: 100 }}></div>
     </div>
   );
 };

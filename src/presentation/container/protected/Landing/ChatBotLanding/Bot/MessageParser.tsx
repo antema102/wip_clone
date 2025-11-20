@@ -1,4 +1,4 @@
-import React, { ReactNode, ReactElement } from 'react';
+import React, { type ReactNode, ReactElement } from 'react';
 
 interface MessageParserProps {
   children: ReactNode;
@@ -12,11 +12,11 @@ interface ChildProps {
 
 const MessageParser: React.FC<MessageParserProps> = (props) => {
   const { children, actions } = props;
-  const candidatQuestion = children.props.state.candidatQuestion || []
+  const candidatQuestion = children.props.state.candidatQuestion || [];
 
   const parse = (message: string) => {
     if (message.includes('wipwork')) {
-      const filteredQuestions = candidatQuestion.filter(question =>
+      const filteredQuestions = candidatQuestion.filter((question) =>
         question.toLowerCase().includes('wipwork')
       );
       actions.questionFiltre(filteredQuestions);
@@ -28,8 +28,9 @@ const MessageParser: React.FC<MessageParserProps> = (props) => {
       {React.Children.map(children, (child) => {
         if (React.isValidElement<ChildProps>(child)) {
           return React.cloneElement<ChildProps>(child, {
-            parse: parse,
-            actions: actions});
+            parse,
+            actions,
+          });
         }
         return child;
       })}

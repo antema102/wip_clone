@@ -1,8 +1,7 @@
 import './styles.scss';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import React, { useState, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { COLORS, images, icons } from '../../../../resources/constants';
 import Footer from '../../../components/Footer';
 import { MAIL_VALIDATION } from '../../../../common/utils/validation';
@@ -12,31 +11,36 @@ import { useUser } from '../../../../service/redux/ducks/user';
 import { getGoogleToken } from '../../../../service/technique/firebaseWeb';
 import { Toast } from 'primereact/toast';
 import CarouselContent from '../../../components/CarouselContent';
-import { GoogleLogin, GoogleOAuthProvider, CredentialResponse } from '@react-oauth/google';
+import {
+  GoogleLogin,
+  GoogleOAuthProvider,
+  type CredentialResponse,
+} from '@react-oauth/google';
 
 interface User {
-  active: boolean,
+  active: boolean;
   role: string;
   id: string;
-  createdAt: Date,
-  email: string,
-  soldeWip: Number,
-  lastName: string,
-  isSubscribed: Boolean}
+  createdAt: Date;
+  email: string;
+  soldeWip: number;
+  lastName: string;
+  isSubscribed: boolean;
+}
 interface data {
-  message: string,
+  message: string;
   data: {
-    accessToken: string,
-    refreshToken: string,
+    accessToken: string;
+    refreshToken: string;
     user: User;
-  },
-  isError: boolean
+  };
+  isError: boolean;
 }
 
 interface ValuesProps {
-  email: string,
+  email: string;
   password: string;
-  role: string
+  role: string;
 }
 
 interface TitleLabels {
@@ -50,7 +54,8 @@ interface TitleLabels {
 }
 
 export const Login = (): any => {
-  const CLIENT_ID: string = "951404007538-q0lk92om16g7t0li5bhr60ec6mkqi8cj.apps.googleusercontent.com";
+  const CLIENT_ID =
+    '951404007538-q0lk92om16g7t0li5bhr60ec6mkqi8cj.apps.googleusercontent.com';
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { isServerDown } = useSelector(({ app }) => app);
   const [email, setEmail] = useState<string>('');
@@ -63,7 +68,8 @@ export const Login = (): any => {
   const [values, setValues] = useState<ValuesProps>({
     email: '',
     password: '',
-    role: 'candidate'});
+    role: 'candidate',
+  });
 
   const navigate = useNavigate();
   const handleNavigation = () => {
@@ -75,10 +81,13 @@ export const Login = (): any => {
   const TitleLabels: TitleLabels = {
     Login: {
       email: 'Entrez votre email',
-      password: 'Entrez votre mot de passe'},
+      password: 'Entrez votre mot de passe',
+    },
 
     ForgotPwd: {
-      email: 'Insérez votre email'}};
+      email: 'Insérez votre email',
+    },
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -102,14 +111,29 @@ export const Login = (): any => {
   const checkValidMail = () => !MAIL_VALIDATION.test(values.email);
   const handleSubmit = async () => {
     if (checkEmptyEmail()) {
-      toast.current?.show({ severity: 'error', summary: 'Erreur', detail: ERROR.EMPTY_EMAIL, life: 3000 });
+      toast.current?.show({
+        severity: 'error',
+        summary: 'Erreur',
+        detail: ERROR.EMPTY_EMAIL,
+        life: 3000,
+      });
     }
     if (checkPwd()) {
-      toast.current?.show({ severity: 'error', summary: 'Erreur', detail: ERROR.EMPTY_PWD, life: 3000 });
+      toast.current?.show({
+        severity: 'error',
+        summary: 'Erreur',
+        detail: ERROR.EMPTY_PWD,
+        life: 3000,
+      });
     }
     if (email !== '') {
       if (checkValidMail()) {
-        toast.current?.show({ severity: 'error', summary: 'Erreur', detail: ERROR.EMAIL_INVALID, life: 3000 });
+        toast.current?.show({
+          severity: 'error',
+          summary: 'Erreur',
+          detail: ERROR.EMAIL_INVALID,
+          life: 3000,
+        });
         return;
       }
     } else {
@@ -118,12 +142,15 @@ export const Login = (): any => {
     if (!errorEmail && !errorPwd) {
       setIsLoading(true);
       try {
-        const response: any = await loginWithEmail({ ...values })
+        const response: any = await loginWithEmail({ ...values });
         if (!response?.data?.isError) {
           const currentUser = response?.data?.user;
           values.email = '';
           values.password = '';
-          if (currentUser.role === ROLEACCOUNT.company && !currentUser?.abonnementId) {
+          if (
+            currentUser.role === ROLEACCOUNT.company &&
+            !currentUser?.abonnementId
+          ) {
             navigate('/MyAccount');
             setIsLoading(false);
             return;
@@ -131,14 +158,20 @@ export const Login = (): any => {
             const googleToken = await getGoogleToken();
             if (googleToken) {
               try {
-                const updateResponse = await updateUser(currentUser?.accessToken, currentUser?.id, { googleToken: googleToken });
+                const updateResponse = await updateUser(
+                  currentUser?.accessToken,
+                  currentUser?.id,
+                  { googleToken }
+                );
                 if (updateResponse) {
                   console.log('Utilisateur mis à jour avec succès.');
                 } else {
-                  console.error('Erreur lors de la mise à jour de l\'utilisateur.');
+                  console.error(
+                    "Erreur lors de la mise à jour de l'utilisateur."
+                  );
                 }
               } catch (error) {
-                console.error('Erreur lors de l\'appel à updateUser:', error);
+                console.error("Erreur lors de l'appel à updateUser:", error);
               }
             } else {
               console.error('Aucun token Google reçu.');
@@ -152,7 +185,7 @@ export const Login = (): any => {
             severity: 'error',
             summary: 'Erreur',
             detail: response?.data?.message || 'Erreur serveur',
-            life: 3000
+            life: 3000,
           });
         }
       } catch (error: any) {
@@ -161,7 +194,7 @@ export const Login = (): any => {
           severity: 'error',
           summary: 'Erreur',
           detail: error.toString(),
-          life: 3000
+          life: 3000,
         });
       }
     }
@@ -173,19 +206,23 @@ export const Login = (): any => {
         return;
       }
       const data = { token: credentialResponse.credential };
-      const response = await loginWithGoogle(data) as data;
+      const response = (await loginWithGoogle(data)) as data;
       setIsLoading(true);
       if (!response?.isError) {
         const currentUser = response?.data;
         const googleToken = await getGoogleToken();
         if (googleToken) {
           try {
-            const updateResponse = await updateUser(currentUser?.accessToken, currentUser?.user?.id, { googleToken: googleToken });
+            const updateResponse = await updateUser(
+              currentUser?.accessToken,
+              currentUser?.user?.id,
+              { googleToken }
+            );
             if (updateResponse) {
               console.log('');
             }
           } catch (error) {
-            console.error('Erreur lors de l\'appel à updateUser:', error);
+            console.error("Erreur lors de l'appel à updateUser:", error);
           }
         } else {
           console.error('');
@@ -198,17 +235,17 @@ export const Login = (): any => {
           severity: 'error',
           summary: 'Erreur',
           detail: response?.message || 'Erreur serveur',
-          life: 3000
+          life: 3000,
         });
       }
     } catch (error) {
-      console.error("Erreur lors du login Google :", error);
+      console.error('Erreur lors du login Google :', error);
       setIsLoading(false);
     }
   };
 
   const handleError = () => {
-    console.error("Échec de la connexion Google");
+    console.error('Échec de la connexion Google');
   };
 
   useEffect(() => {
@@ -219,71 +256,125 @@ export const Login = (): any => {
 
   return (
     <>
-      <Toast ref={toast} position='bottom-right' />
-      <div className='containerBackground'>
-        <div className='containers container'>
-          <CarouselContent text={"WIP work,la plateforme pour trouver votre job de rêve et vos futurs collaborateurs en un simples clics."} />
-          <div className='login'>
-            <div className='login__logo'>
-              <img onClick={() => navigate('/home')} src={images.WipWork} width={164} height={70} alt='logo' />
+      <Toast ref={toast} position="bottom-right" />
+      <div className="containerBackground">
+        <div className="containers container">
+          <CarouselContent
+            text={
+              'WIP work,la plateforme pour trouver votre job de rêve et vos futurs collaborateurs en un simples clics.'
+            }
+          />
+          <div className="login">
+            <div className="login__logo">
+              <img
+                onClick={() => {
+                  navigate('/home');
+                }}
+                src={images.WipWork}
+                width={164}
+                height={70}
+                alt="logo"
+              />
             </div>
-            <div className='login__formsText'>
-              <div className='login__title'>
+            <div className="login__formsText">
+              <div className="login__title">
                 <h1>Connectez-vous</h1>
                 <p>Bienvenue , saisissez vos informations.</p>
               </div>
-              <div className='login__form'>
-                <div className='login__input'>
-                  <input type='text' name='email' placeholder={TitleLabels.Login.email} value={values.email} onChange={handleChange} maxLength={50} required />
-                  <div className='login__svg'>
-                    <img src={icons.email} alt='email' width={15} height={15} />
+              <div className="login__form">
+                <div className="login__input">
+                  <input
+                    type="text"
+                    name="email"
+                    placeholder={TitleLabels.Login.email}
+                    value={values.email}
+                    onChange={handleChange}
+                    maxLength={50}
+                    required
+                  />
+                  <div className="login__svg">
+                    <img src={icons.email} alt="email" width={15} height={15} />
                   </div>
                 </div>
-                <div className='login__input'>
-                  <input placeholder={TitleLabels.Login.password} value={values.password} name="password"
-                    type={isVisible ? 'text' : 'password'} onChange={handleChange} maxLength={50} required />
-                  <div className='login__svg'>
-                    <img src={icons.verrouillage} alt='password' width={15} height={15} />
+                <div className="login__input">
+                  <input
+                    placeholder={TitleLabels.Login.password}
+                    value={values.password}
+                    name="password"
+                    type={isVisible ? 'text' : 'password'}
+                    onChange={handleChange}
+                    maxLength={50}
+                    required
+                  />
+                  <div className="login__svg">
+                    <img
+                      src={icons.verrouillage}
+                      alt="password"
+                      width={15}
+                      height={15}
+                    />
                   </div>
-                  <div className='login__visibility' onClick={() => setVisible(!isVisible)}>
-                    <img src={isVisible ? icons.novisibility : icons.visibility} alt='visibility' width={15} height={15} />
+                  <div
+                    className="login__visibility"
+                    onClick={() => {
+                      setVisible(!isVisible);
+                    }}
+                  >
+                    <img
+                      src={isVisible ? icons.novisibility : icons.visibility}
+                      alt="visibility"
+                      width={15}
+                      height={15}
+                    />
                   </div>
                 </div>
               </div>
-              <div className='login__formulaire'>
-                <div className='login__checkbox'>
-                  <input type='checkbox' />
-                  <div className='login__checkboxText'>
+              <div className="login__formulaire">
+                <div className="login__checkbox">
+                  <input type="checkbox" />
+                  <div className="login__checkboxText">
                     <span>Se souvenir de moi</span>
-                    <span onClick={(e: any) => navigate('/forgetPassword')}>Mot de passe oublié ?</span>
+                    <span
+                      onClick={(e: any) => {
+                        navigate('/forgetPassword');
+                      }}
+                    >
+                      Mot de passe oublié ?
+                    </span>
                   </div>
                 </div>
-                <div className='login__btn'>
+                <div className="login__btn">
                   <button onClick={handleSubmit} disabled={isLoading}>
-                    {
-                      isLoading ? <span className="spinner"></span> : 'Connexion'
-                    }
+                    {isLoading ? (
+                      <span className="spinner"></span>
+                    ) : (
+                      'Connexion'
+                    )}
                   </button>
                 </div>
-                <div className='login__ligne'>
-                </div>
+                <div className="login__ligne"></div>
                 <Footer
                   onClick={handleNavigation}
                   infoText={HOME.INFORMATIONS}
                   linkText={HOME.REDIRECT}
                 />
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
                   <GoogleOAuthProvider clientId={CLIENT_ID}>
                     <GoogleLogin
                       onSuccess={handleSuccess}
                       onError={handleError}
-                      size='large'
-                      width='200'
-                      theme='outline'
+                      size="large"
+                      width="200"
+                      theme="outline"
                     />
                   </GoogleOAuthProvider>
                 </div>
-
               </div>
             </div>
           </div>

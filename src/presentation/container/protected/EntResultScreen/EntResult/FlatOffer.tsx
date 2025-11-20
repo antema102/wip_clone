@@ -1,17 +1,15 @@
 import React from 'react';
-;
 import styles from './styles';
 import { images } from '../../../../../resources/constants';
-
-const FlatOffer = props => {
-  const {variable, displayDetail, avatar,imageStyle} = props;
+const FlatOffer = (props) => {
+  const { variable, displayDetail, avatar, imageStyle } = props;
   return (
     <button onClick={() => displayDetail(variable)}>
       <div style={styles.itemWrapperOffer}>
         <div style={styles.itemOffer}>
           <img
-            style={[styles.logoSte,imageStyle]}
-            src={avatar  ? avatar : images.avatar_6}
+            style={[styles.logoSte, imageStyle]}
+            src={avatar || images.avatar_6}
           />
           <div style={styles.textAlign}>
             <div>
@@ -19,7 +17,7 @@ const FlatOffer = props => {
                 {variable.name}
               </span>
             </div>
-            <div style={{paddingVertical: 5}}>
+            <div style={{ paddingVertical: 5 }}>
               <span style={styles.lieuPost}>{variable.lieu}</span>
             </div>
             <div>

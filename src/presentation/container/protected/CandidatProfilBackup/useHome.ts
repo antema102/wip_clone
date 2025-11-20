@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 
 export function useHome() {
   const [refreshing, setRefreshing] = useState(false);
@@ -13,5 +13,6 @@ export function useHome() {
 
   return {
     refreshing,
-    init};
+    init,
+  };
 }

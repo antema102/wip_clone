@@ -1,16 +1,15 @@
 import { useEffect, useState } from 'react';
-;
 import {
   defaultValues,
-  IError,
+  type IError,
   showErrorValuesDefault,
-  showErrorValuesSubmit} from './dtoInfo';
-
+  showErrorValuesSubmit,
+} from './dtoInfo';
 export const useForm = (
   dataInfo: any,
   Validate: any,
   handleSave: any,
-  setData: any,
+  setData: any
 ) => {
   const [dto, setDto] = useState({ error: true, dataInfo });
   const [showErrors, setShowErrors] = useState(showErrorValuesDefault);
@@ -27,7 +26,8 @@ export const useForm = (
         _value = {
           uri: value.uri,
           type: value.type,
-          name: value.fileName};
+          name: value.fileName,
+        };
       }
       setData('info', { ...dataInfo, [name]: _value });
     }
@@ -38,13 +38,13 @@ export const useForm = (
     }
   };
 
-  const noError = () => Object.values(errors).every(error => !error);
+  const noError = () => Object.values(errors).every((error) => !error);
 
   const handleSubmit = () => {
     setShowErrors(showErrorValuesSubmit);
     setErrors(Validate(dataInfo));
     if (noError()) {
-      setDto({ error: false, dataInfo: dataInfo });
+      setDto({ error: false, dataInfo });
     } else {
       setDto({ error: true, dataInfo: {} });
     }
@@ -64,5 +64,6 @@ export const useForm = (
     errors,
     showErrors,
     dto,
-    showError};
+    showError,
+  };
 };

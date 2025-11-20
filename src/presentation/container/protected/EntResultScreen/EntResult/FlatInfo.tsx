@@ -1,7 +1,5 @@
 import React from 'react';
-;
 import styles from './styles';
-
 class FlatInfo extends React.Component {
   render() {
     const variable = this.props.variable;

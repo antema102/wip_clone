@@ -16,18 +16,18 @@ const NewsInformationScreen = (props: any) => {
   const [list, setList] = useState<any>(state.info || {});
   const [isLoading, setIsLoading] = useState(false);
   const [visible, setVisible] = useState(false);
-  const { isMobile } = useMobile()
+  const { isMobile } = useMobile();
   const { getNewsById } = NewsService();
 
   const showDescription = () => {
     if (isMobile) {
-      navigate('/NewsInformationScreenDescription', { state: { data: list } })
+      navigate('/NewsInformationScreenDescription', { state: { data: list } });
     } else {
       setVisible(true);
     }
-  }
+  };
 
-  const NewsById = async id => {
+  const NewsById = async (id) => {
     setIsLoading(true);
 
     try {
@@ -47,19 +47,37 @@ const NewsInformationScreen = (props: any) => {
   }, []);
 
   return (
-    <div style={{ overflowY: "auto", backgroundColor: COLORS.white, flex: 1, borderTopLeftRadius: 20, borderTopRightRadius: 20 }}>
-      <CustomModal title={list?.category?.toUpperCase()} visible={visible} setVisible={setVisible} content={<NewsWebViewScreen data={list} />} />
-      <div style={{...(isMobile ? { padding: 14 } : {}), ...styles.wrapperImg}}>
+    <div
+      style={{
+        overflowY: 'auto',
+        backgroundColor: COLORS.white,
+        flex: 1,
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
+      }}
+    >
+      <CustomModal
+        title={list?.category?.toUpperCase()}
+        visible={visible}
+        setVisible={setVisible}
+        content={<NewsWebViewScreen data={list} />}
+      />
+      <div
+        style={{ ...(isMobile ? { padding: 14 } : {}), ...styles.wrapperImg }}
+      >
         <img
           src={list?.image ? { uri: list?.image } : images.home}
-          style={isMobile ? { width: '100%', height: 250, borderRadius: 10 } : styles.itemImg}
+          style={
+            isMobile
+              ? { width: '100%', height: 250, borderRadius: 10 }
+              : styles.itemImg
+          }
         />
       </div>
       <div style={{ paddingHorizontal: 16 }}>
         <div style={styles.wrapperText}>
           <span style={styles.category}>{list?.category?.toUpperCase()}</span>
-          <button
-            onClick={showDescription}>
+          <button onClick={showDescription}>
             <span style={styles.title}>{list?.title}</span>
           </button>
           <span style={styles.content}>{list?.description}</span>
@@ -71,13 +89,10 @@ const NewsInformationScreen = (props: any) => {
         <span style={styles.source}>{list?.author}</span>
 
         {list?.url && (
-          <button
-            style={styles.seeMoreContainer}
-            onClick={showDescription}>
+          <button style={styles.seeMoreContainer} onClick={showDescription}>
             <span style={styles.seeMoreText}>{NEWS_INFORMARIONS.SEE_MORE}</span>
           </button>
         )}
-
       </div>
       {isLoading ? <Loader /> : null}
     </div>

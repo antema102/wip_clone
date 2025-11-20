@@ -1,19 +1,21 @@
-import {useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-export type PaymentState = {};
+export interface PaymentState {}
 
 export const enum paymentActionType {
-  dispatchUser = '[payment] dispatch User'}
+  dispatchUser = '[payment] dispatch User',
+}
 
 export const initialPaymentState: PaymentState = {};
 
 export const paymentReducer = (state = initialPaymentState, action) => {
-  const {type, payload} = action;
+  const { type, payload } = action;
   switch (type) {
     case paymentActionType.dispatchUser:
       return {
         ...state,
-        user: payload};
+        user: payload,
+      };
     default:
       return state;
   }
@@ -32,11 +34,13 @@ export const usePayment = () => {
         const payload = currentUser;
         dispatch({
           payload,
-          type: paymentActionType.dispatchUser});
+          type: paymentActionType.dispatchUser,
+        });
 
         return payload;
       } catch (error) {
-        return Promise.reject(error);
+        return await Promise.reject(error);
       }
-    }};
+    },
+  };
 };

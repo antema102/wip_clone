@@ -1,16 +1,23 @@
-import React, {useState, useEffect} from 'react';
-;
+import React, { useState, useEffect } from 'react';
 import StreamPlayer from '../../../components/StreamPlayer';
+interface DisplayVideoProps {
+  isExample?: boolean;
+  candidatId?: string;
+  viewOnly?: boolean;
+}
 
-type DisplayVideoProps = {
- isExample?:boolean,
- candidatId?: string,
- viewOnly?:boolean}
-
-const DisplayVideo = ({ isExample, candidatId, viewOnly}: DisplayVideoProps ) => {
+const DisplayVideo = ({
+  isExample,
+  candidatId,
+  viewOnly,
+}: DisplayVideoProps) => {
   return (
-    <div style={{minWidth:700, marginTop: 0}}>
-        <StreamPlayer isExample={isExample} candidatId={candidatId} viewOnly={viewOnly} />
+    <div style={{ minWidth: 700, marginTop: 0 }}>
+      <StreamPlayer
+        isExample={isExample}
+        candidatId={candidatId}
+        viewOnly={viewOnly}
+      />
     </div>
   );
 };

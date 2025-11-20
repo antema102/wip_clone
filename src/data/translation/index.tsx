@@ -8,7 +8,9 @@ interface LangContextType {
 
 const LangContext = createContext<LangContextType | undefined>(undefined);
 
-export const LangProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
+export const LangProvider: React.FC<React.PropsWithChildren<{}>> = ({
+  children,
+}) => {
   const [lang, setLang] = useState('fr');
 
   return (
@@ -26,7 +28,7 @@ export const LangProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }
  */
 export const useLang = () => {
   const context = useContext(LangContext);
-  if (!context) {
+  if (context == null) {
     throw new Error('useLang must be used within a LangProvider');
   }
   return context;

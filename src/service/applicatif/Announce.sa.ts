@@ -1,10 +1,11 @@
-import { AnnounceBDL } from "../bdl/Announce.bdl";
+import { AnnounceBDL } from '../bdl/Announce.bdl';
 
 export const AnnounceService = () => {
-  const {allAnnounce, getAnnouncesByCategoryName} = AnnounceBDL();
+  const { allAnnounce, getAnnouncesByCategoryName } = AnnounceBDL();
 
   return {
-    allAnnounce: (token: string) => allAnnounce(token),
-    getAnnouncesByCategoryName: (token: string, name: string) =>
-      getAnnouncesByCategoryName(token, name)};
+    allAnnounce: async (token: string) => await allAnnounce(token),
+    getAnnouncesByCategoryName: async (token: string, name: string) =>
+      await getAnnouncesByCategoryName(token, name),
+  };
 };

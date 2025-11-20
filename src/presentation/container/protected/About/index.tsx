@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 const About = () => {
   return (
-  <div>
-    <span>lorem*10</span>
-  </div>
-  )
-}
+    <div>
+      <span>lorem*10</span>
+    </div>
+  );
+};
 
-export default About
+export default About;

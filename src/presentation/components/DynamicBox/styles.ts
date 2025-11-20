@@ -1,10 +1,8 @@
-;
-
 import { COLORS, SIZES } from '../../../resources/constants';
 
 const { width } = Dimensions.get('window');
 
-export default ({
+export default {
   container: {
     display: 'flex',
     flexDirection: 'row',
@@ -14,7 +12,8 @@ export default ({
     alignItems: 'center',
     justifyContent: 'center',
     // backgroundColor: 'red',
-    paddingHorizontal: 0},
+    paddingHorizontal: 0,
+  },
 
   button: {
     // width: 150,
@@ -29,7 +28,8 @@ export default ({
     // marginRight: 10,
     // marginHorizontal: 10,
     paddingHorizontal: 10,
-    backgroundColor: 'red'},
+    backgroundColor: 'red',
+  },
   tagNavContainer: {
     // width: '30%', // Adjust the width as per your desired layout
     height: 50,
@@ -39,10 +39,12 @@ export default ({
     marginBottom: SIZES.padding2,
     padding: 10,
     justifyContent: 'center',
-    alignItems: 'center'},
+    alignItems: 'center',
+  },
   text: {
     fontWeight: 'bold',
     color: COLORS.black,
     fontSize: width > 991 ? SIZES.h5 : 12,
-    textAlign: 'center'}
-});
+    textAlign: 'center',
+  },
+};

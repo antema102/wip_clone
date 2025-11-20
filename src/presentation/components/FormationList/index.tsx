@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
-;
 import { useSelector } from 'react-redux';
 import { useFormation } from '../../../service/redux/ducks/formation';
 import { useNavigate } from 'react-router-dom';
 import Loader from '../Loader';
 import { ListFormation } from './ListFormation';
 import { stylesCard } from '../SideBarCandidat/styles';
-
 export const EnterpriseFormationList = () => {
   const navigate = useNavigate();
   const { findAllFormationByCompanyId } = useFormation();
@@ -15,7 +13,6 @@ export const EnterpriseFormationList = () => {
   const [formationList, setFormationList] = useState<string[]>([]);
 
   const { user, accessToken } = useSelector(({ auth }) => auth);
-
 
   const findAllFormation = async () => {
     try {
@@ -33,7 +30,9 @@ export const EnterpriseFormationList = () => {
     navigate('/EnterpriseOfferSheetScreen', {
       state: {
         formation,
-        isFormation: true}});
+        isFormation: true,
+      },
+    });
   };
 
   useEffect(() => {

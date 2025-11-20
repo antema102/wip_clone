@@ -5,12 +5,20 @@ import { useSelector } from 'react-redux';
 import { styles } from './styles';
 import { useNavigate } from 'react-router-dom';
 import { UserSA } from '../../../../../service/applicatif/User.sa';
-import { CONTACT_CANDIDAT, DETAIL_PROFIL, ENTERPRISE_INFORMATIONS, ROLEACCOUNT } from '../../../../../data/constants/strings';
+import {
+  CONTACT_CANDIDAT,
+  DETAIL_PROFIL,
+  ENTERPRISE_INFORMATIONS,
+  ROLEACCOUNT,
+} from '../../../../../data/constants/strings';
 import { COLORS, icons } from '../../../../../resources/constants';
 import Buttons from '../../../../components/Button/button';
 import globalStyle from '../../../../globalStyle/globalStyle';
 import Loader from '../../../../components/Loader';
-import { storeSoldeWip, usePayment } from '../../../../../service/redux/ducks/payment';
+import {
+  storeSoldeWip,
+  usePayment,
+} from '../../../../../service/redux/ducks/payment';
 import PopupMesage from '../../../../components/CreateCV/Popup';
 import Button from '../../../../components/Button/button';
 import CustomModal from '../../../../components/Modal';
@@ -18,10 +26,9 @@ import { PaymentWays } from '../../../../components/PaymentWays';
 
 interface PopupType {
   phone: number;
-  receiver: { [key: string]: string };
-  [key: string]: string | number | { [key: string]: string };
+  receiver: Record<string, string>;
+  [key: string]: string | number | Record<string, string>;
 }
-
 
 const Popup = (props: PopupType) => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -34,8 +41,22 @@ const Popup = (props: PopupType) => {
   const [isLoading, setIsLoading] = useState(false);
   const { accessToken, user } = useSelector(({ auth }: any) => auth);
   const { dispatchUser } = usePayment();
-  const { phone, receiver, transmitter, senderId, offerId, jobTitle, didApply } = props;
-  const { sendingNotifications, payContact, checkContact, updateUserMessage, getAccessToken } = UserSA();
+  const {
+    phone,
+    receiver,
+    transmitter,
+    senderId,
+    offerId,
+    jobTitle,
+    didApply,
+  } = props;
+  const {
+    sendingNotifications,
+    payContact,
+    checkContact,
+    updateUserMessage,
+    getAccessToken,
+  } = UserSA();
 
   const handlingPhoneNumber = async () => {
     if (phone) {
@@ -45,7 +66,7 @@ const Popup = (props: PopupType) => {
         'Information : ',
         CONTACT_CANDIDAT.NO_PHONE_PHONENUMBER,
         [{ text: ENTERPRISE_INFORMATIONS.UNDO }, { text: 'OK' }],
-        { cancelable: false },
+        { cancelable: false }
       );
     }
   };
@@ -77,7 +98,7 @@ const Popup = (props: PopupType) => {
 
   const redirection = async () => {
     setResultVisible(false);
-    setShowPayment(true)
+    setShowPayment(true);
   };
 
   const checkContactLimit = async () => {
@@ -90,40 +111,37 @@ const Popup = (props: PopupType) => {
     }
   };
 
-
-
   const toContactTheCandidate = async () => {
-
     const raw = JSON.stringify({
       message: {
         token: receiver.googleToken,
         notification: {
           body: `L'entreprise : ${transmitter.name} est intéressée par votre profil pour le poste de : ${jobTitle}, veuillez cliquer pour voir plus d'informations`,
-          title: CONTACT_CANDIDAT.MESSAGE_TITLE},
+          title: CONTACT_CANDIDAT.MESSAGE_TITLE,
+        },
         data: {
-          senderId: senderId,
-          offerId: offerId}}
+          senderId,
+          offerId}}
     });
 
     const getAccessTokenFirebase = async (token: string) => {
       try {
         const response = await getAccessToken(token);
-        return response.accessToken
-      }
-      catch (error) {
+        return response.accessToken;
+      } catch (error) {
         console.error('updateNotification error:', error);
       }
-    }
+    };
 
     const notificationData = {
       data: {
         title: CONTACT_CANDIDAT.MESSAGE_TITLE,
         body: `L'entreprise : ${transmitter.name} est intéressée par votre profil pour le poste de : ${jobTitle}, veuillez cliquer pour voir plus d'informations`,
         userId: receiver.id,
-        senderId: senderId,
-        offerId: offerId,
-        read: false
-      }
+        senderId,
+        offerId,
+        read: false,
+      },
     };
 
     const updateNotification = async (data: typeof notificationData) => {
@@ -135,10 +153,10 @@ const Popup = (props: PopupType) => {
       }
     };
 
-    const token = await getAccessTokenFirebase(accessToken)
-    const response = await sendingNotifications(raw, token)
+    const token = await getAccessTokenFirebase(accessToken);
+    const response = await sendingNotifications(raw, token);
     if (response.name) {
-      updateNotification(notificationData)
+      updateNotification(notificationData);
       setModalVisible(false);
       setShowVisible(true);
     } else {
@@ -149,12 +167,16 @@ const Popup = (props: PopupType) => {
     setMessage(CONTACT_CANDIDAT.MESSAGE_SENT);
   };
 
-  useEffect(() => {
-  }, [messageVisible]);
+  useEffect(() => {}, [messageVisible]);
 
   return (
     <>
-      <CustomModal title={"Moyen de paiement"} visible={showPayment} setVisible={setShowPayment} content={<PaymentWays />} />
+      <CustomModal
+        title={'Moyen de paiement'}
+        visible={showPayment}
+        setVisible={setShowPayment}
+        content={<PaymentWays />}
+      />
       <PopupMesage
         message={ENTERPRISE_INFORMATIONS.PAYMENT_CONTACT}
         visible={messageVisible}
@@ -183,7 +205,8 @@ const Popup = (props: PopupType) => {
           visible={modalVisible}
           onRequestClose={() => {
             setModalVisible(!modalVisible);
-          }}>
+          }}
+        >
           <div style={styles.centeredView}>
             <div style={styles.modalView}>
               <div
@@ -191,27 +214,29 @@ const Popup = (props: PopupType) => {
                   width: '100%',
                   flexDirection: 'row',
                   paddingVertical: 0,
-                  justifyContent: 'center'
-                }}>
-                <button onClick={() => setModalVisible(!modalVisible)}>
+                  justifyContent: 'center',
+                }}
+              >
+                <button onClick={() => { setModalVisible(!modalVisible); }}>
                   <div
                     style={{
                       height: 20,
-                      paddingTop: 5}}>
-                    <img src={icons.Close } />
+                      paddingTop: 5,
+                    }}
+                  >
+                    <img src={icons.Close} />
                   </div>
                 </button>
               </div>
               <div style={{ height: 15 }} />
               <div style={styles.buttonContainer}>
                 <Buttons
-                  title={`Tel : ${phone ? phone : CONTACT_CANDIDAT.NO_PHONE_PHONENUMBER}`}
-                  _style={[
-                    styles.buttonBlueForContact
-                  ]}
+                  title={`Tel : ${phone || CONTACT_CANDIDAT.NO_PHONE_PHONENUMBER}`}
+                  }`}
+                  _style={[styles.buttonBlueForContact]}
                   styleBtnTxt={styles.btnTxt}
                   isDisable={true}
-                // onClick={handlingPhoneNumber}
+                  // onClick={handlingPhoneNumber}
                 />
                 <Button
                   title={DETAIL_PROFIL.MAIL_TITLE}
@@ -230,12 +255,13 @@ const Popup = (props: PopupType) => {
                       globalStyle.elevationBlue,
                     ]}
                     styleBtnTxt={styles.btnTxt}
-                    onClick={async () => toContactTheCandidate()}
+                    onClick={async () => await toContactTheCandidate()}
                   />
                 ) : null}
                 <button
                   style={[styles.buttonAnnuler]}
-                  onClick={() => setModalVisible(!modalVisible)}>
+                  onClick={() => { setModalVisible(!modalVisible); }}
+                >
                   <span style={styles.textBtnSecondary}>Annuler</span>
                 </button>
               </div>
@@ -243,8 +269,8 @@ const Popup = (props: PopupType) => {
           </div>
         </Dialog>
         <Button
-          onClick={() =>
-            condition ? checkContactLimit() : setModalVisible(true)
+          onClick={async () =>
+            { condition ? checkContactLimit() : setModalVisible(true); }
           }
           title="Contacter ce profil"
           color={COLORS.secondary}

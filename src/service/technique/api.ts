@@ -7,12 +7,13 @@ import { setServerStatus, setTokenStatus } from '../redux/ducks/app';
 import { HttpStatus } from '../../data/constants/Http-status';
 import { encryptData, decryptData } from './encryption';
 
-//const { notificationCounter, reduxJosia } = useUser();
+// const { notificationCounter, reduxJosia } = useUser();
 
 enum serveError {
   INTERNAL_SERVER = 500,
   BAD_GATEWAY = 502,
-  SERVICE_UNVALAIBLE = 503}
+  SERVICE_UNVALAIBLE = 503,
+}
 
 export const headers = (token = '') => {
   const state: any = store.getState();
@@ -25,7 +26,8 @@ export const headers = (token = '') => {
     'Content-Type': 'application/json',
     Authorization: state.auth?.accessToken
       ? `Bearer ${state.auth?.accessToken}`
-      : token};
+      : token,
+  };
 };
 
 export const headersUpload = (token = '') => {
@@ -40,12 +42,13 @@ export const headersUpload = (token = '') => {
     'Access-Control-Allow-Origin': '*',
     Authorization: state.auth?.accessToken
       ? `Bearer ${state.auth?.accessToken}`
-      : token};
+      : token,
+  };
 };
 
 export const catchError = (error: any) => {
-  let data,
-    status = 500;
+  let data;
+  let status = 500;
 
   if (error?.status) {
     status = error.status;
@@ -71,11 +74,13 @@ export const get = async (url: string, token: string, data?: any) => {
     let res;
     if (!data) {
       res = await axios.get(url, {
-        headers: token ? headers(token) : headers()});
+        headers: token ? headers(token) : headers(),
+      });
     } else {
       res = await axios.get(url, {
         headers: token ? headers(token) : headers(),
-        params: data});
+        params: data,
+      });
     }
     return res.data;
   } catch (error: any) {
@@ -96,10 +101,12 @@ export const post = async (
     if (encryption) {
       const response = encryptData(data);
       data = {
-        data: response};
+        data: response,
+      };
     }
     const res = await axios.post(url, data, {
-      headers: headers(token)});
+      headers: headers(token),
+    });
     store.dispatch(setServerStatus(false));
     return res.data;
   } catch (error: any) {
@@ -117,12 +124,13 @@ export const postAdvertisement = async (
   encryption = false
 ) => {
   try {
-    let headersToSend = headers(token);
+    const headersToSend = headers(token);
     if (data instanceof FormData) {
       headersToSend['Content-Type'] = 'multipart/form-data';
     }
     const res = await axios.post(url, data, {
-      headers: headersToSend});
+      headers: headersToSend,
+    });
     store.dispatch(setServerStatus(false));
     return res.data;
   } catch (error: any) {
@@ -137,7 +145,8 @@ export const postGoogle = async (url: string, data: any, token: string) => {
   try {
     const headers = {
       Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json'};
+      'Content-Type': 'application/json',
+    };
     const response = await axios.post(url, data, { headers });
     return response.data;
   } catch (error) {
@@ -148,7 +157,8 @@ export const postGoogle = async (url: string, data: any, token: string) => {
 export const postLoginGoogle = async (url: string, data: any) => {
   try {
     const headers = {
-      'Content-Type': 'application/json'};
+      'Content-Type': 'application/json',
+    };
     const response = await axios.post(url, data, { headers });
     return response.data;
   } catch (error) {
@@ -166,11 +176,13 @@ export const postSessionId = async (
   try {
     const headers = {
       Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json'};
+      'Content-Type': 'application/json',
+    };
     const body = {
-      title: title,
-      type: type,
-      country: flag};
+      title,
+      type,
+      country: flag,
+    };
     const response = await axios.post(url, body, { headers });
     return response.data;
   } catch (error) {
@@ -182,9 +194,11 @@ export const postJobSlot = async (url: string, token: string, type: string) => {
   try {
     const headers = {
       Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json'};
+      'Content-Type': 'application/json',
+    };
     const body = {
-      type: type};
+      type,
+    };
     const response = await axios.post(url, body, { headers });
     return response.data;
   } catch (error) {
@@ -205,7 +219,7 @@ export const postIA = async (
     const formData = new FormData();
     formData.append('session_id', session_id);
 
-    if (file) formData.append('file', file);
+    if (file != null) formData.append('file', file);
     if (query) formData.append('query', query);
     if (country_ids) formData.append('country_ids', country_ids);
 
@@ -220,8 +234,10 @@ export const postIA = async (
       method: 'POST',
       headers: {
         Authorization: `Bearer ${token}`,
-        'X-API-Key': 'bf80J843-1e70-1435-a8c1-14e1be58ddbe'},
-      body: formData});
+        'X-API-Key': 'bf80J843-1e70-1435-a8c1-14e1be58ddbe',
+      },
+      body: formData,
+    });
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -249,7 +265,7 @@ export const postIA = async (
         if (!line.startsWith('data: [COST]')) {
           const content = line.replace(/^data:\s?/, '');
           accumulated += content;
-          if (onMessage) onMessage(accumulated);
+          if (onMessage != null) onMessage(accumulated);
         }
         cursor = end + 1;
       }
@@ -264,7 +280,8 @@ export const getIA = async (url: string, token: string) => {
   try {
     const headers = {
       Authorization: `Bearer ${token}`,
-      'X-API-Key': 'bf80J843-1e70-1435-a8c1-14e1be58ddbe'};
+      'X-API-Key': 'bf80J843-1e70-1435-a8c1-14e1be58ddbe',
+    };
     const response = await axios.get(url, { headers });
     return response.data;
   } catch (error) {
@@ -292,11 +309,13 @@ export const postPdf = async (
       method: 'POST',
       headers: {
         Authorization: `Bearer ${token}`,
-        'X-API-Key': 'bf80J843-1e70-1435-a8c1-14e1be58ddbe'},
-      body: formData});
+        'X-API-Key': 'bf80J843-1e70-1435-a8c1-14e1be58ddbe',
+      },
+      body: formData,
+    });
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
     if (response.ok) {
-      return response.json();
+      return await response.json();
     }
   } catch (error) {
     console.error('Erreur lors du téléchargement du PDF :', error);
@@ -308,10 +327,12 @@ export const getPdf = async (url: string, token: string) => {
   try {
     const headers = {
       Authorization: `Bearer ${token}`,
-      'X-API-Key': 'bf80J843-1e70-1435-a8c1-14e1be58ddbe'};
+      'X-API-Key': 'bf80J843-1e70-1435-a8c1-14e1be58ddbe',
+    };
     const response = await axios.get(url, {
       headers,
-      responseType: 'blob'});
+      responseType: 'blob',
+    });
     const blob = new Blob([response.data], { type: 'application/pdf' });
     const blobUrl = URL.createObjectURL(blob);
     return blobUrl;
@@ -324,7 +345,9 @@ export const getRevenueCat = async (url) => {
   try {
     const config = {
       headers: {
-        Authorization: `Bearer ${'sk_VhIijXzkKuaxMdHvjCyPFtLAqpqTh'}`}};
+        Authorization: `Bearer ${'sk_VhIijXzkKuaxMdHvjCyPFtLAqpqTh'}`,
+      },
+    };
     const response = await axios.get(url, config);
     return response?.data;
   } catch (error) {
@@ -335,7 +358,8 @@ export const getRevenueCat = async (url) => {
 export const postWithStatus = async (url: string, data: any, token = '') => {
   try {
     const res = await axios.post(url, data, {
-      headers: headers(token)});
+      headers: headers(token),
+    });
     store.dispatch(setServerStatus(false));
     return res;
   } catch (error) {
@@ -352,7 +376,8 @@ export const postUpload = async (url: string, data: any, token = '') => {
     return await fetch(url, {
       method: 'post',
       headers: headersUpload(''),
-      body});
+      body,
+    });
   } catch (error) {
     return catchError(error);
   }
@@ -362,12 +387,14 @@ export const put = async (url: string, data = {}, token = '', params = {}) => {
   try {
     let res;
 
-    if (!Object.keys(params || {}).length) {
+    if (Object.keys(params || {}).length === 0) {
       res = await axios.put(url, data, {
-        headers: headers(token)});
+        headers: headers(token),
+      });
     } else {
       res = await axios.put(`${url}/${params}`, data, {
-        headers: headers(token)});
+        headers: headers(token),
+      });
     }
     store.dispatch(setServerStatus(false));
     return res.data;
@@ -383,7 +410,8 @@ export const putReset = async (url: string) => {
   let res;
   try {
     res = await axios.put(url, {
-      method: 'PUT'});
+      method: 'PUT',
+    });
     store.dispatch(setServerStatus(false));
     return res;
   } catch (error) {
@@ -400,12 +428,14 @@ export const putWithStatus = async (
   try {
     let res;
 
-    if (!Object.keys(params || {}).length) {
+    if (Object.keys(params || {}).length === 0) {
       res = await axios.put(url, data, {
-        headers: headers(token)});
+        headers: headers(token),
+      });
     } else {
       res = await axios.put(`${url}/${params}`, data, {
-        headers: headers(token)});
+        headers: headers(token),
+      });
     }
     store.dispatch(setServerStatus(false));
     return res;
@@ -417,7 +447,8 @@ export const putWithStatus = async (
 export const remove = async (url, token) => {
   try {
     const res = await axios.delete(url, {
-      headers: token ? headers(token) : headers()});
+      headers: token ? headers(token) : headers(),
+    });
     store.dispatch(setServerStatus(false));
     return res.data;
   } catch (error) {
@@ -437,7 +468,8 @@ export const patch = async (
   try {
     const headers = {
       Authorization: `Bearer ${token}`,
-      'X-API-Key': 'bf80J843-1e70-1435-a8c1-14e1be58ddbe'};
+      'X-API-Key': 'bf80J843-1e70-1435-a8c1-14e1be58ddbe',
+    };
     const res = await axios.patch(url, data, { headers });
     return res.data;
   } catch (error) {
@@ -464,4 +496,5 @@ export default {
   getPdf,
   postPdf,
   postAdvertisement,
-  postLoginGoogle};
+  postLoginGoogle,
+};

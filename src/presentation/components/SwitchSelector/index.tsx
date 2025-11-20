@@ -7,7 +7,9 @@ const SwitchSelector = ({ options, selectedOption, onChange }) => {
       {options.map((option) => (
         <div
           key={option.value}
-          className={`switch ${selectedOption === option.value ? 'active' : ''}`}
+          className={`switch ${
+            selectedOption === option.value ? 'active' : ''
+          }`}
           onClick={() => onChange(option.value)}
         >
           {option.label}
