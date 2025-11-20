@@ -37,7 +37,8 @@ const Popup = (props: PopupProps) => {
     isFormation,
     handleCancelFormation,
     isBuyCredit,
-    action} = props;
+    action,
+  } = props;
 
   const handleValidation = () => {
     if (!action) {

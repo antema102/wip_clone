@@ -4,7 +4,7 @@ import config from '../../data/constants/config';
 export const encryptData = (dataJSON: any) => {
   const encryptedData = CryptoJS.AES.encrypt(
     JSON.stringify(dataJSON),
-    config.hashKey,
+    config.hashKey
   ).toString();
   return encryptedData;
 };

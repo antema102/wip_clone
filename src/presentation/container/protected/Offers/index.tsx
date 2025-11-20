@@ -1,7 +1,5 @@
-import React from 'react';
-;
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
 
 import styles from './style';
 import { useFormation } from '../../../../service/redux/ducks/formation';
@@ -11,7 +9,6 @@ import Loader from '../../../components/Loader';
 import { COLORS } from '../../../../resources/constants';
 import DynamicBox from '../../../components/DynamicBox';
 import { useNavigate } from 'react-router-dom';
-
 export const companySectors = [
   'Finance',
   'Comptabilité',
@@ -60,35 +57,47 @@ const Offers = (props: any) => {
     ]);
   }, []);
 
-  useEffect(() => { }, [isRefreshing]);
+  useEffect(() => {}, [isRefreshing]);
 
-  const navigateCombinaisonCandidat = (item:any, index:number) => navigate('/CombinaisonCandidatScreen', {
-    state: {
-      idJob: item?.id,
-      allJobParams: listJobs,
-      isOffer: true,
-      isClicked: index,
-      initial: item}
-  });
+  const navigateCombinaisonCandidat = (item: any, index: number) => {
+    navigate('/CombinaisonCandidatScreen', {
+      state: {
+        idJob: item?.id,
+        allJobParams: listJobs,
+        isOffer: true,
+        isClicked: index,
+        initial: item,
+      },
+    });
+  };
 
-
-  const navigateItemByCategory = () => navigate('/ItemByCategoryScreen', {
-    state: {
-      list: listFormations,
-      isFormation: true}
-  });
+  const navigateItemByCategory = () => {
+    navigate('/ItemByCategoryScreen', {
+      state: {
+        list: listFormations,
+        isFormation: true,
+      },
+    });
+  };
 
   return (
     <div
       style={{
         marginTop: 20,
         justifyContent: 'space-between',
-        backgroundColor: 'white'}}>
+        backgroundColor: 'white',
+      }}
+    >
       {isRefreshing ? (
         <Loader />
       ) : (
         <>
-          <DynamicBox listJobs={listJobs} countFormations={countFormations} navigateItemByCategory={navigateItemByCategory} navigateCombinaisonCandidat={navigateCombinaisonCandidat}/>
+          <DynamicBox
+            listJobs={listJobs}
+            countFormations={countFormations}
+            navigateItemByCategory={navigateItemByCategory}
+            navigateCombinaisonCandidat={navigateCombinaisonCandidat}
+          />
         </>
       )}
     </div>

@@ -10,10 +10,10 @@ import { UploadFileService } from '../../../service/applicatif/UploadFile.sa';
 import { useSelector } from 'react-redux';
 import Avatar from '../Skeleton/Avatar';
 
-const NotificationItem = props => {
-  const { lang } = useLang()
+const NotificationItem = (props) => {
+  const { lang } = useLang();
   const [avatar, setAvatar] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState<Boolean>(true)
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const { item, displayDetail } = props;
   const activeString = lang === 'fr' ? stringsFr : stringsEn;
   const { accessToken } = useSelector(({ auth }) => auth);
@@ -23,7 +23,7 @@ const NotificationItem = props => {
     try {
       setIsLoading(true);
       const responseGetAvatar = await downloadImageById(id, accessToken);
-      if (responseGetAvatar) {
+      if (responseGetAvatar != null) {
         setAvatar(URL.createObjectURL(responseGetAvatar));
       } else {
         setAvatar(null);
@@ -45,19 +45,11 @@ const NotificationItem = props => {
       <div style={styles.itemWrapperOffer}>
         <div style={styles.itemOffer}>
           {isLoading ? (
-            <Avatar />  
+            <Avatar />
+          ) : avatar ? (
+            <img style={styles.logoSte} src={avatar} />
           ) : (
-            avatar ? (
-              <img
-                style={styles.logoSte} 
-                src={avatar } 
-              />
-            ) : (
-              <img
-                style={styles.logoSte}
-                src={images.avatar_6 }  
-              />
-            )
+            <img style={styles.logoSte} src={images.avatar_6} />
           )}
           <div style={[styles.textAlign, { marginLeft: 16 }]}>
             <div>
@@ -69,7 +61,9 @@ const NotificationItem = props => {
               <span style={styles.lieuPost}>{item.body}</span>
             </div>
             <div>
-              <span style={styles.periodePost}>{resultDate(item.createdAt)}</span>
+              <span style={styles.periodePost}>
+                {resultDate(item.createdAt)}
+              </span>
             </div>
           </div>
         </div>

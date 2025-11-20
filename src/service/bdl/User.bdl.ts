@@ -3,22 +3,23 @@ import blobVideo from '../technique/displayVideoBlob';
 import urls from '../../data/constants/urls';
 
 export const UserBDL = () => ({
-  getUserById: (id: string, token: string) =>
-    api.get(urls.FETCH_USERBYID + id, token),
+  getUserById: async (id: string, token: string) =>
+    await api.get(urls.FETCH_USERBYID + id, token),
 
-  postUser: (type: string, token: string) =>
-    api.post(`${urls.FETCH_USERBYID}/${type}`, {}, token),
+  postUser: async (type: string, token: string) =>
+    await api.post(`${urls.FETCH_USERBYID}/${type}`, {}, token),
 
-  postCreateUuid: (token: string) => api.post(urls.Uuid, {}, token),
+  postCreateUuid: async (token: string) => await api.post(urls.Uuid, {}, token),
 
-  postAuthentication: (data: any) =>
-    api.postLoginGoogle(`${urls.LOGIN_GOOGLE}`, data),
+  postAuthentication: async (data: any) =>
+    await api.postLoginGoogle(`${urls.LOGIN_GOOGLE}`, data),
 
-  getCostsUser: (token: string) =>
-    api.get(urls.GET_COSTS, token, {
-      size: '100'}),
+  getCostsUser: async (token: string) =>
+    await api.get(urls.GET_COSTS, token, {
+      size: '100',
+    }),
 
-  updateCv: (
+  updateCv: async (
     token: string,
     pointId: string,
     data: {
@@ -26,68 +27,75 @@ export const UserBDL = () => ({
       enterprise_ids?: string[];
       is_active?: boolean;
     }
-  ) => api.patch(`${urls.UPDATE_CV}/${pointId}/metadata`, data, token),
+  ) => await api.patch(`${urls.UPDATE_CV}/${pointId}/metadata`, data, token),
 
-  getCountryBySessionId: (token: string, sessionId: string) =>
-    api.get(`${urls.GET_COUNTRY_BY_SESSION}/${sessionId}`, token),
+  getCountryBySessionId: async (token: string, sessionId: string) =>
+    await api.get(`${urls.GET_COUNTRY_BY_SESSION}/${sessionId}`, token),
 
-  getExternalUSer: (token: string, enterpriseId: string) =>
-    api.get(`${urls.GET_EXTERNAL_USER}`, token, { enterpriseId: enterpriseId }),
+  getExternalUSer: async (token: string, enterpriseId: string) =>
+    await api.get(`${urls.GET_EXTERNAL_USER}`, token, { enterpriseId }),
 
-  getCostsUserByName: (token: string, name: string) =>
-    api.get(`${urls.GET_COSTS}?name=${name}`, token),
+  getCostsUserByName: async (token: string, name: string) =>
+    await api.get(`${urls.GET_COSTS}?name=${name}`, token),
 
-  getSpotVideo: (token: string) =>
-    api.get(urls.GET_SPOT_VIDEO, token, {
-      size: '100'}),
+  getSpotVideo: async (token: string) =>
+    await api.get(urls.GET_SPOT_VIDEO, token, {
+      size: '100',
+    }),
 
-  getSpotVideoById: (token: string, id: string) =>
-    api.get(`${urls.GET_SPOT_VIDEO_BY_ID}/${id}`, token),
+  getSpotVideoById: async (token: string, id: string) =>
+    await api.get(`${urls.GET_SPOT_VIDEO_BY_ID}/${id}`, token),
 
-  getUserText: (token: string) =>
-    api.get(urls.DYNAMIC_TEXT, token, {
-      size: '100'}),
+  getUserText: async (token: string) =>
+    await api.get(urls.DYNAMIC_TEXT, token, {
+      size: '100',
+    }),
 
-  getUserEchelle: (token: string) =>
-    api.get(urls.DYNAMIC_ECHELLE, token, {
-      size: '100'}),
+  getUserEchelle: async (token: string) =>
+    await api.get(urls.DYNAMIC_ECHELLE, token, {
+      size: '100',
+    }),
 
-  updateUser: (token: string, idUser: string, data: any) =>
-    api.put(urls.UPDATE_USER, data.data, token, idUser),
+  updateUser: async (token: string, idUser: string, data: any) =>
+    await api.put(urls.UPDATE_USER, data.data, token, idUser),
 
-  updatePassword: (token: string, password: string) =>
-    api.put(
+  updatePassword: async (token: string, password: string) =>
+    await api.put(
       urls.UPDATE_PASSWORD,
       {
-        password: password},
+        password,
+      },
       token
     ),
-  buySubscription: (token: string, data: any, id: string) =>
-    api.put(`${urls.BUY_SUBSCRIPTION}/${id}`, data, token),
-  desactivateAccount: (token: string) =>
-    api.put(urls.DESACTIVATE_ACCOUNT, {}, token),
-  updateMesage: (data: any) => api.post(urls.UPDATE_MESSAGE, data.data),
-  readMessageCount: (id: string) =>
-    api.post(`${urls.READ_MESSAGE_COUNT}/${id}`, {}),
-  getAccessToken: (token: string) => api.get(`${urls.FIREBASE_TOKEN}`, token),
-  updateMessageCount: (id: string) =>
-    api.put(`${urls.UPDATE_MESSAGE_COUNT}/${id}`),
+  buySubscription: async (token: string, data: any, id: string) =>
+    await api.put(`${urls.BUY_SUBSCRIPTION}/${id}`, data, token),
+  desactivateAccount: async (token: string) =>
+    await api.put(urls.DESACTIVATE_ACCOUNT, {}, token),
+  updateMesage: async (data: any) =>
+    await api.post(urls.UPDATE_MESSAGE, data.data),
+  readMessageCount: async (id: string) =>
+    await api.post(`${urls.READ_MESSAGE_COUNT}/${id}`, {}),
+  getAccessToken: async (token: string) =>
+    await api.get(`${urls.FIREBASE_TOKEN}`, token),
+  updateMessageCount: async (id: string) =>
+    await api.put(`${urls.UPDATE_MESSAGE_COUNT}/${id}`),
 
-  getMessage: (id: string, token: string) =>
-    api.get(urls.GET_MESSAGE, token, {
+  getMessage: async (id: string, token: string) =>
+    await api.get(urls.GET_MESSAGE, token, {
       userId: id,
       direction: 'desc',
-      size: '50'}),
+      size: '50',
+    }),
 
-  sendingNotificationsViaGoogle: (data: any, token: string) =>
-    api.postGoogle(urls.GOOGLE_SEND, data, token),
+  sendingNotificationsViaGoogle: async (data: any, token: string) =>
+    await api.postGoogle(urls.GOOGLE_SEND, data, token),
 
-  createSessionID: (
+  createSessionID: async (
     token: string,
     title: string,
     type: string | null,
     flag?: string
-  ) => api.postSessionId(urls.SESSIONS_ID, token, title, type, flag),
+  ) => await api.postSessionId(urls.SESSIONS_ID, token, title, type, flag),
 
   getSessionID: async (token: string, isCompany?: string | null) =>
     await api.get(urls.SESSIONS_ID, token, { type: isCompany }),
@@ -100,7 +108,7 @@ export const UserBDL = () => ({
     enterprise_ids?: string[],
     country_ids?: string,
     onMessage?: (message: string) => void
-  ) =>
+  ) => {
     await api.postIA(
       urls.IA,
       token,
@@ -110,7 +118,8 @@ export const UserBDL = () => ({
       enterprise_ids,
       country_ids,
       onMessage
-    ),
+    );
+  },
 
   getIA: async (token: string, session_id: string) =>
     await api.getIA(`${urls.GET_IA}/${session_id}`, token),
@@ -139,7 +148,7 @@ export const UserBDL = () => ({
   getJobSlot: async (token: string, type: string) =>
     await api.postJobSlot(urls.JOB_SLOT, token, type),
 
-  displayVideoPresentation: (
+  displayVideoPresentation: async (
     id: string,
     token: string,
     setDownloadProgressBar: any,
@@ -156,15 +165,15 @@ export const UserBDL = () => ({
       default:
         break;
     }
-    return blobVideo.displayVideoWithProgress(
+    return await blobVideo.displayVideoWithProgress(
       `${serverUrl}/${id}`,
       token,
       setDownloadProgressBar
     );
   },
 
-  displayVideoExample: (token: string, setDownloadProgressBar: any) => {
-    return blobVideo.displayVideoWithProgress(
+  displayVideoExample: async (token: string, setDownloadProgressBar: any) => {
+    return await blobVideo.displayVideoWithProgress(
       `${urls.DOWNLOAD_VIDEO_EXAMPLE}`,
       token,
       setDownloadProgressBar
@@ -174,8 +183,11 @@ export const UserBDL = () => ({
   displayGuideline: async (data: any, token: string) =>
     await blobVideo.displayPDF(`${urls.GUIDELINE}`, data, token),
 
-  getMyCVPresentationVideo: (token: string, setDownloadProgressBar: any) => {
-    return blobVideo.displayVideoWithProgress(
+  getMyCVPresentationVideo: async (
+    token: string,
+    setDownloadProgressBar: any
+  ) => {
+    return await blobVideo.displayVideoWithProgress(
       `${urls.DOWNLOAD_VIDEO}`,
       token,
       setDownloadProgressBar
@@ -214,22 +226,27 @@ export const UserBDL = () => ({
     );
   },
 
-  getAdverstisementsByOwnerId: (id: string, token: string, page: number) =>
-    api.get(
+  getAdverstisementsByOwnerId: async (
+    id: string,
+    token: string,
+    page: number
+  ) =>
+    await api.get(
       `${urls.GET_ADVERTISEMENT_BY_OWNER}/${id}?page=${page}&size=5`,
       token
     ),
 
-  getPostsByOwnerId: (id: string, token: string, page: number) =>
-    api.get(`${urls.GET_POST_BY_OWNER}/${id}?page=${page}&size=5`, token),
+  getPostsByOwnerId: async (id: string, token: string, page: number) =>
+    await api.get(`${urls.GET_POST_BY_OWNER}/${id}?page=${page}&size=5`, token),
 
-  getAllAdverstisements: (token: string) => api.get(urls.ADVERTISEMENT, token),
+  getAllAdverstisements: async (token: string) =>
+    await api.get(urls.ADVERTISEMENT, token),
 
-  getTransactionMvola: (token: string, transactionId: string) =>
-    api.get(`${urls.GET_MVOLA}?transactionId=${transactionId}`, token),
+  getTransactionMvola: async (token: string, transactionId: string) =>
+    await api.get(`${urls.GET_MVOLA}?transactionId=${transactionId}`, token),
 
-  getAirtelTransaction: (token: string, transactionId: string) =>
-    api.get(`${urls.GET_AIRTEL}/${transactionId}`, token),
+  getAirtelTransaction: async (token: string, transactionId: string) =>
+    await api.get(`${urls.GET_AIRTEL}/${transactionId}`, token),
 
   createAdvertisement: async (data: any) =>
     await api.postAdvertisement(urls.ADVERTISEMENT, data),
@@ -296,8 +313,11 @@ export const UserBDL = () => ({
   RemovePost: async (id: string, token: string) =>
     await api.remove(`${urls.POST}/${id}`, token),
 
-  getAllTenders: (id: string, token: string, page: number) =>
-    api.get(`${urls.GET_TENDER_BY_OWNER}/${id}?page=${page}&size=5`, token),
+  getAllTenders: async (id: string, token: string, page: number) =>
+    await api.get(
+      `${urls.GET_TENDER_BY_OWNER}/${id}?page=${page}&size=5`,
+      token
+    ),
 
   getAllTendersCategory: async (data: any, token: string) =>
     await api.post(`${urls.GET_TENDER_CATEGORY}`, data, token),
@@ -312,4 +332,5 @@ export const UserBDL = () => ({
     await api.get(`${urls.GET_TENDER_PDF}/${id}`, token),
 
   deleteTenderById: async (id: string, token: string) =>
-    await api.remove(`${urls.TENDER}/${id}`, token)});
+    await api.remove(`${urls.TENDER}/${id}`, token),
+});

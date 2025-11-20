@@ -95,10 +95,10 @@ export const styles = {
     elevation: 2
   },
   buttonOpen: {
-    backgroundColor: '#F194FF'},
+    backgroundColor: '#F194FF'
   },
   buttonClose: {
-    backgroundColor: '#2196F3'},
+    backgroundColor: '#2196F3'
   },
   textStyle: {
     color: 'white',
@@ -128,7 +128,7 @@ export const styles = {
     width: '100%',
     height: 30,
     borderRadius: 15,
-    backgroundColor: '#44E2F3'},
+    backgroundColor: '#44E2F3'
   },
   label: {
     fontSize: 23,

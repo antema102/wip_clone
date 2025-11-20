@@ -1,4 +1,3 @@
-;
 import { COLORS, SIZES, FONTS } from '../../../../resources/constants';
 let windowWidth = window.innerWidth;
 
@@ -12,7 +11,8 @@ export const styles = {
     height: 200,
     backgroundColor: COLORS.blueLight,
     borderStartEndRadius: 10,
-    borderStartStartRadius: 10},
+    borderStartStartRadius: 10
+  },
   headerCreateCvText: {
     fontSize: 32,
     fontWeight: 'bold',
@@ -23,4 +23,6 @@ export const styles = {
     height: 185,
     width: 185,
     objectFit:"cover"
-  }});
+  
+  }
+};

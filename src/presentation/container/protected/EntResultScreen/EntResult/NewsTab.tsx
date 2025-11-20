@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-;
 import { useSelector } from 'react-redux';
 
 import Popup from './Popup';
@@ -11,8 +10,7 @@ import map from '../../../../../resources/assets/icons/map.png';
 import globe from '../../../../../resources/assets/icons/globe.png';
 import mail from '../../../../../resources/assets/icons/mail.png';
 import { UserSA } from '../../../../../service/applicatif/User.sa';
-
-export const NewsTab = props => {
+export const NewsTab = (props) => {
   const [information, setInformation] = useState<any>({});
   const [isLoading, setIsLoading] = useState(true);
   const { companyId, ItemDetail, compatibility } = props?.stateValue || {};
@@ -31,7 +29,6 @@ export const NewsTab = props => {
       setIsLoading(false);
     }
   };
-
 
   const displayVideo = async () => {
     const response = await displayUserVideoPresentation(
@@ -52,50 +49,38 @@ export const NewsTab = props => {
   return (
     <div style={styles.pageContainer}>
       <div style={styles.itemWrapper}>
-        <img
-          style={styles.iconActus}
-          src={calendar}
-        />
+        <img style={styles.iconActus} src={calendar} />
         <span style={styles.valueActus} numberOfLines={2}>
           Depuis {information?.yearOfCreation}
         </span>
       </div>
       <div style={styles.itemWrapper}>
-        <img
-          style={styles.iconActus}
-          src={map}
-        />
+        <img style={styles.iconActus} src={map} />
         <span style={styles.valueActus} numberOfLines={2}>
           {information?.headQuarter}
         </span>
       </div>
       <div style={styles.itemWrapper}>
-        <img
-          style={styles.iconActus}
-          src={globe}
-        />
+        <img style={styles.iconActus} src={globe} />
         <span style={styles.valueActus} numberOfLines={2}>
           {information?.url}
         </span>
       </div>
       <div style={styles.itemWrapper}>
-        <img
-          style={styles.iconActus}
-          src={mail}
-        />
+        <img style={styles.iconActus} src={mail} />
         <span style={styles.valueActus} numberOfLines={2}>
           {information?.email}
         </span>
       </div>
 
-      {
-      filePath !== '' ? (
+      {filePath !== '' ? (
         <div style={styles.candidateExpContainer}>
-          <VideoPlayer filePath={filePath} poster={'https://i.picsum.photos/id/866/1600/900.jpg'} />
+          <VideoPlayer
+            filePath={filePath}
+            poster={'https://i.picsum.photos/id/866/1600/900.jpg'}
+          />
         </div>
-      )
-        : null
-      }
+      ) : null}
       <Popup
         email={information?.email}
         web={information?.url}

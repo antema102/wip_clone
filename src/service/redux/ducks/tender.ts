@@ -1,23 +1,26 @@
-import {useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { UserSA } from '../../applicatif/User.sa';
 
-export type TenderState = {
+export interface TenderState {
   dataCategory: any;
-};
+}
 
 export const enum TenderActionType {
-  setTenderCategory = '[Tender] Set register status'}
+  setTenderCategory = '[Tender] Set register status',
+}
 
 export const initialTenderState: TenderState = {
-  dataCategory: []};
+  dataCategory: [],
+};
 
 export const tenderReducer = (state = initialTenderState, action) => {
-  const {type, payload} = action;
+  const { type, payload } = action;
   switch (type) {
     case TenderActionType.setTenderCategory:
       return {
         ...state,
-        dataCategory: payload.data};
+        dataCategory: payload.data,
+      };
     default:
       return state;
   }
@@ -25,17 +28,19 @@ export const tenderReducer = (state = initialTenderState, action) => {
 
 export const useTender = () => {
   const dispatch = useDispatch();
-  const {getAllTendersCategory} = UserSA();
+  const { getAllTendersCategory } = UserSA();
   return {
     getTenderCategory: async (data, token) => {
       try {
         const payload = await getAllTendersCategory(data, token);
         dispatch({
           payload,
-          type: TenderActionType.setTenderCategory});
+          type: TenderActionType.setTenderCategory,
+        });
         return payload;
       } catch (error) {
-        return Promise.reject(error);
+        return await Promise.reject(error);
       }
-    }};
+    },
+  };
 };

@@ -1,12 +1,15 @@
 import { SpotVideoBDL } from '../bdl/spotVideo.bdl';
 
-
 export const DefaultSpotSA = () => {
+  const { getDefaultSpotVideo, getDefaultSpotById } = SpotVideoBDL();
 
-	const { getDefaultSpotVideo, getDefaultSpotById } = SpotVideoBDL();
-
-	return {
-		allDefaultSpotVideos: (category:string, token: string) => getDefaultSpotVideo(category,token),
-		getSpotDefaultById: (id: string, token: string, setDownloadProgressBar: any) => getDefaultSpotById(id, token, setDownloadProgressBar)
-	}
-}
+  return {
+    allDefaultSpotVideos: async (category: string, token: string) =>
+      await getDefaultSpotVideo(category, token),
+    getSpotDefaultById: async (
+      id: string,
+      token: string,
+      setDownloadProgressBar: any
+    ) => await getDefaultSpotById(id, token, setDownloadProgressBar),
+  };
+};

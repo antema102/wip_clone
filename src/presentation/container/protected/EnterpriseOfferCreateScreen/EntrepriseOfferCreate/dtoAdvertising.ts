@@ -13,14 +13,16 @@ export const showErrorValuesDefault = {
   type: false,
   price: false,
   link: false,
-  image: false};
+  image: false,
+};
 export const showErrorValuesSubmit = {
   name: true,
   description: true,
   type: true,
   price: true,
   link: true,
-  file: true};
+  file: true,
+};
 
 export const defaultValues: IError = {
   name: '',
@@ -28,4 +30,5 @@ export const defaultValues: IError = {
   type: '',
   price: 0,
   link: '',
-  image: ''};
+  image: '',
+};

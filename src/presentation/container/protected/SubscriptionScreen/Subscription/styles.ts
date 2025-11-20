@@ -1,4 +1,3 @@
-;
 import { COLORS, SIZES } from '../../../../../resources/constants';
 const windowDim = window.innerWidth;
 export const styles = {
@@ -7,4 +6,6 @@ export const styles = {
     backgroundColor: COLORS.white,
     borderRadius: 10,
     marginTop:54
-  }});
+  
+  }
+};

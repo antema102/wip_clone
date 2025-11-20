@@ -62,7 +62,7 @@ const List = ({ lists, category, changeCategory, details, isCliked, loading }: a
                         justifyContent: 'flex-start'}}>
                     {Object.keys(categories).map((category, index) => (
                         <button
-                            style={{...styles.filter, ...(click === index ? styles.itemActive : null), ...}}
+                            style={{...styles.filter, ...(click === index ? styles.itemActive : null)}}
                             onClick={() => {
                                 changeCategory(categories[category]), setClick(index);
                             }}

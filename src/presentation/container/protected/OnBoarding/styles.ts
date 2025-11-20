@@ -1,11 +1,11 @@
-;
 import { COLORS, FONTS, SIZES } from '../../../../resources/constants';
 let windowWidth = window.innerWidth;
 let windowHeight = window.innerHeight;
 export const styles = {
   container: {
     flex: 1,
-    marginTop: 40},
+    marginTop: 40
+  },
   Logo: {
     width: '100%',// Set the width of the logo container to 100%
     aspectRatio: 2,
@@ -21,16 +21,19 @@ export const styles = {
   name: {
     fontSize: 28,
     color: '#696969',
-    fontWeight: 'bold'},
+    fontWeight: 'bold'
+  },
   description: {
     textAlign: 'center',
     marginTop: 10,
-    color: '#696969'},
+    color: '#696969'
+  },
   btnColor: {
     height: 30,
     width: 30,
     borderRadius: 30,
-    marginHorizontal: 3},
+    marginHorizontal: 3
+  },
   btnSize: {
     height: 40,
     width: 40,
@@ -42,19 +45,24 @@ export const styles = {
 
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center'},
+    alignItems: 'center'
+  },
   contentColors: {
     justifyContent: 'center',
     marginHorizontal: 30,
     flexDirection: 'row',
-    marginTop: 20},
+    marginTop: 20
+  },
   contentSize: {
     justifyContent: 'center',
     marginHorizontal: 30,
     flexDirection: 'row',
-    marginTop: 20},
+    marginTop: 20
+  },
   separator: {
     height: 2,
     backgroundColor: '#eeeeee',
     marginTop: 20,
-    marginHorizontal: 30}});
+    marginHorizontal: 30
+  }
+};

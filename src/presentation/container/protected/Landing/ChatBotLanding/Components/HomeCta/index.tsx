@@ -10,9 +10,16 @@ const HomeCta = ({ actions }) => {
   };
 
   return (
-    <div className='chatBotCta margin-bottom-15'>
-      <button className='chatBotCta__btn' onClick={handleCandidat}>Candidat</button>
-      <button className='chatBotCta__btn chatBotCta__btn--orange' onClick={handleCompany}>Entreprise</button>
+    <div className="chatBotCta margin-bottom-15">
+      <button className="chatBotCta__btn" onClick={handleCandidat}>
+        Candidat
+      </button>
+      <button
+        className="chatBotCta__btn chatBotCta__btn--orange"
+        onClick={handleCompany}
+      >
+        Entreprise
+      </button>
     </div>
   );
 };

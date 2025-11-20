@@ -1,4 +1,3 @@
-;
 import { COLORS, SIZES } from '../../../resources/constants';
 
 let windowWidth = window.innerWidth;
@@ -33,7 +32,8 @@ export const styles = {
   subscriptionName: {
     fontSize: 16,
     color: COLORS.black,
-    fontWeight: 'bold'},
+    fontWeight: 'bold'
+  },
   descriptionText: {
     fontSize: 12,
     color: COLORS.black,
@@ -45,13 +45,15 @@ export const styles = {
   smallBtnTxt: {
     fontSize: SIZES.body5,
     color: COLORS.white,
-    fontWeight: '700'},
+    fontWeight: '700'
+  },
   smallButtonContainer: {
     height: 32,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: SIZES.radiusTwo,
-    paddingHorizontal: 8},
+    paddingHorizontal: 8
+  },
   centeredView: {
     flex: 1,
     width: '100%',
@@ -67,26 +69,32 @@ export const styles = {
     alignItems: 'center',
     borderWidth: 1,
     borderColor: COLORS.secondary,
-    marginBottom: SIZES.padding2},
+    marginBottom: SIZES.padding2
+  },
   detailSub: {
     marginBottom: 20,
-    marginTop: 20},
+    marginTop: 20
+  },
   titleDetails: {
     fontStyle: 'normal',
     fontWeight: '400',
-    color: '#01129E'},
+    color: '#01129E'
+  },
   detailValue: {
     fontStyle: 'normal',
     fontWeight: '400',
-    color: '#323F4B'},
+    color: '#323F4B'
+  },
   detailItem: {
     display: 'flex',
     flexDirection: 'row',
-    marginBottom: 15},
+    marginBottom: 15
+  },
   textBtnSecondary: {
     color: COLORS.white,
     fontWeight: 'bold',
-    fontSize: SIZES.h5},
+    fontSize: SIZES.h5
+  },
   modalView: {
     width: '90%',
     margin: 20,
@@ -102,8 +110,11 @@ export const styles = {
       height: 2},
     shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 5},
+    elevation: 5
+  },
   buttonContainer: {
     marginTop: 20,
     flexDirection: 'row',
-    justifyContent: 'space-between'}});
+    justifyContent: 'space-between'
+  }
+};

@@ -96,7 +96,7 @@ export const ListOfRecommandation = {
                 <div
                     style={{...styles.inputWrap, ...({
                             backgroundColor:
-                                type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
+                                type === 'read' ? COLORS.disableGray : COLORS.white})}}>
                     <InputField
                         label={'Nom de la Recommandation'}
                         required
@@ -113,7 +113,7 @@ export const ListOfRecommandation = {
                 <div
                     style={{...styles.inputWrap, ...({
                             backgroundColor:
-                                type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
+                                type === 'read' ? COLORS.disableGray : COLORS.white})}}>
                     <InputField
                         label={'Référence'}
                         required

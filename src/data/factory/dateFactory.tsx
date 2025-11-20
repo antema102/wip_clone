@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-export const DateToddmmyyyyFormat = (date: Date, _type: string = '') => {
+export const DateToddmmyyyyFormat = (date: Date, _type = '') => {
   if (date instanceof Date) {
     const year = date.getFullYear();
     const month = (1 + date.getMonth()).toString().padStart(2, '0');
@@ -39,7 +39,7 @@ export const dateToString = (date: Date) => {
   moment.locale('fr', {
     months:
       'janvier_février_mars_avril_mai_juin_juillet_août_septembre_octobre_novembre_décembre'.split(
-        '_',
+        '_'
       ),
     weekdays: 'dimanche_lundi_mardi_mercredi_jeudi_vendredi_samedi'.split('_'),
     relativeTime: {
@@ -55,9 +55,11 @@ export const dateToString = (date: Date) => {
       M: 'un mois',
       MM: '%d mois',
       y: 'un an',
-      yy: '%d ans'}});
+      yy: '%d ans',
+    },
+  });
   moment.locale('fr');
-  var resultDate = moment(date).format(' DD MMMM YYYY ');
+  const resultDate = moment(date).format(' DD MMMM YYYY ');
   return resultDate[0].toUpperCase() + resultDate.slice(1);
 };
 
@@ -65,7 +67,7 @@ export const dateToStringMoreAccurate = (date: Date) => {
   moment.locale('fr', {
     months:
       'janvier_février_mars_avril_mai_juin_juillet_août_septembre_octobre_novembre_décembre'.split(
-        '_',
+        '_'
       ),
     weekdays: 'dimanche_lundi_mardi_mercredi_jeudi_vendredi_samedi'.split('_'),
     relativeTime: {
@@ -81,21 +83,23 @@ export const dateToStringMoreAccurate = (date: Date) => {
       M: 'un mois',
       MM: '%d mois',
       y: 'un an',
-      yy: '%d ans'}});
+      yy: '%d ans',
+    },
+  });
   // moment.locale('fr');
-  var resultDate = moment(date).format('DD MMMM YYYY à HH:mm:ss');
+  const resultDate = moment(date).format('DD MMMM YYYY à HH:mm:ss');
   return resultDate[0].toUpperCase() + resultDate.slice(1);
 };
 
 export const thousandSeparator = (value: string, separator: string) => {
   value = '' + value;
   separator = separator || ' ';
-  var result = '',
-    temp = 0;
-  while (value.match(/^0[0-9]/)) {
+  let result = '';
+  let temp = 0;
+  while (value.match(/^0[0-9]/) != null) {
     value = value.substr(1);
   }
-  for (var i = value.length - 1; i >= 0; i--) {
+  for (let i = value.length - 1; i >= 0; i--) {
     result =
       temp !== 0 && temp % 3 === 0
         ? value[i] + separator + result
@@ -107,7 +111,7 @@ export const thousandSeparator = (value: string, separator: string) => {
 
 export const dateDiff = (date1: Date) => {
   const date2 = new Date();
-  let diff = {}; // Initialisation du retour
+  const diff = {}; // Initialisation du retour
   let tmp = date2 - date1;
   tmp = Math.floor(tmp / 1000); // Nombre de secondes entre les 2 dates
   diff.sec = tmp % 60; // Extraction du nombre de secondes

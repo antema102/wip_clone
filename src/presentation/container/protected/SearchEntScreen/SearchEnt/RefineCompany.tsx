@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-;
 
 import { styles } from './styles';
 import { useForm } from './useForm';
@@ -24,7 +23,8 @@ export const RefineCompany = (props: any) => {
     jobWish: false,
     activitySector: false,
     disponibility: false,
-    salaryExpectation: false});
+    salaryExpectation: false,
+  });
   const [refreshing, setRefreshing] = useState(false);
   const [activityList, setActivityList] = useState<any>();
   const [availabilityList, setAvailabilityList] = useState<any>();
@@ -46,7 +46,8 @@ export const RefineCompany = (props: any) => {
     showErrors,
     handleInit,
     popupData,
-    setVisiblePopup} = useForm(data, Validation, setIsLoading, navigation, setIsLayerEditable);
+    setVisiblePopup,
+  } = useForm(data, Validation, setIsLoading, navigation, setIsLayerEditable);
 
   const getDynamicList = async () => {
     setIsLoading(true);
@@ -74,7 +75,8 @@ export const RefineCompany = (props: any) => {
   const onChangeEditable = (layerName: string) => {
     setIsLayerEditable({
       ...isLayerEditable,
-      [layerName]: !isLayerEditable[layerName]});
+      [layerName]: !isLayerEditable[layerName],
+    });
   };
 
   values.jobWish_level = 7;
@@ -85,10 +87,19 @@ export const RefineCompany = (props: any) => {
 
   return (
     <div>
-      <div style={{overflowY: "auto"}}>
-        {candidat ? null : <MainPageHeader title={activeString.SEARCHENT_RESULT.FIND_COMPANY_THAT_ARE_HIRING} />}
+      <div style={{ overflowY: 'auto' }}>
+        {candidat ? null : (
+          <MainPageHeader
+            title={activeString.SEARCHENT_RESULT.FIND_COMPANY_THAT_ARE_HIRING}
+          />
+        )}
         <div style={[styles.containers]}>
-          <div style={{overflowY: "auto", ...[styles.contentForm, styles.containerForm]}}>
+          <div
+            style={{
+              overflowY: 'auto',
+              ...[styles.contentForm, styles.containerForm],
+            }}
+          >
             <div>
               {/** Layer Job Sought */}
               <div style={formsStyles.inputWrapBlue}>
@@ -163,14 +174,21 @@ export const RefineCompany = (props: any) => {
             </div>
           </div>
 
-          <div style={isMobile ? styles.footerFormLargeSecMobile : styles.footerFormLargeSec}>
+          <div
+            style={
+              isMobile
+                ? styles.footerFormLargeSecMobile
+                : styles.footerFormLargeSec
+            }
+          >
             <button onClick={handleInit} style={styles.reinit}>
               <span style={styles.textButtonOrange}>Reinitialiser</span>
               <img src={icons.reload} style={styles.iconReload} />
             </button>
             <button
               onClick={handleSubmit}
-              style={[{ alignSelf: 'center' }, styles.submitJob]}>
+              style={[{ alignSelf: 'center' }, styles.submitJob]}
+            >
               <span style={styles.textButton}>Rechercher</span>
             </button>
           </div>
@@ -179,13 +197,12 @@ export const RefineCompany = (props: any) => {
             visible={popupData.visibility}
             onClose={setVisiblePopup}
             cancel
-            closeTitle="OK">
+            closeTitle="OK"
+          >
             <span style={{ color: COLORS.black }}>{popupData.message}</span>
           </Popup>
         </div>
       </div>
     </div>
-
-
   );
 };

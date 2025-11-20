@@ -85,11 +85,15 @@ export const InputField = (props: any) => {
         style={{...(type === 'textArea'
             ? formsStyles.itemInputStyleTextArea
             : formsStyles.itemInputStyle), ...required && showError && error !== '' && formsStyles.inputError, ...({
-            backgroundColor: isEditable ? COLORS.white : COLORS.disableGray}), ...}}
+            backgroundColor: isEditable ? COLORS.white : COLORS.disableGray})}}
       >
         <input
-          style={{...localStyle.textIput, ...{
-              textAlignVertical: 'top', ...width: '90%', ...(height: type === 'textArea' ? 120 : 38), ...borderColor: 'transparent', ...outline: 'none'}, ...}}
+          style={{...localStyle.textIput, 
+              textAlignVertical: 'top', 
+              width: '90%', 
+              height: type === 'textArea' ? 120 : 38, 
+              borderColor: 'transparent', 
+              outline: 'none'}}
           value={value}
           multiline={type === 'textArea'}
           numberOfLines={9}

@@ -1,7 +1,7 @@
-import {useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { MatchingService } from '../../applicatif/Matching.sa';
 
-export type MatchingState = {
+export interface MatchingState {
   matching: {
     language: {
       value: string;
@@ -56,60 +56,77 @@ export type MatchingState = {
       score: number;
     };
   };
-};
+}
 
 export const enum MatchingType {
-  matching = '[Auth] filter with matching cv'}
+  matching = '[Auth] filter with matching cv',
+}
 
 export const initiaMatchingState: MatchingState = {
   matching: {
     language: {
       value: '',
-      score: 0},
+      score: 0,
+    },
     filiere: {
       value: '',
-      score: 0},
+      score: 0,
+    },
     level: {
       value: '',
-      score: 0},
+      score: 0,
+    },
     province: {
       value: '',
-      score: 0},
+      score: 0,
+    },
     adress: {
       value: '',
-      score: 0},
+      score: 0,
+    },
     country: {
       value: '',
-      score: 0},
+      score: 0,
+    },
     region: {
       value: '',
-      score: 0},
+      score: 0,
+    },
     ville: {
       value: '',
-      score: 0},
+      score: 0,
+    },
     arrondissement: {
       value: '',
-      score: 0},
+      score: 0,
+    },
     disponibility: {
       value: '',
-      score: 0},
+      score: 0,
+    },
     yearOfExp: {
       value: '',
-      score: 0},
+      score: 0,
+    },
     jobType: {
       value: '',
-      score: 0},
+      score: 0,
+    },
     jobPlace: {
       value: '',
-      score: 0}}};
+      score: 0,
+    },
+  },
+};
 
 export const MatchingReducer = (state = initiaMatchingState, action) => {
-  const {type, payload} = action;
+  const { type, payload } = action;
   switch (type) {
     case MatchingType.matching:
       return {
         ...state,
-        matching: payload};
+        matching: payload,
+      };
 
     default:
       return state;
@@ -118,18 +135,20 @@ export const MatchingReducer = (state = initiaMatchingState, action) => {
 
 export const useMatching = () => {
   const dispatch = useDispatch();
-  const {filterMatching} = MatchingService();
+  const { filterMatching } = MatchingService();
   return {
-    filterMatching: async ( type , data ) => {
+    filterMatching: async (type, data) => {
       try {
-        const payload = await filterMatching(type,data);
+        const payload = await filterMatching(type, data);
         dispatch({
           payload,
-          type: MatchingType.matching});
+          type: MatchingType.matching,
+        });
 
         return payload;
       } catch (error) {
-        return Promise.reject(error);
+        return await Promise.reject(error);
       }
-    }};
+    },
+  };
 };

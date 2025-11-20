@@ -1,9 +1,7 @@
 import React from 'react';
-;
 import Container from '../../../components/Container';
 import { useLocation } from 'react-router-dom';
 import { CB } from './CB';
-
 const CBScreen = (): any => {
   const { state } = useLocation();
   return <CB stateValue={state} />;

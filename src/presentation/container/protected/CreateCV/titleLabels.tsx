@@ -32,7 +32,7 @@ export const TitleLabels = {
     previousPositions: 'Ancienne expérience',
     recommandation: 'Recommandation',
 
-    //Buton
+    // Buton
     modify: 'Modifier',
     save: 'Sauvegarder',
 
@@ -43,11 +43,11 @@ export const TitleLabels = {
     centerIntrest: "Centre d'intérêt",
     somethingAboutU: 'Dites quelque chose sur vous ( 150 caractères max )',
 
-    //text
+    // text
     textLabel: 'Complétez votre CV en quelques étapes',
 
     personalInformation: 'Informations personnelles',
     job: 'job',
-    other: 'Autres'
-
-  }};
+    other: 'Autres',
+  },
+};

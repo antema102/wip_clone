@@ -1,6 +1,4 @@
-import { Fragment, useEffect } from 'react';
-;
-import { useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 
 import FlatOffer from './FlatOffer';
 import styles from './styles';
@@ -11,19 +9,19 @@ import { Divider } from 'primereact/divider';
 import { DataView } from 'primereact/dataview';
 import { paginatorTemplateCustom } from '../../../../components/PaginatoTemplateCustom';
 import { useMobile } from '../../../../../service/hooks/useMobile';
-export const OfferTab = props => {
-
+export const OfferTab = (props) => {
   const { avatar } = props;
 
-  const { isMobile } = useMobile()
+  const { isMobile } = useMobile();
 
   const navigate = useNavigate();
-  const displayDetail = ItemDetail => {
+  const displayDetail = (ItemDetail) => {
     navigate('/EnterpriseOfferDetailsScreen', {
       state: {
         id: ItemDetail.id,
         candidat: true,
-        typeId: ItemDetail?.type?.id}
+        typeId: ItemDetail?.type?.id,
+      },
     });
   };
   const { companyId, ItemDetail } = props?.route?.params || {};
@@ -31,7 +29,6 @@ export const OfferTab = props => {
   const [offerList, setOfferList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { allOfferJobByEnt } = useOfferr();
-
 
   useEffect(() => {
     getOfferJobById();
@@ -47,15 +44,17 @@ export const OfferTab = props => {
     }
   };
 
-  const renderItemTemplate = (item: any) => (<Fragment>
-    <FlatOffer
-      avatar={avatar}
-      key={item.id}
-      variable={item}
-      displayDetail={displayDetail}
-    />
-    <Divider type={'dashed'} />
-  </Fragment>);
+  const renderItemTemplate = (item: any) => (
+    <Fragment>
+      <FlatOffer
+        avatar={avatar}
+        key={item.id}
+        variable={item}
+        displayDetail={displayDetail}
+      />
+      <Divider type={'dashed'} />
+    </Fragment>
+  );
 
   // const displayFlatOffer = () => {
   //   return (
@@ -74,7 +73,6 @@ export const OfferTab = props => {
   //   );
   // };
 
-
   return (
     <div style={styles.contenOffer}>
       {isLoading ? <Loader /> : null}
@@ -83,12 +81,12 @@ export const OfferTab = props => {
           value={offerList}
           layout="list"
           itemTemplate={renderItemTemplate}
-          {...
-          (!isMobile
+          {...(!isMobile
             ? {
-              paginator: true,
-              paginatorTemplate: paginatorTemplateCustom,
-              rows: 4}
+                paginator: true,
+                paginatorTemplate: paginatorTemplateCustom,
+                rows: 4,
+              }
             : {})}
         />
       </div>

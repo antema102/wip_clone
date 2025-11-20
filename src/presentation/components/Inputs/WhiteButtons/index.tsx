@@ -5,14 +5,12 @@ import { buttonsStyles } from '../../Button/style';
 import globalStyle from '../../../globalStyle/globalStyle';
 
 export const WhiteButtons = (props: any) => {
-  const {submitAction, submitTitle} = props;
+  const { submitAction, submitTitle } = props;
   return (
     <Button
       onClick={submitAction}
       styleBtnTxt={buttonsStyles.btnValiderWhite}
-      styleBtnOuter={[
-        buttonsStyles.btnValiderOuterWhite,
-      ]}
+      styleBtnOuter={[buttonsStyles.btnValiderOuterWhite]}
       title={submitTitle}
       type="valider"
     />
@@ -21,7 +19,9 @@ export const WhiteButtons = (props: any) => {
 
 WhiteButtons.propTypes = {
   submitAction: PropTypes.func,
-  submitTitle: PropTypes.string};
+  submitTitle: PropTypes.string,
+};
 
 WhiteButtons.defaultProps = {
-  submitTitle: 'Valider'};
+  submitTitle: 'Valider',
+};

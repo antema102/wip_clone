@@ -1,9 +1,8 @@
-;
 import { COLORS, SIZES } from '../../../../resources/constants';
 
-const {width} = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
-export default ({
+export default {
   container: {
     display: 'flex',
     flexDirection: 'row',
@@ -13,18 +12,20 @@ export default ({
     alignItems: 'center',
     justifyContent: 'center',
     // backgroundColor: 'red',
-    paddingHorizontal: 0},
+    paddingHorizontal: 0,
+  },
   centerItem: {
     alignSelf: 'center',
     justifyContent: 'center',
-    width: '100%'},
+    width: '100%',
+  },
   noItemText: {
     alignSelf: 'center',
     fontWeight: 'bold',
     justifyContent: 'center',
     color: COLORS.black,
     fontSize: 15,
-    top: 20
+    top: 20,
   },
 
   button: {
@@ -40,13 +41,15 @@ export default ({
     // marginRight: 10,
     // marginHorizontal: 10,
     paddingHorizontal: 10,
-    backgroundColor: 'red'},
+    backgroundColor: 'red',
+  },
 
   text: {
     fontFamily: 'IBMPlexSans-SemiBold',
     color: COLORS.black,
     fontSize: SIZES.h5,
-    textAlign: 'center'},
+    textAlign: 'center',
+  },
   tagNavContainer: {
     width: width / 2.4,
     height: 50,
@@ -58,4 +61,6 @@ export default ({
     marginBottom: SIZES.padding2,
     // marginRight: 10,
     // marginHorizontal: 10,
-    paddingHorizontal: 10}});
+    paddingHorizontal: 10,
+  },
+};

@@ -15,7 +15,7 @@ interface Props {
     actionDelete?: any;
 }
 
-export const ItemTender = {
+export const ItemTender = ({
     item1,
     item2,
     item,
@@ -28,7 +28,7 @@ export const ItemTender = {
     return (
         <div style={styles.subscriptionContainer}>
             <div
-                style={{...styles.subscriptionDetailsContainer, ...(isDelete ? {} : styles.noStyle), ...}}>
+                style={{...styles.subscriptionDetailsContainer, ...(isDelete ? {} : styles.noStyle)}}>
                 <div style={styles.abonnementList}>
                     <span style={styles.subscriptionName} numberOfLines={2}>
                         {item1}

@@ -5,7 +5,12 @@ import axios from 'axios';
 
 import { useSelector } from 'react-redux';
 import { UserSA } from '../../../../service/applicatif/User.sa';
-import { ENTERPRISE_INFORMATIONS, ERROR, RESUME_VIDEO, ROLEACCOUNT } from '../../../../data/constants/strings';
+import {
+  ENTERPRISE_INFORMATIONS,
+  ERROR,
+  RESUME_VIDEO,
+  ROLEACCOUNT,
+} from '../../../../data/constants/strings';
 import * as stringsFr from '../../../../data/constants/strings';
 import * as stringsEn from '../../../../data/constants/strings_en';
 
@@ -26,189 +31,220 @@ import Compressor from 'compressorjs';
 
 import TitleRefont from '../../../components/TitleRefont';
 import { useLang } from '../../../../data/translation';
-const adviceTexts: Array<string> = [
-    "Rédiger un script et s'entraîner",
-    'Opter pour un format vidéo court (2 minutes max)',
-    'Choisir un plan statique, un fond sobre, et mode portrait.',
-    'Soigner la tenue vestimentaire',
+const adviceTexts: string[] = [
+  "Rédiger un script et s'entraîner",
+  'Opter pour un format vidéo court (2 minutes max)',
+  'Choisir un plan statique, un fond sobre, et mode portrait.',
+  'Soigner la tenue vestimentaire',
 ];
 
 const PresentationVideoScreen = (props: any) => {
-    const [serverResponse, setServerResponse] = useState('');
-    const [isThereprogressStatus, setIsThereProgressStatus] = useState(false);
-    const [modalVisible, setModalVisible] = useState(false);
-    const [videoURL, setVideoURL] = useState('');
-    const [messageWaiting, setMessageWaiting] = useState(RESUME_VIDEO.WAITING);
-    const [progressBar, setProgressBar] = useState(0);
-    const [isLoading, setIsLoading] = useState(true);
-    const { getUserById, displayUserVideoPresentation, displayVideoExample } = UserSA();
-    const { findCvVideo } = CvService();
-    const [visible, setVisible] = useState(false);
-    const [isVideo, setIsVideo] = useState(false);
-    const [messageVisible, setMessageVisible] = useState(false);
-    const [message, setMessage] = useState('');
-    const [isSpecial, setIsSpecial] = useState(false);
-    const { accessToken, user } = useSelector(({ auth }: any) => auth);
-    const { state } = useLocation();
-    const navigate = useNavigate();
-    const { lang } = useLang()
-    const activeString = lang === 'fr' ? stringsFr : stringsEn;
+  const [serverResponse, setServerResponse] = useState('');
+  const [isThereprogressStatus, setIsThereProgressStatus] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [videoURL, setVideoURL] = useState('');
+  const [messageWaiting, setMessageWaiting] = useState(RESUME_VIDEO.WAITING);
+  const [progressBar, setProgressBar] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+  const { getUserById, displayUserVideoPresentation, displayVideoExample } =
+    UserSA();
+  const { findCvVideo } = CvService();
+  const [visible, setVisible] = useState(false);
+  const [isVideo, setIsVideo] = useState(false);
+  const [messageVisible, setMessageVisible] = useState(false);
+  const [message, setMessage] = useState('');
+  const [isSpecial, setIsSpecial] = useState(false);
+  const { accessToken, user } = useSelector(({ auth }: any) => auth);
+  const { state } = useLocation();
+  const navigate = useNavigate();
+  const { lang } = useLang();
+  const activeString = lang === 'fr' ? stringsFr : stringsEn;
 
-    const checkCV = async () => {
-        if (user?.role === ROLEACCOUNT.company) {
-            const response = await getUserById(user?.id, accessToken);
-            if (response?.data?.presentation) {
-                setIsVideo(true);
-            }
+  const checkCV = async () => {
+    if (user?.role === ROLEACCOUNT.company) {
+      const response = await getUserById(user?.id, accessToken);
+      if (response?.data?.presentation) {
+        setIsVideo(true);
+      }
+    } else {
+      const responseCV = await findCvVideo();
+      setIsVideo(responseCV?.data === true);
+    }
+    setIsLoading(false);
+  };
+
+  React.useEffect(() => {
+    checkCV();
+  }, []);
+
+  const selectVideo = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const videoElement = document.createElement('video');
+      videoElement.preload = 'metadata'; // Load only metadata, not the whole video
+      videoElement.onloadedmetadata = function () {
+        const duration = Math.round(videoElement.duration); // Video duration in seconds
+        if (duration > 30) {
+          setMessage(RESUME_VIDEO.MAX_DURATION_REACHED_ENTERPRISE);
+          setMessageVisible(true);
+        } else if (file.size > 10000000) {
+          setMessage(ERROR.FILE_TOO_HEAVY);
+          setMessageVisible(true);
         } else {
-            const responseCV = await findCvVideo();
-            setIsVideo(responseCV?.data === true);
+          setMessageWaiting(RESUME_VIDEO.WAITING);
+          setModalVisible(true);
+          setIsThereProgressStatus(true);
+          const formData = new FormData();
+          formData.append('file', file);
+          axios({
+            method: 'POST',
+            url: urls.POST_UPLOAD_ENTERPRISE,
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+            data: formData,
+            onUploadProgress: (progressEvent) => {
+              const percentCompleted = Math.round(
+                (progressEvent.loaded * 100) / progressEvent.total
+              );
+              setProgressBar(percentCompleted);
+            },
+          })
+            .then((resp) => {
+              setProgressBar(100);
+              const isThereAnError = resp.data.isError;
+              if (isThereAnError) {
+                setServerResponse(RESUME_VIDEO.NO_CV_MESSAGE);
+              } else {
+                setServerResponse(RESUME_VIDEO.CONGRATULATION);
+              }
+              setIsLoading(false);
+              setIsThereProgressStatus(false);
+              setProgressBar(0);
+            })
+            .catch((error) => {
+              console.error('Error:', error);
+              // Handle the error as needed
+            });
         }
-        setIsLoading(false);
-    };
+        // Clean up the temporary video element
+        URL.revokeObjectURL(videoElement.src);
+        videoElement.remove();
+      };
 
-    React.useEffect(() => {
-        checkCV();
-    }, []);
+      // Set the video source to the file object URL
+      videoElement.src = URL.createObjectURL(file);
+    }
+  };
 
-    const selectVideo = (event) => {
-        const file = event.target.files[0];
-        if (file) {
-            const videoElement = document.createElement('video');
-            videoElement.preload = 'metadata'; // Load only metadata, not the whole video
-            videoElement.onloadedmetadata = function () {
-                const duration = Math.round(videoElement.duration); // Video duration in seconds
-                if (duration > 30) {
-                    setMessage(RESUME_VIDEO.MAX_DURATION_REACHED_ENTERPRISE)
-                    setMessageVisible(true)
-                }
-                else if (file.size > 10000000) {
-                    setMessage(ERROR.FILE_TOO_HEAVY)
-                    setMessageVisible(true)
-                } else {
-                    setMessageWaiting(RESUME_VIDEO.WAITING)
-                    setModalVisible(true)
-                    setIsThereProgressStatus(true);
-                    const formData = new FormData();
-                    formData.append('file', file);
-                    axios({
-                        method: 'POST',
-                        url: urls.POST_UPLOAD_ENTERPRISE,
-                        headers: {
-                            Authorization: `Bearer ${accessToken}`},
-                        data: formData,
-                        onUploadProgress: (progressEvent) => {
-                            const percentCompleted = Math.round(
-                                (progressEvent.loaded * 100) / progressEvent.total
-                            );
-                            setProgressBar(percentCompleted);
-                        }})
-                        .then((resp) => {
-                            setProgressBar(100);
-                            const isThereAnError = resp.data.isError;
-                            if (isThereAnError) {
-                                setServerResponse(RESUME_VIDEO.NO_CV_MESSAGE);
-                            } else {
-                                setServerResponse(RESUME_VIDEO.CONGRATULATION);
-                            }
-                            setIsLoading(false);
-                            setIsThereProgressStatus(false);
-                            setProgressBar(0);
-                        })
-                        .catch((error) => {
-                            console.error('Error:', error);
-                            // Handle the error as needed
-                        });
-                }
-                // Clean up the temporary video element
-                URL.revokeObjectURL(videoElement.src);
-                videoElement.remove();
-            };
+  const displayVideoEntreprise = async () => {
+    setVisible(true);
+  };
 
-            // Set the video source to the file object URL
-            videoElement.src = URL.createObjectURL(file);
-        }
-    };
-
-    const displayVideoEntreprise = async () => {
-        setVisible(true);
-    };
-
-    const hideTheProgressBar = async () => {
-        setModalVisible(false);
-    };
-    return (
-        <div style={styles.container}>
-            <Popup
-                message={message}
-                visible={messageVisible}
-                validation={setMessageVisible}
-                btnTitle="OK"
-            />
-            <div style={{ backgroundColor: COLORS.white, borderRadius: 10, minHeight: 450, marginTop: 52 }}>
-                {/* <Header {...props} /> */}
-                <TitleRefont title={activeString.RESUME_VIDEO.WELCOMING} />
-                <div style={[styles.containers]}>
-                    <Dialog
-                        animationType="slide"
-                        transparent
-                        visible={modalVisible}
-                        onRequestClose={() => {
-                            setModalVisible(!modalVisible);
-                        }}>
-                        {isThereprogressStatus ? (
-                            <div style={styles.centeredView}>
-                                <VideoProgressBar
-                                    progressBar={progressBar}
-                                    waitingText={messageWaiting}
-                                    goBack={hideTheProgressBar}
-                                />
-                            </div>
-                        ) : (
-                            <div style={styles.centeredView}>
-                                <div style={styles.modalView}>
-                                    <span style={styles.modalText}>{serverResponse}</span>
-                                    <button
-                                        style={[styles.button, styles.buttonClose]}
-                                        onClick={() => navigate('/home')}>
-                                        <span style={styles.textStyle}>
-                                            Retour à la page d'acceuil
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-                        )}
-                    </Dialog>
-                    <div style={globalStyle.pageContainerPresentation}>
-                        <div style={{ marginTop: 20 }}>
-                            <div style={{ paddingVertical: 20 }}>
-                                <FileUploader handleFileChange={selectVideo} accept="video/*" fileName={activeString.RESUME_VIDEO.NEW_IMPORT} icon={icons.download} />
-                            </div>
-                        </div>
-
-                        <div style={{ marginTop: 20 }}>
-                            {isVideo && (
-                                <div style={globalStyle.btnContainer}>
-                                    <CustomButtons
-                                        onClick={() => displayVideoEntreprise()}
-                                        title={activeString.RESUME_VIDEO.DISPLAY}
-                                        _style={[
-                                            globalStyle.elevationOrange,
-                                            globalStyle.buttonHomeDisplay,
-                                        ]}
-                                        color="red"
-                                        icon={icons.display}
-                                        styleBtnTxt={globalStyle.bigBtnTxt}
-                                    />
-                                </div>
-                            )}
-                        </div>
-                    </div>
+  const hideTheProgressBar = async () => {
+    setModalVisible(false);
+  };
+  return (
+    <div style={styles.container}>
+      <Popup
+        message={message}
+        visible={messageVisible}
+        validation={setMessageVisible}
+        btnTitle="OK"
+      />
+      <div
+        style={{
+          backgroundColor: COLORS.white,
+          borderRadius: 10,
+          minHeight: 450,
+          marginTop: 52,
+        }}
+      >
+        {/* <Header {...props} /> */}
+        <TitleRefont title={activeString.RESUME_VIDEO.WELCOMING} />
+        <div style={[styles.containers]}>
+          <Dialog
+            animationType="slide"
+            transparent
+            visible={modalVisible}
+            onRequestClose={() => {
+              setModalVisible(!modalVisible);
+            }}
+          >
+            {isThereprogressStatus ? (
+              <div style={styles.centeredView}>
+                <VideoProgressBar
+                  progressBar={progressBar}
+                  waitingText={messageWaiting}
+                  goBack={hideTheProgressBar}
+                />
+              </div>
+            ) : (
+              <div style={styles.centeredView}>
+                <div style={styles.modalView}>
+                  <span style={styles.modalText}>{serverResponse}</span>
+                  <button
+                    style={[styles.button, styles.buttonClose]}
+                    onClick={() => {
+                      navigate('/home');
+                    }}
+                  >
+                    <span style={styles.textStyle}>
+                      Retour à la page d'acceuil
+                    </span>
+                  </button>
                 </div>
+              </div>
+            )}
+          </Dialog>
+          <div style={globalStyle.pageContainerPresentation}>
+            <div style={{ marginTop: 20 }}>
+              <div style={{ paddingVertical: 20 }}>
+                <FileUploader
+                  handleFileChange={selectVideo}
+                  accept="video/*"
+                  fileName={activeString.RESUME_VIDEO.NEW_IMPORT}
+                  icon={icons.download}
+                />
+              </div>
             </div>
-            {visible ? <CustomModal title={isSpecial ? `${activeString.RESUME_VIDEO.INSPIRE}` : `${activeString.RESUME_VIDEO.DISPLAY}`} visible={visible} setVisible={setVisible} content={<DisplayVideo />} /> : null}
+
+            <div style={{ marginTop: 20 }}>
+              {isVideo && (
+                <div style={globalStyle.btnContainer}>
+                  <CustomButtons
+                    onClick={async () => {
+                      await displayVideoEntreprise();
+                    }}
+                    title={activeString.RESUME_VIDEO.DISPLAY}
+                    _style={[
+                      globalStyle.elevationOrange,
+                      globalStyle.buttonHomeDisplay,
+                    ]}
+                    color="red"
+                    icon={icons.display}
+                    styleBtnTxt={globalStyle.bigBtnTxt}
+                  />
+                </div>
+              )}
+            </div>
+          </div>
         </div>
-    );
+      </div>
+      {visible ? (
+        <CustomModal
+          title={
+            isSpecial
+              ? `${activeString.RESUME_VIDEO.INSPIRE}`
+              : `${activeString.RESUME_VIDEO.DISPLAY}`
+          }
+          visible={visible}
+          setVisible={setVisible}
+          content={<DisplayVideo />}
+        />
+      ) : null}
+    </div>
+  );
 };
 
 export default PresentationVideoScreen;

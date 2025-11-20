@@ -23,7 +23,8 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'rgba(255, 255, 255, 0.7)', // Semi-transparent white background
-    zIndex: 1000, // Ensure the loader appears above other content
-  }});
+    zIndex: 1000 // Ensure the loader appears above other content
+  }
+};
 
 export default MiniLoader;

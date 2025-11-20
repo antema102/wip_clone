@@ -15,7 +15,8 @@ export const HOME = {
   THANKYOU: 'Thank you for your credit purchase on Wipwork !',
   CANCEL: 'Your credit purchase has been canceled',
   LOGOUT: 'Logout',
-  HELP: 'Help'};
+  HELP: 'Help',
+};
 
 export const STATUS = {
   PASSWORD_SUCCESS: 'Password changed successfully',
@@ -39,11 +40,13 @@ export const STATUS = {
   OFFER_UPDATE_SUCCES: 'Offer modified successfully',
   OFFER_UPDATE_FAIL: 'Failed to edit your offer',
   OFFER_DELETE_SUCCES: 'Offer successfully deleted',
-  OFFER_DELETE_FAIL: 'Failed to delete your offer'};
+  OFFER_DELETE_FAIL: 'Failed to delete your offer',
+};
 
 export const SEARCH_STATUT = {
   FIND_OFFER: 'Search offer',
-  FIND_CANDIDATE: 'Candidate search'};
+  FIND_CANDIDATE: 'Candidate search',
+};
 
 export const TEXT_INFORMATIONS = {
   ENTERPRISE_CHECKBOX:
@@ -51,7 +54,8 @@ export const TEXT_INFORMATIONS = {
   CANDIDAT_CHECKBOX:
     'I declare on my honor that the above information is accurate and true. I undertake to respect the legal and regulatory obligations in force. I am warned that any false declaration may result in legal action. You can consult our ',
   ACCOUNT_DELETION: 'Are you sure you want to delete your account? ? ',
-  FILE_SAVED: 'Congratulations, the file has been successfully uploaded'};
+  FILE_SAVED: 'Congratulations, the file has been successfully uploaded',
+};
 
 export const ENTERPRISE_INFORMATIONS = {
   MODIFICATION_SUCCEED: 'The changes have been added',
@@ -79,7 +83,8 @@ export const ENTERPRISE_INFORMATIONS = {
   SUBSCRIPTION_ACTIVE_AGAIN: 'Your subscription is active again.',
   ALREADY_SUBSCRIBED:
     'You already have a current subscription, please cancel your old subscription first before purchasing a new one.',
-  EMPTY: 'Your favorites list is empty.'};
+  EMPTY: 'Your favorites list is empty.',
+};
 
 export const RESET_PASSWORD = {
   USER_DOES_NOT_EXIST:
@@ -90,7 +95,8 @@ export const RESET_PASSWORD = {
   SEND_BUTTON: 'Send recovery email',
   RESEND_BUTTON: 'Resend validation code',
   CONFIRM_BUTTON: 'Confirm validation code',
-  RESEND_MESSAGE: 'The validation code has indeed been returned'};
+  RESEND_MESSAGE: 'The validation code has indeed been returned',
+};
 
 export const CONTACT_CANDIDAT = {
   MESSAGE_TITLE: 'RESPONSE FOLLOWING YOUR APPLICATION',
@@ -101,7 +107,8 @@ export const CONTACT_CANDIDAT = {
   ZERO_NOTIFICATION: 'Notification',
   NO_PHONE_PHONENUMBER: 'Sorry, no numbers available at the moment',
   ZERO_NOTIFICATION_TEXT: 'No notification for now.',
-  NOTIFICATION_TITLE: 'Notification'};
+  NOTIFICATION_TITLE: 'Notification',
+};
 
 export const CONTACT_ENTERPRISE = {
   MESSAGE_TITLE: 'SEND AN APPLICATION',
@@ -113,7 +120,8 @@ export const CONTACT_ENTERPRISE = {
   COMPLETE_THE_CV_FIRST: 'Please complete your CV here first, before applying',
   APPLY: 'Apply for the offer',
   RESIGN: 'Don’t apply anymore',
-  UNDO: 'Cancel'};
+  UNDO: 'Cancel',
+};
 
 export const RESUME_VIDEO = {
   PRESENTATION: 'Introduce yourself on video',
@@ -137,7 +145,8 @@ export const RESUME_VIDEO = {
   MAX_DURATION_REACHED:
     'Sorry, your video presentation is too long, please upload a video of maximum 2 minutes.',
   MAX_DURATION_REACHED_ENTERPRISE:
-    'Sorry, your video presentation is too long, please upload a shorter video, less than 30 seconds.'};
+    'Sorry, your video presentation is too long, please upload a shorter video, less than 30 seconds.',
+};
 
 export const HOME_COMPANY = {
   HISTORY_CHAT: 'History of your searches chat IA',
@@ -150,39 +159,46 @@ export const HOME_COMPANY = {
   NOTE: 'Easily find a candidate who matches your search criteria',
   WIPWORK_ONLY: 'Analysis and research based on Wipwork',
   COMBINED_SEARCH: 'Combined Search : Wipwork ',
-  CV_LIBRARY: 'CV Library Analysis'};
+  CV_LIBRARY: 'CV Library Analysis',
+};
 export const NEWS = {
   WARN: 'You have not yet recorded your video presentation.',
   EXPIRED: 'Your session has expired, please log in again first',
   SUBSCRIPTION_EXPIRED:
     'Your subscription is no longer valid, please log in again first',
   ADVICE:
-    'Please save your video resume, or upload your video so that your information can be valid.'};
+    'Please save your video resume, or upload your video so that your information can be valid.',
+};
 
 export const TAB = {
   NEWS: 'News',
   OFFERS: 'Job offers',
-  ANNOUNCES: 'Offers'};
+  ANNOUNCES: 'Offers',
+};
 
 export const TENDER = {
   CONFIRMATION_TENDER: 'Are you sure you want to delete this tender?',
   CONFIRMATION_AD: 'Are you sure you want to remove this ad?',
-  CONFIRMATION_POST: 'Are you sure you want to delete this classified ad?'};
+  CONFIRMATION_POST: 'Are you sure you want to delete this classified ad?',
+};
 
 export const ACCOUNT_CANDIDAT = {
   KREDIT: 'Credit my account',
   SUP: 'Delete my account',
   MES_SOLDES: 'My balance',
   ABONNEMENT: 'Your subscription has expired. Renew it now.',
-  CURRENT_SUBSCRIPTION: 'Your current subscription is'};
+  CURRENT_SUBSCRIPTION: 'Your current subscription is',
+};
 
 export const PreferenceTAB = {
   OFFERS: 'Job offers',
-  FORMATIONS: 'Training'};
+  FORMATIONS: 'Training',
+};
 
 export const HEADER = {
   INFO_APP: 'About the app',
-  LOGOUT: 'Sign out'};
+  LOGOUT: 'Sign out',
+};
 
 export const DETAIL_PROFIL = {
   MON_CV: 'My CV',
@@ -220,7 +236,8 @@ export const DETAIL_PROFIL = {
   NOTFOUND_SUBTEXT_ANNONCE: 'Add a classified ad',
   NOTFOUND_SUBTEXT_ADS: 'Add an advertisement.',
   NOTFOUND_APPEL_OFFERS: 'No call for tenders',
-  STATUS: 'My account status'};
+  STATUS: 'My account status',
+};
 
 export const OFFERS = {
   ALL: 'All offers',
@@ -229,29 +246,34 @@ export const OFFERS = {
   OFFERT_LAST: 'Training ,Internship ,Alternance',
   NO_CANDIDATE: 'No candidate',
   APPLIED: 'applied',
-  NO_OFFER: 'No offer available'};
+  NO_OFFER: 'No offer available',
+};
 
 export const PRESENTATION_VIDEO = {
   ENREGISTRER: 'Save new presentation',
   IMPORTER: 'Import new presentation',
   DEFAULT_URLS:
-    'https://static.videezy.com/system/resources/previews/000/006/983/original/MR8_5629.mp4'};
+    'https://static.videezy.com/system/resources/previews/000/006/983/original/MR8_5629.mp4',
+};
 
 export const ABOUT_COMPANY = {
   JOB: 'How to create a job offer?',
   TRAINING: 'How to create training?',
   CALL_FOR_TENDER: 'How to create a Call for Tender?',
-  TARGET: 'How to create targeted or non-targeted advertising?'};
+  TARGET: 'How to create targeted or non-targeted advertising?',
+};
 
 export const ABOUT_CANDIDAT = {
   CV: 'How do I enter my CV?',
   PRESENTATION: 'How to make a video presentation?',
-  ANNOUNCEMENT: 'How to place a classified ad?'};
+  ANNOUNCEMENT: 'How to place a classified ad?',
+};
 
 export const FIND_TALENT_C = {
   TITLE_C: 'Find talent !',
   TEXT_C:
-    'Please enter your criteria as well as the prioritization level for each criterion'};
+    'Please enter your criteria as well as the prioritization level for each criterion',
+};
 
 export const ERROR = {
   EMPTY_EMAIL: 'Email required',
@@ -273,7 +295,8 @@ export const ERROR = {
   SUBSCRIPTION_ALREADY_EXIST:
     'You already have a current subscription, please wait for it to expire before you can recharge it.',
   NOT_ENOUGH_MONEY:
-    'You cannot purchase this offer, please check your account balance !'};
+    'You cannot purchase this offer, please check your account balance !',
+};
 
 export const INSCRIPTION = {
   CREATE: 'Create your account',
@@ -290,7 +313,8 @@ export const INSCRIPTION = {
   CONFIRM_PASSWORD: 'CONFIRM PASSWORD',
   CONTINUE: 'CONTINUE',
   MAIL: 'MAIL',
-  ENTERPRISE: 'THE COMPANY'};
+  ENTERPRISE: 'THE COMPANY',
+};
 
 export const DELETION = {
   TITLE: 'Account deletion',
@@ -301,46 +325,55 @@ export const DELETION = {
   CONFIRMATION_TITLE: 'Delete account',
   AUTHENTICATION: 'Please enter your password : ',
   DELETION_SUCCES: 'Your account has been successfully deleted',
-  BUTTON_CONFIRM: 'Confirm account deletion'};
+  BUTTON_CONFIRM: 'Confirm account deletion',
+};
 
 export const ROLEACCOUNT = {
   candidate: 'candidate',
-  company: 'company'};
+  company: 'company',
+};
 export const HISTORY = {
   candidate: 'candidate',
   company: 'company',
   NAME: 'Name :',
   LEVELS: 'Levels :',
   SEARCH_HISTORY: 'Easily find the history of your searches',
-  TITLE_HISTORY: 'Vos historiques'};
+  TITLE_HISTORY: 'Vos historiques',
+};
 
 export const SEARCHENT_RESULT = {
   FIND_COMPANY_THAT_ARE_HIRING:
     'Find companies recruiting according to your profile',
-  NO_RESULT_FOUND: 'No positions found'};
+  NO_RESULT_FOUND: 'No positions found',
+};
 
 export const NEWS_DETAILS = {
-  NO_RESULT_FOUND: 'No news found'};
+  NO_RESULT_FOUND: 'No news found',
+};
 
 export const NEWS_INFORMARIONS = {
-  SEE_MORE: 'Learn more...'};
+  SEE_MORE: 'Learn more...',
+};
 
 export const MATCHING = {
   FILL_THE_FIELD: 'Please complete the fields indicated as required !',
   FILL_AT_LEAST_ONE: 'Please meet at least one criterion !',
   ERROR_SALARY:
     'Le salaire brut maximum (Ariary) doit être supérieur au salaire brut minimum (Ariary)',
-  ERROR_AGE: 'The maximum age must be greater than the minimum age'};
+  ERROR_AGE: 'The maximum age must be greater than the minimum age',
+};
 
 export const FIND_TALENT_FORM = {
   TITLE_HEADERSCREEN: 'Find talent',
   DESCRIPTION_HEADERSCREEN:
-    'Please enter your criteria as well as the prioritization level for each criterion'};
+    'Please enter your criteria as well as the prioritization level for each criterion',
+};
 
 export const STRING_ALL = {
   REQUIRED_FIELD: 'This field is required.',
   CONFIRMATION: 'An email containing a validation code has just been sent to ',
-  FOLLOW: 'Follow us on :'};
+  FOLLOW: 'Follow us on :',
+};
 
 export const ENTERPRISE_OFFER = {
   CREATION: 'Creation',
@@ -371,24 +404,30 @@ export const ENTERPRISE_OFFER = {
   NUMBER_OF_CANDIDATES_VIEWED_YOUR_OFFER:
     'Number of candidates who viewed your offer',
   STATISTICS: 'Statistics',
-  VIEW: 'views'};
+  VIEW: 'views',
+};
 
 export const APPEL_OFFRE = {
-  TITLE_OFFERS: 'List of calls for tenders'};
+  TITLE_OFFERS: 'List of calls for tenders',
+};
 
 export const NOTIFICATION = {
-  RECEIPT: 'RECEIPT OF APPLICATION'};
+  RECEIPT: 'RECEIPT OF APPLICATION',
+};
 
 export const FORMATIONS = {
   NOT_FOUND:
-    'You have not yet posted any internships, training, or apprenticeships.'};
+    'You have not yet posted any internships, training, or apprenticeships.',
+};
 
 export const SUBSCRIPTION = {
   LIST_OF_PACKS: 'LIST OF PACKS WIP',
-  LIST_OF_SUBSCRIPTIONS: 'LIST OF SUBSCRIPTIONS'};
+  LIST_OF_SUBSCRIPTIONS: 'LIST OF SUBSCRIPTIONS',
+};
 export const PAGINATOR = {
   NEXT: 'Next',
-  PREVIOUS: 'Previous'};
+  PREVIOUS: 'Previous',
+};
 export const IA = {
   TITLE: 'Find top talent using AI',
   SUB_TITLE: 'Keyword or Job Description Search (PDF/DOCX)',
@@ -399,10 +438,12 @@ export const IA = {
   ABONNEMENT: 'Please upgrade your subscription to access the AI service.',
   DESCRIPTION_COMBINEE: 'Match Your CVs to Our Database',
   DESCRIPTION_CV: 'Search Profiles in Your CV Library',
-  DESCRIPTION_FLAG: 'Find ideal candidates in the country of your choice thanks to our international CV library',
+  DESCRIPTION_FLAG:
+    'Find ideal candidates in the country of your choice thanks to our international CV library',
   UPLOAD_CV: 'Upload your CV',
   UPLOAD_CV_MODAL_TITLE: 'Upload CVs',
-  UPLOAD_CV_MODAL_SUBTITLE: 'Add CVs (.pdf, .docx) to your database to enrich your talent search.',
+  UPLOAD_CV_MODAL_SUBTITLE:
+    'Add CVs (.pdf, .docx) to your database to enrich your talent search.',
   NO_FILE_SELECTED: 'No file selected',
   ADD_FILES: 'Add files',
   CANCEL: 'Cancel',
@@ -414,9 +455,12 @@ export const IA = {
   SUCCESS_MESSAGE: 'Success! All files have been sent.',
   SELECT_FILE_WARNING: 'Please select at least one file.',
   SELECT_COUNTRY: 'Select a country',
-  ENRICH_CVTHEQUE: 'Enrich your personal CV library by importing your own CVs. These profiles will be combined with our database for even more relevant searches.',
-  SUBSCRIPTION_NOT_AVAILABLE: 'This feature is not available with your current subscription.',
-  UPGRADE_PLAN: 'Upgrade to a higher plan to unlock this feature and much more.',
+  ENRICH_CVTHEQUE:
+    'Enrich your personal CV library by importing your own CVs. These profiles will be combined with our database for even more relevant searches.',
+  SUBSCRIPTION_NOT_AVAILABLE:
+    'This feature is not available with your current subscription.',
+  UPGRADE_PLAN:
+    'Upgrade to a higher plan to unlock this feature and much more.',
   UPGRADE_BUTTON: 'Upgrade',
   ENTER_MESSAGE_OR_FILE: 'Please enter a message or upload a file.',
   SELECT_COUNTRY_WARNING: 'Please select a country.',
@@ -427,13 +471,16 @@ export const IA = {
   OK: 'Ok',
   CONTINUE_CHAT_SUBSCRIPTION: 'To continue chatting with AI, please subscribe.',
   VIEW_CV_BUTTON: 'View saved CVs',
-  VIEW_CV_BUTTON_DESCRIPTION: 'View all CVs you have imported into your personal database',
+  VIEW_CV_BUTTON_DESCRIPTION:
+    'View all CVs you have imported into your personal database',
   CV_LIST_TITLE: 'Your saved CVs',
   CV_LIST_SUBTITLE: 'List of CVs imported into your personal database',
   CV_LIST_EMPTY: 'No saved CVs',
   CV_LIST_EMPTY_SUBTITLE: 'Import CVs to enrich your database',
   LOADING: 'Loading...',
-  UPLOAD_CV_SUBTITLE: 'Upload your CV in .pdf or .docx format to start searching for talents that match your needs.',
+  UPLOAD_CV_SUBTITLE:
+    'Upload your CV in .pdf or .docx format to start searching for talents that match your needs.',
   CLICK_TO_SELECT: ' Click to select files or drag and drop them here.',
-  SUPPORTED_FORMATS:' Supported formats: .pdf, .docx ',
-    ADD_MORE_FILES: 'Add more files'};
+  SUPPORTED_FORMATS: ' Supported formats: .pdf, .docx ',
+  ADD_MORE_FILES: 'Add more files',
+};

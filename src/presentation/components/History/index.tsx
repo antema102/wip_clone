@@ -1,20 +1,20 @@
 import React from 'react';
-;
 import { styles } from './styles';
 import { dateToString } from '../../../data/factory/dateFactory';
-
 interface HistoryType {
   item: {
-    id: string,
-    arrondissement: string,
-    ville: string,
-    region: string,
-    desiredPost: { [key: string]: string },
-    activitySector: { [key: string]: string },
-    createdAt: Date,
-    lastjobType: { [key: string]: string },
-    filiere: { [key: string]: string }},
-  displayHistoryDetail: (id: string) => void}
+    id: string;
+    arrondissement: string;
+    ville: string;
+    region: string;
+    desiredPost: Record<string, string>;
+    activitySector: Record<string, string>;
+    createdAt: Date;
+    lastjobType: Record<string, string>;
+    filiere: Record<string, string>;
+  };
+  displayHistoryDetail: (id: string) => void;
+}
 
 export const History = (props: HistoryType) => {
   const { item, displayHistoryDetail } = props;
@@ -26,7 +26,8 @@ export const History = (props: HistoryType) => {
     activitySector,
     createdAt,
     lastjobType,
-    filiere} = item;
+    filiere,
+  } = item;
 
   const getValue = (value: string) => Object.keys(value).length !== 0 && region;
 
@@ -64,7 +65,8 @@ export const History = (props: HistoryType) => {
       style={styles.candidateContainer}
       onClick={() => {
         displayHistoryDetail(item.id);
-      }}>
+      }}
+    >
       <div style={styles.candidateDetailsContainer}>
         {/** A propos du candidat */}
         <span style={styles.candidatName}>{date}</span>

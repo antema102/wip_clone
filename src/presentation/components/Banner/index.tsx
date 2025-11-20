@@ -13,7 +13,7 @@ interface itemTemplateType {
   link: string,
   image: string}
 
-const Banner = {
+const Banner = ({
   data
 }: Props) => {
   const responsiveOptions = [

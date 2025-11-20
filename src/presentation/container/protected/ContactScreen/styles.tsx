@@ -1,4 +1,3 @@
-;
 import { COLORS, SIZES } from '../../../../resources/constants';
 
 export const styles = {
@@ -11,18 +10,21 @@ export const styles = {
   logo: {
     width: 100,
     height: 30,
-    objectFit: 'contain' as const},
+    objectFit: 'contain' as const
+  },
   centeredContent: {
     alignItems: 'center', // Center title and description horizontally
   },
   titleContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 10},
+    marginBottom: 10
+  },
   homeTitle: {
     flex: 1,
     justifyContent: 'center',
-    alignSelf: 'center'},
+    alignSelf: 'center'
+  },
   title: {
     bottom: 50,
     color: COLORS.white,
@@ -38,7 +40,8 @@ export const styles = {
     padding: 30,
     fontSize: SIZES.h4,
     color: 'white',
-    bottom: 40},
+    bottom: 40
+  },
   cardContainer: {
     position: 'absolute',
     bottom: -120,
@@ -47,7 +50,8 @@ export const styles = {
     alignItems: 'center'
   },
   cardContainerMobile: {
-    position: 'relative'},
+    position: 'relative'
+  },
   card: {
     backgroundColor: 'white',
     padding: 60,
@@ -66,25 +70,34 @@ export const styles = {
   column: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center'},
+    justifyContent: 'center'
+  },
   columnTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 5},
+    marginBottom: 5
+  },
   columnText: {
-    fontSize: 16},
+    fontSize: 16
+  },
   customIcon: {
     width: 64,
     height: 64,
     borderRadius: 48,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 20},
+    marginBottom: 20
+  },
   locationIcon: {
-    backgroundColor: COLORS.badge_color},
+    backgroundColor: COLORS.badge_color
+  },
   emailIcon: {
-    backgroundColor: COLORS.badge_color},
+    backgroundColor: COLORS.badge_color
+  },
   phoneIcon: {
-    backgroundColor: COLORS.badge_color},
+    backgroundColor: COLORS.badge_color
+  },
   iconText: {
-    fontSize: 24}});
+    fontSize: 24
+  }
+};

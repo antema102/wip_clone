@@ -5,7 +5,7 @@ import { SwitchComponent } from '../../Switch';
 
 interface Props {
   title?: string;
-  value: { [key: string]: boolean };
+  value: Record<string, boolean>;
   onChange: (arg?: string, arg1?: string[] | boolean, arg2?: boolean) => void;
   style?: any;
   name: string;

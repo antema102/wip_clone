@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-;
 import { styles } from './styles';
 import { useLocation } from 'react-router';
 import { COLORS } from '../../../resources/constants';
-
 const Tabs = (props: any) => {
   const { state } = useLocation();
 
-  const [isFormation, setIsFormation] = useState(props?.isFormation || state?.isFormation || false);
+  const [isFormation, setIsFormation] = useState(
+    props?.isFormation || state?.isFormation || false
+  );
   const [show, setShow] = useState(isFormation ? 'Formations' : 'Offers');
 
   const [isActive, setIsActive] = useState(isFormation || false);
@@ -27,9 +27,16 @@ const Tabs = (props: any) => {
           <div style={styles.search1}>
             <button
               style={styles.container}
-              onClick={() => handleShow('Offers')}
+              onClick={() => {
+                handleShow('Offers');
+              }}
             >
-              <span style={{...styles.text, ...(!isActive ? { fontWeight: '700' } : {})}}>
+              <span
+                style={{
+                  ...styles.text,
+                  ...(!isActive ? { fontWeight: '700' } : {}),
+                }}
+              >
                 {props.title1}
               </span>
               {!isActive && <div style={styles.linesSearch} />}
@@ -39,9 +46,16 @@ const Tabs = (props: any) => {
           <div style={styles.search2}>
             <button
               style={styles.container}
-              onClick={() => handleShow('Formations')}
+              onClick={() => {
+                handleShow('Formations');
+              }}
             >
-              <span style={{...styles.text, ...(isActive ? { fontWeight: '700' } : {})}}>
+              <span
+                style={{
+                  ...styles.text,
+                  ...(isActive ? { fontWeight: '700' } : {}),
+                }}
+              >
                 {props.title2}
               </span>
               {isActive && <div style={styles.linesSearch} />}
@@ -56,7 +70,9 @@ const Tabs = (props: any) => {
         <div>
           <div style={[styles.tabContent, { left: 25 }]}>
             <button
-              onClick={() => handleShow('Offers')}
+              onClick={() => {
+                handleShow('Offers');
+              }}
               style={styles.content}
             >
               <span style={isActive ? styles.ButtonTabs : styles.active}>
@@ -68,7 +84,9 @@ const Tabs = (props: any) => {
 
           <div style={[styles.tabContent, { right: 25 }]}>
             <button
-              onClick={() => handleShow('Formations')}
+              onClick={() => {
+                handleShow('Formations');
+              }}
               style={styles.content}
             >
               <span style={!isActive ? styles.ButtonTabs : styles.active}>
@@ -81,9 +99,7 @@ const Tabs = (props: any) => {
       )}
 
       {/* Affichage du contenu via JSX plutôt que de l'exécuter directement */}
-      <div>
-        {show === 'Offers' ? <props.Offers /> : <props.Formations />}
-      </div>
+      <div>{show === 'Offers' ? <props.Offers /> : <props.Formations />}</div>
     </div>
   );
 };

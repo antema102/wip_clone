@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-;
 import { Dialog } from 'primereact/dialog';
 import { useHomeCompany } from '../ActivityOffer/useHomeCompany';
 import styles from './styles';
@@ -7,7 +6,6 @@ import './style.css';
 import { useLang } from '../../../data/translation';
 import * as stringsEn from '../../../data/constants/strings_en';
 import * as stringsFr from '../../../data/constants/strings';
-
 interface SearchHistoryPopup {
   visible: boolean;
   showQuit: any;
@@ -15,9 +13,7 @@ interface SearchHistoryPopup {
   setVisible: (visible: boolean) => void;
 }
 
-interface HistoryType {
-  [key: string]: { value: string, score: number };
-}
+type HistoryType = Record<string, { value: string; score: number }>;
 
 enum typeActivity {
   AGRI = 'agrifood',
@@ -29,14 +25,15 @@ enum typeActivity {
   ELEC = 'electronics',
   IT = 'it',
   HOT = 'hotels',
-  COM = 'communication'}
+  COM = 'communication',
+}
 
 const HistoryPopup = (props: SearchHistoryPopup) => {
   const { visible, historyId, setVisible } = props;
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [histories, setHistories] = useState<HistoryType>();
   const { allHistory } = useHomeCompany();
-  const { lang } = useLang()
+  const { lang } = useLang();
   const activeString = lang === 'fr' ? stringsFr : stringsEn;
 
   const handleCancel = async () => {
@@ -45,13 +42,16 @@ const HistoryPopup = (props: SearchHistoryPopup) => {
 
   useEffect(() => {
     if (Array.isArray(allHistory) && allHistory.length > 0) {
-      const itemsFound = allHistory.find(x => x.id === historyId);
+      const itemsFound = allHistory.find((x) => x.id === historyId);
       if (itemsFound) {
-        const filtered = Object.keys(itemsFound).reduce((obj: HistoryType, key) => {
-          if (itemsFound[key].value && itemsFound[key].value !== 'string')
-            obj[key] = itemsFound[key];
-          return obj;
-        }, {} as HistoryType);
+        const filtered = Object.keys(itemsFound).reduce<HistoryType>(
+          (obj: HistoryType, key) => {
+            if (itemsFound[key].value && itemsFound[key].value !== 'string')
+              obj[key] = itemsFound[key];
+            return obj;
+          },
+          {}
+        );
         setHistories(filtered);
       } else {
         setHistories(undefined);
@@ -96,10 +96,17 @@ const HistoryPopup = (props: SearchHistoryPopup) => {
   };
 
   return (
-    <Dialog header={activeString.HISTORY.TITLE_HISTORY} visible={visible} style={{ width: '50vw', backgroundColor: 'white' }} onHide={() => setVisible(false)}>
+    <Dialog
+      header={activeString.HISTORY.TITLE_HISTORY}
+      visible={visible}
+      style={{ width: '50vw', backgroundColor: 'white' }}
+      onHide={() => {
+        setVisible(false);
+      }}
+    >
       <p className="m-0">{activeString.HISTORY.SEARCH_HISTORY}</p>
-      {histories ? (
-        Object.keys(histories).map(item => (
+      {histories != null ? (
+        Object.keys(histories).map((item) => (
           <div style={styles.item}>
             <div style={styles.itemDetails} key={item}>
               <span style={styles.textLabel}>{activeString.HISTORY.NAME}</span>
@@ -108,7 +115,9 @@ const HistoryPopup = (props: SearchHistoryPopup) => {
               </span>
             </div>
             <div style={styles.itemDetails}>
-              <span style={styles.textLabel}>{activeString.HISTORY.LEVELS}</span>
+              <span style={styles.textLabel}>
+                {activeString.HISTORY.LEVELS}
+              </span>
               <span style={styles.textValue}>
                 {' '}
                 {getLevel(histories[item].score)}
@@ -120,7 +129,6 @@ const HistoryPopup = (props: SearchHistoryPopup) => {
         <span> Aucun resultats</span>
       )}
     </Dialog>
-
   );
 };
 

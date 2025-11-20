@@ -10,7 +10,8 @@ export const TitleLabels = {
     profil: 'Profil',
     experience: " Nombre d'éxperience",
     prestation: 'Salaire Brut (Ariary) *',
-    type: "Type d'offre"},
+    type: "Type d'offre",
+  },
   advertisement: {
     name: 'Intitulé',
     description: 'Description',
@@ -28,17 +29,21 @@ export const TitleLabels = {
     age: "Tranche d'âge ciblée",
     image: 'Importer fichier',
     pet: 'Animal de compagnie',
-    transport: 'Moyen de locomotion'},
+    transport: 'Moyen de locomotion',
+  },
   tender: {
     title: 'Titre',
     detail: 'Détail',
     audience: 'Cible',
     tarif: 'Durée du tarif',
-    date: 'Date de publication'},
+    date: 'Date de publication',
+  },
   titleLab: {
     visual_pub: 'Visualisation de la publicité',
     visual_annonce: 'Visualisation de la petite annonce',
     create_pub: 'Création de nouvelle publicité',
     create_annonce: 'Création de nouvelle petite annonce',
     create_offer: "Création de nouvel appel d'offre",
-    create_job: 'Création offre d’emploi'}};
+    create_job: 'Création offre d’emploi',
+  },
+};

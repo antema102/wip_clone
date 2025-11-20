@@ -17,6 +17,6 @@ export const CV_BDL = () => ({
     await api.get(`${urls.CV_BY_ID_USER}/${id}`, token),
   getAllCV: async (token: string, data: any) =>
     await api.get(`${urls.CREATE_CV}`, token, data),
-  sendAvailability:async(token:string,params:string)=>
-    await api.put(urls.AVAILABILITY_CV,{},token,params)
+  sendAvailability: async (token: string, params: string) =>
+    await api.put(urls.AVAILABILITY_CV, {}, token, params),
 });

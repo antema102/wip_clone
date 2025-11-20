@@ -2,23 +2,25 @@ import { useDispatch } from 'react-redux';
 import { AuthService } from '../../applicatif/Auth.sa';
 import { InscriptionActionType } from './inscription';
 
-export type AuthState = {
+export interface AuthState {
   user: any;
   accessToken: string;
   credentials: any;
-};
+}
 
 export const enum AuthActionType {
   setIsLogin = '[Auth] Set login status',
   setIsLoginWithGoogle = '[Auth] Set login status google',
   updateCredentials = '[Auth] Update credentials',
   error = '[Auth] Error Login',
-  logOut = '[Auth] Logout'}
+  logOut = '[Auth] Logout',
+}
 
 export const initialAuthState: AuthState = {
   user: [],
   accessToken: '',
-  credentials: {}};
+  credentials: {},
+};
 
 export const authReducer = (state = initialAuthState, action) => {
   const { type, payload } = action;
@@ -27,28 +29,33 @@ export const authReducer = (state = initialAuthState, action) => {
       return {
         ...state,
         user: payload?.data?.user,
-        accessToken: payload?.data?.accessToken};
+        accessToken: payload?.data?.accessToken,
+      };
 
     case AuthActionType.setIsLoginWithGoogle:
       return {
         ...state,
         user: payload?.data?.user,
-        accessToken: payload?.data?.accessToken};
+        accessToken: payload?.data?.accessToken,
+      };
 
     case InscriptionActionType.setIsRegister:
       return {
         ...state,
         user: payload?.data?.user,
-        accessToken: payload?.data?.accessToken};
+        accessToken: payload?.data?.accessToken,
+      };
     case AuthActionType.updateCredentials:
       return {
         ...state,
-        user: payload};
+        user: payload,
+      };
     case AuthActionType.logOut:
       return {
         ...state,
         user: null,
-        accessToken: null};
+        accessToken: null,
+      };
     default:
       return state;
   }
@@ -68,11 +75,12 @@ export const useAuth = () => {
         const payload = await loginWithEmail({ data });
         dispatch({
           payload,
-          type: AuthActionType.setIsLogin});
+          type: AuthActionType.setIsLogin,
+        });
 
         return payload;
       } catch (error) {
-        return Promise.reject(error);
+        return await Promise.reject(error);
       }
     },
     loginWithGoogle: async (data: any) => {
@@ -80,18 +88,21 @@ export const useAuth = () => {
         const payload = await loginWithGoogle(data);
         dispatch({
           payload,
-          type: AuthActionType.setIsLoginWithGoogle});
+          type: AuthActionType.setIsLoginWithGoogle,
+        });
         return payload;
       } catch (error) {
-        return Promise.reject(error);
+        return await Promise.reject(error);
       }
     },
 
     logOut: () => {
       dispatch({
         type: AuthActionType.logOut,
-        payload: initialAuthState.credentials});
-    }};
+        payload: initialAuthState.credentials,
+      });
+    },
+  };
 };
 
 export const useResetCredentials = () => {
@@ -101,6 +112,8 @@ export const useResetCredentials = () => {
     signout: () => {
       dispatch({
         type: AuthActionType.updateCredentials,
-        payload: initialAuthState.credentials});
-    }};
+        payload: initialAuthState.credentials,
+      });
+    },
+  };
 };

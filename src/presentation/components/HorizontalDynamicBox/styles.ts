@@ -1,9 +1,8 @@
-;
 import { COLORS, SIZES } from '../../../resources/constants';
 
-const {width} = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
-export default ({
+export default {
   container: {
     display: 'flex',
     flexDirection: 'row',
@@ -13,7 +12,8 @@ export default ({
     alignItems: 'center',
     justifyContent: 'center',
     // backgroundColor: 'red',
-    paddingHorizontal: 0},
+    paddingHorizontal: 0,
+  },
   simpleBtn: {
     paddingHorizontal: 10,
     paddingVertical: 4,
@@ -24,7 +24,8 @@ export default ({
     flexDirection: 'row',
     alignItems: 'center',
     height: 32,
-    marginBottom: SIZES.padding4},
+    marginBottom: SIZES.padding4,
+  },
   activeBtn: {
     paddingHorizontal: 10,
     paddingVertical: 4,
@@ -34,12 +35,16 @@ export default ({
     alignItems: 'center',
     height: 32,
     marginBottom: SIZES.padding4,
-    backgroundColor: COLORS.blue_back},
+    backgroundColor: COLORS.blue_back,
+  },
   textMenu: {
     fontWeight: 'bold',
     fontSize: SIZES.body5,
-    color: COLORS.black},
+    color: COLORS.black,
+  },
   textMenuActive: {
     fontWeight: 'bold',
     fontSize: SIZES.body5,
-    color: COLORS.primary}});
+    color: COLORS.primary,
+  },
+};

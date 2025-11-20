@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-;
 import styles from './styles';
 
 interface Props {
@@ -11,7 +10,7 @@ interface Props {
   setIsAll?: any;
 }
 
-const HorizontalDynamicBox = {
+const HorizontalDynamicBox = ({
   click,
   list,
   setClick,

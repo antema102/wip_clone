@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 interface Props {
   value?: any;
@@ -23,11 +23,9 @@ export const InputDatePicker = ({
   onChange,
   isEditable,
   type,
-  todayDate}: Props) => {
-    return (
-      <div>
-      </div>
-    );
+  todayDate,
+}: Props) => {
+  return <div></div>;
 };
 
 InputDatePicker.propTypes = {
@@ -40,7 +38,8 @@ InputDatePicker.propTypes = {
   showError: PropTypes.bool,
   isEditable: PropTypes.bool,
   type: PropTypes.string,
-  todayDate: PropTypes.bool};
+  todayDate: PropTypes.bool,
+};
 InputDatePicker.defaultProps = {
   value: new Date(),
   required: false,
@@ -50,4 +49,5 @@ InputDatePicker.defaultProps = {
   showError: false,
   isEditable: true,
   type: 'date',
-  todayDate: false};
+  todayDate: false,
+};

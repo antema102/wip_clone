@@ -1,8 +1,8 @@
-;
 import { COLORS, SIZES, FONTS } from '../../../../resources/constants';
 export const styles = {
   container: {
-    width: '100%'},
+    width: '100%'
+  },
   containers: {
     width: '100%',
     height: '100%',
@@ -22,32 +22,39 @@ export const styles = {
     boxShadow: 'none'
   },
   containerFormList: {
-    width: '100%'},
+    width: '100%'
+  },
   contentResultContainer: {
     alignItems: 'center',
-    paddingVertical: 100},
+    paddingVertical: 100
+  },
   contentResult: {
-    textAlign: 'center'},
+    textAlign: 'center'
+  },
   centeredView: {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center'},
+    alignItems: 'center'
+  },
   titleHome: {
     ...FONTS.titleHomeBlack,
     alignContent: 'center',
     marginLeft: 10,
     marginRight: 10,
     marginTop: 10,
-    marginBottom: 10},
+    marginBottom: 10
+  },
   detailSub: {
     marginBottom: 20,
-    marginTop: 20},
+    marginTop: 20
+  },
   titleDetails: {
     fontFamily: 'Oxygen',
     fontStyle: 'normal',
     fontWeight: '400',
-    color: '#01129E'},
+    color: '#01129E'
+  },
   buttonAcheter: {
     height: 50,
     borderRadius: SIZES.radius,
@@ -56,7 +63,8 @@ export const styles = {
     alignItems: 'center',
     borderWidth: 1,
     borderColor: COLORS.secondary,
-    marginBottom: SIZES.padding2},
+    marginBottom: SIZES.padding2
+  },
   noEvents: {
     paddingVertical: 50,
     paddingHorizontal: 30,
@@ -64,17 +72,22 @@ export const styles = {
     fontWeight: 'bold',
     marginVertical: '45%',
     color: COLORS.black,
-    fontSize: 20},
+    fontSize: 20
+  },
   detailValue: {
     fontFamily: 'Oxygen',
     fontStyle: 'normal',
     fontWeight: '400',
-    color: '#323F4B'},
+    color: '#323F4B'
+  },
   detailItem: {
     display: 'flex',
     flexDirection: 'row',
-    marginBottom: 15},
+    marginBottom: 15
+  },
   textBtnSecondary: {
     color: COLORS.white,
     fontFamily: 'IBMPlexSans-SemiBold',
-    fontSize: SIZES.h5}});
+    fontSize: SIZES.h5
+  }
+};

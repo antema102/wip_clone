@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-;
 import { connect, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -15,7 +14,8 @@ import {
   ERROR,
   ROLEACCOUNT,
   STATUS,
-  TEXT_INFORMATIONS} from '../../../../../data/constants/strings';
+  TEXT_INFORMATIONS,
+} from '../../../../../data/constants/strings';
 import CustomButton from '../../../../components/Button/button';
 import { WhiteButtons } from '../../../../components/Inputs/WhiteButtons';
 import { styles } from './styles';
@@ -26,7 +26,6 @@ import { useLang } from '../../../../../data/translation';
 import BannerRefonte from '../../../../components/BannerRefonte';
 import TitleRefont from '../../../../components/TitleRefont';
 import { useMobile } from '../../../../../service/hooks/useMobile';
-
 export const MyAccount = (props) => {
   const { payCb, getUserById } = UserSA();
   const navigate = useNavigate();
@@ -56,7 +55,8 @@ export const MyAccount = (props) => {
   const [values, setValues] = useState({
     email: user?.email || '',
     password: '',
-    lang: ''});
+    lang: '',
+  });
 
   const { lang: currentLang } = useLang();
   const activeString = currentLang === 'fr' ? stringsFr : stringsEn;
@@ -81,7 +81,7 @@ export const MyAccount = (props) => {
   };
 
   const checkPwd = () => !password.trim();
-  
+
   const changePassword = async () => {
     if (checkPwd()) {
       setErroPwd(true);
@@ -91,13 +91,17 @@ export const MyAccount = (props) => {
       try {
         const response = await updatePassword(
           user?.accessToken,
-          values.password,
+          values.password
         );
         if (!response?.data?.isError) {
-          setMessage(response?.data?.message || activeString.STATUS.PASSWORD_SUCCESS);
+          setMessage(
+            response?.data?.message || activeString.STATUS.PASSWORD_SUCCESS
+          );
           setModalVisible(true);
         } else {
-          setMessage(response?.data?.message || activeString.STATUS.PASSWORD_FAIL);
+          setMessage(
+            response?.data?.message || activeString.STATUS.PASSWORD_FAIL
+          );
           setModalVisible(true);
         }
         setIsLoading(false);
@@ -158,22 +162,31 @@ export const MyAccount = (props) => {
   return (
     <div style={styles.containers}>
       <div style={styles.mainContainer}>
-        <TitleRefont 
-          title={activeString.DETAIL_PROFIL.MON_COMPTE} 
-          _customStyle={isMobile ? styles.titleContainerMobile : styles.titleContainer} 
+        <TitleRefont
+          title={activeString.DETAIL_PROFIL.MON_COMPTE}
+          _customStyle={
+            isMobile ? styles.titleContainerMobile : styles.titleContainer
+          }
         />
-        
+
         <div style={styles.innerContainer}>
           {!condition && (
             <div style={styles.subscriptionContainer}>
               <span style={styles.subscriptionText}>
                 {activeString.ACCOUNT_CANDIDAT.CURRENT_SUBSCRIPTION}{' '}
-                <span style={styles.subscriptionStatus}>: {abonnementStatus}</span>
+                <span style={styles.subscriptionStatus}>
+                  : {abonnementStatus}
+                </span>
               </span>
             </div>
           )}
-          
-          <div style={{...styles.content, ...(isMobile ? styles.contentMobile : styles.contentDesktop)}}>
+
+          <div
+            style={{
+              ...styles.content,
+              ...(isMobile ? styles.contentMobile : styles.contentDesktop),
+            }}
+          >
             <div style={{ flex: 3 }}>
               {condition && (
                 <span style={styles.warningText}>
@@ -186,7 +199,9 @@ export const MyAccount = (props) => {
             </div>
             <button
               style={styles.buttonsStylesRefonteOrange}
-              onClick={() => setShowIcons(!showIcons)}
+              onClick={() => {
+                setShowIcons(!showIcons);
+              }}
             >
               <span style={styles.buttonTextOrange}>
                 {activeString.ACCOUNT_CANDIDAT.KREDIT}
@@ -194,7 +209,14 @@ export const MyAccount = (props) => {
             </button>
           </div>
 
-          <div style={{...styles.formContainer, ...(isMobile ? styles.formContainerMobile : styles.formContainerDesktop)}}>
+          <div
+            style={{
+              ...styles.formContainer,
+              ...(isMobile
+                ? styles.formContainerMobile
+                : styles.formContainerDesktop),
+            }}
+          >
             <div style={[styles.inputWrap, styles.inputWrapDisabled]}>
               <InputSelect
                 label={TitleLabels.profil.lang}
@@ -251,24 +273,15 @@ export const MyAccount = (props) => {
               <div style={styles.paymentContainer}>
                 <div style={styles.alignHorizontally}>
                   <button onClick={handleMvolaPayment}>
-                    <img
-                      style={styles.imgStyle}
-                      src={images.mvola }
-                    />
+                    <img style={styles.imgStyle} src={images.mvola} />
                   </button>
                   <div style={styles.intermediate} />
                   <button onClick={handleOrangePayment}>
-                    <img
-                      style={styles.imgStyle}
-                      src={images.orangeMoney }
-                    />
+                    <img style={styles.imgStyle} src={images.orangeMoney} />
                   </button>
                   <div style={styles.intermediate} />
                   <button onClick={handleVisaPayment}>
-                    <img
-                      style={styles.imgStyle}
-                      src={images.visa }
-                    />
+                    <img style={styles.imgStyle} src={images.visa} />
                   </button>
                 </div>
               </div>

@@ -32,21 +32,34 @@ export const Subcription = (props: any) => {
   }, []);
 
   return (
-    <div
-      style={styles.containers}>
-      {!refreshing && <TitleRefont title={isCredit ? activeString.SUBSCRIPTION.LIST_OF_PACKS : activeString.SUBSCRIPTION.LIST_OF_SUBSCRIPTIONS} />}
-      {refreshing ?
-        <Loader /> :
-        <div style={{ margin: 40, borderWidth: 1, borderColor: 'rgba(207, 231, 255, 0.8)', borderRadius: 10 }}>
+    <div style={styles.containers}>
+      {!refreshing && (
+        <TitleRefont
+          title={
+            isCredit
+              ? activeString.SUBSCRIPTION.LIST_OF_PACKS
+              : activeString.SUBSCRIPTION.LIST_OF_SUBSCRIPTIONS
+          }
+        />
+      )}
+      {refreshing ? (
+        <Loader />
+      ) : (
+        <div
+          style={{
+            margin: 40,
+            borderWidth: 1,
+            borderColor: 'rgba(207, 231, 255, 0.8)',
+            borderRadius: 10,
+          }}
+        >
           <div
             data={data}
-            renderItem={({ item }) =>
-              <SubscriptionComponent item={item} />
-            }
-            keyExtractor={item => item.id}
+            renderItem={({ item }) => <SubscriptionComponent item={item} />}
+            keyExtractor={(item) => item.id}
           />
         </div>
-      }
+      )}
     </div>
   );
 };

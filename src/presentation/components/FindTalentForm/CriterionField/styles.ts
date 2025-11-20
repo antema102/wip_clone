@@ -1,4 +1,3 @@
-;
 import { COLORS, SIZES } from '../../../../resources/constants';
 
 let windowWidth = window.innerWidth;
@@ -11,16 +10,20 @@ export const styles = {
     padding: 24,
     backgroundColor: COLORS.primary,
     height: windowWidth * 0.25,
-    maxHeight: 112},
+    maxHeight: 112
+  },
   withoutSwitch: {
-    flexDirection: 'row'},
+    flexDirection: 'row'
+  },
   headerScreenTitle: {
     color: 'white',
     fontSize: 20,
     fontWeight: 'bold',
-    fontFamily: 'oxygen'},
+    fontFamily: 'oxygen'
+  },
   headerScreenDescription: {
-    color: 'white'},
+    color: 'white'
+  },
   candidateContainer: {},
   title: {},
   candidateImgContainer: {},
@@ -45,7 +48,8 @@ export const styles = {
   // Refine Candidats
   // ----------------
   refineContainer: {
-    padding: 20},
+    padding: 20
+  },
   layerContainer: {
     padding: 20,
     backgroundColor: 'blue',
@@ -53,12 +57,14 @@ export const styles = {
     borderColor: 'red',
     borderRadius: 16,
     height: '100%',
-    width: '100%'},
+    width: '100%'
+  },
   layerTitleContainer: {},
   titleGroup: {
     fontSize: SIZES.h5,
     color: COLORS.black,
-    alignItems: 'center'},
+    alignItems: 'center'
+  },
   alignSwitch: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -67,4 +73,6 @@ export const styles = {
     width: '100%'
   },
   contentChamp: {
-    minHeight: 56}});
+    minHeight: 56
+  }
+};

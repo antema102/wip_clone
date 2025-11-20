@@ -1,4 +1,3 @@
-;
 import { COLORS, SIZES } from '../../../../../resources/constants';
 
 const winWidth = window.innerWidth;
@@ -63,7 +62,8 @@ export const styles = {
     width: 68,
     height: 68,
     borderRadius: 8,
-    top: 10},
+    top: 10
+  },
   simpleBtn: {
     paddingHorizontal: 10,
     paddingVertical: 4,
@@ -74,7 +74,8 @@ export const styles = {
     flexDirection: 'row',
     alignItems: 'center',
     height: 32,
-    marginBottom: SIZES.padding4},
+    marginBottom: SIZES.padding4
+  },
   activeBtn: {
     paddingHorizontal: 10,
     paddingVertical: 4,
@@ -84,11 +85,13 @@ export const styles = {
     alignItems: 'center',
     height: 32,
     marginBottom: SIZES.padding4,
-    backgroundColor: COLORS.blue_back},
+    backgroundColor: COLORS.blue_back
+  },
   textMenu: {
     fontWeight: 'bold',
     fontSize: SIZES.body5,
-    color: COLORS.black},
+    color: COLORS.black
+  },
   textMenuActive: {
     fontWeight: 'bold',
     fontSize: SIZES.body5,
@@ -100,23 +103,27 @@ export const styles = {
     fontSize: SIZES.h5,
     paddingLeft: 20,
     width: '100%',
-    // justifyContent: 'center'},
+    // justifyContent: 'center'
+  },
   jobPlace: {
     fontSize: SIZES.body5,
     color: COLORS.white,
     paddingLeft: 20,
-    width: '100%'},
+    width: '100%'
+  },
   candidatExp: {
     fontSize: 12,
     color: COLORS.secondary,
     fontWeight: '400',
     fontStyle: 'normal',
     letterSpacing: 0.2,
-    flex: 12},
+    flex: 12
+  },
   favorisView: { flex: 1, flexDirection: 'flex-end', bottom: 5 },
   favorisImage: {
     width: 25.5,
-    height: 24},
+    height: 24
+  },
   footerFrame: {
     flexDirection: 'row',
     paddingBottom: 15,
@@ -128,33 +135,39 @@ export const styles = {
     fontSize: SIZES.body5,
     color: COLORS.black,
     paddingBottom:8
-    // width: winWidth - 86},
+    // width: winWidth - 86
+  },
   jobDate: {
     flex: 1,
     flexBasis: '100%',
     fontFamily: 'Oxygen-Regular',
     fontSize: SIZES.body5,
     color: COLORS.white,
-    marginTop: SIZES.padding3},
+    marginTop: SIZES.padding3
+  },
   jobDateItem: {
     flex: 1,
     flexBasis: '100%',
     fontFamily: 'Oxygen-Regular',
     fontSize: SIZES.body5,
     color: COLORS.secondary,
-    marginTop: 10},
+    marginTop: 10
+  },
   wrapperText: {
     // width: winWidth * 0.58 - 86,
     flex: 1,
-    paddingRight: 20},
+    paddingRight: 20
+  },
   wrapperTextItem: {
     top: 10,
     flex: 1,
     paddingRight: 24,
-    paddingLeft: 24},
+    paddingLeft: 24
+  },
   listItemOffer: {
     marginVertical: 10,
-    overflow: 'scroll'},
+    overflow: 'scroll'
+  },
   card_templateItem: {
     display: 'flex',
     flexDirection: 'row',
@@ -169,10 +182,12 @@ export const styles = {
   wapperTitle: {
     height: 50,
     justifyContent: 'center',
-    marginTop: 24},
+    marginTop: 24
+  },
   carouselContainer: {
     flex: 1,
-    marginVertical: 20},
+    marginVertical: 20
+  },
   header: {
     flex: 1,
     backgroundColor: COLORS.white,
@@ -205,7 +220,8 @@ export const styles = {
     padding: 10,
     marginBottom: 10, // Add margin to separate items
     backgroundColor: COLORS.primary,
-    borderRadius: 10},
+    borderRadius: 10
+  },
   avatarContainer: {
     marginRight: 10, // Add spacing between avatar and information
     flexDirection: 'row',
@@ -219,22 +235,28 @@ export const styles = {
   },
   informationContainer: {
     flex: 1, // Let the information container take up remaining space
-    paddingLeft: 10},
+    paddingLeft: 10
+  },
   avatar: {
     width: 80, // You can adjust this size as needed
     height: 80,
-    borderRadius: 4},
+    borderRadius: 4
+  },
   name: {
     fontSize: 16, // You can adjust this size as needed
     fontWeight: 'bold',
-    color: COLORS.secondary},
+    color: COLORS.secondary
+  },
   nameMobile: {
     fontSize: 14, // You can adjust this size as needed
     fontWeight: 'bold',
     color:COLORS.black,
-    width: 160},
+    width: 160
+  },
   label: {
     fontSize: winWidth > 991 ? 14 : 12,
     color:COLORS.secondary,
     marginTop: 16, // Add spacing between labels
-  }});
+  
+  }
+};

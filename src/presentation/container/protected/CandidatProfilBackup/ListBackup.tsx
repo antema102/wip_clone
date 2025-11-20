@@ -1,6 +1,5 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import { useSelector } from 'react-redux';
-;
 import { useFavorites } from '../../../../service/redux/ducks/favorites';
 import { ProfilBackup } from '../../../components/CandidatProfilBackup/ProfilBackup';
 import Loader from '../../../components/CreateCV/Loader';
@@ -20,7 +19,7 @@ export const ListBackup = (props) => {
 
   const { deleteFavoris, allFavorites } = useFavorites();
 
-  const { isMobile,loading } = useMobile()
+  const { isMobile, loading } = useMobile();
 
   const removeFavoris = async (idJob) => {
     setIsLoading(false);
@@ -30,7 +29,7 @@ export const ListBackup = (props) => {
       if (!response?.isError) {
         await getAllFavorites();
       }
-    } catch (error) { }
+    } catch (error) {}
   };
 
   const renderItemTemplate = (item, index) => (
@@ -64,29 +63,29 @@ export const ListBackup = (props) => {
     getAllFavorites();
   }, []);
 
-  const loadingGlobal=isLoading||loading;
-
+  const loadingGlobal = isLoading || loading;
 
   return (
-    <div >
+    <div>
       {/** Listes des candidtas */}
-      {loadingGlobal ? <Loader /> :
-        listFavorite.length ? (
-          <DataView
-            value={listFavorite}
-            layout="list"
-            itemTemplate={renderItemTemplate}
-            {...(!isMobile
-              ? {
+      {loadingGlobal ? (
+        <Loader />
+      ) : listFavorite.length ? (
+        <DataView
+          value={listFavorite}
+          layout="list"
+          itemTemplate={renderItemTemplate}
+          {...(!isMobile
+            ? {
                 paginator: true,
                 rows: 3,
-                paginatorTemplate: paginatorTemplateCustom
+                paginatorTemplate: paginatorTemplateCustom,
               }
-              : {})}
-          />
-        ) : (
-          <NotFounds label='Aucun poste n’a été enregistré' />
-        )}
+            : {})}
+        />
+      ) : (
+        <NotFounds label="Aucun poste n’a été enregistré" />
+      )}
     </div>
   );
 };

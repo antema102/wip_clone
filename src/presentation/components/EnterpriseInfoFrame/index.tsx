@@ -39,7 +39,7 @@ export const Frame = (props: FrameProps) => {
       <div style={styles.textContainer}>
         <div style={{ marginBottom: 10 }}>
           <span
-            style={{...styles.titlePrimaire, ...({ color: isHeader ? COLORS.primary : COLORS.black }), ...}}>
+            style={{...styles.titlePrimaire, ...({ color: isHeader ? COLORS.primary : COLORS.black })}}>
             {infoUser?.name && infoUser?.name !== 'invalide'
               ? infoUser?.name
               : ''}

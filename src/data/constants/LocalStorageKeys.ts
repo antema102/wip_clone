@@ -1,2 +1,3 @@
 export enum LocalStorageKeys {
-  credentials = 'credentials'}
+  credentials = 'credentials',
+}

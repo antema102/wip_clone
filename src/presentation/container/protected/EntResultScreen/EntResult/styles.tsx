@@ -1,9 +1,8 @@
-;
 import { COLORS, SIZES } from '../../../../../resources/constants';
 
 let windowDim = window.innerWidth;
 
-export default ({
+const styles = {
   containers: {
     width: '100%',
     shadowColor: '#000',
@@ -25,94 +24,116 @@ export default ({
     justifyContent: 'center',
     backgroundColor: COLORS.blue_back,
     borderTopLeftRadius: 20,
-    borderTopRightRadius: 20},
+    borderTopRightRadius: 20
+  },
   main_container: {
-    flex: 1},
+    flex: 1
+  },
   pageContainer: {
     paddingHorizontal: SIZES.padding,
     marginTop: SIZES.padding,
-    marginBottom: 70},
+    marginBottom: 70
+  },
   candidateExpContainer: {
-    padding: SIZES.padding},
+    padding: SIZES.padding
+  },
   image2: {
     width: 30,
     height: 30,
-    backgroundColor: 'gray'},
+    backgroundColor: 'gray'
+  },
   image3: {
     width: 76,
     height: 76,
-    backgroundColor: 'white'},
+    backgroundColor: 'white'
+  },
   textContainer: {
     flexDirection: 'column',
     paddingHorizontal: SIZES.padding,
-    justifyContent: 'center'},
+    justifyContent: 'center'
+  },
   bloc3: {
     width: 363,
     height: 80,
-    flexDirection: 'row'},
+    flexDirection: 'row'
+  },
   ButtonBloc: {
     flexDirection: 'column',
     height: 156,
     justifyContent: 'center',
-    alignItems: 'center'},
+    alignItems: 'center'
+  },
   image: {
     width: 80,
     height: 80,
-    borderRadius: 8},
+    borderRadius: 8
+  },
   titlePrimaire: {
     fontWeight: 'bold',
     fontSize: SIZES.h5,
     color: COLORS.primary,
-    lineHeight: 16},
+    lineHeight: 16
+  },
   descriptionPrimary: {
     fontSize: SIZES.body5,
     color: COLORS.black,
     marginVertical: 10,
-    // width:windowDim - 130},
+    // width:windowDim - 130
+  },
   navigator: {
-    flex: 1},
+    flex: 1
+  },
   container: {
-    marginTop: 10},
+    marginTop: 10
+  },
   item: {
     backgroundColor: 'white',
     padding: 5,
     marginVertical: 8,
     marginHorizontal: 16,
-    flexDirection: 'row'},
+    flexDirection: 'row'
+  },
   item2: {
     backgroundColor: 'white',
     padding: 5,
     marginVertical: 8,
     marginHorizontal: 5,
-    flexDirection: 'row'},
+    flexDirection: 'row'
+  },
   title: {
     height: 24,
-    fontSize: 16},
+    fontSize: 16
+  },
   title1: {
     height: 50,
     fontSize: 16,
-    textAlign: 'center'},
+    textAlign: 'center'
+  },
   containerAreaButton: {
     marginTop: SIZES.padding,
     // width: windowDim - 50,
-    flex: 1},
+    flex: 1
+  },
   screenContainer: {
     justifyContent: 'center',
     width: 250,
     padding: 16,
     position: 'relative',
-    alignItems: 'center'},
+    alignItems: 'center'
+  },
   ContactButtonContainer: {
     // elevation: 8,
     backgroundColor: COLORS.secondary,
     borderRadius: 10,
     paddingVertical: 10,
-    paddingHorizontal: 16},
+    paddingHorizontal: 16
+  },
   ContactButtonText: {
     fontSize: 16,
     color: '#fff',
     alignSelf: 'center',
-    fontWeight: 'bold'},
+    fontWeight: 'bold'
+  },
   text10: {
     width: 363,
     height: 100,
@@ -120,7 +141,8 @@ export default ({
     lineHeight: 150,
     marginTop: 24,
     color: '#00003E',
-    marginLeft: 0},
+    marginLeft: 0
+  },
   textinput: {
     marginTop: 50,
     marginLeft: 5,
@@ -128,13 +150,15 @@ export default ({
     height: 50,
     borderColor: '#000000',
     borderWidth: 1,
-    paddingLeft: 5},
+    paddingLeft: 5
+  },
   contentStyle: {},
   iconActus: {
     width: 24,
     height: 24,
     backgroundColor: 'white',
-    marginRight: 20},
+    marginRight: 20
+  },
   itemWrapper: {
     backgroundColor: 'white',
     padding: 0,
@@ -143,17 +167,21 @@ export default ({
     alignItems: 'center',
     minHeight: 72,
     borderBottomColor: COLORS.gray_border,
-    borderBottomWidth: 1},
+    borderBottomWidth: 1
+  },
   valueActus: {
     flex: 1,
     flexWrap: 'wrap',
     color: COLORS.black,
-    fontSize: SIZES.h5},
+    fontSize: SIZES.h5
+  },
   date_text: {
     textAlign: 'right',
-    fontSize: 14},
+    fontSize: 14
+  },
   itemWrapperOffer: {
-    paddingHorizontal: SIZES.padding},
+    paddingHorizontal: SIZES.padding
+  },
   itemOffer: {
     top: 10,
     flexDirection: 'row',
@@ -161,29 +189,36 @@ export default ({
     // borderBottomColor: COLORS.gray_border,
     // borderBottomWidth: 1,
     // borderStyle: 'dashed',
-    // paddingVertical: SIZES.padding},
+    // paddingVertical: SIZES.padding
+  },
   logoSte: {
     width: 48,
     height: 48,
     borderRadius: SIZES.radiusTwo,
-    marginRight: SIZES.padding2},
+    marginRight: SIZES.padding2
+  },
   titlePost: {
     fontWeight: 'bold',
     color: COLORS.black,
     fontSize: SIZES.h5,
-    // width: windowDim - 110},
+    // width: windowDim - 110
+  },
   textAlign: {
-    alignItems: 'flex-start'},
+    alignItems: 'flex-start'
+  },
   lieuPost: {
     color: COLORS.black,
     fontSize: SIZES.body5,
-    flexWrap: 'wrap'},
+    flexWrap: 'wrap'
+  },
   periodePost: {
     color: COLORS.secondary,
     fontSize: SIZES.body5,
-    marginTop: 12},
+    marginTop: 12
+  },
   contenOffer: {
-    marginBottom: 60},
+    marginBottom: 60
+  },
   centeredView: {
     flex: 1,
     justifyContent: "center",
@@ -205,7 +240,8 @@ export default ({
     shadowRadius: 4,
     elevation: 5,
     // width:windowDim - 48,
-    paddingHorizontal: SIZES.padding},
+    paddingHorizontal: SIZES.padding
+  },
   buttonAnnuler: {
     paddingHorizontal: SIZES.padding,
     height: 50,
@@ -217,11 +253,14 @@ export default ({
     borderWidth: 1,
     borderColor: COLORS.secondary,
     // marginBottom:SIZES.padding2,
-    // width:windowDim - 96},
+    // width:windowDim - 96
+  },
   buttonOpen: {
-    backgroundColor: "#F194FF"},
+    backgroundColor: "#F194FF"
+  },
   buttonClose: {
-    backgroundColor: "#2196F3"},
+    backgroundColor: "#2196F3"
+  },
   textStyle: {
     color: "white",
     fontWeight: 'bold',
@@ -240,16 +279,20 @@ export default ({
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: SIZES.padding2,
-    // width:windowDim - 96},
+    // width:windowDim - 96
+  },
   btnTxt: {
     color: COLORS.white,
-    fontSize: SIZES.h5},
+    fontSize: SIZES.h5
+  },
   buttonContainer: {
     marginTop: 20,
-    marginBottom: -10},
+    marginBottom: -10
+  },
   textBtnSecondary: {
     color: COLORS.secondary,
-    fontSize: SIZES.h5},
+    fontSize: SIZES.h5
+  },
   loading_container: {
     position: 'absolute',
     left: 0,
@@ -264,7 +307,8 @@ export default ({
   },
   imageStyle: {
     borderRadius: 0,
-    marginLeft: 20},
+    marginLeft: 20
+  },
   images: {
     height: 135,
     width: 135,
@@ -284,7 +328,8 @@ export default ({
   containerAvatar: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 24},
+    gap: 24
+  },
   textAvatar: {
     fontSize: 26, fontWeight: 'bold'
   },
@@ -294,4 +339,6 @@ export default ({
     flexWrap: 'wrap',
     justifyContent: 'center',
     paddingBottom: 16
-  }});
+  }};
+
+export default styles;

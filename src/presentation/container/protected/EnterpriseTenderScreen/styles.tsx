@@ -1,4 +1,3 @@
-;
 import { COLORS, SIZES } from '../../../../resources/constants';
 
 export const styles = {
@@ -23,14 +22,17 @@ export const styles = {
     width: '100%',
     justifyContent: 'space-between',
     flexDirection: 'row',
-    backgroundColor: COLORS.secondary},
+    backgroundColor: COLORS.secondary
+  },
   vtitle: {
-    marginBottom: 16},
+    marginBottom: 16
+  },
   headerContainer: {
     padding: 24,
     backgroundColor: '#2ca5ff',
     // height: windowWidth * 0.25,
-    maxHeight: 112},
+    maxHeight: 112
+  },
   headerScreenTitle: {
     color: 'white',
     fontSize: 20,
@@ -39,9 +41,11 @@ export const styles = {
   textPage: {
     fontSize: 16,
     color: COLORS.black,
-    fontWeight: 'bold'},
+    fontWeight: 'bold'
+  },
   headerScreenDescription: {
-    color: 'white'},
+    color: 'white'
+  },
   candidateContainer: {
     borderBottomColor: COLORS.blue_border,
     borderBottomWidth: 1,
@@ -50,35 +54,44 @@ export const styles = {
     paddingHorizontal: 10,
     marginTop: 16,
     marginHorizontal: 16,
-    flexDirection: 'row'},
+    flexDirection: 'row'
+  },
   title: {
-    fontSize: 32},
+    fontSize: 32
+  },
   candidateImgContainer: {
-    flex: 1},
+    flex: 1
+  },
   candidateDetailsContainer: {
-    flex: 2},
+    flex: 2
+  },
   candidateBtnContainer: {
     flex: 2,
-    maxWidth: 128},
+    maxWidth: 128
+  },
   candidatImg: {
     width: 50,
     height: 50,
-    borderRadius: SIZES.radiusTwo},
+    borderRadius: SIZES.radiusTwo
+  },
   candidatName: {
     fontSize: 16,
     color: COLORS.black,
     fontWeight: 'bold',
-    // height: windowWidth * 0.07},
+    // height: windowWidth * 0.07
+  },
   candidatPost: {
     fontSize: 12,
     color: COLORS.black,
     letterSpacing: 0.2,
-    // height: windowWidth * 0.04},
+    // height: windowWidth * 0.04
+  },
   candidatExp: {
     fontSize: 12,
     color: COLORS.primary,
     letterSpacing: 0.2,
-    marginTop: 20},
+    marginTop: 20
+  },
   footerContainer: {
     backgroundColor: COLORS.blue_back,
     height: 84,
@@ -87,12 +100,14 @@ export const styles = {
     paddingVertical: 0,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center'},
+    alignItems: 'center'
+  },
   footerScreenLabel: {
     alignSelf: 'center',
     fontSize: SIZES.body3,
     fontWeight: 'bold',
-    color: COLORS.secondary},
+    color: COLORS.secondary
+  },
   footerScreenBtn: {},
   smallBtnTxt: {
     fontSize: SIZES.body5,
@@ -109,11 +124,13 @@ export const styles = {
   // Refine Candidats
   // ----------------
   refineContainer: {
-    flex: 1},
+    flex: 1
+  },
   layerContainer: {},
   layerTitleContainer: {},
   containerFormList: {
-    // width: windowWidth},
+    // width: windowWidth
+  },
   noEvents: {
     paddingVertical: 50,
     paddingHorizontal: 30,
@@ -123,4 +140,4 @@ export const styles = {
     color: COLORS.black,
     fontSize: 20
   }
-});
+};

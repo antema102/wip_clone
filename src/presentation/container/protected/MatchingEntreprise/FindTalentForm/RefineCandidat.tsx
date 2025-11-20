@@ -275,7 +275,7 @@ export const RefineCandidat = (props: any) => {
     others: false});
 
   const handleChangeLayerSwitch = (name: string) =>
-    setLayerSwitch({ ...layer[name]: !layerSwitch[name] });
+    setLayerSwitch({ ...layerSwitch, [name]: !layerSwitch[name] });
 
   // -----------------------------------------------------------------------------
 

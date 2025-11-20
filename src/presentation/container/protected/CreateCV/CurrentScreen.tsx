@@ -36,7 +36,7 @@ export const CurrentScreen = ({ screen, onChange, dataStore, setDataStore, data 
           <span
             style={{...styles.textSousMenu, ...(screen.current === 'info' || (screen.info && screen.type !== 'read' && screen.type !== 'update')
                 ? { color: COLORS.white }
-                : { color: COLORS.black }), ...}}>
+                : { color: COLORS.black })}}>
             {activeString.CreationCV.personalInformation}
           </span>
         </button>
@@ -48,7 +48,7 @@ export const CurrentScreen = ({ screen, onChange, dataStore, setDataStore, data 
           <span
             style={{...styles.textSousMenu, ...(screen.current === 'job' || (screen.job && screen.type !== 'read'  && screen.type !== 'update')
                 ? { color: COLORS.white }
-                : { color: COLORS.black }), ...}}>
+                : { color: COLORS.black })}}>
             {activeString.CreationCV.job}
           </span>
         </button>
@@ -59,7 +59,7 @@ export const CurrentScreen = ({ screen, onChange, dataStore, setDataStore, data 
           <span
             style={{...styles.textSousMenu, ...(screen.current === 'other' || (screen.other && screen.type !== 'read' && screen.type !== 'update')
                 ? { color: COLORS.white }
-                : { color: COLORS.black }), ...}}>
+                : { color: COLORS.black })}}>
             {activeString.CreationCV.other}
           </span>
         </button>

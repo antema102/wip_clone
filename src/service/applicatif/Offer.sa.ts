@@ -1,4 +1,4 @@
-import {OfferBDL} from '../bdl/Offer.bdl';
+import { OfferBDL } from '../bdl/Offer.bdl';
 
 export const OfferService = () => {
   const {
@@ -20,53 +20,60 @@ export const OfferService = () => {
     getAllPostsAvailable,
     boostOffer,
     getOfferJobView,
-    incrementOfferJobView
+    incrementOfferJobView,
   } = OfferBDL();
 
   return {
-    createOfferJob: data => createOfferJob(data),
+    createOfferJob: async (data) => await createOfferJob(data),
 
-    updateOfferJob: (token: string, idJob: string, data: any) =>
-      updateOfferJob(token, idJob, data),
+    updateOfferJob: async (token: string, idJob: string, data: any) =>
+      await updateOfferJob(token, idJob, data),
 
-    deleteOfferJob: (token: string, idJob: string) =>
-      deleteOfferJob(token, idJob),
+    deleteOfferJob: async (token: string, idJob: string) =>
+      await deleteOfferJob(token, idJob),
 
-    allOfferJob: (token: string) => allOfferJob(token),
+    allOfferJob: async (token: string) => await allOfferJob(token),
 
-    getAllCategoryAvailable: (token: string) => getAllCategoryAvailable(token),
+    getAllCategoryAvailable: async (token: string) =>
+      await getAllCategoryAvailable(token),
 
-    getOfferJobView: ( idCandidat: string, token: string) => getOfferJobView(idCandidat, token),
+    getOfferJobView: async (idCandidat: string, token: string) =>
+      await getOfferJobView(idCandidat, token),
 
-    incrementOfferJobView: (id: string, token: string) => incrementOfferJobView(id, token),
+    incrementOfferJobView: async (id: string, token: string) =>
+      await incrementOfferJobView(id, token),
 
-    getAllPostsAvailable: (token: string) => getAllPostsAvailable(token),
+    getAllPostsAvailable: async (token: string) =>
+      await getAllPostsAvailable(token),
 
-    getOfferByCategoryName: (token: string, name: string) =>
-      getOfferByCategoryName(token, name),
+    getOfferByCategoryName: async (token: string, name: string) =>
+      await getOfferByCategoryName(token, name),
 
-    allOfferJobByEnt: (token: string, idCompany: string) =>
-      allOfferJobByEnt(token, idCompany),
+    allOfferJobByEnt: async (token: string, idCompany: string) =>
+      await allOfferJobByEnt(token, idCompany),
 
-    allOfferJobByEntWithoutVideo: (token: string) =>
-      allOfferJobByEntWithoutVideo(token),
+    allOfferJobByEntWithoutVideo: async (token: string) =>
+      await allOfferJobByEntWithoutVideo(token),
 
-    offerApply: (token: string, idCompany: string) =>
-      offerApply(token, idCompany),
+    offerApply: async (token: string, idCompany: string) =>
+      await offerApply(token, idCompany),
 
-    offerDecline: (token: string, idCompany: string) =>
-      offerDecline(token, idCompany),
+    offerDecline: async (token: string, idCompany: string) =>
+      await offerDecline(token, idCompany),
 
-    boostOffer: (token: string, idOffer: string) => boostOffer(token, idOffer),
+    boostOffer: async (token: string, idOffer: string) =>
+      await boostOffer(token, idOffer),
 
-    allOfferJobByType: (token: string, jobType: string) =>
-      allOfferJobByType(token, jobType),
+    allOfferJobByType: async (token: string, jobType: string) =>
+      await allOfferJobByType(token, jobType),
 
-    offerJobById: (id: string, token: string) => offerJobById(id, token),
+    offerJobById: async (id: string, token: string) =>
+      await offerJobById(id, token),
 
-    typeJob: token => typeJob(token),
+    typeJob: async (token) => await typeJob(token),
 
-    getFavorite: token => getFavorite(token),
+    getFavorite: async (token) => await getFavorite(token),
 
-    history: token => history(token)};
+    history: async (token) => await history(token),
+  };
 };

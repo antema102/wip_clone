@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
-;
 import { styles } from './styles';
-import { COLORS } from '../../../resources/constants';
+import { COLORS, icons } from '../../../resources/constants';
 import CustomButton from '../Button/button';
 import './style.css';
-import { icons } from '../../../resources/constants';
 import { useLang } from '../../../data/translation';
 import * as stringsFr from '../../../data/constants/strings';
 import * as stringsEn from '../../../data/constants/strings_en';
-
-export const Offer = props => {
-
-  const { item, displayOfferSheet, displayOfferSheetApply, isFormation } = props;
+export const Offer = (props) => {
+  const { item, displayOfferSheet, displayOfferSheetApply, isFormation } =
+    props;
   const { name, type, disponibility, users } = item;
   const [title, setTitle] = useState('');
   const { lang } = useLang();
@@ -39,7 +36,9 @@ export const Offer = props => {
       <div style={styles.offerContainer}>
         <button onClick={onPress}>
           <div style={styles.candidateDetailsContainer}>
-            <div style={{ flexDirection: 'row', gap: 24, alignItems: 'center' }}>
+            <div
+              style={{ flexDirection: 'row', gap: 24, alignItems: 'center' }}
+            >
               <img src={icons.userCompany} style={styles.images} />
               <div style={{ gap: 6 }}>
                 <span style={styles.candidatName} numberOfLines={2}>
@@ -88,11 +87,9 @@ export const Offer = props => {
                 <div />
               )}
             </div>
-
           </div>
         </button>
       </div>
     </>
   );
-
 };

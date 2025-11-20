@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-
 import style from '../Inputs/style';
 import { removeProtocolFromString } from '../../../data/factory';
 import { icons } from '../../../resources/constants';
@@ -31,18 +30,29 @@ const FileDownloader = (props: FileDownloader) => {
 
   return (
     <>
-      <PDFViewerScreen visible={visible} setVisible={setVisible} data={data.file} isDownloadAllowed={false} />
-      <button onClick={() => showPDFViewer()}>
+      <PDFViewerScreen
+        visible={visible}
+        setVisible={setVisible}
+        data={data.file}
+        isDownloadAllowed={false}
+      />
+      <button
+        onClick={() => {
+          showPDFViewer();
+        }}
+      >
         <div style={globalStyle.fileDownloaderContainer}>
           <img
-            src={isPortfolio  ? icons.globe  : { uri: icons.filetext }}
+            src={isPortfolio ? icons.globe : { uri: icons.filetext }}
             style={style.fileImage}
           />
           <div style={globalStyle.displayLeftVerticalFile}>
             <span style={style.txtBlue}>
               {isPortfolio ? activeString.DETAIL_PROFIL.PORTFOLIO : data.name}
             </span>
-            {!isPortfolio && <span style={style.txtBlue}>{data.reference}</span>}
+            {!isPortfolio && (
+              <span style={style.txtBlue}>{data.reference}</span>
+            )}
           </div>
         </div>
       </button>

@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react';
-;
 import 'primeicons/primeicons.css';
 import { DataView } from 'primereact/dataview';
 import './styles.css';
@@ -17,7 +16,6 @@ import { ROLEACCOUNT } from '../../../data/constants/strings';
 import { useNavigate } from 'react-router-dom';
 import AdsSideBar from '../AdsSidebar';
 import { Carousel } from 'primereact/carousel';
-
 const SideBarCandidat = (): any => {
   const [spotData, setSpotData] = useState<any>();
   const [fileVideo, setFileVideo] = useState('');
@@ -32,7 +30,7 @@ const SideBarCandidat = (): any => {
   const [isRefreshing, setIsRefreshing] = useState(true);
   const { dataCategory } = useSelector(({ tender }: any) => tender);
   const [isEmpty, setIsEmpty] = useState(false);
-  const navigation = useNavigate()
+  const navigation = useNavigate();
   const [activeIndex, setActiveIndex] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -40,7 +38,9 @@ const SideBarCandidat = (): any => {
     if (spotData.length > 1) {
       setActiveIndex((prevIndex) => (prevIndex + 1) % spotData.length);
     } else {
-      const videoElement = document.getElementById('single-video') as HTMLVideoElement;
+      const videoElement = document.getElementById(
+        'single-video'
+      ) as HTMLVideoElement;
       if (videoElement) {
         videoElement.currentTime = 0;
         videoElement.play();
@@ -89,7 +89,8 @@ const SideBarCandidat = (): any => {
   const getAllSpotVideo = async () => {
     const dataSpot = {
       category: 'spot',
-      audience: user?.role === 'company' ? 1 : 0};
+      audience: user?.role === 'company' ? 1 : 0,
+    };
     try {
       const responseSpot = await getAdvertisementsByCategory(
         dataSpot,
@@ -98,8 +99,7 @@ const SideBarCandidat = (): any => {
       if (responseSpot?.data?.items?.length) {
         setSpotData(responseSpot?.data?.items);
       }
-    } catch (error) {
-    }
+    } catch (error) {}
   };
 
   const showingTheVideo = (id: any) => {
@@ -118,7 +118,8 @@ const SideBarCandidat = (): any => {
     navigation('/ListScreen', {
       state: {
         title: "Liste des appels d'offres",
-        companyName: item}
+        companyName: item,
+      },
     });
   };
 
@@ -127,19 +128,28 @@ const SideBarCandidat = (): any => {
   }, [spotData]);
 
   useEffect(() => {
-    if (videoRef.current) {
+    if (videoRef.current != null) {
       videoRef.current.volume = 0.05; // Définit le volume à 5% dès le lancement
     }
   }, []);
 
   return (
-    <div style={user.role === 'candidate' ? [stylesCard.container, stylesCard.propertyListContainer] : {}}>
-      {
-        user.role === 'candidate' &&
-        <AdsSideBar />
+    <div
+      style={
+        user.role === 'candidate'
+          ? [stylesCard.container, stylesCard.propertyListContainer]
+          : {}
       }
+    >
+      {user.role === 'candidate' && <AdsSideBar />}
       {spotData?.length ? (
-        <div style={user.role === 'candidate' ? { height: 250, marginTop: 50 } : { height: 250 }}>
+        <div
+          style={
+            user.role === 'candidate'
+              ? { height: 250, marginTop: 50 }
+              : { height: 250 }
+          }
+        >
           <video
             ref={videoRef}
             key={activeIndex}
@@ -159,7 +169,6 @@ const SideBarCandidat = (): any => {
       ) : (
         <DefaultSideBar />
       )}
-
     </div>
   );
 };

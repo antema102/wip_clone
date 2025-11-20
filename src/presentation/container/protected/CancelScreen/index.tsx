@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from 'react';
-;
 
 import { styles } from './styles';
 import { FONTS, COLORS, images, icons } from '../../../../resources/constants';
 import { HOME } from '../../../../data/constants/strings';
-
-
 export const CancelScreen = () => {
-
   useEffect(() => {
     setTimeout(() => {
       window.postMessage('close', '*');
@@ -20,15 +16,32 @@ export const CancelScreen = () => {
       <div style={styles.formContainer}>
         <div style={styles.logoForm}>
           <img
-            src={icons.cancel }
-            style={{ width: '100%', height: 200, objectFit: 'contain' as const }}
+            src={icons.cancel}
+            style={{
+              width: '100%',
+              height: 200,
+              objectFit: 'contain' as const,
+            }}
           />
           <img
-            src={images.logo }
-            style={{ width: '100%', height: 200, objectFit: 'contain' as const }}
+            src={images.logo}
+            style={{
+              width: '100%',
+              height: 200,
+              objectFit: 'contain' as const,
+            }}
           />
           <div style={{ width: '100%', height: 200, marginTop: 30 }}>
-            <span style={[{ color: COLORS.black, fontWeight: 'bold', textAlign: 'center' }, FONTS.h2]}>
+            <span
+              style={[
+                {
+                  color: COLORS.black,
+                  fontWeight: 'bold',
+                  textAlign: 'center',
+                },
+                FONTS.h2,
+              ]}
+            >
               {HOME.CANCEL}
             </span>
           </div>

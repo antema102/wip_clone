@@ -1,12 +1,10 @@
 import PropTypes from 'prop-types';
-import React, {useEffect, useState, useRef} from 'react';
-;
-import {Picker} from '@react-native-picker/picker';
-import {formsStyles} from '../../../formStyles';
+import React, { useEffect, useState, useRef } from 'react';
+import { Picker } from '@react-native-picker/picker';
+import { formsStyles } from '../../../formStyles';
 import styles from './styles';
-import {TitleLabel} from './TitleLabel';
-import {COLORS, icons} from '../../../resources/constants';
-
+import { TitleLabel } from './TitleLabel';
+import { COLORS, icons } from '../../../resources/constants';
 export const InputSelect = (props: any) => {
   const {
     label,
@@ -17,7 +15,9 @@ export const InputSelect = (props: any) => {
     error,
     showError,
     isEditable,
-    data} = props;0
+    data,
+  } = props;
+  0;
 
   const pickerRef = useRef(null);
 
@@ -25,16 +25,16 @@ export const InputSelect = (props: any) => {
     if (isEditable) {
       pickerRef.current.focus();
     }
-  }
+  };
 
   const [selectedValue, setSelectedValue] = useState(
-    value !== '' ? value : (data.length>0 ? data[0].value: ''),
+    value !== '' ? value : data.length > 0 ? data[0].value : ''
   );
 
   const [errorToDisplay, setErrorToDisplay] = useState(error);
 
   const handleChange = (name: string, itemValue: string, itemIndex: number) => {
-    let bSend = true;
+    const bSend = true;
     const _data = data[itemIndex];
 
     setSelectedValue(itemValue);
@@ -62,45 +62,50 @@ export const InputSelect = (props: any) => {
   }, [value]);
 
   useEffect(() => {
-      setErrorToDisplay(error);
+    setErrorToDisplay(error);
   }, [error]);
 
   return (
     <button onClick={open}>
       <TitleLabel label={label} required={required} />
-        <div style={{
-          
+      <div
+        style={{
           justifyContent: 'space-between',
           flexDirection: 'row',
-          height: 40}}>
-          <Picker
-            ref={pickerRef}
-            style={{
-              height: 10,
-              width: '80%',
-              padding: 0,
-              position: 'relative',
-              left: -15,
-              top: -10,
-              zIndex: -1}}
-            selectedValue={selectedValue}
-            enabled={isEditable}
-            dropdownIconColor={(isEditable) ? COLORS.white : COLORS.lightGray}
-            onValueChange={(itemValue, itemIndex) => {
-              handleChange(name, itemValue, itemIndex);
-            }}>
-            {dataOptions}
-          </Picker>
+          height: 40,
+        }}
+      >
+        <Picker
+          ref={pickerRef}
+          style={{
+            height: 10,
+            width: '80%',
+            padding: 0,
+            position: 'relative',
+            left: -15,
+            top: -10,
+            zIndex: -1,
+          }}
+          selectedValue={selectedValue}
+          enabled={isEditable}
+          dropdownIconColor={isEditable ? COLORS.white : COLORS.lightGray}
+          onValueChange={(itemValue, itemIndex) => {
+            handleChange(name, itemValue, itemIndex);
+          }}
+        >
+          {dataOptions}
+        </Picker>
 
-          <div
-            style={{
-             
-              alignItems: 'center',
-              paddingTop: 7,
-              paddingRight: 10}}>
-            <img style={[formsStyles.iconSelect]} src={icons.down} />
-          </div>
+        <div
+          style={{
+            alignItems: 'center',
+            paddingTop: 7,
+            paddingRight: 10,
+          }}
+        >
+          <img style={[formsStyles.iconSelect]} src={icons.down} />
         </div>
+      </div>
       {/* </div> */}
       {required && showError && errorToDisplay !== '' && (
         <span style={styles.textError}>{errorToDisplay}</span>
@@ -119,7 +124,8 @@ InputSelect.propTypes = {
   onChange: PropTypes.func,
   maxLength: PropTypes.number,
   isEditable: PropTypes.bool,
-  data: PropTypes.any};
+  data: PropTypes.any,
+};
 
 InputSelect.defaultProps = {
   data: [],
@@ -131,4 +137,5 @@ InputSelect.defaultProps = {
   error: '',
   maxLength: 500,
   type: '',
-  isEditable: true};
+  isEditable: true,
+};

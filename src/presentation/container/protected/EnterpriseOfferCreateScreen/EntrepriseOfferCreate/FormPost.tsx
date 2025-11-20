@@ -5,10 +5,18 @@ import { useSelector } from 'react-redux';
 import { TitleLabels } from './titleLabels';
 import { TitleLabels_en } from './titleLabels_en';
 import { styles } from './styles';
-import { storeSoldeWip, usePayment } from '../../../../../service/redux/ducks/payment';
+import {
+  storeSoldeWip,
+  usePayment,
+} from '../../../../../service/redux/ducks/payment';
 import { UserSA } from '../../../../../service/applicatif/User.sa';
 import { getDynamicListByKey } from '../../../../../service/technique/dynamicService';
-import { ENTERPRISE_INFORMATIONS, ERROR, STATUS, TENDER } from '../../../../../data/constants/strings';
+import {
+  ENTERPRISE_INFORMATIONS,
+  ERROR,
+  STATUS,
+  TENDER,
+} from '../../../../../data/constants/strings';
 import { COLORS, SIZES, icons } from '../../../../../resources/constants';
 import { InputField } from '../../../../components/Inputs/InputField';
 import { InputSelect } from '../../../../components/Inputs/InputSelect';
@@ -29,7 +37,6 @@ import { useLang } from '../../../../../data/translation';
 import FileUploaderCompoment from '../../../../components/FileUploaderCompoment';
 
 export const FormPost = (props: any) => {
-
   const { lang } = useLang();
   const activeString = lang === 'fr' ? stringsFr : stringsEn;
   const activeStr = lang === 'fr' ? TitleLabels : TitleLabels_en;
@@ -56,32 +63,34 @@ export const FormPost = (props: any) => {
   const [imgName, setImgName] = useState('');
   const [confirmation, setConfirmation] = useState(false);
   const navigate = useNavigate();
-  const [imgSrc, setImgSrc] = useState<any>(null)
+  const [imgSrc, setImgSrc] = useState<any>(null);
 
   const [nameTxtError, setNameTxtError] = useState('');
   const [descriptionTxtError, setDescriptionTxtError] = useState('');
   const [values, setValues] = useState(
     modiferData
       ? {
-        title: modiferData?.title,
-        description: modiferData?.description,
-        file: '',
-        duration: 0,
-        datePublication: '',
-        price: 0,
-        thumbnail: '',
-        contact: modiferData?.contact,
-        activityArea: modiferData?.activityArea}
+          title: modiferData?.title,
+          description: modiferData?.description,
+          file: '',
+          duration: 0,
+          datePublication: '',
+          price: 0,
+          thumbnail: '',
+          contact: modiferData?.contact,
+          activityArea: modiferData?.activityArea,
+        }
       : {
-        title: '',
-        description: '',
-        file: '',
-        duration: 0,
-        datePublication: '',
-        price: 0,
-        thumbnail: '',
-        contact: '',
-        activityArea: ''},
+          title: '',
+          description: '',
+          file: '',
+          duration: 0,
+          datePublication: '',
+          price: 0,
+          thumbnail: '',
+          contact: '',
+          activityArea: '',
+        }
   );
   const [dataCost, setDataCost] = useState();
   const [priceDay, setPriceDay] = useState();
@@ -114,11 +123,11 @@ export const FormPost = (props: any) => {
       `Tarif dans la semaine (${result2?.data?.items[0].price} Wip)`,
       `Tarif dans le mois (${result3?.data?.items[0].price} Wip)`,
     ];
-    const costList = cost.map(value => ({ value, label: value }));
+    const costList = cost.map((value) => ({ value, label: value }));
     setPriceDay(result1?.data?.items[0].price);
     setPriceWeek(result2?.data?.items[0].price);
     setPriceMonth(result3?.data?.items[0].price);
-    // @ts-ignore
+    // @ts-expect-error
     setDataCost(costList);
     setIsLoading(false);
   };
@@ -149,10 +158,10 @@ export const FormPost = (props: any) => {
       datePublication: '',
       thumbnail: '',
       contact: '',
-      activityArea: ''});
+      activityArea: '',
+    });
     navigate('/EnterpriseAdvertisingScreen');
   };
-
 
   useEffect(() => {
     if (typeof data !== 'undefined') {
@@ -166,7 +175,8 @@ export const FormPost = (props: any) => {
         price: 0,
         thumbnail: '',
         contact: '',
-        activityArea: ''});
+        activityArea: '',
+      });
     }
   }, []);
 
@@ -174,7 +184,7 @@ export const FormPost = (props: any) => {
     name: string,
     value: any,
     fired: boolean,
-    label: string,
+    label: string
   ) => {
     setValues({ ...values, [name]: value });
     switch (name) {
@@ -247,7 +257,7 @@ export const FormPost = (props: any) => {
     if (condition) {
       setIsLoading(true);
       const temp = values.duration;
-      // @ts-ignore
+      // @ts-expect-error
       values.datePublication = convertDateWithoutHours(values.datePublication);
       values.duration = handlingAbonmentDuration(values.duration);
       values.price = handlingPrice(values.duration) || 19;
@@ -289,25 +299,35 @@ export const FormPost = (props: any) => {
           const imageData = e?.target?.result?.split(',')[1];
           // setFilePath(`data:image/png;base64,${videoData}`);
           values.file = imageData;
-          setImgSrc(e.target?.result)
+          setImgSrc(e.target?.result);
           setImageError(false);
         };
 
         // Read the file as a data URL
         fileReader.readAsDataURL(file);
       }
-    } catch (error) {
-    }
+    } catch (error) {}
   };
-
 
   return (
     <div
       style={{
         paddingHorizontal: SIZES.padding,
-        justifyContent: 'space-between'}}>
-      <CustomModal title={"Moyen de paiement"} visible={showPayment} setVisible={setShowPayment} content={<PaymentWays />} />
-      <div style={{...styles.inputWrap, ...(modiferData ? { backgroundColor: COLORS.disableGray } : {})}}>
+        justifyContent: 'space-between',
+      }}
+    >
+      <CustomModal
+        title={'Moyen de paiement'}
+        visible={showPayment}
+        setVisible={setShowPayment}
+        content={<PaymentWays />}
+      />
+      <div
+        style={{
+          ...styles.inputWrap,
+          ...(modiferData ? { backgroundColor: COLORS.disableGray } : {}),
+        }}
+      >
         <InputField
           label={activeStr.advertisement.name}
           value={values.title}
@@ -321,7 +341,13 @@ export const FormPost = (props: any) => {
       {nameError && (
         <span style={{ color: COLORS.red_color }}>{nameTxtError}</span>
       )}
-      <div style={{...{ marginBottom: 20 }, ...styles.inputWrap, ...(modiferData ? { backgroundColor: COLORS.disableGray } : {})}}>
+      <div
+        style={{
+          ...{ marginBottom: 20 },
+          ...styles.inputWrap,
+          ...(modiferData ? { backgroundColor: COLORS.disableGray } : {}),
+        }}
+      >
         <InputField
           label={activeStr.advertisement.description}
           value={values.description}
@@ -337,7 +363,12 @@ export const FormPost = (props: any) => {
         <span style={{ color: COLORS.red_color }}>{descriptionTxtError}</span>
       )}
 
-      <div style={{...styles.inputWrap, ...(modiferData ? { backgroundColor: COLORS.disableGray } : {})}}>
+      <div
+        style={{
+          ...styles.inputWrap,
+          ...(modiferData ? { backgroundColor: COLORS.disableGray } : {}),
+        }}
+      >
         <InputField
           label={activeStr.advertisement.contact}
           value={values.contact}
@@ -351,7 +382,9 @@ export const FormPost = (props: any) => {
       </div>
 
       {contactError && (
-        <span style={{ color: COLORS.red_color }}>{activeString.ERROR.EMPTY_FIELD}</span>
+        <span style={{ color: COLORS.red_color }}>
+          {activeString.ERROR.EMPTY_FIELD}
+        </span>
       )}
 
       {!modiferData && activityList && (
@@ -368,7 +401,9 @@ export const FormPost = (props: any) => {
       )}
 
       {activityError && (
-        <span style={{ color: COLORS.red_color }}>{activeString.ERROR.EMPTY_PICK}</span>
+        <span style={{ color: COLORS.red_color }}>
+          {activeString.ERROR.EMPTY_PICK}
+        </span>
       )}
 
       {!modiferData && dataCost && (
@@ -385,7 +420,9 @@ export const FormPost = (props: any) => {
       )}
 
       {abonmentDurationError && (
-        <span style={{ color: COLORS.red_color }}>{activeString.ERROR.EMPTY_PICK}</span>
+        <span style={{ color: COLORS.red_color }}>
+          {activeString.ERROR.EMPTY_PICK}
+        </span>
       )}
 
       {!modiferData && (
@@ -398,26 +435,24 @@ export const FormPost = (props: any) => {
             onChange={handleChange}
             isEditable={true}
             type={'date'}
-            dateMax={
-              new Date(
-                new Date().getFullYear() + 1,
-                new Date().getMonth(),
-                new Date().getDate(),
-              ).toISOString()
-            }
-            dateMin={
-              new Date(
-                new Date().getFullYear(),
-                new Date().getMonth(),
-                new Date().getDate() + 1,
-              ).toISOString()
-            }
+            dateMax={new Date(
+              new Date().getFullYear() + 1,
+              new Date().getMonth(),
+              new Date().getDate()
+            ).toISOString()}
+            dateMin={new Date(
+              new Date().getFullYear(),
+              new Date().getMonth(),
+              new Date().getDate() + 1
+            ).toISOString()}
           />
         </div>
       )}
 
       {datePublicationError && (
-        <span style={{ color: COLORS.red_color }}>{activeString.ERROR.EMPTY_PICK}</span>
+        <span style={{ color: COLORS.red_color }}>
+          {activeString.ERROR.EMPTY_PICK}
+        </span>
       )}
 
       {/* {!modiferData && (
@@ -434,32 +469,38 @@ export const FormPost = (props: any) => {
         </div>
       )} */}
 
-      {
-      !modiferData &&
+      {!modiferData && (
         <FileUploaderCompoment
           img={imgSrc}
           handleFileChange={selectImage}
           fileName={'Importer une images'}
-          label='Importer votre images'
-          accept='image/*'
-          type='images'
+          label="Importer votre images"
+          accept="image/*"
+          type="images"
         />
-      }
+      )}
 
       {imageError && (
-        <span style={{ color: COLORS.red_color }}>{activeString.ERROR.EMPTY_IMAGE}</span>
+        <span style={{ color: COLORS.red_color }}>
+          {activeString.ERROR.EMPTY_IMAGE}
+        </span>
       )}
 
       <div
         style={{
           flex: 1,
-          height: 260}}>
+          height: 260,
+        }}
+      >
         {!modiferData && (
           <div>
             <div style={styles.screenContainer2}>
               <button
                 style={[styles.buttonAnnuler]}
-                onClick={(e: any) => handleCancel()}>
+                onClick={(e: any) => {
+                  handleCancel();
+                }}
+              >
                 <span style={styles.textBtnSecondary}>Annuler</span>
               </button>
               <button style={[styles.buttonAnnuler2]} onClick={handleSubmit}>
@@ -474,7 +515,9 @@ export const FormPost = (props: any) => {
           <SubmitButtons
             underlineType={true}
             supprimer={true}
-            submitAction={() => setConfirmation(true)}
+            submitAction={() => {
+              setConfirmation(true);
+            }}
             submitTitle="Supprimer"
           />
         )}
@@ -484,7 +527,9 @@ export const FormPost = (props: any) => {
         visible={confirmation}
         validation={setConfirmation}
         btnTitle="OK"
-        action={() => handleDelete()}
+        action={async () => {
+          await handleDelete();
+        }}
         cancel={true}
       />
       <Popup

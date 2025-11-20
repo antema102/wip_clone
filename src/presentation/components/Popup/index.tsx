@@ -16,7 +16,7 @@ interface Props {
   closeTitle?: string;
 }
 
-const Popup = {
+const Popup = ({
   visible,
   onClose,
   children,

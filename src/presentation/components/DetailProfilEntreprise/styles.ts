@@ -1,9 +1,8 @@
-;
 import { COLORS, SIZES } from '../../../resources/constants';
 
 const { width } = Dimensions.get('window');
 
-export default ({
+export default {
   container: {
     flex: 1,
     backgroundColor: '#fff',
@@ -11,14 +10,16 @@ export default ({
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 4},
+      height: 4,
+    },
     shadowOpacity: 0.1,
     shadowRadius: 5,
     elevation: 5,
     marginLeft: 20,
     marginRight: 20,
     marginTop: 3,
-    boxShadow: 'none'},
+    boxShadow: 'none',
+  },
   container2: {
     bottom: 100,
     backgroundColor: '#cce5e8',
@@ -26,7 +27,8 @@ export default ({
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 4},
+      height: 4,
+    },
     shadowOpacity: 0.1,
     shadowRadius: 5,
     elevation: 5,
@@ -34,37 +36,45 @@ export default ({
     marginLeft: 40,
     marginRight: 40,
     marginTop: 120,
-    boxShadow: 'none'},
+    boxShadow: 'none',
+  },
   stats: {
     flexDirection: 'column',
     alignItems: 'center',
-    padding: 20},
+    padding: 20,
+  },
   contentProfil: {
     paddingVertical: 10,
     paddingHorizontal: 24,
     flexDirection: 'column',
-    gap: 10},
+    gap: 10,
+  },
   stat: {
     flex: 1,
-    alignItems: 'center'},
+    alignItems: 'center',
+  },
   statLabel: {
     color: '#999',
-    fontSize: 14},
+    fontSize: 14,
+  },
   statValue: {
-    fontSize: 18},
+    fontSize: 18,
+  },
   button: {
     height: 56,
     width: 363,
     left: 24,
     top: 312,
     borderRadius: 16,
-    padding: 16},
+    padding: 16,
+  },
   buttonHome: {
     paddingHorizontal: 8,
     height: 42,
     width: 220,
     borderRadius: SIZES.radius,
-    backgroundColor: COLORS.secondary},
+    backgroundColor: COLORS.secondary,
+  },
   buttonActions: {
     paddingRight: SIZES.padding2,
     height: 42,
@@ -72,7 +82,8 @@ export default ({
     borderRadius: SIZES.radius,
     flexDirection: 'row-reverse',
     backgroundColor: COLORS.secondary,
-    justifyContent: 'space-between'},
+    justifyContent: 'space-between',
+  },
   buttonHomeActionsaisir: {
     paddingHorizontal: 8,
     height: 42,
@@ -80,7 +91,8 @@ export default ({
     borderRadius: SIZES.radius,
     flexDirection: 'row',
     backgroundColor: COLORS.secondary,
-    alignItems: 'center'},
+    alignItems: 'center',
+  },
   buttonHomeExport: {
     paddingHorizontal: 8,
     height: 42,
@@ -89,28 +101,32 @@ export default ({
     flexDirection: 'row',
     backgroundColor: COLORS.orange,
     justifyContent: 'center',
-    alignItems: 'center'},
+    alignItems: 'center',
+  },
   bigBtnTxt: {
     fontSize: SIZES.body4,
     color: COLORS.white,
-    fontWeight: '700'},
-  containerMore:{
-    paddingHorizontal:24,
-    paddingVertical:14,
-    backgroundColor:COLORS.white,
-    marginTop:8,
-    borderRadius:10,
-    marginHorizontal:24
+    fontWeight: '700',
   },
-  textMore:{
-    fontSize:14,fontWeight:700,marginBottom:20
+  containerMore: {
+    paddingHorizontal: 24,
+    paddingVertical: 14,
+    backgroundColor: COLORS.white,
+    marginTop: 8,
+    borderRadius: 10,
+    marginHorizontal: 24,
   },
-  contentMore:{
-    display:'flex',
-    justifyContent:'space-between',
-    flexDirection:'row'
+  textMore: {
+    fontSize: 14,
+    fontWeight: 700,
+    marginBottom: 20,
   },
-  stylesButtons:{
-    height:30
-  }
-});
+  contentMore: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+  },
+  stylesButtons: {
+    height: 30,
+  },
+};

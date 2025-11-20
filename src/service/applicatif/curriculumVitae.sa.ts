@@ -1,4 +1,4 @@
-import {CV_BDL} from '../bdl/curriculumVitae.bdl';
+import { CV_BDL } from '../bdl/curriculumVitae.bdl';
 
 export const CVService = () => {
   const {
@@ -10,7 +10,7 @@ export const CVService = () => {
     getCVByIdUser,
     getAvailability,
     changeAvailability,
-    sendAvailability
+    sendAvailability,
   } = CV_BDL();
 
   return {
@@ -25,7 +25,7 @@ export const CVService = () => {
     getCVByIdUser: async (token: string, id: string) =>
       await getCVByIdUser(token, id),
     getAllCV: async (token: string, data: any) => await getAllCV(token, data),
-    sendAvailability:async(token:string,params:string)=>
-      await sendAvailability(token,params)
+    sendAvailability: async (token: string, params: string) =>
+      await sendAvailability(token, params),
   };
 };

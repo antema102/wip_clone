@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { OfferService } from '../../applicatif/Offer.sa';
 
-export type OfferState = {
+export interface OfferState {
   create: {
     ref: string;
     name: string;
@@ -23,7 +23,7 @@ export type OfferState = {
   allJobCompany?: any;
   offerJobById?: any;
   allJobByType?: any;
-};
+}
 
 export const enum OfferctionType {
   createJob = '[Offer] create job',
@@ -38,7 +38,8 @@ export const enum OfferctionType {
   offerDecline = '[Offer] offrer decline',
   history = '[Offer] get history',
   getOfferJobView = '[Offer] get views',
-  incrementOfferJobView = "incrementOfferJobView"}
+  incrementOfferJobView = 'incrementOfferJobView',
+}
 
 export const initiaOfferState: OfferState = {
   history: 12,
@@ -53,13 +54,16 @@ export const initiaOfferState: OfferState = {
     contrat: '',
     profil: '',
     experience: '',
-    salaire: ''},
+    salaire: '',
+  },
   jobById: {
-    id: ''},
+    id: '',
+  },
   allJobByCompany: {},
   allJobCompany: {},
   offerJobById: {},
-  allJobByType: {}};
+  allJobByType: {},
+};
 
 export const offerReducer = (state = initiaOfferState, action) => {
   const { type, payload } = action;
@@ -67,52 +71,64 @@ export const offerReducer = (state = initiaOfferState, action) => {
     case OfferctionType.createJob:
       return {
         ...state,
-        createJob: payload};
+        createJob: payload,
+      };
     case OfferctionType.deleteJob:
       return {
         ...state,
-        deleteJob: payload};
+        deleteJob: payload,
+      };
 
     case OfferctionType.updateJob:
       return {
         ...state,
-        updateJob: payload};
+        updateJob: payload,
+      };
     case OfferctionType.allJobCompany:
       return {
         ...state,
-        allJobCompany: payload};
+        allJobCompany: payload,
+      };
     case OfferctionType.getOfferJobView:
       return {
         ...state,
-        getOfferJobView: payload};
+        getOfferJobView: payload,
+      };
     case OfferctionType.allJobByCompany:
       return {
         ...state,
-        allJobByCompany: payload};
+        allJobByCompany: payload,
+      };
     case OfferctionType.allJobByType:
       return {
         ...state,
-        allJobByType: payload};
+        allJobByType: payload,
+      };
     case OfferctionType.typeJob:
       return {
         ...state,
-        typeJob: payload};
+        typeJob: payload,
+      };
     case OfferctionType.offerJobById:
       return {
         ...state,
-        offerJobById: payload};
+        offerJobById: payload,
+      };
     case OfferctionType.offerApply:
       return {
         ...state,
-        offerApply: payload};
+        offerApply: payload,
+      };
     case OfferctionType.offerDecline:
       return {
         ...state,
-        offerDecline: payload};
+        offerDecline: payload,
+      };
     case OfferctionType.history:
       return {
         ...state,
-        history: payload};
+        history: payload,
+      };
 
     default:
       return state;
@@ -134,7 +150,7 @@ export const useOfferr = () => {
     offerApply,
     offerDecline,
     getOfferJobView,
-    incrementOfferJobView
+    incrementOfferJobView,
   } = OfferService();
 
   return {
@@ -144,11 +160,12 @@ export const useOfferr = () => {
 
         dispatch({
           payload,
-          type: OfferctionType.createJob});
+          type: OfferctionType.createJob,
+        });
 
         return payload;
       } catch (error) {
-        return Promise.reject(error);
+        return await Promise.reject(error);
       }
     },
     updateOfferJob: async (token: string, idJob: string, data: any) => {
@@ -156,11 +173,12 @@ export const useOfferr = () => {
         const payload = await updateOfferJob(token, idJob, { data });
         dispatch({
           payload,
-          type: OfferctionType.updateJob});
+          type: OfferctionType.updateJob,
+        });
 
         return payload;
       } catch (error) {
-        return Promise.reject(error);
+        return await Promise.reject(error);
       }
     },
     deleteOfferJob: async (token: string, idJob: string) => {
@@ -168,11 +186,12 @@ export const useOfferr = () => {
         const payload = await deleteOfferJob(token, idJob);
         dispatch({
           payload,
-          type: OfferctionType.deleteJob});
+          type: OfferctionType.deleteJob,
+        });
 
         return payload;
       } catch (error) {
-        return Promise.reject(error);
+        return await Promise.reject(error);
       }
     },
     allOfferJob: async (token: string) => {
@@ -180,11 +199,12 @@ export const useOfferr = () => {
         const payload = await allOfferJob(token);
         dispatch({
           payload,
-          type: OfferctionType.allJobCompany});
+          type: OfferctionType.allJobCompany,
+        });
 
         return payload;
       } catch (error) {
-        return Promise.reject(error);
+        return await Promise.reject(error);
       }
     },
     allOfferJobByEnt: async (token: string, idCompany: string) => {
@@ -192,11 +212,12 @@ export const useOfferr = () => {
         const payload = await allOfferJobByEnt(token, idCompany);
         dispatch({
           payload,
-          type: OfferctionType.allJobByCompany});
+          type: OfferctionType.allJobByCompany,
+        });
 
         return payload;
       } catch (error) {
-        return Promise.reject(error);
+        return await Promise.reject(error);
       }
     },
     allOfferJobByType: async (token: string, jobType: string) => {
@@ -204,11 +225,12 @@ export const useOfferr = () => {
         const payload = await allOfferJobByType(token, jobType);
         dispatch({
           payload,
-          type: OfferctionType.allJobByType});
+          type: OfferctionType.allJobByType,
+        });
 
         return payload;
       } catch (error) {
-        return Promise.reject(error);
+        return await Promise.reject(error);
       }
     },
     offerJobById: async (id: string, token: string) => {
@@ -216,11 +238,12 @@ export const useOfferr = () => {
         const payload = await offerJobById(id, token);
         dispatch({
           payload,
-          type: OfferctionType.offerJobById});
+          type: OfferctionType.offerJobById,
+        });
 
         return payload;
       } catch (error) {
-        return Promise.reject(error);
+        return await Promise.reject(error);
       }
     },
     typeJob: async (token) => {
@@ -228,11 +251,12 @@ export const useOfferr = () => {
         const payload = await typeJob(token);
         dispatch({
           payload,
-          type: OfferctionType.typeJob});
+          type: OfferctionType.typeJob,
+        });
 
         return payload;
       } catch (error) {
-        return Promise.reject(error);
+        return await Promise.reject(error);
       }
     },
     offerApply: async (token, idJob) => {
@@ -240,11 +264,12 @@ export const useOfferr = () => {
         const payload = await offerApply(token, idJob);
         dispatch({
           payload,
-          type: OfferctionType.offerApply});
+          type: OfferctionType.offerApply,
+        });
 
         return payload;
       } catch (error) {
-        return Promise.reject(error);
+        return await Promise.reject(error);
       }
     },
     offerDecline: async (token, idJob) => {
@@ -252,49 +277,54 @@ export const useOfferr = () => {
         const payload = await offerDecline(token, idJob);
         dispatch({
           payload,
-          type: OfferctionType.offerDecline});
+          type: OfferctionType.offerDecline,
+        });
 
         return payload;
       } catch (error) {
-        return Promise.reject(error);
+        return await Promise.reject(error);
       }
     },
     getOfferJobView: async (id: string, token: string) => {
       try {
-        const payload = await getOfferJobView(id, token); 
+        const payload = await getOfferJobView(id, token);
         dispatch({
           payload,
-          type: OfferctionType.getOfferJobView});
+          type: OfferctionType.getOfferJobView,
+        });
 
         return payload;
       } catch (error) {
-        console.error("Erreur dans getOfferJobView:", error);
-        return Promise.reject(error);
+        console.error('Erreur dans getOfferJobView:', error);
+        return await Promise.reject(error);
       }
     },
     incrementOfferJobView: async (id: string, token: string) => {
       try {
-          const payload = await incrementOfferJobView(id, token); 
-          dispatch({
-              payload,
-              type: OfferctionType.incrementOfferJobView});
-  
-          return payload;
+        const payload = await incrementOfferJobView(id, token);
+        dispatch({
+          payload,
+          type: OfferctionType.incrementOfferJobView,
+        });
+
+        return payload;
       } catch (error) {
-          console.error("Erreur dans incrementOfferJobView:", error);
-          return Promise.reject(error);
+        console.error('Erreur dans incrementOfferJobView:', error);
+        return await Promise.reject(error);
       }
-  },
+    },
 
     history: async (token) => {
       try {
         const payload = await history(token);
         dispatch({
           payload,
-          type: OfferctionType.history});
+          type: OfferctionType.history,
+        });
         return payload;
       } catch (error) {
-        return Promise.reject(error);
+        return await Promise.reject(error);
       }
-    }};
+    },
+  };
 };

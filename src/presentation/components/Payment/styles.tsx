@@ -1,4 +1,3 @@
-;
 import { COLORS, SIZES } from '../../../resources/constants';
 
 let windowWidth = window.innerWidth;
@@ -12,12 +11,15 @@ export const styles = {
     borderStyle: 'dashed',
     marginTop: 24,
     marginHorizontal: 24,
-    flexDirection: 'column'},
+    flexDirection: 'column'
+  },
   subscriptionDetailsContainer: {
-    flex: 2},
+    flex: 2
+  },
   btnDetail: {
     marginTop: 16,
-    paddingBottom: 16},
+    paddingBottom: 16
+  },
   btnBuy: {
     paddingBottom: 50,
     position: 'absolute',
@@ -34,7 +36,8 @@ export const styles = {
     fontSize: 16,
     color: COLORS.black,
     fontWeight: 'bold',
-    fontFamily: 'Oxygen'},
+    fontFamily: 'Oxygen'
+  },
   descriptionText: {
     fontSize: 12,
     color: COLORS.black,
@@ -48,14 +51,16 @@ export const styles = {
     fontSize: SIZES.body4,
     color: COLORS.white,
     fontFamily: 'Oxygen',
-    fontWeight: '700'},
+    fontWeight: '700'
+  },
   smallButtonContainer: {
     height: 40,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: SIZES.radiusTwo,
     paddingHorizontal: 8,
-    width: 100},
+    width: 100
+  },
   centeredView: {
     flex: 1,
     width: '100%',
@@ -71,33 +76,39 @@ export const styles = {
     alignItems: 'center',
     borderWidth: 1,
     borderColor: COLORS.secondary,
-    marginBottom: SIZES.padding2},
+    marginBottom: SIZES.padding2
+  },
   detailSub: {
     width: '100%',
     marginBottom: 20,
-    marginTop: 20},
+    marginTop: 20
+  },
   titleDetails: {
     fontFamily: 'Oxygen',
     fontStyle: 'normal',
     fontWeight: '400',
     color: '#01129E',
     fontSize: 16,
-    lineHeight: 24},
+    lineHeight: 24
+  },
   detailValue: {
     fontFamily: 'Oxygen',
     fontStyle: 'normal',
     fontWeight: '400',
     color: '#323F4B',
     fontSize: 16,
-    lineHeight: 24},
+    lineHeight: 24
+  },
   detailItem: {
     display: 'flex',
     flexDirection: 'row',
-    marginBottom: 15},
+    marginBottom: 15
+  },
   textBtnSecondary: {
     color: COLORS.white,
     fontFamily: 'IBMPlexSans-SemiBold',
-    fontSize: SIZES.h5},
+    fontSize: SIZES.h5
+  },
   icon: {
     width: 24, // Set the width of the image
     height: 24, // Set the height of the image
@@ -117,8 +128,11 @@ export const styles = {
       height: 2},
     shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 5},
+    elevation: 5
+  },
   buttonContainer: {
     marginTop: 20,
     flexDirection: 'row',
-    justifyContent: 'space-between'}});
+    justifyContent: 'space-between'
+  }
+};

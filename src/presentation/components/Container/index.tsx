@@ -18,31 +18,30 @@ import StickyContainer from '../StickyContainer';
 import CarouselBannerAds from '../carouselBannerAds';
 import SidebarEnterPriseChat from '../SideBarChat';
 import Popup from '../CreateCV/Popup';
-import { NEWS } from '../../../data/constants/strings';
+import { NEWS, ROLEACCOUNT } from '../../../data/constants/strings';
 import * as stringsEn from '../../../data/constants/strings_en';
 import * as stringsFr from '../../../data/constants/strings';
 
 import ImageGalleria from '../ImageGalleria';
 import VideoAdvertisement from '../VideoAdvertisement';
 
-import { ROLEACCOUNT } from '../../../data/constants/strings';
 import { CVService } from '../../../service/applicatif/curriculumVitae.sa';
 import { UserSA } from '../../../service/applicatif/User.sa';
 
 import { calculateAge } from '../../../data/factory/dateFactory';
 
 interface filtredPropos {
-  category?: string,
-  salary?: number,
-  activityArea?: string,
-  hobby?: string,
-  child?: boolean | undefined,
-  age?: number,
-  transport?: string,
-  pet?: string,
-  withCV?: boolean,
-  audience?: number,
-  [key: string]: any
+  category?: string;
+  salary?: number;
+  activityArea?: string;
+  hobby?: string;
+  child?: boolean | undefined;
+  age?: number;
+  transport?: string;
+  pet?: string;
+  withCV?: boolean;
+  audience?: number;
+  [key: string]: any;
 }
 
 interface ImageDisplay {
@@ -62,8 +61,11 @@ interface Images {
 
 type dataImagePropos = Images[];
 
-const Container = ({ MainContent }: { MainContent: React.ReactNode }): JSX.Element => {
-
+const Container = ({
+  MainContent,
+}: {
+  MainContent: React.ReactNode;
+}): JSX.Element => {
   const { isMobile } = useMobile();
 
   const { user, accessToken } = useSelector(({ auth }: any) => auth);
@@ -83,7 +85,11 @@ const Container = ({ MainContent }: { MainContent: React.ReactNode }): JSX.Eleme
   const { lang } = useLang();
   const activeString = lang === 'fr' ? stringsFr : stringsEn;
 
-  const { getAdvertisementForWeb, getAdvertisementsByCategory, countClickAdvertisement } = UserSA();
+  const {
+    getAdvertisementForWeb,
+    getAdvertisementsByCategory,
+    countClickAdvertisement,
+  } = UserSA();
   const { getCVByIdUser } = CVService();
 
   const excludedRoutes = [
@@ -95,7 +101,7 @@ const Container = ({ MainContent }: { MainContent: React.ReactNode }): JSX.Eleme
     '/NewsInformationScreen',
     '/NewsInformationScreenDescription',
     '/profilCandidat',
-    '/chat'
+    '/chat',
   ];
 
   const shouldDisplayCarousel = !(
@@ -103,9 +109,7 @@ const Container = ({ MainContent }: { MainContent: React.ReactNode }): JSX.Eleme
     location.pathname.startsWith('/chat/')
   );
 
-  const excludedRoutesChat = [
-    '/chat'
-  ];
+  const excludedRoutesChat = ['/chat'];
 
   const shouldDisplayChatIA = !(
     excludedRoutesChat.includes(location.pathname) ||
@@ -124,7 +128,8 @@ const Container = ({ MainContent }: { MainContent: React.ReactNode }): JSX.Eleme
     }
   }, [isTokenExpired]);
 
-  const condition = user?.role === activeString.ROLEACCOUNT.company && !user?.abonnementId
+  const condition =
+    user?.role === activeString.ROLEACCOUNT.company && !user?.abonnementId;
 
   const storeElementNumber = async (solde: any) => {
     await localStorage.setItem('elementNumber', JSON.stringify(solde));
@@ -134,7 +139,7 @@ const Container = ({ MainContent }: { MainContent: React.ReactNode }): JSX.Eleme
     const randomDecimal = Math.random();
     const randomNumber = Math.floor(randomDecimal * (max + 1));
     return randomNumber;
-  }
+  };
 
   const getAdvertisement = async (type: string) => {
     const initialElement = localStorage.getItem('elementNumber') || '1';
@@ -161,15 +166,16 @@ const Container = ({ MainContent }: { MainContent: React.ReactNode }): JSX.Eleme
       if (salary && activityArea && hobby && age && pet && transport) {
         filtered = {
           category: type,
-          salary: salary,
-          activityArea: activityArea,
-          hobby: hobby,
-          child: child,
-          age: age,
-          transport: transport,
-          pet: pet,
+          salary,
+          activityArea,
+          hobby,
+          child,
+          age,
+          transport,
+          pet,
           withCV: true,
-          audience: user?.role === ROLEACCOUNT.candidate ? 0 : 1};
+          audience: user?.role === ROLEACCOUNT.candidate ? 0 : 1,
+        };
         if (type === 'video') {
           filtered.elementNumber = elementNumber;
         }
@@ -177,21 +183,25 @@ const Container = ({ MainContent }: { MainContent: React.ReactNode }): JSX.Eleme
         filtered = {
           category: type,
           withCV: false,
-          audience: user?.role === ROLEACCOUNT.candidate ? 0 : 1};
+          audience: user?.role === ROLEACCOUNT.candidate ? 0 : 1,
+        };
 
         if (type === 'video') {
           filtered.elementNumber = elementNumber;
         }
       }
 
-      const data = type === 'video' ? await getAdvertisementForWeb(filtered, accessToken) : await getAdvertisementsByCategory(filtered, accessToken);
+      const data =
+        type === 'video'
+          ? await getAdvertisementForWeb(filtered, accessToken)
+          : await getAdvertisementsByCategory(filtered, accessToken);
 
       if (type == 'video') {
         const responseVideo = data?.data?.items;
         if (responseVideo && responseVideo.length !== 0) {
           const videoBase64 = responseVideo[0].image;
           countClickAdvertisement(responseVideo[0].id, accessToken);
-          setLinkVideo(responseVideo[0].link)
+          setLinkVideo(responseVideo[0].link);
           setFilePathVideo(videoBase64);
           storeElementNumber(elementNumber + 1);
         } else {
@@ -200,35 +210,42 @@ const Container = ({ MainContent }: { MainContent: React.ReactNode }): JSX.Eleme
       } else {
         const responseImage: dataImagePropos = data?.data?.items;
         if (responseImage) {
-          const dataImage: ImageDisplay[] = responseImage.map(item => {
+          const dataImage: ImageDisplay[] = responseImage.map((item) => {
             return {
               img: item.image,
               title: item.name,
               alt: item.description,
-              link: item.link};
+              link: item.link,
+            };
           });
           const itemToPutFirst = await getRandomNumber(dataImage?.length - 1);
-          countClickAdvertisement(responseImage[itemToPutFirst].id, accessToken);
-          setFirstItem(itemToPutFirst)
+          countClickAdvertisement(
+            responseImage[itemToPutFirst].id,
+            accessToken
+          );
+          setFirstItem(itemToPutFirst);
           setPopupImage(dataImage);
         }
       }
-
     } else {
       filtered = {
         category: type,
         withCV: false,
-        audience: user?.role === ROLEACCOUNT.candidate ? 0 : 1};
+        audience: user?.role === ROLEACCOUNT.candidate ? 0 : 1,
+      };
       if (type === 'video') {
         filtered.elementNumber = elementNumber;
       }
-      const data = type === 'video' ? await getAdvertisementForWeb(filtered, accessToken) : await getAdvertisementsByCategory(filtered, accessToken);
+      const data =
+        type === 'video'
+          ? await getAdvertisementForWeb(filtered, accessToken)
+          : await getAdvertisementsByCategory(filtered, accessToken);
       if (type == 'video') {
         const responseVideo = data?.data?.items;
         if (responseVideo && responseVideo.length !== 0) {
           const videoBase64 = responseVideo[0].image;
           countClickAdvertisement(responseVideo[0].id, accessToken);
-          setLinkVideo(responseVideo[0].link)
+          setLinkVideo(responseVideo[0].link);
           setFilePathVideo(videoBase64);
           storeElementNumber(elementNumber + 1);
         } else {
@@ -237,21 +254,25 @@ const Container = ({ MainContent }: { MainContent: React.ReactNode }): JSX.Eleme
       } else {
         const responseImage: dataImagePropos = data?.data?.items;
         if (responseImage) {
-          const dataImage: ImageDisplay[] = responseImage.map(item => {
+          const dataImage: ImageDisplay[] = responseImage.map((item) => {
             return {
               img: item.image,
               title: item.name,
               alt: item.description,
-              link: item.link};
+              link: item.link,
+            };
           });
-          const itemToPutFirst = await getRandomNumber(dataImage?.length - 1)
-          countClickAdvertisement(responseImage[itemToPutFirst].id, accessToken);
-          setFirstItem(itemToPutFirst)
+          const itemToPutFirst = await getRandomNumber(dataImage?.length - 1);
+          countClickAdvertisement(
+            responseImage[itemToPutFirst].id,
+            accessToken
+          );
+          setFirstItem(itemToPutFirst);
           setPopupImage(dataImage);
         }
       }
     }
-  }
+  };
 
   const FgTask = () => {
     const interveral = setInterval(async () => {
@@ -272,85 +293,99 @@ const Container = ({ MainContent }: { MainContent: React.ReactNode }): JSX.Eleme
 
   useEffect(() => {
     const interveral = FgTask();
-    return () => clearInterval(interveral);
+    return () => {
+      clearInterval(interveral);
+    };
   }, []);
 
-  return (<Fragment>
-    {accessToken && popupImage && <ImageGalleria visible={visibleVideo ? false : visible} firstItem={firstItem} setVisible={setVisible} data={popupImage} showQuit={showQuit} />}
-    {accessToken && filePathVideo ? <VideoAdvertisement setShowQuitVideo={setShowQuitVideo} link={linkVideo} filePath={filePathVideo} visible={visibleVideo} setVisible={setVisibleVideo} showQuit={showQuitVideo} /> : null}
-    <TopNavigation />
-    {isMobile ? (
-      <>
-        <Splitter style={styles.splitterContainerMobile}>
-          <SplitterPanel>
-            {shouldDisplayCarousel && <CarouselBannerAds />}
-            {MainContent}
-          </SplitterPanel>
-        </Splitter>
-      </>
-    )
-      :
-      (
+  return (
+    <Fragment>
+      {accessToken && popupImage && (
+        <ImageGalleria
+          visible={visibleVideo ? false : visible}
+          firstItem={firstItem}
+          setVisible={setVisible}
+          data={popupImage}
+          showQuit={showQuit}
+        />
+      )}
+      {accessToken && filePathVideo ? (
+        <VideoAdvertisement
+          setShowQuitVideo={setShowQuitVideo}
+          link={linkVideo}
+          filePath={filePathVideo}
+          visible={visibleVideo}
+          setVisible={setVisibleVideo}
+          showQuit={showQuitVideo}
+        />
+      ) : null}
+      <TopNavigation />
+      {isMobile ? (
+        <>
+          <Splitter style={styles.splitterContainerMobile}>
+            <SplitterPanel>
+              {shouldDisplayCarousel && <CarouselBannerAds />}
+              {MainContent}
+            </SplitterPanel>
+          </Splitter>
+        </>
+      ) : (
         <>
           <Splitter
             style={
-              isMobile ?
-                styles.splitterContainerMobile :
-                styles.splitterContainer
+              isMobile
+                ? styles.splitterContainerMobile
+                : styles.splitterContainer
             }
-            className='main__content'
+            className="main__content"
           >
             <SplitterPanel
               style={{
                 paddingTop: 16,
-                zIndex: 1
+                zIndex: 1,
               }}
               size={25}
             >
-              {condition ? null : user?.role === 'candidate' ?
+              {condition ? null : user?.role === 'candidate' ? (
                 <StickyContainer top={95}>
                   <SideBarCandidat />
                 </StickyContainer>
-                :
+              ) : (
                 <StickyContainer top={95}>
-                  {!shouldDisplayChatIA ?
-                    <SidebarEnterPriseChat /> :
-                    <SidebarEnterPrise />}
+                  {!shouldDisplayChatIA ? (
+                    <SidebarEnterPriseChat />
+                  ) : (
+                    <SidebarEnterPrise />
+                  )}
                 </StickyContainer>
-              }
+              )}
             </SplitterPanel>
-            <SplitterPanel
-              style={{ paddingTop: 16, zIndex: 1 }}
-              size={50}
-            >
+            <SplitterPanel style={{ paddingTop: 16, zIndex: 1 }} size={50}>
               {shouldDisplayCarousel && <CarouselBannerAds />}
               {MainContent}
             </SplitterPanel>
-            <SplitterPanel
-              size={25}
-              style={{ paddingTop: 16, zIndex: 1 }}
-            >
-              {condition ? null : user?.role === 'candidate' ?
+            <SplitterPanel size={25} style={{ paddingTop: 16, zIndex: 1 }}>
+              {condition ? null : user?.role === 'candidate' ? (
                 <StickyContainer top={75}>
                   <ProfilCandidat />
                 </StickyContainer>
-                :
+              ) : (
                 <StickyContainer top={75}>
                   <ProfilEntreprise />
                 </StickyContainer>
-              }
+              )}
             </SplitterPanel>
           </Splitter>
         </>
       )}
-    <Popup
-      message={NEWS.EXPIRED}
-      visible={isExpiredToken}
-      validation={setIsExpiredToken}
-      btnTitle="ok"
-      expired
-    />
-  </Fragment>
+      <Popup
+        message={NEWS.EXPIRED}
+        visible={isExpiredToken}
+        validation={setIsExpiredToken}
+        btnTitle="ok"
+        expired
+      />
+    </Fragment>
   );
 };
 

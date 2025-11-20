@@ -1,18 +1,18 @@
-;
 import { COLORS, SIZES } from '../../../../resources/constants';
-const { width } = Dimensions.get('window');
 
 const Colors = {
   mBackColor: '#efefef',
   mBorderColor: '#efefef',
   white: '#FFFFFF',
-  shadowColor: '#A69E9E'};
+  shadowColor: '#A69E9E'
+};
 
 const Metrics = {
-  containerWidth: width - 30,
-  switchWidth: width / 2.7};
+  containerWidth: 600,
+  switchWidth: 200
+};
 
-export default ({
+const styles = {
   containers: {
     height: '100%',
     width: '100%',
@@ -24,7 +24,8 @@ export default ({
       height: 4},
     shadowOpacity: 0.1,
     shadowRadius: 5,
-    elevation: 5},
+    elevation: 5
+  },
   webformContain: {
     padding: 20,
     backgroundColor:COLORS.white,
@@ -36,22 +37,26 @@ export default ({
     backgroundColor: '#01129E',
     borderRadius: 10,
     paddingVertical: 10,
-    paddingHorizontal: 12},
+    paddingHorizontal: 12
+  },
   containerTerms: {
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#f2f2f2',
     padding: 10,
     borderRadius: 5,
-    marginTop: 20},
+    marginTop: 20
+  },
   termsContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginLeft: 5},
+    marginLeft: 5
+  },
   linkText: {
     color: '#007bff',
     fontSize: 16,
-    fontWeight: 'bold'},
+    fontWeight: 'bold'
+  },
   checkBoxContaint: {
     display: 'flex',
     flexDirection: 'row',
@@ -61,16 +66,19 @@ export default ({
   checkBoxText: {
     color: 'black',
     marginLeft: 3,
-    marginTop: 8},
+    marginTop: 8
+  },
   linkTerms: {
-    color: '#007bff'},
+    color: '#007bff'
+  },
   checkBox: {
     // backgroundColor: 'red',
     color: 'red',
     tintColor: 'red',
     borderColor: 'red',
     shadowColor: 'red',
-    overlayColor: 'red'},
+    overlayColor: 'red'
+  },
   alignSwitch: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -81,15 +89,18 @@ export default ({
   titleGroup: {
     fontSize: SIZES.h5,
     color: COLORS.black,
-    alignItems: 'center'},
+    alignItems: 'center'
+  },
   ContactButtonText: {
     fontSize: 16,
     color: '#fff',
     fontWeight: 'bold',
-    alignSelf: 'center'},
+    alignSelf: 'center'
+  },
   formContainer: {
     padding: 8,
-    flex: 1},
+    flex: 1
+  },
   buttonHomeActionsaisir: {
     paddingHorizontal: 8,
     height: 56,
@@ -97,33 +108,39 @@ export default ({
     flexDirection: 'row',
     backgroundColor: COLORS.secondary,
     justifyContent: 'center',
-    alignItems: 'center'},
+    alignItems: 'center'
+  },
   bigBtnTxt: {
     fontSize: SIZES.body3,
     color: COLORS.white,
-    fontWeight: '700'},
+    fontWeight: '700'
+  },
   containerTitle: {
     backgroundColor: COLORS.blue_focused,
     height: 72,
     justifyContent: 'center',
     alignItems: 'flex-start',
-    paddingLeft: SIZES.padding},
+    paddingLeft: SIZES.padding
+  },
   titleItem: {
     color: COLORS.secondary,
     fontSize: SIZES.h4,
-    fontWeight: 'bold'},
+    fontWeight: 'bold'
+  },
   displayHorizontal: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'stretch'},
+    alignItems: 'stretch'
+  },
   button: {
     margin: 15,
     color: '#fff',
     padding: 10,
     paddingLeft: 30,
     paddingRight: 30,
-    backgroundColor: '#69bbea'},
+    backgroundColor: '#69bbea'
+  },
   container: {
     paddingHorizontal: 0
   },
@@ -135,7 +152,8 @@ export default ({
     paddingLeft: 5,
     fontSize: 16,
     height: 40,
-    color: '#c0cbd3'},
+    color: '#c0cbd3'
+  },
   info: {
     backgroundColor: 'black',
     width: 20,
@@ -143,17 +161,21 @@ export default ({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    zIndex: 9999},
+    zIndex: 9999
+  },
   colorWhite: {
     zIndex: 9999,
-    color: 'white'},
+    color: 'white'
+  },
   App: {
     textAlign: 'left',
-    paddingTop: 10},
+    paddingTop: 10
+  },
   titleBtn: {
     fontSize: SIZES.h5,
     fontWeight: 'bold',
-    color: COLORS.black},
+    color: COLORS.black
+  },
   label: {
     marginRight: 20,
     marginLeft: 20,
@@ -161,14 +183,18 @@ export default ({
     marginBottom: 10,
     fontSize: 16,
     fontWeight: 'normal',
-    color: 'black'},
+    color: 'black'
+  },
   bold: {
-    fontWeight: 'bold'},
+    fontWeight: 'bold'
+  },
   textError: {
     color: '#f00',
-    fontSize: 14},
+    fontSize: 14
+  },
   item: {
-    marginBottom: 14},
+    marginBottom: 14
+  },
   btnAnnuler: {},
   btnValider: {
     paddingHorizontal: 24},
@@ -206,17 +232,20 @@ export default ({
   CurrentScreenBtnCurrent: {
     color: COLORS.primary,
     backgroundColor: COLORS.blue_back,
-    fontWeight: 'bold'},
+    fontWeight: 'bold'
+  },
   CurrentScreenBtnFinished: {
     color: COLORS.primary,
     backgroundColor: COLORS.blue_back,
-    fontWeight: 'bold'},
+    fontWeight: 'bold'
+  },
   CurrentScreenBtnCreate: {
     color: COLORS.black,
     borderWidth: 1,
     borderColor: COLORS.gray_border,
     fontWeight: 'bold',
-    backgroundColor: COLORS.white},
+    backgroundColor: COLORS.white
+  },
   textMenu: {
     fontWeight: 'bold',
     fontSize: SIZES.body3
@@ -232,9 +261,11 @@ export default ({
     paddingVertical: 20,
     paddingHorizontal: 40,
     flexDirection: 'row',
-    justifyContent: 'space-between'},
+    justifyContent: 'space-between'
+  },
   headerScreenTextContainer: {
-    width: '70%'},
+    width: '70%'
+  },
   headerScreenImage: {},
   headerScreenTitle: {
     color: 'white'},
@@ -250,14 +281,16 @@ export default ({
     marginVertical: 24,
     borderRadius: SIZES.radius,
     borderWidth: 1,
-    borderColor: COLORS.blue_border},
+    borderColor: COLORS.blue_border
+  },
   inputWrap: {
     borderWidth: 1,
     borderColor: COLORS.blue_border,
     borderRadius: SIZES.radius,
     marginTop: SIZES.padding,
     paddingLeft: 10,
-    backgroundColor: COLORS.white},
+    backgroundColor: COLORS.white
+  },
   headerform: {
     backgroundColor: COLORS.blue_back,
     height: 84,
@@ -265,7 +298,8 @@ export default ({
     justifyContent: 'center',
     // width: width,
     // marginLeft: -24,
-    // position: 'absolute'},
+    // position: 'absolute'
+  },
   footerForm: {
     // backgroundColor: COLORS.blue_back,
     height: 84,
@@ -273,7 +307,8 @@ export default ({
     justifyContent: 'center',
     width: '100%',
     // marginLeft: -24,
-    // position: 'absolute'},
+    // position: 'absolute'
+  },
   submitJob: {
     height: 52,
     paddingHorizontal: 16,
@@ -284,11 +319,13 @@ export default ({
     justifyContent: 'space-between',
     borderRadius: SIZES.radius,
     flexDirection: 'row',
-    overflow: 'hidden'},
+    overflow: 'hidden'
+  },
   textButton: {
     fontSize: SIZES.h5,
     color: COLORS.white,
-    fontWeight: 'bold'},
+    fontWeight: 'bold'
+  },
   elevationBlue2: {
     elevation: 8,
     shadowColor: COLORS.secondary,
@@ -297,7 +334,8 @@ export default ({
       width: 0,
       height: 8},
     shadowOpacity: 0.6,
-    shadowRadius: 12},
+    shadowRadius: 12
+  },
   elevationBlue: {
     elevation: 12,
     shadowColor: COLORS.secondary,
@@ -307,7 +345,8 @@ export default ({
       height: 4},
     shadowOpacity: 0.4,
     shadowRadius: 8,
-    marginVertical: 4},
+    marginVertical: 4
+  },
   elevationOrange: {
     elevation: 12,
     shadowColor: COLORS.orange,
@@ -337,7 +376,8 @@ export default ({
     color: COLORS.white,
     justifyContent: 'center',
     flex: 1,
-    alignItems: 'center'},
+    alignItems: 'center'
+  },
   textIput: {
     fontSize: SIZES.h5,
     color: COLORS.black,
@@ -345,7 +385,8 @@ export default ({
     height: 38,
     justifyContent: 'flex-start',
     alignItems: 'flex-end',
-    marginBottom: 0},
+    marginBottom: 0
+  },
   buttonCv: {
     backgroundColor: '#000099',
     padding: 10,
@@ -360,4 +401,6 @@ export default ({
     width: 25,
     objectFit:'contain'
   }
-});
+};
+
+export default styles;

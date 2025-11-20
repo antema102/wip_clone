@@ -1,25 +1,22 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-;
+import React, { useState, useEffect } from 'react';
 import { styles } from './styles';
 import { dateToString } from '../../../../data/factory/dateFactory';
 import { getAcronym } from '../../../../data/factory/index';
 import { useSelector } from 'react-redux';
 import { images } from '../../../../resources/constants';
 import { UploadFileService } from '../../../../service/applicatif/UploadFile.sa';
-
 interface OfferApplyType {
-  item:
-  {
-    active: 'Actif' | 'Non Actif',
-    email?: string,
-    _id: string,
-    image: string,
-    createdAt: Date,
-    firstName: string,
-    lastName: string
-  },
-  displayOfferApply: (id: string) => void}
+  item: {
+    active: 'Actif' | 'Non Actif';
+    email?: string;
+    _id: string;
+    image: string;
+    createdAt: Date;
+    firstName: string;
+    lastName: string;
+  };
+  displayOfferApply: (id: string) => void;
+}
 
 export const OfferApply = (props: OfferApplyType) => {
   const { item, displayOfferApply } = props;
@@ -37,21 +34,24 @@ export const OfferApply = (props: OfferApplyType) => {
       if (avatarDownloaded) {
         setAvatar(URL.createObjectURL(avatarDownloaded));
       }
-    } catch (error) { }
+    } catch (error) {}
   };
 
   useEffect(() => {
-    getAvatar(_id)
+    getAvatar(_id);
   }, []);
 
   return (
     <button
       style={styles.candidateContainer}
-      onClick={() => displayOfferApply(_id)}>
+      onClick={() => {
+        displayOfferApply(_id);
+      }}
+    >
       <div style={styles.candidateImgContainer}>
         <img
           style={styles.candidatImg}
-          src={image  ? avatar  : { uri: images.avatar_1 }}
+          src={image ? avatar : { uri: images.avatar_1 }}
         />
       </div>
 

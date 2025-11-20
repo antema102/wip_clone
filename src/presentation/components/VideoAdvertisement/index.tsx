@@ -14,7 +14,7 @@ interface Props {
   link: any,
   setShowQuitVideo: any}
 
-const VideoAdvertisement = {
+const VideoAdvertisement = ({
   visible,
   setVisible,
   showQuit,

@@ -1,40 +1,49 @@
 import React, { useEffect, useState } from 'react';
-;
 import { ListCompany } from './ListCompany';
 import MainPageHeader from '../../../../components/MainPageHeader';
 import { SEARCHENT_RESULT } from '../../../../../data/constants/strings';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import { styles } from './styles';
 import { COLORS } from '../../../../../resources/constants';
 import HeaderTitle from '../../HeaderTitle';
 import { useMobile } from '../../../../../service/hooks/useMobile';
 import BannerRefonte from '../../../../components/BannerRefonte';
-export const SearchEntResult = props => {
-    const { data } = props;
-    const navigate = useNavigate()
-    const { isMobile } = useMobile()
+export const SearchEntResult = (props) => {
+  const { data } = props;
+  const navigate = useNavigate();
+  const { isMobile } = useMobile();
 
-    const [refreshing, setRefreshing] = useState(false);
+  const [refreshing, setRefreshing] = useState(false);
 
-    const _displayCandidateDetail = (typeId, offerId, compatibility) => navigate('/EnterpriseOfferDetailsScreen', { state: { typeId, offerId, compatibility, candidat: true } })
+  const _displayCandidateDetail = (typeId, offerId, compatibility) => {
+    navigate('/EnterpriseOfferDetailsScreen', {
+      state: { typeId, offerId, compatibility, candidat: true },
+    });
+  };
 
-    useEffect(() => {
-        init();
-        // setRefreshing(false);
-    }, []);
+  useEffect(() => {
+    init();
+    // setRefreshing(false);
+  }, []);
 
-    const init = () => setRefreshing(true);
-    return (
-        <div>
-            <div>
-                <div style={styles.containers}>
-                    <div style={styles.containerFormList}>
-                        <ListCompany data={data} displayCandidateDetail={_displayCandidateDetail} isMobile={isMobile} />
-                    </div>
-                </div>
-            </div>
+  const init = () => {
+    setRefreshing(true);
+  };
+  return (
+    <div>
+      <div>
+        <div style={styles.containers}>
+          <div style={styles.containerFormList}>
+            <ListCompany
+              data={data}
+              displayCandidateDetail={_displayCandidateDetail}
+              isMobile={isMobile}
+            />
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default SearchEntResult;

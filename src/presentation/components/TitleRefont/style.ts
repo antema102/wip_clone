@@ -1,4 +1,3 @@
-;
 import { COLORS, icons, images, SIZES } from '../../../resources/constants';
 const winWidth = window.innerWidth;
 export const styles = {
@@ -16,4 +15,6 @@ export const styles = {
     fontSize: 16,
     color: COLORS.black,
     textAlign:'center'
-  }});
+  
+  }
+};

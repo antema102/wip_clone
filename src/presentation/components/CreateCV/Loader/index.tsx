@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { Dialog } from 'primereact/dialog';
 
 import styles from './styles';

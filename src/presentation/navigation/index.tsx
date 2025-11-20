@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import Protected from './protectedRoute';
 import { Login } from '../container/auth/Login';
 import { Inscription } from '../container/auth/Inscription';
-import { Route, BrowserRouter, Routes } from 'react-router-dom';
+import { Route, BrowserRouter, Routes, Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { initializeApp } from "firebase/app";
+import { initializeApp } from 'firebase/app';
 import { getMessaging, onMessage } from 'firebase/messaging';
 import { Confirmation } from '../container/auth/Confirmation';
 import { ForgetPassword } from '../container/auth/ForgetPassword';
@@ -43,7 +43,6 @@ import { EnterpriseInformations } from '../container/protected/EnterpriseInforma
 import SubscriptionScreen from '../container/protected/SubscriptionScreen';
 import NotificationScreen from '../container/protected/NotificationScreen';
 import Popup from '../components/CreateCV/Popup';
-import { Navigate } from 'react-router-dom';
 
 import Terms from '../container/public/TermsAndServices';
 import { useUser } from '../../service/redux/ducks/user';
@@ -55,12 +54,12 @@ import MaintenanceScreen from '../container/protected/MaintenanceScreen';
 import Landing from '../container/protected/Landing';
 import { useMobile } from '../../service/hooks/useMobile';
 import ProfilCandidat from '../components/DetailProfilCandidat';
-import ChatSearch from '../components/ChatSearch/'
+import ChatSearch from '../components/ChatSearch/';
 
 interface payloadProps {
   notification: {
-    body: string
-  }
+    body: string;
+  };
 }
 
 const Navigation = (): any => {
@@ -73,33 +72,33 @@ const Navigation = (): any => {
   const { isMobile } = useMobile();
 
   const firebaseConfig = {
-    apiKey: "AIzaSyAucuhzqLGuEteT8WkspZi1siE8BUVrs5U",
-    authDomain: "wip-work.firebaseapp.com",
-    projectId: "wip-work",
-    storageBucket: "wip-work.firebasestorage.app",
-    messagingSenderId: "119803414077",
-    appId: "1:119803414077:web:4d3bf6c8424f6ff4cecc54",
-    measurementId: "G-D6LHSJ75S5"
+    apiKey: 'AIzaSyAucuhzqLGuEteT8WkspZi1siE8BUVrs5U',
+    authDomain: 'wip-work.firebaseapp.com',
+    projectId: 'wip-work',
+    storageBucket: 'wip-work.firebasestorage.app',
+    messagingSenderId: '119803414077',
+    appId: '1:119803414077:web:4d3bf6c8424f6ff4cecc54',
+    measurementId: 'G-D6LHSJ75S5',
   };
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const messaging = getMessaging(app);
-  const onMessageListener = () =>
-    new Promise((resolve) => {
+  const onMessageListener = async () =>
+    await new Promise((resolve) => {
       onMessage(messaging, (payload) => {
         resolve(payload);
       });
     });
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/firebase-messaging-sw.js')
+    navigator.serviceWorker.register('/firebase-messaging-sw.js');
   }
 
   onMessageListener().then((payload) => {
     const typedPayload = payload as payloadProps;
-    notificationCounter(badge + 1)
-    setMessageFromFirebase(typedPayload?.notification?.body)
+    notificationCounter(badge + 1);
+    setMessageFromFirebase(typedPayload?.notification?.body);
     setMessageVisible(true);
   });
 
@@ -274,7 +273,7 @@ const Navigation = (): any => {
             }
           />
           <Route
-            path='/NewsInformationScreenDescription'
+            path="/NewsInformationScreenDescription"
             element={
               <Protected isSignedIn={!!accessToken}>
                 <NewsInformationScreenDescription />

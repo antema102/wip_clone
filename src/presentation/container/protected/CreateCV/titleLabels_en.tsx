@@ -5,7 +5,7 @@ export const TitleLabels_en = {
     firstname: 'firstname',
     birthdate: 'Date of birth',
     civilstatus: 'Marital status',
-    child: "Number of children",
+    child: 'Number of children',
     transport: 'Means of transport',
     pet: 'Pet',
     province: 'Province',
@@ -16,12 +16,12 @@ export const TitleLabels_en = {
     residence: 'Current Residence',
 
     // Screen Two
-    levelOfStudy: "Level of study",
+    levelOfStudy: 'Level of study',
     faculty: 'Sector',
-    activityArea: "Activity area",
+    activityArea: 'Activity area',
     university: 'School or university',
     desiredPosition: 'Desired Position',
-    yearOfExp: "Year of experience",
+    yearOfExp: 'Year of experience',
     country: 'Country',
     region: 'Region',
     town: 'City',
@@ -33,7 +33,7 @@ export const TitleLabels_en = {
     previousPositions: 'Former experience',
     recommandation: 'Recommandation',
 
-    //Buton
+    // Buton
     modify: 'Edit',
     save: 'Save',
 
@@ -41,12 +41,13 @@ export const TitleLabels_en = {
     language: 'Language ',
     level: 'Language level',
     sport: 'Sport',
-    centerIntrest: "Center of interest",
+    centerIntrest: 'Center of interest',
     somethingAboutU: 'Say something about yourself (150 characters max)',
 
-    //text
+    // text
     textLabel: 'Complete your CV in a few steps ',
     personalInformation: 'Personal information',
     job: 'Job',
-    other: 'other'
-  }};
+    other: 'other',
+  },
+};

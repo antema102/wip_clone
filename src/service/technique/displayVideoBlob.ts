@@ -1,15 +1,23 @@
 import axios from 'axios';
 
-export const displayVideoWithProgress = async (url, token, setDownloadProgressBar) => {
+export const displayVideoWithProgress = async (
+  url,
+  token,
+  setDownloadProgressBar
+) => {
   try {
     const response = await axios.get(url, {
       responseType: 'blob',
       headers: {
-        Authorization: `Bearer ${token}`},
+        Authorization: `Bearer ${token}`,
+      },
       onDownloadProgress: (progressEvent) => {
-        const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+        const percentCompleted = Math.round(
+          (progressEvent.loaded * 100) / progressEvent.total
+        );
         setDownloadProgressBar(percentCompleted);
-      }});
+      },
+    });
     const blob = response.data;
     return URL.createObjectURL(blob);
   } catch (error) {
@@ -17,13 +25,14 @@ export const displayVideoWithProgress = async (url, token, setDownloadProgressBa
   }
 };
 
-
 export const displayPDF = async (url: string, data: any, token: any) => {
   try {
     const response = await axios.post(url, data, {
       responseType: 'blob',
       headers: {
-        Authorization: `Bearer ${token}`}});
+        Authorization: `Bearer ${token}`,
+      },
+    });
     const blob = response.data;
     return { uri: URL.createObjectURL(blob) };
   } catch (error) {
@@ -37,11 +46,13 @@ export const uploadAnyFileToServer = async (
   fileName: string,
   fileType: string,
   dataUri,
-  setProgressBar: any,
+  setProgressBar: any
 ) => {
   try {
     const formData = new FormData();
-    const blob = await fetch(dataUri).then((response) => response.blob())
+    const blob = await fetch(dataUri).then(
+      async (response) => await response.blob()
+    );
     formData.append('file', blob);
     formData.append('fileName', fileName);
     formData.append('fileType', fileType);
@@ -49,9 +60,10 @@ export const uploadAnyFileToServer = async (
     const response = await fetch(url, {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${token}`
+        Authorization: `Bearer ${token}`,
       },
-      body: formData});
+      body: formData,
+    });
 
     const contentLength = response.headers.get('content-length');
 
@@ -72,7 +84,8 @@ export const uploadAnyFileToServer = async (
 };
 
 export const catchError = (error) => {
-  let data, status = 500;
+  let data;
+  let status = 500;
   if (error?.response) {
     data = error?.response?.data;
     status = error?.response?.status;
@@ -84,4 +97,5 @@ export default {
   catchError,
   displayVideoWithProgress,
   uploadAnyFileToServer,
-  displayPDF};
+  displayPDF,
+};
