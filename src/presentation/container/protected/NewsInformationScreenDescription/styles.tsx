@@ -1,4 +1,3 @@
-;
 import { COLORS, SIZES } from '../../../../resources/constants';
 
 export const styles = {
@@ -13,5 +12,6 @@ export const styles = {
         paddingBottom:16
     },
     Body:{
-        fontSize:16}
-});
+        fontSize:16
+    }
+};

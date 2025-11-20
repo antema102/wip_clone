@@ -362,30 +362,36 @@ export const reloadStyles = (): any => {
       opacity: 1,
       shadowOffset: {
         width: 0,
-        height: 8},
+        height: 8
+      },
       shadowOpacity: 0.6,
       shadowRadius: 12,
-      zIndex: 999},
+      zIndex: 999
+    },
     roundedBlue: {
       borderWidth: 1,
       borderColor: COLORS.blue_border,
       borderRadius: SIZES.radius,
       padding: SIZES.padding2,
       marginTop: SIZES.padding,
-      marginBottom: SIZES.padding},
+      marginBottom: SIZES.padding
+    },
     containersPage: {
       height: '100%',
-      width: '100%'},
+      width: '100%'
+    },
     containersPageWidth: {
       width: '100%',
-      marginBottom: 180},
+      marginBottom: 180
+    },
     floatWrapperBtn: {
       height: 124,
       flex: 1,
       position: 'absolute',
       bottom: 56,
       justifyContent: 'center',
-      right: 0},
+      right: 0
+    },
     btnCircular: {
       marginRight: 22,
       width: 48,
@@ -393,13 +399,14 @@ export const reloadStyles = (): any => {
       borderRadius: 26,
       backgroundColor: COLORS.secondary,
       alignItems: 'center',
-      justifyContent: 'center'},
+      justifyContent: 'center'
+    },
     iconStyle: {
       width: 16,
       height: 15,
       objectFit: 'cover' as const,
       marginLeft: 10
-    },
+    }
   };
   return gs;
 };

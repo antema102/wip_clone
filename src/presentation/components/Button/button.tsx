@@ -1,5 +1,4 @@
 import React from 'react';
-;
 
 import { buttonsStyles } from './style';
 import { SIZES, icons } from '../../../resources/constants';
@@ -17,7 +16,7 @@ interface Props {
   iconNext?: any;
 }
 
-const Buttons = {
+const Buttons = ({
   color,
   title,
   onPress,

@@ -154,9 +154,7 @@ export const FormInfo = (props: any) => {
 
         {/** Firstname field */}
         <div
-          style={{...styles.inputWrap, ...({
-              backgroundColor:
-                type === 'read' ? COLORS.disableGray : COLORS.white}), ...}}>
+          style={{...styles.inputWrap, backgroundColor: type === 'read' ? COLORS.disableGray : COLORS.white}}>
           <InputField
             label={activeString.CreationCV.firstname}
             required
